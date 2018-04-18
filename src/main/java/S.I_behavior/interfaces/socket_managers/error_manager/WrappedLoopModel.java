@@ -4,5 +4,4 @@ import S.I_behavior.interfaces.sockets.SocketModel;
 
 public interface WrappedLoopModel {
     void activateWrappedLoop(SocketModel socketModel);
-    void callGeneralException(Exception exception, SocketModel socketModel);
 }

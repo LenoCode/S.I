@@ -2,13 +2,19 @@ package S.I.server.socket.connected_client;
 
 import S.I_behavior.interfaces.sockets.SocketConfiguration;
 
+import java.net.Socket;
+
 public class ConnectedClientConfiguration implements SocketConfiguration {
 
     private String ipAddress;
     private int port;
     private boolean connectedClientStatus;
 
-
+    public ConnectedClientConfiguration(Socket socket){
+        ipAddress = socket.getInetAddress().getHostAddress();
+        port = socket.getPort();
+        connectedClientStatus = true;
+    }
 
     @Override
     public void setIpAddress(String ipAddress) {

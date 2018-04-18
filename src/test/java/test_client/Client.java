@@ -9,7 +9,7 @@ public class Client {
 
     public static void main(String[] args){
         try {
-            Socket socket = new Socket("172.20.2.84",3000);
+            Socket socket = new Socket("172.20.2.161",3000);
             System.out.println("Client conneccting");
             Thread.sleep(10000);
         } catch (IOException e) {
