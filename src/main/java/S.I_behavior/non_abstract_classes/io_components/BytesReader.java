@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.net.SocketTimeoutException;
 
 import S.I_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
-import S.I_behavior.non_abstract_classes.exceptions.SocketClosedExceptions;
+import S.I_behavior.non_abstract_classes.exceptions.SocketClosedException;
+import S.I_behavior.non_abstract_classes.exceptions.SocketStreamTimeoutException;
 
 
 public class BytesReader {
@@ -26,18 +27,22 @@ public class BytesReader {
     public void readBytes(IOHolder ioHolder)throws IOException, SocketExceptions {
         int bytesRead = 0;
         try{
-            System.out.println(ioHolder);
             byte[] bytes = ioHolder.getBytes();
             StringBuffer buffer = ioHolder.getStringBuffer();
             BufferedInputStream inputStream = ioHolder.getInStream();
-            bytesRead = -1;
+
             bytesRead = inputStream.read(bytes);
+            buffer.insertToBuffer(bytesRead,bytes);
 
-        }catch (IOException ioException){
-            if (bytesRead ==  -1){
-                throw new SocketClosedExceptions();
+        } catch (SocketTimeoutException socketTimeoutException){
+            throw new SocketStreamTimeoutException();
+        } catch (IOException ioException){
+            switch (bytesRead){
+                case -1:
+                    throw new SocketClosedException();
+                default:
+                    throw new IOException(ioException);
             }
-
         }
     }
 

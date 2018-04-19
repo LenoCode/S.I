@@ -7,11 +7,13 @@ public class ServerConfiguration implements SocketConfiguration {
     private String ipAddress;
     private int port;
     private boolean serverStatus;
+    private int timeout;
 
-    public ServerConfiguration(String hostAddress, int port, int backlog){
-        this.ipAddress=hostAddress;
-        this.port=port;
-        this.backlog=backlog;
+    public ServerConfiguration(String hostAddress, int port, int backlog,int timeout){
+        this.ipAddress = hostAddress;
+        this.port = port;
+        this.backlog = backlog;
+        this.timeout = timeout;
     }
 
     @Override
@@ -47,5 +49,13 @@ public class ServerConfiguration implements SocketConfiguration {
 
     public void setBacklog(int backlog) {
         this.backlog = backlog;
+    }
+
+    public int getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
     }
 }

@@ -13,12 +13,13 @@ public class ServerCreator {
     public static CreatedSocketModel createServer(
             String hostAddress,
             int port,
-            int backlog
+            int backlog,
+            int timeout
     ) {
         return new CreatedSocketModel() {
             @Override
             public void runSocket(){
-                ServerConfiguration serverInformation = new ServerConfiguration(hostAddress,port,backlog);
+                ServerConfiguration serverInformation = new ServerConfiguration(hostAddress,port,backlog,timeout);
 
                 Server server = new Server();
                 server.setServerConfiguration(serverInformation);

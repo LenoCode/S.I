@@ -7,7 +7,7 @@ public class Test0 {
 
     public static void main(String[] args){
 
-        final CreatedSocketModel server= ServerCreator.createServer("192.12131.2131",3000,2);
+        final CreatedSocketModel server= ServerCreator.createServer("192.12131.2131",3000,2,40);
 
         new Thread(new Runnable() {
             @Override

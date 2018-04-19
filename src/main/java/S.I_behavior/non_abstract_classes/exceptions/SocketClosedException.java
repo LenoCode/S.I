@@ -4,7 +4,7 @@ import S.I_behavior.abstractClasses.socket_managers.error_manager.exceptions.Soc
 import S.I_behavior.interfaces.exceptions.ExceptionModel;
 import S.I_behavior.interfaces.sockets.SocketModel;
 
-public class SocketClosedExceptions extends SocketExceptions {
+public class SocketClosedException extends SocketExceptions {
 
 
     @Override
