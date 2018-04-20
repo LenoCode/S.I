@@ -1,9 +1,9 @@
 package sessionTracker;
 
-import S.I_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
-import S.I_behavior.interfaces.sockets.SocketConfiguration;
-import S.I_behavior.interfaces.sockets.SocketModel;
-import S.I_behavior.non_abstract_classes.session_tracker.server.SessionTracker;
+import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.interfaces.sockets.SocketConfiguration;
+import socket_installer.SI_behavior.interfaces.sockets.SocketModel;
+import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
 import java.io.IOException;
 
