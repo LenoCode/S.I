@@ -2,7 +2,7 @@ package socket_installer.SI.socket_creation.server;
 
 import socket_installer.SI.server.socket.Server;
 import socket_installer.SI.server.socket.ServerConfiguration;
-import socket_installer.SI.server.socket_actions.server_loop.ServerWrappedLoop;
+import socket_installer.SI.server.socket_actions.socket_loop.ServerWrappedLoop;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.error_wrapped_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.interfaces.sockets.CreatedSocketModel;
 import socket_installer.SI_parts.context.ContextObject;

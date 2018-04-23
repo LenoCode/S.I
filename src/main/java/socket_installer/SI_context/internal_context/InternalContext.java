@@ -36,7 +36,9 @@ public class InternalContext {
     }
 
     public void saveContextObject(ContextObject contextObject){
-        internalContextObjects.addContextObject(contextObject);
+        if (internalContext != null){
+            internalContextObjects.addContextObject(contextObject);
+        }
     }
     public ContextObject getContextObject(String key){
         return  internalContextObjects.get(key);

@@ -8,6 +8,8 @@ public class InternalContextObjects extends HashMap<String,ContextObject> {
 
     public void addContextObject(ContextObject contextObject){
         String key = contextObject.getObjectId();
-        super.put(key,contextObject);
+        if (!super.containsKey(key)){
+            super.put(key,contextObject);
+        }
     }
 }

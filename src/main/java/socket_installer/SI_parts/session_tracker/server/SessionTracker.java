@@ -1,5 +1,6 @@
 package socket_installer.SI_parts.session_tracker.server;
 
+import socket_installer.SI_behavior.abstractClasses.sockets.BasicSocket;
 import socket_installer.SI_behavior.interfaces.sockets.SocketModel;
 
 
@@ -11,7 +12,7 @@ public class SessionTracker {
         connectedClientSet = new ConnectedClientSet();
     }
 
-    public void addNewConnection (SocketModel socket){
+    public void addNewConnection (BasicSocket socket){
         connectedClientSet.add(socket);
     }
     public void removeConnection(SocketModel socket){

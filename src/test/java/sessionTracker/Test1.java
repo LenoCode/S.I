@@ -1,6 +1,7 @@
 package sessionTracker;
 
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.abstractClasses.sockets.BasicSocket;
 import socket_installer.SI_behavior.interfaces.sockets.SocketConfiguration;
 import socket_installer.SI_behavior.interfaces.sockets.SocketModel;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
@@ -14,7 +15,7 @@ public class Test1 {
 
         SessionTracker a = new SessionTracker();
 
-        SocketModel s = new SocketModel() {
+        BasicSocket s = new BasicSocket() {
             @Override
             public void activateSocket() throws IOException, SocketExceptions {
 
@@ -31,7 +32,7 @@ public class Test1 {
             }
         };
 
-        SocketModel b = new SocketModel() {
+        BasicSocket b = new BasicSocket() {
             @Override
             public void activateSocket() throws IOException, SocketExceptions {
 
