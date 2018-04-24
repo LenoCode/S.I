@@ -1,4 +1,4 @@
-package socket_installer.SI_behavior.interfaces.sockets;
+package socket_installer.SI_behavior.interfaces.sockets.configuration_models;
 
 public interface SocketConfiguration {
 

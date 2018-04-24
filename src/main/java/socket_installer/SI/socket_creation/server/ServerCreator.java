@@ -5,7 +5,8 @@ import socket_installer.SI.server.socket.ServerConfiguration;
 import socket_installer.SI.server.socket_actions.connection_handler.NewConnectionHandler;
 import socket_installer.SI.server.socket_actions.socket_loop.ServerWrappedLoop;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.error_wrapped_loop.ProgramLoopWrapper;
-import socket_installer.SI_behavior.interfaces.sockets.CreatedSocketModel;
+import socket_installer.SI_behavior.abstractClasses.sockets.CreatedSocket;
+import socket_installer.SI_behavior.interfaces.sockets.socket_models.CreatedSocketModel;
 import socket_installer.SI_parts.context.ContextObject;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 import socket_installer.SI_context.internal_context.InternalContext;
@@ -16,13 +17,13 @@ public class ServerCreator {
 
     private ServerCreator(){
     }
-    public static CreatedSocketModel createServer(
+    public static CreatedSocket createServer(
             String hostAddress,
             int port,
             int backlog,
             int timeout
     ){
-        return new CreatedSocketModel() {
+        return new CreatedSocket() {
             @Override
             public void runSocket(){
                 InternalContext.createContext();
@@ -33,11 +34,11 @@ public class ServerCreator {
                 sessionTrackerContextObject.setContextObject(new SessionTracker());
                 InternalContext.getInternalContext().saveContextObject(sessionTrackerContextObject);
 
-                Server server = new Server(serverConfiguration,new NewConnectionHandler());
+                basicSocket = new Server(serverConfiguration,new NewConnectionHandler());
 
                 ServerWrappedLoop serverWrappedLoop = new ServerWrappedLoop();
                 try {
-                    server.setupSocket();
+                    ((Server)basicSocket).setupSocket();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -46,6 +47,20 @@ public class ServerCreator {
             @Override
             public void closeProgram() {
                 ProgramLoopWrapper.setProgrammRunning(false);
+            }
+        };
+    }
+
+    public static CreatedSocket createServer(){
+        return new CreatedSocket() {
+            @Override
+            public void runSocket() throws IOException {
+
+            }
+
+            @Override
+            public void closeProgram() {
+
             }
         };
     }

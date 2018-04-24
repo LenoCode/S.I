@@ -1,5 +1,5 @@
 package socket_installer.SI.server.socket;
-import socket_installer.SI_behavior.interfaces.sockets.SocketConfiguration;
+import socket_installer.SI_behavior.interfaces.sockets.configuration_models.SocketConfiguration;
 
 public class ServerConfiguration implements SocketConfiguration {
 

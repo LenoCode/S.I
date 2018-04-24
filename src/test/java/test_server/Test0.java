@@ -1,7 +1,7 @@
 package test_server;
 
 import socket_installer.SI.socket_creation.server.ServerCreator;
-import socket_installer.SI_behavior.interfaces.sockets.CreatedSocketModel;
+import socket_installer.SI_behavior.interfaces.sockets.socket_models.CreatedSocketModel;
 
 import java.io.IOException;
 

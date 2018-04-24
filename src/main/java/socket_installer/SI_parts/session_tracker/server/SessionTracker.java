@@ -1,7 +1,7 @@
 package socket_installer.SI_parts.session_tracker.server;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.BasicSocket;
-import socket_installer.SI_behavior.interfaces.sockets.SocketModel;
+import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
 
 
 public class SessionTracker {

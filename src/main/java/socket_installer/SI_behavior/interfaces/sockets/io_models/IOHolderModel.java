@@ -1,4 +1,4 @@
-package socket_installer.SI_behavior.interfaces.sockets;
+package socket_installer.SI_behavior.interfaces.sockets.io_models;
 
 import socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer.StringBuffer;
 

@@ -1,4 +1,4 @@
-package socket_installer.SI_parts.io_components.io_holder;
+package socket_installer.SI_parts.io_components.IO;
 
 
 import socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer.StringBuffer;

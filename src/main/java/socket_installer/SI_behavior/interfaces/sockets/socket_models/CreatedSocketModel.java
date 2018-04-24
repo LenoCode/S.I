@@ -1,4 +1,4 @@
-package socket_installer.SI_behavior.interfaces.sockets;
+package socket_installer.SI_behavior.interfaces.sockets.socket_models;
 
 import java.io.IOException;
 

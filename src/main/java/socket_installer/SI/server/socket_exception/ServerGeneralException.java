@@ -3,7 +3,7 @@ package socket_installer.SI.server.socket_exception;
 import socket_installer.SI.server.socket.Server;
 import socket_installer.SI.server.socket.ServerConfiguration;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.interfaces.sockets.SocketModel;
+import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
 
 import java.io.IOException;
 

@@ -1,13 +1,9 @@
 package socket_installer.SI_parts.session_tracker.server;
 
-import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.BasicSocket;
-import socket_installer.SI_behavior.interfaces.sockets.SocketConfiguration;
-import socket_installer.SI_behavior.interfaces.sockets.SocketModel;
+import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 
 class ConnectedClientSet extends ArrayList<BasicSocket> {
 

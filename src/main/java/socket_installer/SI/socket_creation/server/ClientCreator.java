@@ -6,7 +6,7 @@ import socket_installer.SI.client.socket.ConnectedClient;
 import socket_installer.SI.client.socket_actions.socket_loop.ClientWrappedLoop;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.error_wrapped_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.interfaces.sockets.CreatedSocketModel;
+import socket_installer.SI_behavior.interfaces.sockets.socket_models.CreatedSocketModel;
 import socket_installer.SI_context.internal_context.InternalContext;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
