@@ -1,6 +1,5 @@
 package socket_installer.SI_parts.session_tracker.server;
 
-import socket_installer.SI.server.socket.connected_client.ConnectedClient;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.BasicSocket;
 import socket_installer.SI_behavior.interfaces.sockets.SocketConfiguration;

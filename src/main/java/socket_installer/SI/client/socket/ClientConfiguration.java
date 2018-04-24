@@ -38,15 +38,23 @@ public class ClientConfiguration implements SocketConfiguration {
 
     @Override
     public boolean isSocketOnline() {
-        return connectedClientStatus;
+        if (streamPaused && connectedClientStatus){
+            return false;
+        }else{
+            return connectedClientStatus;
+        }
     }
     @Override
     public void setSocketOnlineStatus(boolean status) {
         this.connectedClientStatus = status;
     }
 
-    public boolean isStreamPaused() {
-        return streamPaused;
+    public boolean shouldClientBeRemoved(){
+        if (streamPaused && !connectedClientStatus){
+            return true;
+        }else{
+            return !connectedClientStatus;
+        }
     }
 
     public void setStreamPaused(boolean streamPaused) {

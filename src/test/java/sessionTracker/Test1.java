@@ -27,6 +27,11 @@ public class Test1 {
             }
 
             @Override
+            public void setupSocket() throws IOException {
+
+            }
+
+            @Override
             public SocketConfiguration getSocketConfiguration() {
                 return null;
             }
@@ -40,6 +45,11 @@ public class Test1 {
 
             @Override
             public void deactivateSocket() throws IOException, SocketExceptions {
+
+            }
+
+            @Override
+            public void setupSocket() throws IOException {
 
             }
 

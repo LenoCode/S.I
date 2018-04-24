@@ -1,5 +1,6 @@
 package socket_installer.SI.client.socket_actions.socket_loop;
 
+import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI.client.socket_exception.ClientGeneralException;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.error_wrapped_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
@@ -22,5 +23,7 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
                 clientGeneralException.handleGeneralException(ioException,socketModel);
             }
         }
+        System.out.println("Should client be removed from list :" +((ClientConfiguration)socketModel.getSocketConfiguration()).shouldClientBeRemoved());
+        System.out.println("Kraj ovog threada");
     }
 }

@@ -3,6 +3,8 @@ package test_server;
 import socket_installer.SI.socket_creation.server.ServerCreator;
 import socket_installer.SI_behavior.interfaces.sockets.CreatedSocketModel;
 
+import java.io.IOException;
+
 public class Test0 {
 
     public static void main(String[] args){
@@ -12,7 +14,11 @@ public class Test0 {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                server.runSocket();
+                try {
+                    server.runSocket();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }).start();
 

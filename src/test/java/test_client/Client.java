@@ -11,7 +11,7 @@ public class Client {
         try {
             Socket socket = new Socket("172.20.2.161",3000);
             System.out.println("Client conneccting");
-            Thread.sleep(10000);
+            Thread.sleep(60000);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
