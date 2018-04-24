@@ -1,5 +1,7 @@
-package socket_installer.SI_parts.io_components;
+package socket_installer.SI_parts.io_components.io_holder;
 
+
+import socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer.StringBuffer;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -20,17 +22,17 @@ public class IOHolder {
     }
 
     public void setInStream(InputStream bufferedInputStream) {
-        inputStream = new BufferedInputStream(bufferedInputStream);
+        this.inputStream = new BufferedInputStream(bufferedInputStream);
     }
 
 
     public void setOutStream(OutputStream bufferedOutputStream) {
-        outputStream = new BufferedOutputStream(bufferedOutputStream);
+        this.outputStream = new BufferedOutputStream(bufferedOutputStream);
     }
 
 
     public void setStringBuffer(StringBuffer stringBuffer) {
-        stringBuffer = stringBuffer;
+        this.stringBuffer = stringBuffer;
     }
 
 
