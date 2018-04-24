@@ -23,7 +23,6 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
                 clientGeneralException.handleGeneralException(ioException,socketModel);
             }
         }
-        System.out.println("Should client be removed from list :" +((ClientConfiguration)socketModel.getSocketConfiguration()).shouldClientBeRemoved());
-        System.out.println("Kraj ovog threada");
+        System.out.println("Should socket be removed :"  +((ClientConfiguration)socketModel.getSocketConfiguration()).shouldClientBeRemoved());
     }
 }

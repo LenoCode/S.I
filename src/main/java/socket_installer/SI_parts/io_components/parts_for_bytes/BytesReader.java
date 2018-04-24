@@ -1,13 +1,15 @@
-package socket_installer.SI_parts.io_components;
+package socket_installer.SI_parts.io_components.parts_for_bytes;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 
-import socket_installer.SI.client.socket.ClientConfiguration;
+import socket_installer.SI.client.socket_exception.specific_exceptions.ClientClosedException;
+import socket_installer.SI.client.socket_exception.specific_exceptions.ClientTimeoutException;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.client.ClientSocket;
-import socket_installer.SI_behavior.interfaces.sockets.SocketModel;
+import socket_installer.SI_parts.io_components.io_holder.IOHolder;
+import socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer.StringBuffer;
 
 
 public class BytesReader {
@@ -38,20 +40,14 @@ public class BytesReader {
             buffer.insertToBuffer(bytesRead,bytes);
 
         } catch (SocketTimeoutException socketTimeoutException){
-            throw new SocketExceptions() {
-                @Override
-                public void handleException(SocketModel socketModel) {
-                    ((ClientConfiguration)client.getClientConfiguration()).setSocketOnlineStatus(false);
-                }
-            };
+            throw new ClientTimeoutException();
         } catch (IOException ioException){
             switch (bytesRead){
                 case -1:
-                    throw new IOException("CLOSED");
+                    throw new ClientClosedException();
                 default:
                     throw new IOException(ioException);
             }
         }
     }
-
 }
