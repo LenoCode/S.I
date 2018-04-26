@@ -1,6 +1,5 @@
 package socket_installer.SI_parts.io_components.IO;
 
-
 import socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer.StringBuffer;
 
 import java.io.BufferedInputStream;
@@ -54,4 +53,5 @@ public class IOHolder {
     public byte[] getBytes() {
         return bytes;
     }
+
 }

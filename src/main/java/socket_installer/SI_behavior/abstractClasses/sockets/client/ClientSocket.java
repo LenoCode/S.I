@@ -10,7 +10,7 @@ import socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer.Str
 import java.io.IOException;
 import java.net.Socket;
 
-public abstract class ClientSocket extends BasicSocket {
+public abstract class ClientSocket extends BasicSocket{
 
     protected Socket clientSocket;
     protected ClientConfiguration clientConfiguration;

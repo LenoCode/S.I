@@ -6,7 +6,7 @@ import socket_installer.SI.server.socket_actions.connection_handler.NewConnectio
 import socket_installer.SI.server.socket_actions.socket_loop.ServerWrappedLoop;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.error_wrapped_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.sockets.CreatedSocket;
-import socket_installer.SI_behavior.interfaces.sockets.socket_models.CreatedSocketModel;
+import socket_installer.SI_behavior.interfaces.io_observer.notification_handler.NotificationHandler;
 import socket_installer.SI_parts.context.ContextObject;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 import socket_installer.SI_context.internal_context.InternalContext;
@@ -17,13 +17,14 @@ public class ServerCreator {
 
     private ServerCreator(){
     }
-    public static CreatedSocket createServer(
+    public static CreatedSocket<Server> createServer(
             String hostAddress,
+            NotificationHandler notificationHandler,
             int port,
             int backlog,
             int timeout
     ){
-        return new CreatedSocket() {
+        return new CreatedSocket<Server>() {
             @Override
             public void runSocket(){
                 InternalContext.createContext();
@@ -35,32 +36,19 @@ public class ServerCreator {
                 InternalContext.getInternalContext().saveContextObject(sessionTrackerContextObject);
 
                 basicSocket = new Server(serverConfiguration,new NewConnectionHandler());
+                basicSocket.setNotificationHandler(notificationHandler);
 
                 ServerWrappedLoop serverWrappedLoop = new ServerWrappedLoop();
                 try {
-                    ((Server)basicSocket).setupSocket();
+                    basicSocket.setupSocket();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                serverWrappedLoop.activateWrappedLoop(server);
+                serverWrappedLoop.activateWrappedLoop(basicSocket);
             }
             @Override
             public void closeProgram() {
                 ProgramLoopWrapper.setProgrammRunning(false);
-            }
-        };
-    }
-
-    public static CreatedSocket createServer(){
-        return new CreatedSocket() {
-            @Override
-            public void runSocket() throws IOException {
-
-            }
-
-            @Override
-            public void closeProgram() {
-
             }
         };
     }

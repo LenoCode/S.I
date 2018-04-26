@@ -23,7 +23,7 @@ public class Server extends BasicSocket {
     public void activateSocket() throws IOException, SocketExceptions {
         while(serverConfiguration.isSocketOnline()){
             Socket socketConnectedToServer = serverSocket.accept();
-            newConnectionHandler.createNewThreadForClient(socketConnectedToServer,serverConfiguration.getTimeout());
+            newConnectionHandler.createNewThreadForClient(notificationHandler,socketConnectedToServer,serverConfiguration.getTimeout());
         }
     }
     @Override

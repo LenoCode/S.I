@@ -22,7 +22,6 @@ public class BytesSender {
         return bytesSender;
     }
     public void sendBytes(ClientSocket client, byte[] bytes) throws IOException,SocketExceptions {
-
         IOHolder ioHolder = client.getIOHolder();
         BufferedOutputStream outputStream = ioHolder.getOutStream();
         outputStream.write(bytes);

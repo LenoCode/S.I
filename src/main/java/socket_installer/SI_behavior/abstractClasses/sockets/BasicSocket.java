@@ -1,9 +1,22 @@
 package socket_installer.SI_behavior.abstractClasses.sockets;
 
+import socket_installer.SI_behavior.interfaces.io_observer.notification_handler.NotificationHandler;
+import socket_installer.SI_behavior.interfaces.io_observer.observer.IOObserver;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
 
-public abstract class BasicSocket implements SocketModel {
+public abstract class BasicSocket implements SocketModel, IOObserver {
+    protected NotificationHandler notificationHandler;
 
+    public void setNotificationHandler(NotificationHandler notificationHandler) {
+        this.notificationHandler = notificationHandler;
+    }
+
+    @Override
+    public void notificationFromIO(String notification) {
+        if (notificationHandler != null){
+            notificationHandler.handleNotification(notification);
+        }
+    }
 
     @Override
     public boolean equals(Object obj) {
