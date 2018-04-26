@@ -38,8 +38,6 @@ public class BytesReader {
             bytesRead = inputStream.read(bytes);
             buffer.insertToBuffer(bytesRead,bytes);
 
-            client.notificationFromIO(buffer.emptyBuffer());
-
         } catch (SocketTimeoutException socketTimeoutException){
             throw new ClientTimeoutException();
         } catch (IOException ioException){
