@@ -6,7 +6,9 @@ import socket_installer.SI.client.socket.ConnectedClient;
 import socket_installer.SI.client.socket_actions.socket_loop.ClientWrappedLoop;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.error_wrapped_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.interfaces.sockets.CreatedSocketModel;
+import socket_installer.SI_behavior.abstractClasses.sockets.CreatedSocket;
+import socket_installer.SI_behavior.interfaces.io_observer.notification_handler.NotificationHandler;
+import socket_installer.SI_behavior.interfaces.sockets.socket_models.CreatedSocketModel;
 import socket_installer.SI_context.internal_context.InternalContext;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
@@ -51,8 +53,8 @@ public class ClientCreator {
         };
     }
 
-    public static CreatedSocketModel createConnectedClient(Socket socketConnected){
-        return new CreatedSocketModel() {
+    public static CreatedSocket createConnectedClient(NotificationHandler notificationHandler,Socket socketConnected){
+        return new CreatedSocket() {
             @Override
             public void runSocket() {
                 Runnable runnable = new Runnable() {
@@ -68,6 +70,8 @@ public class ClientCreator {
 
                         ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();
 
+                        basicSocket = connectedClient;
+                        basicSocket.setNotificationHandler(notificationHandler);
                         try {
                             connectedClient.setupSocket();
                         } catch (IOException e) {
@@ -87,7 +91,6 @@ public class ClientCreator {
             }
 
         };
-
     }
     //Ovdje napraviti novu overload metodu za kreiranje socketa koji ce se povezati na server;
 }

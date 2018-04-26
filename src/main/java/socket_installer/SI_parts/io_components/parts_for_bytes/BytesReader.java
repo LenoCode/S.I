@@ -8,7 +8,7 @@ import socket_installer.SI.client.socket_exception.specific_exceptions.ClientClo
 import socket_installer.SI.client.socket_exception.specific_exceptions.ClientTimeoutException;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.client.ClientSocket;
-import socket_installer.SI_parts.io_components.io_holder.IOHolder;
+import socket_installer.SI_parts.io_components.IO.IOHolder;
 import socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer.StringBuffer;
 
 
@@ -26,7 +26,6 @@ public class BytesReader {
         return bytesReader;
     }
 
-
     public void readBytes(ClientSocket client)throws IOException, SocketExceptions {
         int bytesRead = 0;
         try{
@@ -38,6 +37,8 @@ public class BytesReader {
 
             bytesRead = inputStream.read(bytes);
             buffer.insertToBuffer(bytesRead,bytes);
+
+            client.notificationFromIO(buffer.emptyBuffer());
 
         } catch (SocketTimeoutException socketTimeoutException){
             throw new ClientTimeoutException();

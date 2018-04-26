@@ -3,14 +3,14 @@ package socket_installer.SI_behavior.abstractClasses.sockets.client;
 import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.BasicSocket;
-import socket_installer.SI_behavior.interfaces.sockets.SocketConfiguration;
-import socket_installer.SI_parts.io_components.io_holder.IOHolder;
+import socket_installer.SI_behavior.interfaces.sockets.configuration_models.SocketConfiguration;
+import socket_installer.SI_parts.io_components.IO.IOHolder;
 import socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer.StringBuffer;
 
 import java.io.IOException;
 import java.net.Socket;
 
-public abstract class ClientSocket extends BasicSocket {
+public abstract class ClientSocket extends BasicSocket{
 
     protected Socket clientSocket;
     protected ClientConfiguration clientConfiguration;

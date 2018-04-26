@@ -1,5 +1,7 @@
 package test_client;
 
+import socket_installer.SI_parts.protocol.BasicSocketCommunicationProtocol;
+
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -10,9 +12,10 @@ public class Client {
 
     public static void main(String[] args){
         try {
-            Socket socket = new Socket("172.20.2.161",3000);
+            BasicSocketCommunicationProtocol socketCommunicationProtocol = new BasicSocketCommunicationProtocol();
+            Socket socket = new Socket("172.20.2.24",3000);
             BufferedOutputStream outputStream = new BufferedOutputStream(socket.getOutputStream());
-            outputStream.write("king kong je tu a disi ti ".getBytes());
+            outputStream.write(socketCommunicationProtocol.implementSentProtocol("Ovo ti je message a ono je samo protokol"));
             outputStream.flush();
             System.out.println("Client conneccting");
 

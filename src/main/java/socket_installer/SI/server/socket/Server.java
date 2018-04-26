@@ -1,11 +1,9 @@
 package socket_installer.SI.server.socket;
 
 import socket_installer.SI.server.socket_actions.connection_handler.NewConnectionHandler;
-import socket_installer.SI.socket_creation.server.ClientCreator;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.BasicSocket;
-import socket_installer.SI_behavior.interfaces.sockets.CreatedSocketModel;
-import socket_installer.SI_behavior.interfaces.sockets.SocketConfiguration;
+import socket_installer.SI_behavior.interfaces.sockets.configuration_models.SocketConfiguration;
 
 import java.io.IOException;
 import java.net.*;
@@ -25,7 +23,7 @@ public class Server extends BasicSocket {
     public void activateSocket() throws IOException, SocketExceptions {
         while(serverConfiguration.isSocketOnline()){
             Socket socketConnectedToServer = serverSocket.accept();
-            newConnectionHandler.createNewThreadForClient(socketConnectedToServer,serverConfiguration.getTimeout());
+            newConnectionHandler.createNewThreadForClient(notificationHandler,socketConnectedToServer,serverConfiguration.getTimeout());
         }
     }
     @Override

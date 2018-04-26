@@ -18,8 +18,6 @@ public class ConnectedClient extends ClientSocket {
     public void activateSocket() throws IOException, SocketExceptions {
         while(clientConfiguration.isSocketOnline()){
             BytesReader.getBytesReader().readBytes(this);
-            String message =ioHolder.getStringBuffer().emptyBuffer();
-            System.out.println(message);
         }
     }
 }

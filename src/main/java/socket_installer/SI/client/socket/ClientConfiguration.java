@@ -1,6 +1,6 @@
 package socket_installer.SI.client.socket;
 
-import socket_installer.SI_behavior.interfaces.sockets.SocketConfiguration;
+import socket_installer.SI_behavior.interfaces.sockets.configuration_models.SocketConfiguration;
 
 import java.net.Socket;
 
