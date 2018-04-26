@@ -11,10 +11,13 @@ public class StringBuffer {
     public void insertToBuffer(int bytesRead,byte[] bytes){
         stringBuffer.append(new String(bytes,0,bytesRead));
     }
-    public String emptyBuffer(){
-        String stringFromBuffer = stringBuffer.toString();
+
+    public String getString(){
+        return stringBuffer.toString();
+    }
+
+    public void emptyBuffer(){
         stringBuffer.setLength(0);
-        return stringFromBuffer;
     }
 
 }

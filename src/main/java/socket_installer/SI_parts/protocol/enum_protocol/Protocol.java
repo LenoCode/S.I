@@ -1,10 +1,9 @@
 package socket_installer.SI_parts.protocol.enum_protocol;
 
 public enum Protocol {
-    SEND_MESSAGE_PROTOCOL("<SEND_MESSAGE>%s</SEND_MESSAGE>"),
-    END_OF_PROTOCOL("</ENDPROTOCOL>")
+    END_PROTOCOL("</END(PROTOCOL_VERSION_'1')>"),
+    SEND_STRING_PROTOCOL("<SEND_MESSAGE>%s"+END_PROTOCOL.getProtocol()),
     ;
-
 
     private String protocol;
 

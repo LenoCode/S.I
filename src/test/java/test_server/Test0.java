@@ -15,7 +15,7 @@ public class Test0 {
         final CreatedSocket<Server> server= ServerCreator.createServer("192.12131.2131", new NotificationHandler() {
             @Override
             public void handleNotification(String notification) {
-                System.out.println("ovo je notification "+notification);
+                System.out.println("ovo je seuper :            "+notification);
             }
         }, 3000, 2, 40);
 

@@ -6,9 +6,11 @@ import socket_installer.SI_behavior.abstractClasses.sockets.BasicSocket;
 import socket_installer.SI_behavior.interfaces.sockets.configuration_models.SocketConfiguration;
 import socket_installer.SI_parts.io_components.IO.IOHolder;
 import socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer.StringBuffer;
+import socket_installer.SI_parts.io_components.parts_for_bytes.string_parser.StringParser;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Iterator;
 
 public abstract class ClientSocket extends BasicSocket{
 
@@ -48,6 +50,17 @@ public abstract class ClientSocket extends BasicSocket{
         ioHolder.setInStream(clientSocket.getInputStream());
         ioHolder.setOutStream(clientSocket.getOutputStream());
         ioHolder.setStringBuffer(new StringBuffer());
+    }
+
+    public void checkStringBuffer(){
+        StringBuffer stringBuffer = ioHolder.getStringBuffer();
+        Iterator<String> stringIterator = StringParser.getStringParser().parseForStrings(stringBuffer.getString());
+
+        if (stringIterator != null){
+            while(stringIterator.hasNext()){
+                notificationHandler.handleNotification(stringIterator.next());
+            }
+        }
     }
 
     public ClientConfiguration getClientConfiguration() {
