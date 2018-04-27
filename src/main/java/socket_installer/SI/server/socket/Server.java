@@ -33,12 +33,10 @@ public class Server extends BasicSocket {
     }
 
     @Override
-    public void setupSocket() throws IOException{
-        if (serverSocket == null){
+    public void setupSocket() throws IOException, SocketExceptions{
+        if (serverSocket == null) {
             serverSocket = new ServerSocket(serverConfiguration.getPort(), serverConfiguration.getBacklog());
             serverConfiguration.setSocketOnlineStatus(true);
-        }else{
-            System.out.println("Tu treba staviti neki throw exception");
         }
     }
 

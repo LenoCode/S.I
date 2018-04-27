@@ -2,6 +2,7 @@ package test_server;
 
 import socket_installer.SI.server.socket.Server;
 import socket_installer.SI.socket_creation.server.ServerCreator;
+import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.CreatedSocket;
 import socket_installer.SI_behavior.interfaces.io_observer.notification_handler.NotificationHandler;
 
@@ -26,6 +27,8 @@ public class Test0 {
                     server.runSocket();
                 } catch (IOException e) {
                     e.printStackTrace();
+                } catch (SocketExceptions socketExceptions) {
+                    socketExceptions.printStackTrace();
                 }
             }
         }).start();

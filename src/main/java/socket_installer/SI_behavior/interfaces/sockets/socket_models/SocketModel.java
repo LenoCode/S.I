@@ -8,6 +8,6 @@ import java.io.IOException;
 public interface SocketModel {
     void activateSocket() throws IOException,SocketExceptions;
     void deactivateSocket() throws IOException,SocketExceptions;
-    void setupSocket() throws IOException,SocketExceptions;
+    void setupSocket() throws IOException, SocketExceptions;
     SocketConfiguration getSocketConfiguration();
 }

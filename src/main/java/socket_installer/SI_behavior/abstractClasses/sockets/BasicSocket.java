@@ -1,7 +1,6 @@
 package socket_installer.SI_behavior.abstractClasses.sockets;
 
 import socket_installer.SI_behavior.interfaces.io_observer.notification_handler.NotificationHandler;
-import socket_installer.SI_behavior.interfaces.io_observer.observer.IOObserver;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
 
 public abstract class BasicSocket implements SocketModel{

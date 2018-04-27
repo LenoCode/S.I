@@ -20,29 +20,23 @@ public class ClientCreator {
     public static CreatedSocketModel createClient(Socket socket){
         return new CreatedSocketModel() {
             @Override
-            public void runSocket() {
-                Runnable runnable = new Runnable() {
+            public void runSocket() throws IOException,SocketExceptions {
+                Client connectedClient = new Client(socket);
+                ClientConfiguration connectedClientConfiguration = new ClientConfiguration(socket);
+                connectedClient.setClientConfiguration(connectedClientConfiguration);
 
+                ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();
+
+                connectedClient.setupSocket();
+
+                connectedClientWrappedLoop.activateWrappedLoop(connectedClient);
+
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        Client connectedClient = new Client(socket);
-                        ClientConfiguration connectedClientConfiguration = new ClientConfiguration(socket);
-                        connectedClient.setClientConfiguration(connectedClientConfiguration);
-
-                        ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();
-
-                        try {
-                            connectedClient.setupSocket();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (SocketExceptions socketExceptions) {
-                            socketExceptions.printStackTrace();
-                        }
                         connectedClientWrappedLoop.activateWrappedLoop(connectedClient);
                     }
-                };
-                Thread newClientThread = new Thread(runnable);
-                newClientThread.start();
+                }).start();
             }
 
             @Override
@@ -56,34 +50,27 @@ public class ClientCreator {
     public static CreatedSocket createConnectedClient(NotificationHandler notificationHandler,Socket socketConnected){
         return new CreatedSocket() {
             @Override
-            public void runSocket() {
-                Runnable runnable = new Runnable() {
+            public void runSocket() throws IOException, SocketExceptions {
+                ConnectedClient connectedClient = new ConnectedClient(socketConnected);
+                ClientConfiguration connectedClientConfiguration = new ClientConfiguration(socketConnected);
+                connectedClient.setClientConfiguration(connectedClientConfiguration);
 
+                SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
+                sessionTracker.addNewConnection(connectedClient);
+
+                ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();
+
+                basicSocket = connectedClient;
+                basicSocket.setNotificationHandler(notificationHandler);
+
+                connectedClient.setupSocket();
+
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        ConnectedClient connectedClient = new ConnectedClient(socketConnected);
-                        ClientConfiguration connectedClientConfiguration = new ClientConfiguration(socketConnected);
-                        connectedClient.setClientConfiguration(connectedClientConfiguration);
-
-                        SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
-                        sessionTracker.addNewConnection(connectedClient);
-
-                        ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();
-
-                        basicSocket = connectedClient;
-                        basicSocket.setNotificationHandler(notificationHandler);
-                        try {
-                            connectedClient.setupSocket();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (SocketExceptions socketExceptions) {
-                            socketExceptions.printStackTrace();
-                        }
                         connectedClientWrappedLoop.activateWrappedLoop(connectedClient);
                     }
-                };
-                Thread newClientThread = new Thread(runnable);
-                newClientThread.start();
+                }).start();
             }
             @Override
             public void closeProgram() {
@@ -92,7 +79,6 @@ public class ClientCreator {
 
         };
     }
-    //Ovdje napraviti novu overload metodu za kreiranje socketa koji ce se povezati na server;
 }
 
 

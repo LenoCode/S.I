@@ -4,7 +4,6 @@ public enum RegexParser {
 
     END_PROTOCOL("[<,/]*END[(]PROTOCOL[_]VERSION[_]'\\d+'[),>]*"),
     ;
-
     private String protocol;
 
     RegexParser(String protocol){

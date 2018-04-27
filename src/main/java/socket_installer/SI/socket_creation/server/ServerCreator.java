@@ -5,6 +5,7 @@ import socket_installer.SI.server.socket.ServerConfiguration;
 import socket_installer.SI.server.socket_actions.connection_handler.NewConnectionHandler;
 import socket_installer.SI.server.socket_actions.socket_loop.ServerWrappedLoop;
 import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.error_wrapped_loop.ProgramLoopWrapper;
+import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.CreatedSocket;
 import socket_installer.SI_behavior.interfaces.io_observer.notification_handler.NotificationHandler;
 import socket_installer.SI_parts.context.ContextObject;
@@ -26,7 +27,7 @@ public class ServerCreator {
     ){
         return new CreatedSocket<Server>() {
             @Override
-            public void runSocket(){
+            public void runSocket() throws IOException, SocketExceptions {
                 InternalContext.createContext();
                 ProgramLoopWrapper.setProgrammRunning(true);
 
@@ -39,11 +40,9 @@ public class ServerCreator {
                 basicSocket.setNotificationHandler(notificationHandler);
 
                 ServerWrappedLoop serverWrappedLoop = new ServerWrappedLoop();
-                try {
-                    basicSocket.setupSocket();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+
+                basicSocket.setupSocket();
+
                 serverWrappedLoop.activateWrappedLoop(basicSocket);
             }
             @Override

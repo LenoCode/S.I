@@ -29,7 +29,7 @@ public abstract class ClientSocket extends BasicSocket{
     }
 
     @Override
-    public void setupSocket()throws IOException,SocketExceptions{
+    public void setupSocket() throws IOException,SocketExceptions{
         setupIOHolder();
         clientConfiguration.setStreamPaused(false);
         clientConfiguration.setSocketOnlineStatus(true);
