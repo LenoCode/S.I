@@ -1,6 +1,6 @@
 package test_client;
 
-import socket_installer.SI_parts.protocol.BasicSocketCommunicationProtocol;
+import socket_installer.SI_parts.protocol.CommunicationProtocol;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -12,9 +12,10 @@ public class Client {
 
     public static void main(String[] args){
         try {
-            BasicSocketCommunicationProtocol socketCommunicationProtocol = new BasicSocketCommunicationProtocol();
+            CommunicationProtocol socketCommunicationProtocol = new CommunicationProtocol();
             Socket socket = new Socket("172.20.2.24",3000);
             BufferedOutputStream outputStream = new BufferedOutputStream(socket.getOutputStream());
+            outputStream.write(socketCommunicationProtocol.implementClosingSocketProtocol());
             outputStream.write(socketCommunicationProtocol.implementSentProtocol("Ovo ti je message a ono je samo protokol"));
             outputStream.write(socketCommunicationProtocol.implementSentProtocol("Novi message a sta ces sad"));
             outputStream.flush();

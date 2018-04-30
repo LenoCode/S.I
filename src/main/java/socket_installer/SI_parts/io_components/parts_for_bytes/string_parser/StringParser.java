@@ -21,7 +21,7 @@ public class StringParser {
     }
 
     public Iterator<String> parseForStrings(String string){
-        if (string.endsWith(Protocol.END_PROTOCOL.getProtocol())){
+        if (string.endsWith(Protocol.END_PROTOCOL.IdentProtocol())){
             return Arrays.asList(string.split(RegexParser.END_PROTOCOL.getRegex())).iterator();
         }
         return null;

@@ -20,7 +20,7 @@ public class ConnectedClient extends ClientSocket {
 
         while(clientConfiguration.isSocketOnline()){
             BytesReader.getBytesReader().readBytes(this);
-            actions.getBufferChecker().checkStringBuffer(ioHolder.getStringBuffer(),getNotificationer());
+            actions.getBufferChecker().checkStringBuffer(ioHolder.getStringBuffer(),this);
         }
 
     }
