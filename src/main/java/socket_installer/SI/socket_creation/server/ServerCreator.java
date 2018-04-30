@@ -4,28 +4,29 @@ import socket_installer.SI.server.socket.Server;
 import socket_installer.SI.server.socket.ServerConfiguration;
 import socket_installer.SI.server.socket_actions.connection_handler.NewConnectionHandler;
 import socket_installer.SI.server.socket_actions.socket_loop.ServerWrappedLoop;
-import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.error_wrapped_loop.ProgramLoopWrapper;
-import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.abstractClasses.sockets.CreatedSocket;
-import socket_installer.SI_behavior.interfaces.io_observer.notification_handler.NotificationHandler;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.CreatedSocket;
+import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.Notificationer;
 import socket_installer.SI_parts.context.ContextObject;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 import socket_installer.SI_context.internal_context.InternalContext;
 
 import java.io.IOException;
 
+
 public class ServerCreator {
 
     private ServerCreator(){
     }
-    public static CreatedSocket<Server> createServer(
+    public static CreatedSocket createServer(
             String hostAddress,
-            NotificationHandler notificationHandler,
+            Notificationer notificationer,
             int port,
             int backlog,
             int timeout
     ){
-        return new CreatedSocket<Server>() {
+        return new CreatedSocket() {
             @Override
             public void runSocket() throws IOException, SocketExceptions {
                 InternalContext.createContext();
@@ -34,15 +35,15 @@ public class ServerCreator {
                 ServerConfiguration serverConfiguration = new ServerConfiguration(hostAddress,port,backlog,timeout);
                 ContextObject<SessionTracker> sessionTrackerContextObject = new ContextObject<>();
                 sessionTrackerContextObject.setContextObject(new SessionTracker());
+
                 InternalContext.getInternalContext().saveContextObject(sessionTrackerContextObject);
 
-                basicSocket = new Server(serverConfiguration,new NewConnectionHandler());
-                basicSocket.setNotificationHandler(notificationHandler);
+                basicSocket = new Server(new NewConnectionHandler());
+                basicSocket.setSocketConfiguration(serverConfiguration);
+                basicSocket.setNotificationer(notificationer);
 
                 ServerWrappedLoop serverWrappedLoop = new ServerWrappedLoop();
-
                 basicSocket.setupSocket();
-
                 serverWrappedLoop.activateWrappedLoop(basicSocket);
             }
             @Override

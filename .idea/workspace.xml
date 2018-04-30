@@ -2,16 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="977e12f6-6b91-49fd-9e95-2942608ac45f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/user_implementation/io_notification/Notificationer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/exception/default_exception/NoSolutionForException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/socket_actions/ActionHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/socket_actions/response_actions/BufferChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/general/ExceptionTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/client/socket_exception/specific_exceptions/ClientClosedException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/client/socket_exception/specific_exceptions/ClientTimeoutException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/server/socket/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/server/socket/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ClientCreator$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ClientCreator$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ClientCreator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ClientCreator$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ClientCreator$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ClientCreator$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ClientCreator$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ClientCreator$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ClientCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ClientCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ServerCreator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ServerCreator$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ServerCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI/socket_creation/server/ServerCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/sockets/BasicSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/sockets/BasicSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/sockets/CreatedSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/sockets/CreatedSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/interfaces/sockets/socket_models/CreatedSocketModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/interfaces/sockets/socket_models/CreatedSocketModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_parts/io_components/parts_for_bytes/BytesReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_parts/io_components/parts_for_bytes/BytesReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_parts/io_components/parts_for_bytes/string_parser/enum_parser/RegexParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_parts/io_components/parts_for_bytes/string_parser/enum_parser/RegexParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test_server/Test0$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/test_server/Test0$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test_server/Test0$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/test_server/Test0$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/test_server/Test0.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/test_server/Test0.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ConnectedClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ConnectedClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_actions/socket_loop/ClientWrappedLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_actions/socket_loop/ClientWrappedLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/ClientClosedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/connection_break_exception/ClientClosedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/ClientTimeoutException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/connection_break_exception/ClientTimeoutException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/connection_handler/NewConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/connection_handler/NewConnectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/socket_loop/ServerWrappedLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/socket_loop/ServerWrappedLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_exception/ServerGeneralException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_exception/ServerGeneralException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ClientCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ClientCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ServerCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ServerCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/BasicSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/BasicSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/CreatedSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/CreatedSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/client/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/client/ClientSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/socket_managers/error_manager/error_wrapped_loop/ProgramLoopWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket_actions/socket_loop/ProgramLoopWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/socket_managers/error_manager/exceptions/SocketExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket_managers/error_manager/exceptions/SocketExceptions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/BasicSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/BasicSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/CreatedSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/CreatedSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/client/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/ClientSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/io_observer/notification_handler/NotificationHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/io_observer/observer/IOObserver.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/CreatedSocketModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/CreatedSocketModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/SocketModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/SocketModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/string_parser/enum_parser/RegexParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/string_parser/enum_parser/RegexParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/client/ClientIOLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/client/ClientIOLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/IO/IODispatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/BytesReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/bytes_io/BytesReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/BytesSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/bytes_io/BytesSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/session_tracker/server/ConnectedClientSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/session_tracker/server/ConnectedClientSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/session_tracker/server/SessionTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/session_tracker/server/SessionTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sessionTracker/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sessionTracker/Test1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test_server/Test0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test_server/Test0.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,106 +75,124 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="BasicSocket.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/BasicSocket.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1626#1627#0" expanded="true" />
+                <element signature="e#1663#1664#0" expanded="true" />
+                <element signature="e#1731#1732#0" expanded="true" />
+                <element signature="e#1783#1784#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SocketModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/SocketModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ClientCreator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ClientCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
-              <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+            <state relative-caret-position="170">
+              <caret line="50" column="61" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1846#1847#0" expanded="true" />
-                <element signature="e#1957#1958#0" expanded="true" />
-                <element signature="e#2095#2096#0" expanded="true" />
-                <element signature="e#2171#2172#0" expanded="true" />
-                <element signature="e#3603#3604#0" expanded="true" />
-                <element signature="e#3714#3715#0" expanded="true" />
-                <element signature="e#3968#3969#0" expanded="true" />
-                <element signature="e#4044#4045#0" expanded="true" />
+                <element signature="e#3480#3481#0" expanded="true" />
+                <element signature="e#3556#3557#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BytesReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/BytesReader.java">
+      <file leaf-file-name="ServerCreator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ServerCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+            <state relative-caret-position="515">
+              <caret line="42" column="60" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2393#2394#0" expanded="true" />
+                <element signature="e#2469#2470#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientTimeoutException.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/ClientTimeoutException.java">
+      <file leaf-file-name="CreatedSocket.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/CreatedSocket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientClosedException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/ClientClosedException.java">
+      <file leaf-file-name="ClientSocket.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/ClientSocket.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/Server.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientIOLoop.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/client/ClientIOLoop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientSocketLoop.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/client/ClientSocketLoop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreatedSocketModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/CreatedSocketModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#638#639#0" expanded="true" />
+                <element signature="e#702#703#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IOHolderModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/io_models/IOHolderModel.java">
+      <file leaf-file-name="ClientTimeoutException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/connection_break_exception/ClientTimeoutException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            <state relative-caret-position="170">
+              <caret line="13" column="50" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SocketConfiguration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/configuration_models/SocketConfiguration.java">
+      <file leaf-file-name="Test0.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/test_server/Test0.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            <state relative-caret-position="204">
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#731#732#0" expanded="true" />
+                <element signature="e#816#817#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WrappedLoopModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/socket_managers/error_manager/WrappedLoopModel.java">
+      <file leaf-file-name="BufferChecker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/socket_actions/response_actions/BufferChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="187">
+              <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -142,8 +204,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -456,27 +518,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/session_tracker/server/ConnectedClientSet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/session_tracker/server/SessionTracker.java" />
-        <option value="$PROJECT_DIR$/src/test/java/sessionTracker/Test1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/exceptions/ExceptionModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/exceptions/SocketClosedException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/exceptions/SocketStreamTimeoutException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/connected_client/ConnectedClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/exceptions/ExceptionSolutionModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/socket_managers/error_manager/exceptions/SocketExceptions.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/connected_client/ConnectedClientConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/exception_solution/ConnectedClientTimeout.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/exceptions/ServerGeneralException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/server_loop/ConnectedClientWrappedLoop.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ClientConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/connectedClient/ConnectedClientCreator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/connectedClient/ClientCreator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/SocketModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/client/ClientIOLoop.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/client_loop/ClientConnected.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_actions/socket_loop/ClientWrappedLoop.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/ClientTimeoutException.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/ClientClosedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/BytesReader.java" />
@@ -489,9 +530,6 @@
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/io_observer/notification_handler/NotificationHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/io_observer/InputObserver.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/IO/IOHolder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/connection_handler/NewConnectionHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/BytesReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ConnectedClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/string_buffer/StringBuffer.java" />
         <option value="$PROJECT_DIR$/src/test/java/test_client/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/protocol/enum_protocol/Protocol.java" />
@@ -499,14 +537,38 @@
         <option value="$PROJECT_DIR$/src/test/java/general/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/string_parser/StringParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/string_parser/enum_parser/RegexParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/BasicSocket.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/CreatedSocket.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/SocketModel.java" />
+        <option value="$PROJECT_DIR$/src/test/java/general/ExceptionTesting.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/socket_managers/error_manager/exceptions/SocketExceptions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/BytesReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_exception/ServerGeneralException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/connection_break_exception/ClientClosedException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/socket_loop/ServerWrappedLoop.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/exception/default_exception/NoSolutionForException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/BasicSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ClientConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/client/ClientSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_actions/socket_stream/BufferChecker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket_actions/socket_main_action/MainSocketAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_actions/socket_loop/ClientWrappedLoop.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/ClientActions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/socket_actions/ActionHolder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/io_observer/IONotifier.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/ClientSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/user_implementation/io_notification/Notificationer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/socket_actions/response_actions/BufferChecker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ConnectedClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/connection_handler/NewConnectionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ServerCreator.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test_server/Test0.java" />
         <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ClientCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/connection_break_exception/ClientTimeoutException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/BasicSocket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/SocketModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/CreatedSocket.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test_server/Test0.java" />
       </list>
     </option>
   </component>
@@ -530,37 +592,35 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -568,7 +628,7 @@
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -577,7 +637,7 @@
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -587,7 +647,30 @@
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
+              <item name="SI" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="socket_exception" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
+              <item name="SI" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="socket_exception" type="462c0819:PsiDirectoryNode" />
+              <item name="connection_break_exception" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -597,7 +680,7 @@
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -606,51 +689,40 @@
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
               <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
-              <item name="abstractClasses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
-              <item name="abstractClasses" type="462c0819:PsiDirectoryNode" />
-              <item name="error_manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
-              <item name="abstractClasses" type="462c0819:PsiDirectoryNode" />
               <item name="sockets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
               <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
-              <item name="abstractClasses" type="462c0819:PsiDirectoryNode" />
               <item name="sockets" type="462c0819:PsiDirectoryNode" />
+              <item name="socket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
+              <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
+              <item name="sockets" type="462c0819:PsiDirectoryNode" />
+              <item name="socket" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -660,7 +732,30 @@
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
+              <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+              <item name="sockets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
+              <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+              <item name="sockets" type="462c0819:PsiDirectoryNode" />
+              <item name="socket_models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -669,51 +764,41 @@
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
               <item name="SI_parts" type="462c0819:PsiDirectoryNode" />
-              <item name="io_components" type="462c0819:PsiDirectoryNode" />
+              <item name="socket_actions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
               <item name="SI_parts" type="462c0819:PsiDirectoryNode" />
-              <item name="io_components" type="462c0819:PsiDirectoryNode" />
-              <item name="parts_for_bytes" type="462c0819:PsiDirectoryNode" />
+              <item name="socket_actions" type="462c0819:PsiDirectoryNode" />
+              <item name="response_actions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="SI_parts" type="462c0819:PsiDirectoryNode" />
-              <item name="protocol" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -721,7 +806,7 @@
             </path>
             <path>
               <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket-installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="socket-installer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -731,6 +816,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -769,6 +856,17 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="test_client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="ExceptionTesting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="general.ExceptionTesting" />
+      <module name="S.I_test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="general.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -876,9 +974,11 @@
       <item itemvalue="Application.Test1" />
       <item itemvalue="Application.Test02" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.ExceptionTesting" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ExceptionTesting" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test02" />
         <item itemvalue="Application.Field" />
@@ -909,48 +1009,51 @@
       <workItem from="1524586289816" duration="5852000" />
       <workItem from="1524660044344" duration="1993000" />
       <workItem from="1524749246765" duration="14201000" />
-      <workItem from="1524814622989" duration="2688000" />
+      <workItem from="1524814622989" duration="5332000" />
+      <workItem from="1524821560443" duration="9153000" />
+      <workItem from="1525087100667" duration="7137000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104312000" />
+    <option name="totallyTimeSpent" value="123246000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32731137" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32731137" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32943678" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17135416" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info id="Learn" order="6" />
+      <window_info anchor="bottom" id="Build" order="10" weight="0.32943678" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32943678" />
       <window_info anchor="right" id="Gradle" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32731137" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Thumbnails" order="12" weight="0.32970452" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Build" order="10" weight="0.32943678" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Learn" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
+      <window_info anchor="right" id="Database" order="7" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -965,141 +1068,77 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/exceptions/ExceptionSolutionModel.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/exceptions/SocketStreamTimeoutException.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/exception_solution/ConnectedClientTimeout.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/ServerConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/connected_client/ConnectedClient.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/connected_client/ConnectedClientConfiguration.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/sada.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/server_loop/ConnectedClientWrappedLoop.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/socket_managers/error_manager/exceptions/SocketExceptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/client_loop/ClientConnected.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/ClientGeneralException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="8" selection-end-column="74" />
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="8" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/general/ExceptionTesting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="64" column="57" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/exceptions/ExceptionModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_exception/ServerGeneralException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="187">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_actions/socket_loop/ClientWrappedLoop.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket_managers/error_manager/exceptions/SocketExceptions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="141" selection-start-line="25" selection-start-column="141" selection-end-line="25" selection-end-column="141" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/IO/IODispatch.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/connection_break_exception/ClientClosedException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ClientConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/protocol/BasicSocketCommunicationProtocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="102">
+          <caret line="7" column="58" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/socket_loop/ServerWrappedLoop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="272">
+          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/io_observer/InputObserver.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/io_observer/observer/IOObserver.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/exception/default_exception/NoSolutionForException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="102">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/sessionTracker/Test1.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/IO/IODispatch.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/context/ContextObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/IO/IOHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
+        <state relative-caret-position="731">
           <caret line="55" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/BytesSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="98" selection-start-line="23" selection-start-column="98" selection-end-line="23" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/io_observer/notification_handler/NotificationHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/connection_handler/NewConnectionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/context/Test02.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/general/Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1110,17 +1149,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ConnectedClient.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/session_tracker/server/ConnectedClientSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        <state relative-caret-position="68">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/protocol/enum_protocol/Protocol.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/session_tracker/server/SessionTracker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        <state relative-caret-position="85">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/general/Field.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1131,184 +1177,271 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/bytes_io/BytesSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/string_parser/StringParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="28" column="80" lean-forward="true" selection-start-line="28" selection-start-column="80" selection-end-line="28" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/string_parser/enum_parser/RegexParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_actions/socket_stream/BufferChecker.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket_actions/socket_main_action/MainSocketAction.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_actions/socket_loop/ClientWrappedLoop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        <state relative-caret-position="306">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/CreatedSocket.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/io/Closeable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        <state relative-caret-position="221">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/BasicSocket.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/net/Socket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="50" lean-forward="true" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="53" column="31" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/SocketModel.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/net/ServerSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7650">
+          <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/ClientActions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket_actions/socket_loop/ProgramLoopWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket_actions/ActionsSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/bytes_io/BytesReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ClientConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_context/internal_context/InternalContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_context/internal_context/InternalContextObjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/io_observer/observer/IOObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/io_observer/notification_handler/NotificationHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/io_observer/IONotifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/user_implementation/io_notification/Notificationer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/socket_actions/ActionHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ServerCreator.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/test_client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+        <state relative-caret-position="68">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/connection_handler/NewConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2222#2223#0" expanded="true" />
-            <element signature="e#2298#2299#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/client/ClientSocket.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ConnectedClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="31" column="65" selection-start-line="31" selection-start-column="65" selection-end-line="31" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1463#1464#0" expanded="true" />
-            <element signature="e#1505#1506#0" expanded="true" />
-            <element signature="e#1543#1544#0" expanded="true" />
-            <element signature="e#1574#1575#0" expanded="true" />
-            <element signature="e#2336#2337#0" expanded="true" />
-            <element signature="e#2378#2379#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="18" column="72" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="35" column="15" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
+        <state relative-caret-position="136">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
           <folding>
-            <element signature="e#1780#1781#0" expanded="true" />
-            <element signature="e#1822#1823#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/ClientSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ServerCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="42" column="60" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2393#2394#0" expanded="true" />
+            <element signature="e#2469#2470#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ClientCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="50" column="61" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3480#3481#0" expanded="true" />
+            <element signature="e#3556#3557#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/socket_actions/response_actions/BufferChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/connection_break_exception/ClientTimeoutException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="50" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/SocketModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/CreatedSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/BasicSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1626#1627#0" expanded="true" />
+            <element signature="e#1663#1664#0" expanded="true" />
+            <element signature="e#1731#1732#0" expanded="true" />
+            <element signature="e#1783#1784#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/test_server/Test0.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="55" />
+        <state relative-caret-position="204">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#816#817#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test_client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/server/ClientCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1846#1847#0" expanded="true" />
-            <element signature="e#1957#1958#0" expanded="true" />
-            <element signature="e#2095#2096#0" expanded="true" />
-            <element signature="e#2171#2172#0" expanded="true" />
-            <element signature="e#3603#3604#0" expanded="true" />
-            <element signature="e#3714#3715#0" expanded="true" />
-            <element signature="e#3968#3969#0" expanded="true" />
-            <element signature="e#4044#4045#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/client/ClientIOLoop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/client/ClientSocketLoop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/socket_models/CreatedSocketModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/io_models/IOHolderModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/configuration_models/SocketConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/socket_managers/error_manager/WrappedLoopModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/io_components/parts_for_bytes/BytesReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/ClientClosedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_exception/specific_exceptions/ClientTimeoutException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1329,7 +1462,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1375,9 +1508,21 @@
           </splitter-proportions>
         </settings>
       </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Gradle: junit:junit:4.12</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>

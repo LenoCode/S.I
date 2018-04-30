@@ -1,6 +1,6 @@
 package socket_installer.SI_parts.session_tracker.server;
 
-import socket_installer.SI_behavior.abstractClasses.sockets.BasicSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.BasicSocket;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
 
 import java.util.ArrayList;

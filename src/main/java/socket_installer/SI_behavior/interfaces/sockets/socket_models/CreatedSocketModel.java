@@ -1,6 +1,6 @@
 package socket_installer.SI_behavior.interfaces.sockets.socket_models;
 
-import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 
 import java.io.IOException;
 
