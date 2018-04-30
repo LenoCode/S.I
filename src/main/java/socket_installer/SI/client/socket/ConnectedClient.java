@@ -1,8 +1,8 @@
 package socket_installer.SI.client.socket;
 
-import socket_installer.SI_behavior.abstractClasses.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.abstractClasses.sockets.client.ClientSocket;
-import socket_installer.SI_parts.io_components.parts_for_bytes.BytesReader;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
+import socket_installer.SI_parts.io_components.parts_for_bytes.bytes_io.BytesReader;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -16,9 +16,12 @@ public class ConnectedClient extends ClientSocket {
 
     @Override
     public void activateSocket() throws IOException, SocketExceptions {
+        ClientConfiguration clientConfiguration = (ClientConfiguration) getSocketConfiguration();
+
         while(clientConfiguration.isSocketOnline()){
             BytesReader.getBytesReader().readBytes(this);
-            checkStringBuffer();
+            actions.getBufferChecker().checkStringBuffer(ioHolder.getStringBuffer(),getNotificationer());
         }
+
     }
 }

@@ -49,15 +49,12 @@ public class ClientConfiguration implements SocketConfiguration {
         this.connectedClientStatus = status;
     }
 
-    public boolean shouldClientBeRemoved(){
-        if (streamPaused && !connectedClientStatus){
-            return true;
-        }else{
-            return !connectedClientStatus;
-        }
-    }
 
     public void setStreamPaused(boolean streamPaused) {
         this.streamPaused = streamPaused;
+    }
+
+    public boolean isStreamPaused(){
+        return this.streamPaused;
     }
 }
