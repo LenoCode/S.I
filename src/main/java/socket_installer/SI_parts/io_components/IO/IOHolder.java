@@ -17,7 +17,7 @@ public class IOHolder {
     private byte[] bytes;
 
     public IOHolder(){
-        bytes = new byte[1024];
+        bytes = new byte[10];
     }
 
     public void setInStream(InputStream bufferedInputStream) {

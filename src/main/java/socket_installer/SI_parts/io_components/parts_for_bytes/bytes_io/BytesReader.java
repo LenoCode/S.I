@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 
+import socket_installer.SI.client.socket_exception.specific_exceptions.connection_break_exception.ClientClosedException;
 import socket_installer.SI.client.socket_exception.specific_exceptions.connection_break_exception.ClientTimeoutException;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
@@ -35,16 +36,19 @@ public class BytesReader {
     }
 
     private void read(BufferedInputStream inputStream, StringBuffer buffer,byte[] bytes) throws IOException, SocketExceptions{
+        int bytesRead = 0;
         try{
-            int bytesRead = 0;
-
             bytesRead = inputStream.read(bytes);
+            if (bytesRead == -1){
+                throw new ClientClosedException();
+            }
             buffer.insertToBuffer(bytesRead,bytes);
         }
         catch (SocketTimeoutException socketTimeoutException){
             throw new ClientTimeoutException();
         }catch (IOException ioException){
-            
+            //UPITNO STO CEMO OVDJE STAVITI, MOZDA BI TREBALO NAPRAVITI NOVI EXCEPTION KOJI CE DRUGACIJE HANDLAT, JER MOZDA JE CLIENTCLOSEDEXCEPTION PREVISE GENERALAN
+           throw new ClientClosedException();
         }
     }
 }

@@ -21,10 +21,10 @@ public class BufferChecker {
 
     public void checkStringBuffer(StringBuffer stringBuffer, BasicSocket basicSocket) throws IOException,SocketExceptions {
         Iterator<String> stringIterator = StringParser.getStringParser().parseForStrings(stringBuffer.getString());
-        if (stringIterator != null){
-            while(stringIterator.hasNext()){
+        if (stringIterator != null) {
+            while (stringIterator.hasNext()) {
                 String nextString = stringIterator.next();
-                if (!protocolCheck.checkProtocol(nextString,basicSocket)){
+                if (!protocolCheck.checkProtocol(nextString, basicSocket)) {
                     basicSocket.getNotificationer().notificationRecv(nextString);
                 }
             }

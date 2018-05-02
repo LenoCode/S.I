@@ -17,7 +17,9 @@ public class StringBuffer {
     }
 
     public void emptyBuffer(){
+        System.out.println("ovo je prije emptya "+ stringBuffer.toString());
         stringBuffer.setLength(0);
+        System.out.println(stringBuffer.toString()+ " ovo je poslje emptyia");
     }
 
 }

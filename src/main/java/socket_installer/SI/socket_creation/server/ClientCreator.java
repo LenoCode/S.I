@@ -4,6 +4,7 @@ import socket_installer.SI.client.socket.Client;
 import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI.client.socket.ConnectedClient;
 import socket_installer.SI.client.socket_actions.socket_loop.ClientWrappedLoop;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.CreatedSocket;
@@ -77,6 +78,33 @@ public class ClientCreator {
                 ProgramLoopWrapper.setProgrammRunning(false);
             }
 
+        };
+    }
+    public static CreatedSocket createConnectedClient(ClientSocket clientSocket){
+        return new CreatedSocket() {
+            @Override
+            public void runSocket() throws IOException, SocketExceptions {
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();
+
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                connectedClientWrappedLoop.activateWrappedLoop(clientSocket);
+                            }
+                        }).start();
+
+                    }
+                }).start();
+            }
+
+            @Override
+            public void closeProgram() {
+                ProgramLoopWrapper.setProgrammRunning(false);
+            }
         };
     }
 }

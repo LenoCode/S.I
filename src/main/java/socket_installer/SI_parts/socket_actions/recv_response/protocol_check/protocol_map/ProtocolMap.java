@@ -17,10 +17,10 @@ public class ProtocolMap extends HashMap <String,ProtocolAction> {
         initActions();
     }
     private void initActions(){
-        super.put(Protocol.SOCKET_CLOSED.IdentProtocol(),new CloseSocketAction());
+        super.put(Protocol.SOCKET_CLOSED.IdentProtocol(), new CloseSocketAction());
     }
 
-    public ProtocolAction getAction(String key){
-        return super.getOrDefault(key,noAction);
+    public ProtocolAction getAction(String key) {
+        return super.getOrDefault(key, noAction);
     }
 }

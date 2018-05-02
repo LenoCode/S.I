@@ -1,8 +1,8 @@
 package socket_installer.SI_behavior.abstractClasses.sockets.socket.client;
 
 import socket_installer.SI.client.socket.ClientConfiguration;
-import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.BasicSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_parts.io_components.IO.IOHolder;
 import socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer.StringBuffer;
 import socket_installer.SI_parts.socket_actions.ActionHolder;
@@ -22,6 +22,9 @@ public abstract class ClientSocket extends BasicSocket {
         this.socket = clientSocket;
     }
 
+    public void replaceSocket(Socket socket){
+        this.socket = socket;
+    }
 
     @Override
     public void setupSocket() throws IOException,SocketExceptions{

@@ -1,6 +1,6 @@
 package socket_installer.SI.client.socket_actions.socket_loop;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import socket_installer.SI.client.socket_exception.ClientGeneralException;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
@@ -23,6 +23,7 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
                 clientGeneralException.handleGeneralException(ioException,socketModel);
             }
         }
-        System.out.println("SOCKET IS CLOSED");
+        System.out.println("Ovaj mora zavrsiti");
     }
+
 }
