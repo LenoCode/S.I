@@ -1,22 +1,20 @@
 package socket_installer.SI_parts.session_tracker.server;
 
-import socket_installer.SI_behavior.abstractClasses.sockets.socket.BasicSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
 
 import java.util.ArrayList;
 
-class ConnectedClientSet extends ArrayList<BasicSocket> {
+class ConnectedClientSet extends ArrayList<ClientSocket> {
 
 
-    public ConnectedClientSet(){
-    }
-
-    @Override
-    public boolean add(BasicSocket basicSocket) {
-        if (!super.contains(basicSocket)) {
-            return super.add(basicSocket);
+    public ClientSocket contains(String ipAddress) {
+        for (ClientSocket socket:this ){
+            if (socket.equals(ipAddress)){
+                return socket;
+            }
         }
-        return true;
+        return null;
     }
 
     @Override
@@ -33,4 +31,8 @@ class ConnectedClientSet extends ArrayList<BasicSocket> {
         }
         return buffer.toString();
     }
+
+
+
+
 }

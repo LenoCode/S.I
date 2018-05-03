@@ -14,9 +14,9 @@ import java.io.IOException;
  *     Type of socket (ServerSocket or Socket)
  */
 
-public abstract class BasicSocket <A extends Closeable> implements SocketModel{
+public abstract class BasicSocket<A extends Closeable> implements SocketModel{
     protected A socket;
-    private SocketConfiguration socketConfiguration;
+    protected SocketConfiguration socketConfiguration;
     private Notificationer notificationer;
 
     @Override
@@ -35,10 +35,8 @@ public abstract class BasicSocket <A extends Closeable> implements SocketModel{
         socket = null;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        BasicSocket socket = (BasicSocket)obj;
-        String ipAddress = socket.getSocketConfiguration().getIpAddress();
+
+    public boolean equals(String ipAddress) {
         return ipAddress.equals(this.getSocketConfiguration().getIpAddress());
     }
 

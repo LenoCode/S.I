@@ -1,5 +1,6 @@
 package socket_installer.SI.client.socket_actions.socket_loop;
 
+
 import socket_installer.SI.client.socket_exception.ClientGeneralException;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
@@ -14,6 +15,7 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
         ClientGeneralException clientGeneralException = new ClientGeneralException();
 
         while(isProgramRunning() && socketModel.getSocketConfiguration().isSocketOnline()){
+            System.out.println("Ovaj thread zapocinje" + this);
             try{
                 socketModel.activateSocket();
             }catch (SocketExceptions socketExceptions){
@@ -22,5 +24,7 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
                 clientGeneralException.handleGeneralException(ioException,socketModel);
             }
         }
+        System.out.println("Ovaj thread zavrsava" + this);
     }
+
 }

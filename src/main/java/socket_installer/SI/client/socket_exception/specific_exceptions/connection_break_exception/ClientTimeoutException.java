@@ -4,6 +4,8 @@ import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
+import socket_installer.SI_context.internal_context.InternalContext;
+import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
 
 public class ClientTimeoutException extends SocketExceptions {

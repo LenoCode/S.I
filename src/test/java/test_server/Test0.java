@@ -20,7 +20,7 @@ public class Test0 {
             public void notificationRecv(String notification) {
                 System.out.println("NOTIFICATION :    "+notification);
             }
-        }, 3000, 2, 40);
+        }, 3000, 2, 10);
 
         new Thread(new Runnable() {
             @Override
