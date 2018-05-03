@@ -1,4 +1,4 @@
-package socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer;
+package socket_installer.SI_parts.socket_actions.recv_response.string_buffer;
 
 public class StringBuffer {
 
@@ -17,9 +17,7 @@ public class StringBuffer {
     }
 
     public void emptyBuffer(){
-        System.out.println("ovo je prije emptya "+ stringBuffer.toString());
         stringBuffer.setLength(0);
-        System.out.println(stringBuffer.toString()+ " ovo je poslje emptyia");
     }
 
 }

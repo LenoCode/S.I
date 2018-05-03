@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public abstract class BasicSocket<A extends Closeable> implements SocketModel{
     protected A socket;
-    private SocketConfiguration socketConfiguration;
+    protected SocketConfiguration socketConfiguration;
     private Notificationer notificationer;
 
     @Override

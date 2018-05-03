@@ -1,6 +1,6 @@
-package socket_installer.SI_parts.io_components.parts_for_bytes.string_parser;
-import socket_installer.SI_parts.io_components.parts_for_bytes.string_parser.enum_parser.RegexParser;
-import socket_installer.SI_parts.protocol.enum_protocol.Protocol;
+package socket_installer.SI_parts.socket_actions.recv_response.string_parser;
+import socket_installer.SI_parts.socket_actions.recv_response.string_parser.enum_parser.RegexParser;
+import socket_installer.SI_parts.protocol.enum_protocol.GeneralProtocol;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -21,7 +21,7 @@ public class StringParser {
     }
 
     public Iterator<String> parseForStrings(String string){
-        if (string.endsWith(Protocol.END_PROTOCOL.IdentProtocol())){
+        if (string.endsWith(GeneralProtocol.END_BYTES.getProtocol())){
             return Arrays.asList(string.split(RegexParser.END_PROTOCOL.getRegex())).iterator();
         }
         return null;

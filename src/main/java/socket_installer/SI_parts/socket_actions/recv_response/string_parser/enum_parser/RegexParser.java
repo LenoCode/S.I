@@ -1,4 +1,4 @@
-package socket_installer.SI_parts.io_components.parts_for_bytes.string_parser.enum_parser;
+package socket_installer.SI_parts.socket_actions.recv_response.string_parser.enum_parser;
 
 public enum RegexParser {
 

@@ -1,13 +1,14 @@
 package socket_installer.SI_parts.protocol;
 
-import socket_installer.SI_parts.protocol.enum_protocol.Protocol;
+import socket_installer.SI_parts.protocol.enum_protocol.BytesStatusProtocol;
+import socket_installer.SI_parts.protocol.enum_protocol.TehnicalProtocol;
 
 public class CommunicationProtocol {
 
     public byte[] implementSentProtocol(String message){
-        return String.format(Protocol.SEND_STRING_PROTOCOL.completeProtocol(),message).getBytes();
+        return String.format(BytesStatusProtocol.SEND_BYTES.completeProtocol(),message).getBytes();
     }
     public byte[] implementClosingSocketProtocol(){
-        return Protocol.SOCKET_CLOSED.completeProtocol().getBytes();
+        return TehnicalProtocol.SOCKET_CLOSED.completeProtocol().getBytes();
     }
 }

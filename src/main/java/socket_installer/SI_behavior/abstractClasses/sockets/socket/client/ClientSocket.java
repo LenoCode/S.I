@@ -3,10 +3,12 @@ package socket_installer.SI_behavior.abstractClasses.sockets.socket.client;
 import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.BasicSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_parts.io_components.IO.IOHolder;
-import socket_installer.SI_parts.io_components.parts_for_bytes.string_buffer.StringBuffer;
+import socket_installer.SI_parts.io_components.IO.holder.IOHolder;
+import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
 import socket_installer.SI_parts.socket_actions.ActionHolder;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
@@ -22,8 +24,15 @@ public abstract class ClientSocket extends BasicSocket {
         this.socket = clientSocket;
     }
 
-    public void replaceSocket(Socket socket){
+    public void replaceSocket(Socket socket) throws IOException,SocketExceptions{
         this.socket = socket;
+        ioHolder.getStringBuffer().emptyBuffer();
+        ioHolder.setInputStream(new BufferedInputStream(socket.getInputStream()));
+        ioHolder.setOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+
+        ((ClientConfiguration)socketConfiguration).setStreamPaused(false);
+        socketConfiguration.setSocketOnlineStatus(true);
+
     }
 
     @Override
@@ -41,8 +50,8 @@ public abstract class ClientSocket extends BasicSocket {
     protected void setupIOHolder() throws IOException, SocketExceptions{
         Socket clientSocket = (Socket) socket;
         ioHolder = new IOHolder();
-        ioHolder.setInStream(clientSocket.getInputStream());
-        ioHolder.setOutStream(clientSocket.getOutputStream());
+        ioHolder.setInputStream(new BufferedInputStream(clientSocket.getInputStream()));
+        ioHolder.setOutputStream(new BufferedOutputStream(clientSocket.getOutputStream()));
         ioHolder.setStringBuffer(new StringBuffer());
     }
 }

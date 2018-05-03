@@ -21,10 +21,9 @@ public class Server extends BasicSocket {
     public void activateSocket() throws IOException, SocketExceptions {
         ServerSocket serverSocket = (ServerSocket)socket;
         ServerConfiguration serverConfiguration = (ServerConfiguration) getSocketConfiguration();
-        SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
+        //SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
 
         while(serverConfiguration.isSocketOnline()){
-            System.out.println(sessionTracker.toString());
             Socket socketConnectedToServer = serverSocket.accept();
             newConnectionHandler.handleConnection(getNotificationer(),socketConnectedToServer,serverConfiguration.getTimeout());
         }
