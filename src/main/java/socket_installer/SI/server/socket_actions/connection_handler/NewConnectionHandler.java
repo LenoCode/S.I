@@ -1,9 +1,9 @@
 package socket_installer.SI.server.socket_actions.connection_handler;
 
 
-import socket_installer.SI.socket_creation.server.ClientCreator;
-import socket_installer.SI_behavior.abstractClasses.sockets.socket.BasicSocket;
-import socket_installer.SI_behavior.abstractClasses.sockets.socket.CreatedSocket;
+import socket_installer.SI.client.socket.ConnectedClient;
+import socket_installer.SI.socket_creation.client.ClientCreator;
+import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.connected_client.ConnectedClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.Notificationer;
@@ -22,7 +22,7 @@ public class NewConnectionHandler {
     }
     public void handleConnection(Notificationer notificationer, Socket clientConnected, int timeout) throws IOException, SocketExceptions{
         clientConnected.setSoTimeout(timeout);
-        ClientSocket clientSocket = sessionTracker.checkIfSocketExists(clientConnected.getInetAddress().getHostAddress());
+        ConnectedClient clientSocket = sessionTracker.checkIfSocketExists(clientConnected.getInetAddress().getHostAddress());
 
         if (clientSocket == null){
             setupNewConnection(notificationer,clientConnected);
@@ -32,13 +32,13 @@ public class NewConnectionHandler {
     }
 
     private void setupNewConnection(Notificationer notificationer,Socket clientConnected)throws IOException, SocketExceptions{
-        CreatedSocket createdClientModel = ClientCreator.createConnectedClient(notificationer,clientConnected);
+        ConnectedClientCreatedSocket createdClientModel = ClientCreator.createConnectedClient(notificationer,clientConnected);
         createdClientModel.runSocket();
     }
 
     private void setupOldConnection(Socket clientConnected,ClientSocket clientSocket)throws  IOException,SocketExceptions{
         clientSocket.replaceSocket(clientConnected);
-        CreatedSocket createdClientModel = ClientCreator.createConnectedClient(clientSocket);
+        ConnectedClientCreatedSocket createdClientModel = ClientCreator.createConnectedClient(clientSocket);
         createdClientModel.runSocket();
     }
 

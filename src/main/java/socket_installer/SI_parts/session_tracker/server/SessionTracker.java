@@ -1,5 +1,6 @@
 package socket_installer.SI_parts.session_tracker.server;
 
+import socket_installer.SI.client.socket.ConnectedClient;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
 
@@ -12,7 +13,7 @@ public class SessionTracker {
         connectedClientSet = new ConnectedClientSet();
     }
 
-    public void addNewConnection (ClientSocket socket){
+    public void addNewConnection (ConnectedClient socket){
         connectedClientSet.add(socket);
     }
     public void removeConnection(SocketModel socket){
@@ -21,7 +22,7 @@ public class SessionTracker {
     public int getNumberOfActiveConnections(){
         return connectedClientSet.size();
     }
-    public ClientSocket checkIfSocketExists(String ipAddress){
+    public ConnectedClient checkIfSocketExists(String ipAddress){
         return connectedClientSet.contains(ipAddress);
     }
     @Override

@@ -1,23 +1,33 @@
 package socket_installer.SI.client.socket;
 
-import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_parts.io_components.IO.processor.IOProcessor;
 
 import java.io.IOException;
 import java.net.Socket;
 
+
 public class Client extends ClientSocket {
+
 
     public Client(Socket clientSocket) {
         super(clientSocket);
     }
 
+    public void sendMessage(String message)throws  IOException, SocketExceptions{
+        byte[] bytes = actions.getCommunicationProtocol().implementSentProtocol(message);
+        IOProcessor.getIoProcessor().initializeBytesSending(bytes,ioHolder);
+    }
+
     @Override
     public void activateSocket() throws IOException, SocketExceptions {
-        setupIOHolder();
-        boolean clientStatus = true;
-        //clientConfiguration.setSocketOnlineStatus(clientStatus);
-        //Client nije taj koji stalno mora imati ukljucen loop -vazna stavka,,client salje request i prima odgovor, no client objekt sa server strane mora konstatno vrtiti loop, no to mogu napraviti posebno na server objektu
+        IOProcessor.getIoProcessor().initializeBytesReading(ioHolder);
+
+        if (actions.getBufferChecker().checkStringBuffer(this)){
+            ioHolder.getStringBuffer().emptyBuffer();
+        }
     }
 
 }

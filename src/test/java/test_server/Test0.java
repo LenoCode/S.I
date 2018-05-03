@@ -1,10 +1,8 @@
 package test_server;
 
-import socket_installer.SI.server.socket.Server;
-import socket_installer.SI.server.socket.ServerConfiguration;
 import socket_installer.SI.socket_creation.server.ServerCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.abstractClasses.sockets.socket.CreatedSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
 import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.Notificationer;
 
 
@@ -14,13 +12,13 @@ public class Test0 {
 
     public static void main(String[] args){
 
-        final CreatedSocket server= ServerCreator.createServer("192.12131.2131", new Notificationer() {
+        final ServerCreatedSocket server= ServerCreator.createServer("192.12131.2131", new Notificationer() {
 
             @Override
             public void notificationRecv(String notification) {
                 System.out.println("NOTIFICATION :    "+notification);
             }
-        }, 3000, 2, 10);
+        }, 3000, 2, 50000);
 
         new Thread(new Runnable() {
             @Override

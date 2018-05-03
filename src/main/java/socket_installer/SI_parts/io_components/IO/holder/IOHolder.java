@@ -20,9 +20,6 @@ public class IOHolder {
         bytes = new byte[10];
     }
 
-
-
-
     public void setStringBuffer(StringBuffer stringBuffer) {
         this.stringBuffer = stringBuffer;
     }
