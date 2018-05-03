@@ -6,7 +6,7 @@ import socket_installer.SI.server.socket_actions.connection_handler.NewConnectio
 import socket_installer.SI.server.socket_actions.socket_loop.ServerWrappedLoop;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.abstractClasses.sockets.socket.CreatedSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
 import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.Notificationer;
 import socket_installer.SI_parts.context.ContextObject;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
@@ -19,14 +19,14 @@ public class ServerCreator {
 
     private ServerCreator(){
     }
-    public static CreatedSocket createServer(
+    public static ServerCreatedSocket createServer(
             String hostAddress,
             Notificationer notificationer,
             int port,
             int backlog,
             int timeout
     ){
-        return new CreatedSocket() {
+        return new ServerCreatedSocket() {
             @Override
             public void runSocket() throws IOException, SocketExceptions {
                 InternalContext.createContext();

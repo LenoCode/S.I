@@ -1,14 +1,14 @@
-package socket_installer.SI.socket_creation.server;
+package socket_installer.SI.socket_creation.client;
 
 import socket_installer.SI.client.socket.Client;
 import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI.client.socket.ConnectedClient;
 import socket_installer.SI.client.socket_actions.socket_loop.ClientWrappedLoop;
+import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.connected_client.ConnectedClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.abstractClasses.sockets.socket.CreatedSocket;
-import socket_installer.SI_behavior.interfaces.sockets.socket_models.CreatedSocketModel;
 import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.Notificationer;
 import socket_installer.SI_context.internal_context.InternalContext;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
@@ -18,26 +18,15 @@ import java.net.Socket;
 
 public class ClientCreator {
 
-    public static CreatedSocketModel createClient(Socket socket){
-        return new CreatedSocketModel() {
+    public static ClientCreatedSocket createClient(Notificationer notificationer, Socket socket){
+        return new ClientCreatedSocket() {
             @Override
             public void runSocket() throws IOException,SocketExceptions {
                 ClientConfiguration clientConfiguration = new ClientConfiguration(socket);
-                Client connectedClient = new Client(socket);
-                connectedClient.setSocketConfiguration(clientConfiguration);
-
-                ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();
-
-                connectedClient.setupSocket();
-
-                connectedClientWrappedLoop.activateWrappedLoop(connectedClient);
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        connectedClientWrappedLoop.activateWrappedLoop(connectedClient);
-                    }
-                }).start();
+                basicSocket = new Client(socket);
+                basicSocket.setSocketConfiguration(clientConfiguration);
+                basicSocket.setNotificationer(notificationer);
+                basicSocket.setupSocket();
             }
 
             @Override
@@ -48,8 +37,8 @@ public class ClientCreator {
         };
     }
 
-    public static CreatedSocket createConnectedClient(Notificationer notificationer, Socket socketConnected){
-        return new CreatedSocket() {
+    public static ConnectedClientCreatedSocket createConnectedClient(Notificationer notificationer, Socket socketConnected){
+        return new ConnectedClientCreatedSocket() {
             @Override
             public void runSocket() throws IOException, SocketExceptions {
                 ClientConfiguration connectedClientConfiguration = new ClientConfiguration(socketConnected);
@@ -80,8 +69,8 @@ public class ClientCreator {
 
         };
     }
-    public static CreatedSocket createConnectedClient(ClientSocket clientSocket){
-        return new CreatedSocket() {
+    public static ConnectedClientCreatedSocket createConnectedClient(ClientSocket clientSocket){
+        return new ConnectedClientCreatedSocket() {
             @Override
             public void runSocket() throws IOException, SocketExceptions {
 

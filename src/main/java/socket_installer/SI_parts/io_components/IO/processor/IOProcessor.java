@@ -34,10 +34,8 @@ public class IOProcessor {
         OutputStreamWrapper outputStreamWrapper = ioHolder.getOutputStream();
         InputStreamWrapper inputStreamWrapper = ioHolder.getInputStream();
         StringBuffer stringBuffer = ioHolder.getStringBuffer();
-        byte[] bytesToRecv = ioHolder.getBytes();
 
         sendBytes(bytesToSend, outputStreamWrapper);
-        checkIfBytesSuccessfulySent(bytesToRecv, stringBuffer, inputStreamWrapper);
 
         stringBuffer.emptyBuffer();
     }

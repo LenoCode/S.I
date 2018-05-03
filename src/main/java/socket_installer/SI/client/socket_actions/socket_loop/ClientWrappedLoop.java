@@ -15,7 +15,6 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
         ClientGeneralException clientGeneralException = new ClientGeneralException();
 
         while(isProgramRunning() && socketModel.getSocketConfiguration().isSocketOnline()){
-            System.out.println("Ovaj thread zapocinje" + this);
             try{
                 socketModel.activateSocket();
             }catch (SocketExceptions socketExceptions){
