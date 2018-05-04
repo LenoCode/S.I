@@ -28,7 +28,7 @@ public class BufferChecker {
         if (stringIterator != null) {
             while (stringIterator.hasNext()) {
                 String nextString = stringIterator.next();
-                System.out.println(nextString);
+
                 if (!protocolCheck.checkProtocol(nextString, clientSocket)) {
                     clientSocket.getNotificationer().notificationRecv(nextString);
                 }

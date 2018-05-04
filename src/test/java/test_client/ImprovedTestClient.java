@@ -29,6 +29,7 @@ public class ImprovedTestClient {
         String line;
         while(!(line = scanner.nextLine()).equals("Exit")){
             socket.sendMessageToServer(line);
+            socket.activateSocket();
         }
         try {
             socket.getClient().deactivateSocket();

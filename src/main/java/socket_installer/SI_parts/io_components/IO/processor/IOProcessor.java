@@ -1,9 +1,10 @@
 package socket_installer.SI_parts.io_components.IO.processor;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.InputStreamWrapperModel;
+import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.OutputStreamWrapperModel;
 import socket_installer.SI_parts.io_components.IO.holder.IOHolder;
-import socket_installer.SI_parts.io_components.IO.wrapper.InputStreamWrapper;
-import socket_installer.SI_parts.io_components.IO.wrapper.OutputStreamWrapper;
+import socket_installer.SI_parts.io_components.IO.wrapper.client.ClientInputStreamWrapper;
 import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
 import socket_installer.SI_parts.protocol.enum_protocol.BytesStatusProtocol;
 
@@ -26,13 +27,12 @@ public class IOProcessor {
     public void initializeBytesReading(IOHolder ioHolder) throws  IOException,SocketExceptions{
         byte[] bytes = ioHolder.getBytes();
         StringBuffer buffer = ioHolder.getStringBuffer();
-        InputStreamWrapper inputStream = ioHolder.getInputStream();
+        InputStreamWrapperModel inputStream = ioHolder.getInputStream();
         inputStream.read(bytes,buffer);
     }
 
     public void initializeBytesSending(byte[] bytesToSend, IOHolder ioHolder) throws IOException, SocketExceptions {
-        OutputStreamWrapper outputStreamWrapper = ioHolder.getOutputStream();
-        InputStreamWrapper inputStreamWrapper = ioHolder.getInputStream();
+        OutputStreamWrapperModel outputStreamWrapper = ioHolder.getOutputStream();
         StringBuffer stringBuffer = ioHolder.getStringBuffer();
 
         sendBytes(bytesToSend, outputStreamWrapper);
@@ -40,12 +40,12 @@ public class IOProcessor {
         stringBuffer.emptyBuffer();
     }
 
-    private void sendBytes(byte[] bytesToSend, OutputStreamWrapper outputStreamWrapper) throws IOException, SocketExceptions {
+    private void sendBytes(byte[] bytesToSend, OutputStreamWrapperModel outputStreamWrapper) throws IOException, SocketExceptions {
         outputStreamWrapper.send(bytesToSend);
     }
 
 
-    private boolean checkIfBytesSuccessfulySent(byte[] bytesToRecv, StringBuffer buffer, InputStreamWrapper inputStreamWrapper) throws IOException, SocketExceptions {
+    private boolean checkIfBytesSuccessfulySent(byte[] bytesToRecv, StringBuffer buffer, ClientInputStreamWrapper inputStreamWrapper) throws IOException, SocketExceptions {
         inputStreamWrapper.read(bytesToRecv, buffer);
         if (!buffer.getString().equals(BytesStatusProtocol.BYTES_SEND_SUCCESS.completeProtocol())) {
             throw new IOException("KING KONG");
