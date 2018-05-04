@@ -10,7 +10,6 @@ public class StringBuffer {
 
     public void insertToBuffer(int bytesRead,byte[] bytes){
         stringBuffer.append(new String(bytes,0,bytesRead));
-        System.out.println(stringBuffer.toString());
     }
 
     public String getString(){

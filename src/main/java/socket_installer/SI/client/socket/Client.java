@@ -39,7 +39,6 @@ public class Client extends ClientSocket {
 
                 if (actions.getBufferChecker().checkStringBuffer(this)) {
                     waitingForResponse = false;
-                    System.out.println(ioHolder.getStringBuffer().getString());
                 }
             } catch (SocketExceptions socketExceptions) {
                 if (socketExceptions instanceof NoResponseRequestException){

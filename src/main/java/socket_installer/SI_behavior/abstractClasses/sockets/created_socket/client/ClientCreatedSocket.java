@@ -17,15 +17,15 @@ public abstract class ClientCreatedSocket implements CreatedSocketModel {
 
 
     public void sendMessageToServer(String message){
-        boolean messageNotSentStatus = true;
+        int messageSentStatus = -1;
 
-        while(messageNotSentStatus){
+        while(messageSentStatus < 1){
             try{
-                System.out.println("ŠALJEM MESSAGE");
                 Client client = (Client) basicSocket;
                 client.sendMessage(message);
-                messageNotSentStatus = false;
+                messageSentStatus = 1;
             }catch (ClientConnectionAbortException clientAbortException){
+                ++messageSentStatus;
                 clientAbortException.handleException(this.basicSocket);
             } catch (SocketExceptions socketExceptions){
                 //Ovjde treba napraviti exception koji ce izaci iz loopa;

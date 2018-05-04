@@ -30,6 +30,7 @@ public class ConnectedClient extends ClientSocket {
             IOProcessor.getIoProcessor().initializeBytesReading(ioHolder);
 
             if (actions.getBufferChecker().checkStringBuffer(this)){
+                System.out.println("Sending response");
                 actions.getBytesResponder().sendBytesRecv(ioHolder);
                 ioHolder.getStringBuffer().emptyBuffer();
             }

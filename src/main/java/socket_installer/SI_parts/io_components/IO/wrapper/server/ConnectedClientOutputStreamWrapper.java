@@ -14,6 +14,7 @@ public class ConnectedClientOutputStreamWrapper implements OutputStreamWrapperMo
     }
 
     public void send(byte[] bytes) throws IOException, SocketExceptions {
+        System.out.println("Sending files");
         try{
             bufferedOutputStream.write(bytes);
             bufferedOutputStream.flush();
