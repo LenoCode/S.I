@@ -44,7 +44,7 @@ public class ImprovedTestClient {
 
 
     public static ClientCreatedSocket start()throws IOException {
-        Socket socket = new Socket("172.20.2.24",3000);
+        Socket socket = new Socket("192.168.5.18",3000);
         ClientCreatedSocket createdSocket = ClientCreator.createClient(new Notificationer() {
             @Override
             public void notificationRecv(String notification) {

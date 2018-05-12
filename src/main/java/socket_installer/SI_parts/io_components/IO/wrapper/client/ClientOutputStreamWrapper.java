@@ -1,6 +1,7 @@
 package socket_installer.SI_parts.io_components.IO.wrapper.client;
 
-import socket_installer.SI.client.socket_exception.specific_exceptions.connection_break_exception.ClientConnectionAbortException;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
+import socket_installer.SI_parts.exception.client.connection_break_exception.ClientConnectionAbortException;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.OutputStreamWrapperModel;
 
@@ -23,5 +24,9 @@ public class ClientOutputStreamWrapper implements OutputStreamWrapperModel {
         }catch (IOException ioException){
             throw new ClientConnectionAbortException();
         }
+    }
+
+    private void waitForByteToBeSend(ClientInputStreamWrapper clientInputStreamWrapper){
+
     }
 }

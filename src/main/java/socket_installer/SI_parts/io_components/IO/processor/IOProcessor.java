@@ -1,19 +1,25 @@
 package socket_installer.SI_parts.io_components.IO.processor;
 
+
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.InputStreamWrapperModel;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.OutputStreamWrapperModel;
+import socket_installer.SI_parts.data_carriers.response_carrier.ResponseCarrier;
 import socket_installer.SI_parts.io_components.IO.holder.IOHolder;
-import socket_installer.SI_parts.io_components.IO.wrapper.client.ClientInputStreamWrapper;
+import socket_installer.SI_parts.socket_actions.ActionHolder;
+import socket_installer.SI_parts.socket_actions.recv_response.protocol_check.ProtocolCheck;
 import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
-import socket_installer.SI_parts.protocol.enum_protocol.BytesStatusProtocol;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 public class IOProcessor {
     private static IOProcessor ioProcessor;
+    private final ProtocolCheck protocolCheck;
 
     private IOProcessor() {
+        protocolCheck = new ProtocolCheck();
     }
 
     public static IOProcessor getIoProcessor() {
@@ -31,26 +37,35 @@ public class IOProcessor {
         inputStream.read(bytes,buffer);
     }
 
-    public void initializeBytesSending(byte[] bytesToSend, IOHolder ioHolder) throws IOException, SocketExceptions {
+    //OVO SAMO CLIENT KORISTI
+    public void initializeBytesSending(byte[] bytesToSend, ClientSocket clientSocket) throws IOException, SocketExceptions {
+        IOHolder ioHolder = clientSocket.getIOHolder();
         OutputStreamWrapperModel outputStreamWrapper = ioHolder.getOutputStream();
         StringBuffer stringBuffer = ioHolder.getStringBuffer();
 
-        sendBytes(bytesToSend, outputStreamWrapper);
-
-        stringBuffer.emptyBuffer();
-    }
-
-    private void sendBytes(byte[] bytesToSend, OutputStreamWrapperModel outputStreamWrapper) throws IOException, SocketExceptions {
-        outputStreamWrapper.send(bytesToSend);
+        outputStreamWrapper.send(bytesToSend,clientSocket);
     }
 
 
-    private boolean checkIfBytesSuccessfulySent(byte[] bytesToRecv, StringBuffer buffer, ClientInputStreamWrapper inputStreamWrapper) throws IOException, SocketExceptions {
-        inputStreamWrapper.read(bytesToRecv, buffer);
-        if (!buffer.getString().equals(BytesStatusProtocol.BYTES_SEND_SUCCESS.completeProtocol())) {
-            throw new IOException("KING KONG");
+    public void checkBytesReadClient(ActionHolder actionHolder, ClientSocket clientSocket)throws IOException, SocketExceptions{
+        ResponseCarrier responseCarrier = clientSocket.getIOHolder().getResponseCarrier();
+        actionHolder.getBufferChecker().checkStringBuffer(clientSocket);
+
+        if (responseCarrier.getStringResponses() != null){
+            actionHolder.getResponseHandler().parseIteratorForResponse(responseCarrier,clientSocket.getNotificationer(),protocolCheck);
         }
-        return true;
+
+
+
+    }
+    public void checkBytesReadClientConnected(ActionHolder actionHolder, ClientSocket clientSocket)throws IOException, SocketExceptions{
+        ResponseCarrier responseCarrier = clientSocket.getIOHolder().getResponseCarrier();
+        actionHolder.getBufferChecker().checkStringBuffer(clientSocket);
+
+        if (responseCarrier.getStringResponses() != null){
+            actionHolder.getBytesResponder().sendBytesRecv(clientSocket.getIOHolder());
+            actionHolder.getResponseHandler().parseIteratorForResponse(responseCarrier,clientSocket.getNotificationer(),protocolCheck);
+        }
     }
 
 }

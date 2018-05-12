@@ -1,7 +1,7 @@
 package socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client;
 
 import socket_installer.SI.client.socket.Client;
-import socket_installer.SI.client.socket_exception.specific_exceptions.connection_break_exception.ClientConnectionAbortException;
+import socket_installer.SI_parts.exception.client.connection_break_exception.ClientConnectionAbortException;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.BasicSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.CreatedSocketModel;

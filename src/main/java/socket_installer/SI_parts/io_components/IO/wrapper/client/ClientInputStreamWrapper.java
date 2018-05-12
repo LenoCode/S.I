@@ -1,9 +1,9 @@
 package socket_installer.SI_parts.io_components.IO.wrapper.client;
 
-import socket_installer.SI.client.socket_exception.specific_exceptions.connection_break_exception.ClientClosedException;
-import socket_installer.SI.server.socket_exception.specific_exceptions.connection_break_exception.ConnectedClientTimeoutException;
+import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.InputStreamWrapperModel;
+import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
 import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
 
 import java.io.BufferedInputStream;

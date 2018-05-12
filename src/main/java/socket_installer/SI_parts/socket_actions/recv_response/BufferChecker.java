@@ -1,41 +1,28 @@
 package socket_installer.SI_parts.socket_actions.recv_response;
 
-
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_parts.data_carriers.response_carrier.ResponseCarrier;
 import socket_installer.SI_parts.io_components.IO.holder.IOHolder;
 import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
 import socket_installer.SI_parts.socket_actions.recv_response.string_parser.StringParser;
-import socket_installer.SI_parts.socket_actions.recv_response.protocol_check.ProtocolCheck;
+
 
 import java.io.IOException;
-import java.util.Iterator;
 
 public class BufferChecker {
 
-    private final ProtocolCheck protocolCheck;
 
     public BufferChecker() {
-        protocolCheck = new ProtocolCheck();
+
     }
 
-
-    public boolean checkStringBuffer(ClientSocket clientSocket) throws IOException,SocketExceptions {
+    public void checkStringBuffer(ClientSocket clientSocket) throws IOException,SocketExceptions {
         IOHolder ioHolder = clientSocket.getIOHolder();
         StringBuffer stringBuffer = ioHolder.getStringBuffer();
-        Iterator<String> stringIterator = StringParser.getStringParser().parseForStrings(stringBuffer.getString());
+        ResponseCarrier responseCarrier = ioHolder.getResponseCarrier();
 
-        if (stringIterator != null) {
-            while (stringIterator.hasNext()) {
-                String nextString = stringIterator.next();
+        StringParser.getStringParser().parseForStrings(stringBuffer.getString(),responseCarrier);
 
-                if (!protocolCheck.checkProtocol(nextString, clientSocket)) {
-                    clientSocket.getNotificationer().notificationRecv(nextString);
-                }
-            }
-            return true;
-        }
-        return false;
     }
 }

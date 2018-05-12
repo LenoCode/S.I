@@ -11,7 +11,7 @@ public enum TehnicalProtocol {
     }
 
     public String completeProtocol() {
-        return protocol+ GeneralProtocol.END_BYTES.getProtocol();
+        return protocol+ GeneralProtocol.END_DEFINED_BYTES.getProtocol();
     }
 
     public String IdentProtocol(){

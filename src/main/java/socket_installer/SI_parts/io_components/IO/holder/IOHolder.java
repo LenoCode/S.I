@@ -2,6 +2,7 @@ package socket_installer.SI_parts.io_components.IO.holder;
 
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.InputStreamWrapperModel;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.OutputStreamWrapperModel;
+import socket_installer.SI_parts.data_carriers.response_carrier.ResponseCarrier;
 import socket_installer.SI_parts.io_components.IO.wrapper.OutputStreamWrapper;
 import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
 
@@ -15,9 +16,11 @@ public class IOHolder {
     private OutputStreamWrapperModel outputStream;
     private StringBuffer stringBuffer;
     private byte[] bytes;
+    private ResponseCarrier responseCarrier;
 
     public IOHolder(){
         bytes = new byte[10];
+        responseCarrier = new ResponseCarrier();
     }
 
     public void setStringBuffer(StringBuffer stringBuffer) {
@@ -52,5 +55,13 @@ public class IOHolder {
 
     public void setBytes(byte[] bytes) {
         this.bytes = bytes;
+    }
+
+    public ResponseCarrier getResponseCarrier() {
+        return responseCarrier;
+    }
+
+    public void setResponseCarrier(ResponseCarrier responseCarrier) {
+        this.responseCarrier = responseCarrier;
     }
 }

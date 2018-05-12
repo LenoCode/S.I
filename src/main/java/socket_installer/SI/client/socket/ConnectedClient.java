@@ -28,12 +28,7 @@ public class ConnectedClient extends ClientSocket {
 
         while(clientConfiguration.isSocketOnline()){
             IOProcessor.getIoProcessor().initializeBytesReading(ioHolder);
-
-            if (actions.getBufferChecker().checkStringBuffer(this)){
-                System.out.println("Sending response");
-                actions.getBytesResponder().sendBytesRecv(ioHolder);
-                ioHolder.getStringBuffer().emptyBuffer();
-            }
+            IOProcessor.getIoProcessor().checkBytesReadClientConnected(actions,this);
         }
     }
 

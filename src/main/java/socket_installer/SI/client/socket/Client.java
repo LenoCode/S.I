@@ -24,7 +24,7 @@ public class Client extends ClientSocket {
     }
 
     public void sendMessage(String message)throws  IOException, SocketExceptions{
-        byte[] bytes = actions.getCommunicationProtocol().implementSentProtocol(message);
+        byte[] bytes = actions.getCommunicationProtocol().implementSentClientProtocol(message);
         IOProcessor.getIoProcessor().initializeBytesSending(bytes,ioHolder);
     }
 
@@ -34,12 +34,9 @@ public class Client extends ClientSocket {
 
         while (waitingForResponse) {
             try {
-                System.out.println("Waiting response");
                 IOProcessor.getIoProcessor().initializeBytesReading(ioHolder);
+                IOProcessor.getIoProcessor().checkBytesReadClient(actions,this);
 
-                if (actions.getBufferChecker().checkStringBuffer(this)) {
-                    waitingForResponse = false;
-                }
             } catch (SocketExceptions socketExceptions) {
                 if (socketExceptions instanceof NoResponseRequestException){
                     waitingForResponse = false;

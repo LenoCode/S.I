@@ -9,7 +9,7 @@ import java.io.IOException;
 public class BytesRecvResponder {
 
     public void sendBytesRecv(IOHolder ioHolder) throws IOException,SocketExceptions {
-        ioHolder.getOutputStream().send(BytesStatusProtocol.BYTES_SEND_SUCCESS.completeProtocol().getBytes());
+        ioHolder.getOutputStream().send((BytesStatusProtocol.BYTES_SEND_SUCCESS.completeProtocol()+"king kong").getBytes());
     }
     public void sendBytesNotRecv(IOHolder ioHolder) throws IOException,SocketExceptions{
         ioHolder.getOutputStream().send(BytesStatusProtocol.BYTES_SEND_FAILED.completeProtocol().getBytes());
