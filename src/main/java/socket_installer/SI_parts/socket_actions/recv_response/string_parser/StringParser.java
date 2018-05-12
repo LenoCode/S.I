@@ -1,9 +1,13 @@
 package socket_installer.SI_parts.socket_actions.recv_response.string_parser;
-import socket_installer.SI_parts.socket_actions.recv_response.string_parser.enum_parser.RegexParser;
+import socket_installer.SI_parts.data_carriers.carrier_enums.ResponseCarrierEnum;
+import socket_installer.SI_parts.data_carriers.response_carrier.ResponseCarrier;
+
 import socket_installer.SI_parts.protocol.enum_protocol.GeneralProtocol;
+import socket_installer.SI_parts.socket_actions.recv_response.string_parser.enum_parser.RegexParser;
 
 import java.util.Arrays;
 import java.util.Iterator;
+
 
 public class StringParser {
 
@@ -20,10 +24,16 @@ public class StringParser {
         return stringParser;
     }
 
-    public Iterator<String> parseForStrings(String string){
-        if (string.endsWith(GeneralProtocol.END_BYTES.getProtocol())){
-            return Arrays.asList(string.split(RegexParser.END_PROTOCOL.getRegex())).iterator();
+    public void parseForStrings(String string, ResponseCarrier responseCarrier){
+        if (string.contains(GeneralProtocol.END_DEFINED_BYTES.getProtocol())){
+            Iterator<String> iterator = Arrays.asList(new String[]{string}).iterator();
+            responseCarrier.setStringResponses(iterator);
+            responseCarrier.setResponseCarrierEnum(ResponseCarrierEnum.DEFINED_RESPONSE);
         }
-        return null;
+        else if (string.endsWith(GeneralProtocol.END_UNDEFINED_BYTES.getProtocol())){
+            Iterator<String> iterator = Arrays.asList(string.split(RegexParser.END_PROTOCOL.getRegex())).iterator();
+            responseCarrier.setStringResponses(iterator);
+            responseCarrier.setResponseCarrierEnum(ResponseCarrierEnum.UNDEFINED_RESPONSE);
+        }
     }
 }

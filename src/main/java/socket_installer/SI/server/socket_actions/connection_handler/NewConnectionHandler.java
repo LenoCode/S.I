@@ -15,12 +15,10 @@ import java.net.Socket;
 
 public class NewConnectionHandler {
 
-    private final SessionTracker sessionTracker;
 
-    public NewConnectionHandler(){
-        sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
-    }
     public void handleConnection(Notificationer notificationer, Socket clientConnected, int timeout) throws IOException, SocketExceptions{
+        SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
+
         clientConnected.setSoTimeout(timeout);
         ConnectedClient clientSocket = sessionTracker.checkIfSocketExists(clientConnected.getInetAddress().getHostAddress());
 

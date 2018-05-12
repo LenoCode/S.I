@@ -2,7 +2,7 @@ package socket_installer.SI_parts.socket_actions.recv_response.string_parser.enu
 
 public enum RegexParser {
 
-    END_PROTOCOL("[<,/]*END[(]PROTOCOL[_]VERSION[_]'\\d+'[),>]*"),
+    END_PROTOCOL("[<,/]*END\\s(DEFINED|UNDEFINED)[(]PROTOCOL[_]VERSION[_]'\\d+'[),>]*"),
     ;
     private String protocol;
 

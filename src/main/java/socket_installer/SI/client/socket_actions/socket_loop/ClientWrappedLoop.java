@@ -1,7 +1,7 @@
 package socket_installer.SI.client.socket_actions.socket_loop;
 
 
-import socket_installer.SI.client.socket_exception.ClientGeneralException;
+import socket_installer.SI_parts.exception.client.general.ClientGeneralException;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;

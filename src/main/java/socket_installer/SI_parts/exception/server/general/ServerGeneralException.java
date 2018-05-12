@@ -1,4 +1,4 @@
-package socket_installer.SI.server.socket_exception;
+package socket_installer.SI_parts.exception.server.general;
 
 import socket_installer.SI.server.socket.Server;
 import socket_installer.SI.server.socket.ServerConfiguration;

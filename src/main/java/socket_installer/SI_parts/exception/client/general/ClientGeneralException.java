@@ -1,4 +1,4 @@
-package socket_installer.SI.client.socket_exception;
+package socket_installer.SI_parts.exception.client.general;
 
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
 

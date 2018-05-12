@@ -19,8 +19,8 @@ public class Client {
             BufferedInputStream inputStream = new BufferedInputStream(socket.getInputStream());
 
 
-            outputStream.write(socketCommunicationProtocol.implementSentProtocol("Ovo ti je message a ono je samo protokol"));
-            outputStream.write(socketCommunicationProtocol.implementSentProtocol("Novi message a sta ces sad"));
+            outputStream.write(socketCommunicationProtocol.implementSentClientProtocol("Ovo ti je message a ono je samo protokol"));
+            outputStream.write(socketCommunicationProtocol.implementSentClientProtocol("Novi message a sta ces sad"));
             outputStream.flush();
 
             Thread.sleep(1000);
@@ -28,7 +28,7 @@ public class Client {
             if (inputStream.available() == 0){
                 socket.close();
                 System.out.println("Novo otvaram");
-                Socket noviSocket = new Socket("172.20.2.24",3000);
+                Socket noviSocket = new Socket("172.20.2.229",3000);
                 BufferedOutputStream soutputStream = new BufferedOutputStream(noviSocket.getOutputStream());
                 BufferedInputStream sinputStream = new BufferedInputStream(noviSocket.getInputStream());
 

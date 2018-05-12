@@ -1,6 +1,6 @@
 package socket_installer.SI.server.socket_actions.socket_loop;
 
-import socket_installer.SI.server.socket_exception.ServerGeneralException;
+import socket_installer.SI_parts.exception.server.general.ServerGeneralException;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
