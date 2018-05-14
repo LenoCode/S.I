@@ -1,12 +1,9 @@
 package socket_installer.SI_parts.socket_actions.recv_response.string_parser;
-import socket_installer.SI_parts.data_carriers.carrier_enums.ResponseCarrierEnum;
-import socket_installer.SI_parts.data_carriers.response_carrier.ResponseCarrier;
+
 
 import socket_installer.SI_parts.protocol.enum_protocol.GeneralProtocol;
-import socket_installer.SI_parts.socket_actions.recv_response.string_parser.enum_parser.RegexParser;
-
-import java.util.Arrays;
-import java.util.Iterator;
+import socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols.EndDefined;
+import socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols.EndUndefined;
 
 
 public class StringParser {
@@ -24,16 +21,17 @@ public class StringParser {
         return stringParser;
     }
 
-    public void parseForStrings(String string, ResponseCarrier responseCarrier){
-        if (string.contains(GeneralProtocol.END_DEFINED_BYTES.getProtocol())){
-            Iterator<String> iterator = Arrays.asList(new String[]{string}).iterator();
-            responseCarrier.setStringResponses(iterator);
-            responseCarrier.setResponseCarrierEnum(ResponseCarrierEnum.DEFINED_RESPONSE);
+    public GeneralProtocol parseForStrings(String string){
+        if (string.contains(EndDefined.END_DEFINED_BYTES.getProtocol())){
+            return GeneralProtocol.DEFINED;
         }
-        else if (string.endsWith(GeneralProtocol.END_UNDEFINED_BYTES.getProtocol())){
-            Iterator<String> iterator = Arrays.asList(string.split(RegexParser.END_PROTOCOL.getRegex())).iterator();
-            responseCarrier.setStringResponses(iterator);
-            responseCarrier.setResponseCarrierEnum(ResponseCarrierEnum.UNDEFINED_RESPONSE);
+        else if (string.endsWith(EndUndefined.END_UNDEFINED_BYTES.getProtocol())){
+            System.out.println("STRING PARSER:   BYTES ENDWITH   "+string );
+            return GeneralProtocol.UNDEFINED;
         }
+        else if (string.length() > 0){
+            return GeneralProtocol.UNFINISHED_DATA;
+        }
+        return GeneralProtocol.NO_DATA;
     }
 }

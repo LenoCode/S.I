@@ -3,11 +3,13 @@ package socket_installer.SI.client.socket;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_parts.exception.default_exception.NoResponseRequestException;
-import socket_installer.SI_parts.io_components.IO.holder.IOHolder;
-import socket_installer.SI_parts.io_components.IO.processor.IOProcessor;
-import socket_installer.SI_parts.io_components.IO.wrapper.client.ClientInputStreamWrapper;
-import socket_installer.SI_parts.io_components.IO.wrapper.client.ClientOutputStreamWrapper;
+import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.PacketProcessor;
+import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
+import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
+
+import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
+import socket_installer.SI_parts.IO.wrapper.client.ClientInputStreamWrapper;
+import socket_installer.SI_parts.IO.wrapper.client.ClientOutputStreamWrapper;
 import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
 
 import java.io.BufferedInputStream;
@@ -23,30 +25,13 @@ public class Client extends ClientSocket {
         super(clientSocket);
     }
 
-    public void sendMessage(String message)throws  IOException, SocketExceptions{
-        byte[] bytes = actions.getCommunicationProtocol().implementSentClientProtocol(message);
-        IOProcessor.getIoProcessor().initializeBytesSending(bytes,ioHolder);
+    public boolean sendMessage(PacketRequest packetHolder)throws  IOException, SocketExceptions{
+        return PacketProcessor.getPacketProcessor(this).sendPacket(packetHolder);
     }
 
     @Override
     public void activateSocket() throws IOException, SocketExceptions {
-        boolean waitingForResponse = true;
 
-        while (waitingForResponse) {
-            try {
-                IOProcessor.getIoProcessor().initializeBytesReading(ioHolder);
-                IOProcessor.getIoProcessor().checkBytesReadClient(actions,this);
-
-            } catch (SocketExceptions socketExceptions) {
-                if (socketExceptions instanceof NoResponseRequestException){
-                    waitingForResponse = false;
-                }else{
-                    throw socketExceptions;
-                }
-            } catch (IOException ioException) {
-                System.out.println("IoException se pojavio");
-            }
-        }
     }
 
     @Override
@@ -55,6 +40,13 @@ public class Client extends ClientSocket {
         ioHolder = new IOHolder();
         setupStream(clientSocket);
         ioHolder.setStringBuffer(new StringBuffer());
+    }
+
+    public void reconnectSocket() throws IOException, SocketExceptions{
+        deactivateSocket();
+        Socket socket = new Socket(socketConfiguration.getIpAddress(),socketConfiguration.getPort());
+        System.out.println("new socket");
+        replaceSocket(socket);
     }
 
     @Override

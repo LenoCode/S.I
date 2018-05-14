@@ -1,15 +1,32 @@
 package general;
 
 
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols.BytesStatusProtocol;
+import socket_installer.SI_parts.socket_actions.recv_response.BufferChecker;
+import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
+
+import java.io.IOException;
+
 public class Main {
 
 
     public static void main(String[] args){
-        String a = new String("Split da vidimo</END SERVER(PROTOCOL_VERSION_'1')>Nova recinica");
+        StringBuffer stringBuffer = new StringBuffer();
+        BufferChecker bufferChecker = new BufferChecker();
+        String k = BytesStatusProtocol.BYTES_SEND_SUCCESS.completeProtocol()+"123456789";
 
-
-        for (String c : a.split("[<,/]*END\\s(SERVER|CLIENT)[(]PROTOCOL[_]VERSION[_]'\\d+'[),>]*")){
-            System.out.println(c);
+        stringBuffer.insertToBuffer(k.length(),k.getBytes());
+        try {
+            System.out.println(bufferChecker.checkStringBuffer(stringBuffer));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SocketExceptions socketExceptions) {
+            socketExceptions.printStackTrace();
         }
+        k = " novi string";
+        stringBuffer.insertToBuffer(k.length(), k.getBytes());
+        System.out.println(stringBuffer.getString());
+
     }
 }

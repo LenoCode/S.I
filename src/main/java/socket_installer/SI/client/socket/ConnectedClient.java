@@ -3,10 +3,13 @@ package socket_installer.SI.client.socket;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_parts.io_components.IO.holder.IOHolder;
-import socket_installer.SI_parts.io_components.IO.processor.IOProcessor;
-import socket_installer.SI_parts.io_components.IO.wrapper.server.ConnectedClientInputStreamWrapper;
-import socket_installer.SI_parts.io_components.IO.wrapper.server.ConnectedClientOutputStreamWrapper;
+import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.PacketProcessor;
+import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
+import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
+import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
+import socket_installer.SI_parts.IO.holder.packet_holder.PacketResponse;
+import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientInputStreamWrapper;
+import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientOutputStreamWrapper;
 import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
 
 import java.io.BufferedInputStream;
@@ -27,8 +30,9 @@ public class ConnectedClient extends ClientSocket {
         ClientConfiguration clientConfiguration = (ClientConfiguration) getSocketConfiguration();
 
         while(clientConfiguration.isSocketOnline()){
-            IOProcessor.getIoProcessor().initializeBytesReading(ioHolder);
-            IOProcessor.getIoProcessor().checkBytesReadClientConnected(actions,this);
+            System.out.println("Listening");
+            PacketHolder packetHolder = new PacketResponse(this);
+            PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder);
         }
     }
 

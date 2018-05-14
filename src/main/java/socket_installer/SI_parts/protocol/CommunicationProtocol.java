@@ -1,8 +1,8 @@
 package socket_installer.SI_parts.protocol;
 
 
-import socket_installer.SI_parts.protocol.enum_protocol.ClientProtocol;
-import socket_installer.SI_parts.protocol.enum_protocol.TehnicalProtocol;
+import socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols.ClientProtocol;
+import socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols.TehnicalProtocol;
 
 public class CommunicationProtocol {
 

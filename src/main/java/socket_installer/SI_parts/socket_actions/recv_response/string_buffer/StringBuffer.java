@@ -1,5 +1,7 @@
 package socket_installer.SI_parts.socket_actions.recv_response.string_buffer;
 
+import java.util.Iterator;
+
 public class StringBuffer {
 
     private final StringBuilder stringBuffer;
@@ -19,5 +21,4 @@ public class StringBuffer {
     public void emptyBuffer(){
         stringBuffer.setLength(0);
     }
-
 }

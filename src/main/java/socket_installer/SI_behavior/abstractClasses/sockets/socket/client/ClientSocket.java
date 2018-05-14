@@ -4,7 +4,7 @@ import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.BasicSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.IOHolderSetupMethodModel;
-import socket_installer.SI_parts.io_components.IO.holder.IOHolder;
+import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.socket_actions.ActionHolder;
 
 
@@ -31,6 +31,10 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
 
     public IOHolder getIOHolder() {
         return ioHolder;
+    }
+
+    public ActionHolder getActions(){
+        return actions;
     }
 
 }
