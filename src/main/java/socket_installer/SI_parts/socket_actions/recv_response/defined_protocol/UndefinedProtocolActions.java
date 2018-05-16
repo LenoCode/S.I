@@ -31,7 +31,6 @@ public class UndefinedProtocolActions {
         //OVAJ DIIO TREBA ZAVRSITI, NAPRAVITI KAKO CE SE REAGIRATI KAD U JEDNOM STRINGU IMAMO VISE REQUESTA, I DALI DA TU RADIMO NOTIFICATIONR NOTIFY
 
         if (string.substring(0,firstPartOfProtocolIndex).equals(protocolDefinedModelString.substring(0,firstPartOfProtocolIndex))){
-            System.out.println("LINIJA 31, FILE UNDEFINED PROTOCOL ACTIONS     "+protocolDefinedModelString);
             return protocolUndefinedModel.getProccessorEnum();
         }
         else if (string.length() > protocolDefinedModelString.length()){

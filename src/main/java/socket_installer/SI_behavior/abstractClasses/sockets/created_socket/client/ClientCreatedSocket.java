@@ -18,21 +18,22 @@ public abstract class ClientCreatedSocket implements CreatedSocketModel {
     }
 
 
-    public void sendMessageToServer(String message){
+    public boolean sendMessageToServer(String message){
         try{
             message = String.format(ClientProtocol.SEND_MESSAGE.completeProtocol(),message);
             Client client = (Client) basicSocket;
             PacketRequest packetRequest = new PacketRequest(client,message);
             client.sendMessage(packetRequest);
+            return true;
         }catch (ClientConnectionAbortException clientAbortException){
-            System.out.println("Client abortion");
             clientAbortException.handleException(this.basicSocket);
-            System.out.println("Client exception done");
+            return false;
         } catch (SocketExceptions socketExceptions){
-            System.out.println("Tu sam a disi ti");
-            socketExceptions.printStackTrace();
+            socketExceptions.handleException(basicSocket);
+            return false;
         }catch (IOException ioException){
-            //Ovjde treba napraviti exception koji ce izaci iz loopa;
+           ioException.printStackTrace();
+           return false;
         }
     }
     public void activateSocket(){

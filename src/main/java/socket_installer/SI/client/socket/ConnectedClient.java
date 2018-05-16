@@ -30,7 +30,6 @@ public class ConnectedClient extends ClientSocket {
         ClientConfiguration clientConfiguration = (ClientConfiguration) getSocketConfiguration();
 
         while(clientConfiguration.isSocketOnline()){
-            System.out.println("Listening");
             PacketHolder packetHolder = new PacketResponse(this);
             PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder);
         }

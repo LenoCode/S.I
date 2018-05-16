@@ -1,6 +1,5 @@
 package socket_installer.SI_parts.socket_actions.recv_response.string_buffer;
 
-import java.util.Iterator;
 
 public class StringBuffer {
 

@@ -8,6 +8,7 @@ import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
+import socket_installer.SI_parts.IO.holder.packet_holder.PacketResponse;
 import socket_installer.SI_parts.IO.wrapper.client.ClientInputStreamWrapper;
 import socket_installer.SI_parts.IO.wrapper.client.ClientOutputStreamWrapper;
 import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
@@ -31,7 +32,9 @@ public class Client extends ClientSocket {
 
     @Override
     public void activateSocket() throws IOException, SocketExceptions {
-
+        System.out.println("READING DATA");
+        PacketHolder packetHolder = new PacketResponse(this);
+        PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder);
     }
 
     @Override

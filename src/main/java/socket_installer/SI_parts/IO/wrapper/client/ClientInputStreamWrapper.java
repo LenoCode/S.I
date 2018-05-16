@@ -32,6 +32,7 @@ public class ClientInputStreamWrapper implements InputStreamWrapperModel {
         catch (SocketTimeoutException socketTimeoutException){
             throw new ConnectedClientTimeoutException();
         }catch (IOException ioException){
+            System.out.println("Bacam exception");
             throw new ClientClosedException();
         }
     }

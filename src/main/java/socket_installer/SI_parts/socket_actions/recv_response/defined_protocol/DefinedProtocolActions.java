@@ -26,15 +26,13 @@ public class DefinedProtocolActions {
     }
     private ProcessorsEnums checkProtocolModel(String string,ProtocolDefinedModel protocolDefinedModel,StringBuffer stringBuffer){
         String protocolDefinedModelString = protocolDefinedModel.completeProtocol();
-        System.out.println(protocolDefinedModelString + "              " +string);
+
         if (string.length() == protocolDefinedModelString.length() && string.equals(protocolDefinedModelString)){
             //TREBA TESTIRATI DA VIDIMO DA LI JE NABOLJE OVDJE POCISTITI STRING BUFFER
             stringBuffer.emptyBuffer();
-            System.out.println("Prode dobro je" + protocolDefinedModel.getProccessorEnum());
             return protocolDefinedModel.getProccessorEnum();
         }
-        else if (string.length() > protocolDefinedModelString.length()){
-            System.out.println("Tu ne bi trebao uci");
+        else if (string.contains(protocolDefinedModelString) && string.length() > protocolDefinedModelString.length()){
             if (stripStringForStatus(string,protocolDefinedModelString,stringBuffer)){
                 return protocolDefinedModel.getProccessorEnum();
             }

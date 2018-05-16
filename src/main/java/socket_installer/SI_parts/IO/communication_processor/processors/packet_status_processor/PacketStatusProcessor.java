@@ -33,8 +33,10 @@ public class PacketStatusProcessor {
             packetHolder.setPacketStatus(status);
         } catch (ConnectedClientTimeoutException socketTimeoutException){
             packetHolder.setPacketStatus(ProcessorsEnums.increaseProccesorCount(packetHolder.getPacketStatus()));
-        }catch (IOException ioException){
-            throw new ClientClosedException();
+        } catch (ClientClosedException clientClosedException){
+            packetHolder.setPacketStatus(ProcessorsEnums.SOCKET_CLOSED);
+        }catch(IOException ioException){
+            throw ioException;
         }
 
     }

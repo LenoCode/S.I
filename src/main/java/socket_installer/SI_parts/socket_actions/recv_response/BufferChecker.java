@@ -41,7 +41,6 @@ public class BufferChecker {
             return undefinedProtocolActions.protocolUndefined(stringBuffer);
         }
         else if (generalProtocol == GeneralProtocol.UNFINISHED_DATA){
-            System.out.println("BUFFER CHECKER"+  "TU SAM UNFISNIHED DATA" + stringBuffer.getString());
             return ProcessorsEnums.DATA_INCOMPLETE;
         }
         else{

@@ -10,7 +10,7 @@ public class ClientClosedException extends SocketExceptions {
     @Override
     public void handleException(SocketModel socketModel) {
         try {
-            System.out.println("King kong");
+            System.out.println("ISKLJUCIT CU SE");
             socketModel.deactivateSocket();
         } catch (IOException e) {
             e.printStackTrace();

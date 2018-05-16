@@ -49,14 +49,14 @@ class ClientPacketProcessor extends PacketProcessor {
     @Override
     public boolean isPacketSending(PacketHolder packetHolder) throws IOException, SocketExceptions {
         Client client = (Client) packetHolder.getClientSocket();
-        //System.out.println(packetHolder.getPacketStatus() + "      "+client.getIOHolder().getStringBuffer().getString());
+        System.out.println(packetHolder.getPacketStatus());
         switch (packetHolder.getPacketStatus()){
             case INITILIAZED:
                 return isPacketSendingInitilazed();
             case FIRST_TRY:
-                return isPacketSendingFirstTrySecondTry(client);
+                return isPacketSendingFirstTrySecondTry();
             case SECOND_TRY:
-                return isPacketSendingFirstTrySecondTry(client);
+                return isPacketSendingFirstTrySecondTry();
             case THIRD_TRY:
                 throw new ClientClosedException();
             case DATA_INCOMPLETE:
@@ -72,8 +72,7 @@ class ClientPacketProcessor extends PacketProcessor {
     private boolean isPacketSendingInitilazed(){
         return true;
     }
-    private boolean isPacketSendingFirstTrySecondTry(Client client)throws IOException,SocketExceptions{
-        client.reconnectSocket();
+    private boolean isPacketSendingFirstTrySecondTry()throws IOException,SocketExceptions{
         return true;
     }
     private boolean isPacketSendingDataIncomplete(){
@@ -94,21 +93,35 @@ class ClientPacketProcessor extends PacketProcessor {
 
         switch (packetHolder.getPacketStatus()){
             case INITILIAZED:
-                return true;
+                return isDataIncompleteInitilazed();
             case FIRST_TRY:
-                return true;
+                return isDataIncompleteFirstTrySecondTryThirdTry((Client)packetHolder.getClientSocket());
             case SECOND_TRY:
-                return true;
+                return isDataIncompleteFirstTrySecondTryThirdTry((Client)packetHolder.getClientSocket());
             case THIRD_TRY:
-                return true;
+                return isDataIncompleteFirstTrySecondTryThirdTry((Client)packetHolder.getClientSocket());
             case DATA_INCOMPLETE:
-                return true;
+                return isDataIncomplete();
             case DATA_COMPLETE:
-                return false;
+                return isDataIncompleteComplete();
             case DATA_RECV_FAILED:
                 throw new ConnectedClientTimeoutException();
             default:
                 throw new ConnectedClientTimeoutException();
         }
+    }
+
+    private boolean isDataIncompleteInitilazed(){
+        return true;
+    }
+    private boolean isDataIncompleteFirstTrySecondTryThirdTry(Client client)throws IOException,SocketExceptions{
+        client.reconnectSocket();
+        return true;
+    }
+    private boolean isDataIncomplete(){
+        return true;
+    }
+    private boolean isDataIncompleteComplete(){
+        return false;
     }
 }

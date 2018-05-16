@@ -28,8 +28,11 @@ public class ImprovedTestClient {
 
         String line;
         while(!(line = scanner.nextLine()).equals("Exit")){
-            socket.sendMessageToServer(line);
-            socket.activateSocket();
+            if (socket.sendMessageToServer(line)){
+                socket.activateSocket();
+            }else{
+                System.out.println("Poruka nije poslana");
+            }
         }
         try {
             socket.getClient().deactivateSocket();
@@ -45,7 +48,7 @@ public class ImprovedTestClient {
 
     public static ClientCreatedSocket start()throws IOException {
         Socket socket = new Socket("172.20.2.229",3000);
-        socket.setSoTimeout(50000);
+        socket.setSoTimeout(10);
         ClientCreatedSocket createdSocket = ClientCreator.createClient(new Notificationer() {
             @Override
             public void notificationRecv(String notification) {
