@@ -26,7 +26,6 @@ public class StringParser {
             return GeneralProtocol.DEFINED;
         }
         else if (string.endsWith(EndUndefined.END_UNDEFINED_BYTES.getProtocol())){
-            System.out.println("STRING PARSER:   BYTES ENDWITH   "+string );
             return GeneralProtocol.UNDEFINED;
         }
         else if (string.length() > 0){

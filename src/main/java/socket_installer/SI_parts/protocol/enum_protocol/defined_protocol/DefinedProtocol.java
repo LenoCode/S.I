@@ -5,29 +5,26 @@ import socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protoco
 import socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols.TehnicalProtocol;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
 public class DefinedProtocol {
     private static DefinedProtocol definedProtocol;
 
-    private final Iterator<ProtocolDefinedModel> iterator;
+    private final ArrayList<ProtocolDefinedModel> protocolDefinedModelList;
 
     private DefinedProtocol(){
-        List<ProtocolDefinedModel> protocolDefinedModelList = new ArrayList<>();
+        protocolDefinedModelList = new ArrayList<>();
         ProtocolDefinedModel[] tehnicalProtocol = TehnicalProtocol.values();
         ProtocolDefinedModel[] bytesStatusProtocols = BytesStatusProtocol.values();
 
-        loadIterator(protocolDefinedModelList,tehnicalProtocol);
-        loadIterator(protocolDefinedModelList,bytesStatusProtocols);
+        loadIterator(tehnicalProtocol);
+        loadIterator(bytesStatusProtocols);
 
-        iterator = protocolDefinedModelList.iterator();
     }
-    private void loadIterator(List<ProtocolDefinedModel> protocolDefinedModel,ProtocolDefinedModel[] protocolDefinedModels){
-        for (ProtocolDefinedModel model : protocolDefinedModels){
-            protocolDefinedModel.add(model);
-        }
-
+    private void loadIterator(ProtocolDefinedModel[] protocolDefinedModels){
+        protocolDefinedModelList.addAll(Arrays.asList(protocolDefinedModels));
     }
     public static DefinedProtocol getDefinedProtocol(){
         if (definedProtocol == null){
@@ -37,6 +34,6 @@ public class DefinedProtocol {
     }
 
     public Iterator<ProtocolDefinedModel> getDefinedProtocolIterator(){
-        return iterator;
+        return protocolDefinedModelList.iterator();
     }
 }

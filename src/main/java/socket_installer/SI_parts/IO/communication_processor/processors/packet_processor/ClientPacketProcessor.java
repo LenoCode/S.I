@@ -24,8 +24,10 @@ class ClientPacketProcessor extends PacketProcessor {
         IOHolder ioHolder = clientSocket.getIOHolder();
         String message = ((PacketRequest)packetHolder).getRequest();
 
-        sendData(message, ioHolder.getOutputStream());
         while(isPacketSending(packetHolder)){
+            if (packetHolder.getPacketStatus() == INITILIAZED){
+                sendData(message, ioHolder.getOutputStream());
+            }
             packetStatusProcessor.checkPacketStatus(packetHolder);
         }
         System.out.println(ioHolder.getStringBuffer().getString());
@@ -47,28 +49,45 @@ class ClientPacketProcessor extends PacketProcessor {
     @Override
     public boolean isPacketSending(PacketHolder packetHolder) throws IOException, SocketExceptions {
         Client client = (Client) packetHolder.getClientSocket();
-        System.out.println(packetHolder.getPacketStatus() + "      "+client.getIOHolder().getStringBuffer().getString());
+        //System.out.println(packetHolder.getPacketStatus() + "      "+client.getIOHolder().getStringBuffer().getString());
         switch (packetHolder.getPacketStatus()){
             case INITILIAZED:
-                return true;
-            case FIRST_TRY: {
-                client.reconnectSocket();
-                return true;
-            }
-            case SECOND_TRY:{
-                client.reconnectSocket();
-                return true;
-            }
+                return isPacketSendingInitilazed();
+            case FIRST_TRY:
+                return isPacketSendingFirstTrySecondTry(client);
+            case SECOND_TRY:
+                return isPacketSendingFirstTrySecondTry(client);
             case THIRD_TRY:
                 throw new ClientClosedException();
             case DATA_INCOMPLETE:
-                return true;
+                return isPacketSendingDataIncomplete();
+            case SOCKET_CLOSED:
+                return isPacketSendingDataSocketClosed(packetHolder,client);
             case BYTES_SENT_SUCCESS:
-                return false;
+                return isPacketSendingDataBytesSuccess();
             default:
                 throw new ClientClosedException();
         }
     }
+    private boolean isPacketSendingInitilazed(){
+        return true;
+    }
+    private boolean isPacketSendingFirstTrySecondTry(Client client)throws IOException,SocketExceptions{
+        client.reconnectSocket();
+        return true;
+    }
+    private boolean isPacketSendingDataIncomplete(){
+        return true;
+    }
+    private boolean isPacketSendingDataSocketClosed(PacketHolder packetHolder,Client client)throws IOException, SocketExceptions{
+        client.reconnectSocket();
+        packetHolder.setPacketStatus(INITILIAZED);
+        return true;
+    }
+    private boolean isPacketSendingDataBytesSuccess(){
+        return false;
+    }
+
 
     @Override
     public boolean isDataUncomplete(PacketHolder packetHolder) throws IOException, SocketExceptions {

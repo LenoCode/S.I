@@ -4,26 +4,22 @@ import socket_installer.SI_behavior.interfaces.enums.IO_enums.protocol.ProtocolU
 import socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols.ClientProtocol;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
 
 public class UndefinedProtocol {
     private static UndefinedProtocol undefinedProtocol;
 
-    private final Iterator<ProtocolUndefinedModel> iterator;
+    private final ArrayList<ProtocolUndefinedModel> protocolUndefinedModelList;
 
     private UndefinedProtocol(){
-        List<ProtocolUndefinedModel> protocolDefinedModelList = new ArrayList<>();
+        protocolUndefinedModelList = new ArrayList<>();
         ProtocolUndefinedModel[] clientProtocol = ClientProtocol.values();
 
-        loadIterator(protocolDefinedModelList,clientProtocol);
-
-        iterator = protocolDefinedModelList.iterator();
+        loadIterator(clientProtocol);
     }
-    private void loadIterator(List<ProtocolUndefinedModel> protocolUndefinedModelList,ProtocolUndefinedModel[] protocolUndefinedModels){
-        for (ProtocolUndefinedModel model : protocolUndefinedModels){
-            protocolUndefinedModelList.add(model);
-        }
+    private void loadIterator(ProtocolUndefinedModel[] protocolUndefinedModels){
+        protocolUndefinedModelList.addAll(Arrays.asList(protocolUndefinedModels));
 
     }
     public static UndefinedProtocol getUndefinedProtocol(){
@@ -34,6 +30,7 @@ public class UndefinedProtocol {
     }
 
     public Iterator<ProtocolUndefinedModel> getDefinedProtocolIterator(){
-        return iterator;
+        return protocolUndefinedModelList.iterator();
+
     }
 }

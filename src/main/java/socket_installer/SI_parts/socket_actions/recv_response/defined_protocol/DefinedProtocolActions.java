@@ -13,6 +13,7 @@ public class DefinedProtocolActions {
         String string = stringBuffer.getString();
         Iterator<ProtocolDefinedModel> protocolDefinedModelIterator = DefinedProtocol.getDefinedProtocol().getDefinedProtocolIterator();
 
+        //ITERATOR TREBA RESETIRATI,STO ZNACI DA TREBAM IMATE REFERENCU NA ARRAY LIST A NE NA ITERATOR
         while(protocolDefinedModelIterator.hasNext()){
             ProtocolDefinedModel protocolDefinedModel =protocolDefinedModelIterator.next();
             ProcessorsEnums processorsEnum;
@@ -25,11 +26,15 @@ public class DefinedProtocolActions {
     }
     private ProcessorsEnums checkProtocolModel(String string,ProtocolDefinedModel protocolDefinedModel,StringBuffer stringBuffer){
         String protocolDefinedModelString = protocolDefinedModel.completeProtocol();
-
+        System.out.println(protocolDefinedModelString + "              " +string);
         if (string.length() == protocolDefinedModelString.length() && string.equals(protocolDefinedModelString)){
-               return protocolDefinedModel.getProccessorEnum();
+            //TREBA TESTIRATI DA VIDIMO DA LI JE NABOLJE OVDJE POCISTITI STRING BUFFER
+            stringBuffer.emptyBuffer();
+            System.out.println("Prode dobro je" + protocolDefinedModel.getProccessorEnum());
+            return protocolDefinedModel.getProccessorEnum();
         }
         else if (string.length() > protocolDefinedModelString.length()){
+            System.out.println("Tu ne bi trebao uci");
             if (stripStringForStatus(string,protocolDefinedModelString,stringBuffer)){
                 return protocolDefinedModel.getProccessorEnum();
             }

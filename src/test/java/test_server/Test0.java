@@ -12,13 +12,13 @@ public class Test0 {
 
     public static void main(String[] args){
 
-        final ServerCreatedSocket server= ServerCreator.createServer("172.20.8.106", new Notificationer() {
+        final ServerCreatedSocket server= ServerCreator.createServer("172.20.2.229", new Notificationer() {
 
             @Override
             public void notificationRecv(String notification) {
                 System.out.println("NOTIFICATION :    "+notification);
             }
-        }, 3000, 2, 5000);
+        }, 3000, 2, 50);
 
         new Thread(new Runnable() {
             @Override
