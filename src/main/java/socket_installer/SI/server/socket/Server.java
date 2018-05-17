@@ -25,6 +25,7 @@ public class Server extends BasicSocket {
 
         while(serverConfiguration.isSocketOnline()){
             Socket socketConnectedToServer = serverSocket.accept();
+            System.out.println("New client connected");
             newConnectionHandler.handleConnection(getNotificationer(),socketConnectedToServer,serverConfiguration.getTimeout());
         }
     }
