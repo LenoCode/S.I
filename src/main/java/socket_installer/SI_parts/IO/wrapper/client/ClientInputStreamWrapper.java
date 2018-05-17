@@ -4,7 +4,7 @@ import socket_installer.SI_parts.exception.client.connection_break_exception.Cli
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.InputStreamWrapperModel;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
-import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -32,7 +32,6 @@ public class ClientInputStreamWrapper implements InputStreamWrapperModel {
         catch (SocketTimeoutException socketTimeoutException){
             throw new ConnectedClientTimeoutException();
         }catch (IOException ioException){
-            System.out.println("Bacam exception");
             throw new ClientClosedException();
         }
     }

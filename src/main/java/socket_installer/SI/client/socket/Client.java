@@ -3,7 +3,7 @@ package socket_installer.SI.client.socket;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.PacketProcessor;
+import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 
@@ -11,7 +11,7 @@ import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketResponse;
 import socket_installer.SI_parts.IO.wrapper.client.ClientInputStreamWrapper;
 import socket_installer.SI_parts.IO.wrapper.client.ClientOutputStreamWrapper;
-import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -32,9 +32,10 @@ public class Client extends ClientSocket {
 
     @Override
     public void activateSocket() throws IOException, SocketExceptions {
-        System.out.println("READING DATA");
         PacketHolder packetHolder = new PacketResponse(this);
-        PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder);
+        if (PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder)){
+            PacketProcessor.getPacketProcessor(this).notify(this);
+        }
     }
 
     @Override
@@ -48,7 +49,9 @@ public class Client extends ClientSocket {
     public void reconnectSocket() throws IOException, SocketExceptions{
         deactivateSocket();
         Socket socket = new Socket(socketConfiguration.getIpAddress(),socketConfiguration.getPort());
-        System.out.println("new socket");
+        System.out.println("SIMULIRAM CRASH MREZE -");
+        System.out.println("SIMULIRAM CRACH MREZE -----");
+        System.out.println("KONEKCIJA PONOVO USPOSTAVLJENA, SUSTAV OZIVLJEN........");
         replaceSocket(socket);
     }
 

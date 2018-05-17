@@ -8,9 +8,9 @@ import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
-import socket_installer.SI_parts.socket_actions.ActionHolder;
-import socket_installer.SI_parts.socket_actions.recv_response.BufferChecker;
-import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
+import socket_installer.SI_parts.actionHolder.ActionHolder;
+import socket_installer.SI_parts.actionHolder.actions.buffer_checker.BufferChecker;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class PacketStatusProcessor {
 
 
     public void checkPacketStatus(PacketHolder packetHolder) throws IOException, SocketExceptions {
-
+        //OVA INICIJALIZACIJA SE CINI UZASNO NEPOTREBNA,TREBA NACI NEKI DRUGI NACIN
         ClientSocket clientSocket = packetHolder.getClientSocket();
         IOHolder ioHolder = clientSocket.getIOHolder();
         ActionHolder actionHolder = clientSocket.getActions();
@@ -41,18 +41,4 @@ public class PacketStatusProcessor {
 
     }
 
-   /* private ProcessorsEnums increaseNumberOfTries(ProcessorsEnums processorsEnums){
-        switch (processorsEnums){
-            case INITILIAZED:
-                return ProcessorsEnums.FIRST_TRY;
-            case FIRST_TRY:
-                return ProcessorsEnums.SECOND_TRY;
-            case SECOND_TRY:
-                return ProcessorsEnums.THIRD_TRY;
-            case THIRD_TRY:
-                return ProcessorsEnums.DATA_RECV_FAILED;
-            default:
-                return ProcessorsEnums.DATA_RECV_FAILED;
-        }
-    }*/
 }

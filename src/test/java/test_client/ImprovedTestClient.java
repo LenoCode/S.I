@@ -3,7 +3,8 @@ package test_client;
 import socket_installer.SI.socket_creation.client.ClientCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.Notificationer;
+import socket_installer.SI_behavior.abstractClasses.user_implementation.notificationer.Notificationer;
+import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.NotificationerModel;
 
 
 import java.io.IOException;
@@ -28,10 +29,17 @@ public class ImprovedTestClient {
 
         String line;
         while(!(line = scanner.nextLine()).equals("Exit")){
-            if (socket.sendMessageToServer(line)){
-                socket.activateSocket();
-            }else{
-                System.out.println("Poruka nije poslana");
+            for (int i=0; i<9999999; ++i) {
+                if (socket.sendMessageToServer(line+"- number of iteration  "+i)) {
+                    socket.activateSocket();
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    System.out.println("Poruka nije poslana");
+                }
             }
         }
         try {
@@ -52,7 +60,7 @@ public class ImprovedTestClient {
         ClientCreatedSocket createdSocket = ClientCreator.createClient(new Notificationer() {
             @Override
             public void notificationRecv(String notification) {
-                System.out.println("Ovo je notification :   "+notification);
+                System.out.println("NOTIFICATION :    "+notification);
             }
         }, socket);
 

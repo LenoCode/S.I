@@ -3,7 +3,7 @@ package socket_installer.SI_parts.IO.holder.io_holder;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.InputStreamWrapperModel;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.OutputStreamWrapperModel;
 
-import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
 
 
 

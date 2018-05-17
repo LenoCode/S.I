@@ -19,7 +19,6 @@ public class ClientOutputStreamWrapper implements OutputStreamWrapperModel {
         try{
             bufferedOutputStream.write(bytes);
             bufferedOutputStream.flush();
-            System.out.println("Sent the files");
         }catch (IOException ioException){
             throw new ClientConnectionAbortException();
         }

@@ -3,14 +3,13 @@ package socket_installer.SI.client.socket;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.PacketProcessor;
-import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
+import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketResponse;
 import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientInputStreamWrapper;
 import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientOutputStreamWrapper;
-import socket_installer.SI_parts.socket_actions.recv_response.string_buffer.StringBuffer;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -31,7 +30,9 @@ public class ConnectedClient extends ClientSocket {
 
         while(clientConfiguration.isSocketOnline()){
             PacketHolder packetHolder = new PacketResponse(this);
-            PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder);
+            if (PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder)){
+                PacketProcessor.getPacketProcessor(this).notify(this);
+            }
         }
     }
 

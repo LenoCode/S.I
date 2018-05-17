@@ -11,12 +11,11 @@ public class OutputStreamWrapper {
     public OutputStreamWrapper(BufferedOutputStream bufferedOutputStream) {
         this.bufferedOutputStream = bufferedOutputStream;
     }
-
+    //OVO MOZDA MOGU BOLJE NAPRAVITI DA NE MORAM U OSTALIM KLASAMA OVU METODU OVERRIDAT, NAPRAVITI INTERFACE
     public void send(byte[] bytes) throws IOException, SocketExceptions {
         try{
             bufferedOutputStream.write(bytes);
             bufferedOutputStream.flush();
-            System.out.println("Sent the files");
         }catch (IOException ioException){
             //Neki specific error, koji ce handlat,da memoriamo poruku koja se nije poslala pa je probati ponovo poslati....
             ioException.printStackTrace();

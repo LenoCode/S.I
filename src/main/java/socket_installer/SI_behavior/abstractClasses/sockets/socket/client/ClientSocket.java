@@ -5,7 +5,7 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket.BasicSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.IOHolderSetupMethodModel;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
-import socket_installer.SI_parts.socket_actions.ActionHolder;
+import socket_installer.SI_parts.actionHolder.ActionHolder;
 
 
 import java.io.IOException;

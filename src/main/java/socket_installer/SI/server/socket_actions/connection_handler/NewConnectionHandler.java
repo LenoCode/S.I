@@ -6,7 +6,8 @@ import socket_installer.SI.socket_creation.client.ClientCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.connected_client.ConnectedClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.Notificationer;
+import socket_installer.SI_behavior.abstractClasses.user_implementation.notificationer.Notificationer;
+import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.NotificationerModel;
 import socket_installer.SI_context.internal_context.InternalContext;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
@@ -29,7 +30,7 @@ public class NewConnectionHandler {
         }
     }
 
-    private void setupNewConnection(Notificationer notificationer,Socket clientConnected)throws IOException, SocketExceptions{
+    private void setupNewConnection(Notificationer notificationer, Socket clientConnected)throws IOException, SocketExceptions{
         ConnectedClientCreatedSocket createdClientModel = ClientCreator.createConnectedClient(notificationer,clientConnected);
         createdClientModel.runSocket();
     }

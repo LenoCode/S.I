@@ -2,6 +2,7 @@ package socket_installer.SI_parts.IO.communication_processor.processors.packet_p
 
 
 import socket_installer.SI.client.socket.Client;
+import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
@@ -10,11 +11,13 @@ import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
 
+
 import java.io.IOException;
+
 
 import static socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums.*;
 
-class ClientPacketProcessor extends PacketProcessor {
+public class ClientPacketProcessor extends PacketProcessor {
 
 
 
@@ -30,26 +33,24 @@ class ClientPacketProcessor extends PacketProcessor {
             }
             packetStatusProcessor.checkPacketStatus(packetHolder);
         }
-        System.out.println(ioHolder.getStringBuffer().getString());
         return true;
     }
 
     @Override
-    public void checkInputStreamData(PacketHolder packetHolder) throws IOException, SocketExceptions {
+    public boolean checkInputStreamData(PacketHolder packetHolder) throws IOException, SocketExceptions {
         ClientSocket clientSocket = packetHolder.getClientSocket();
 
         while(isDataUncomplete(packetHolder)){
             packetStatusProcessor.checkPacketStatus(packetHolder);
         }
         packetHolder.getClientSocket().getActions().getBytesResponder().sendBytesRecv(clientSocket.getIOHolder());
-        System.out.println("king kong je tu  "+clientSocket.getIOHolder().getStringBuffer().getString());
-
+        return true;
     }
+
 
     @Override
     public boolean isPacketSending(PacketHolder packetHolder) throws IOException, SocketExceptions {
         Client client = (Client) packetHolder.getClientSocket();
-        System.out.println(packetHolder.getPacketStatus());
         switch (packetHolder.getPacketStatus()){
             case INITILIAZED:
                 return isPacketSendingInitilazed();
@@ -90,7 +91,6 @@ class ClientPacketProcessor extends PacketProcessor {
 
     @Override
     public boolean isDataUncomplete(PacketHolder packetHolder) throws IOException, SocketExceptions {
-
         switch (packetHolder.getPacketStatus()){
             case INITILIAZED:
                 return isDataIncompleteInitilazed();
