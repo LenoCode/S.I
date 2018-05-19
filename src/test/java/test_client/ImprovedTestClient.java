@@ -4,8 +4,6 @@ import socket_installer.SI.socket_creation.client.ClientCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.user_implementation.notificationer.Notificationer;
-import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.NotificationerModel;
-
 
 import java.io.IOException;
 import java.net.Socket;
@@ -30,7 +28,7 @@ public class ImprovedTestClient {
         String line;
         while(!(line = scanner.nextLine()).equals("Exit")){
             for (int i=0; i<1; ++i) {
-                if (socket.sendMessageToServer(line+"- number of iteration  "+i)) {
+                if (socket.sendMessageToServer(line)) {
                     socket.activateSocket();
                     try {
                         Thread.sleep(10);
@@ -57,16 +55,12 @@ public class ImprovedTestClient {
     public static ClientCreatedSocket start()throws IOException {
         Socket socket = new Socket("192.168.5.13",3000);
         socket.setSoTimeout(10);
-        ClientCreatedSocket createdSocket = ClientCreator.createClient(new Notificationer() {
-            @Override
-            public void notificationRecv(String notification) {
-                System.out.println("NOTIFICATION :    "+notification);
-            }
+
+        ClientCreatedSocket createdSocket = ClientCreator.createClient(new Notificationer(new Object()) {
         }, socket);
 
         return createdSocket;
-
-
-
     }
 }
+
+

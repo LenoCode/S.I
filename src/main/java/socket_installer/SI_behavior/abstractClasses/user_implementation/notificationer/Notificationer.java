@@ -4,23 +4,45 @@ package socket_installer.SI_behavior.abstractClasses.user_implementation.notific
 import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.NotificationerModel;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
 import socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols.ClientProtocol;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
-public abstract class Notificationer implements NotificationerModel {
+public abstract class Notificationer<A>{
 
     private ClientSocket clientSocket;
+    private final A methods;
 
-    public void sendMessage(String message) throws IOException,SocketExceptions {
+    protected Notificationer(A methods) {
+        this.methods = methods;
+    }
+
+    public final void sendMessageNotificationerDefault(String message) throws IOException,SocketExceptions {
         message = String.format(ClientProtocol.SEND_MESSAGE.completeProtocol(),message);
         PacketRequest packetHolder = new PacketRequest(clientSocket,message);
         PacketProcessor.getPacketProcessor(clientSocket).sendPacket(packetHolder);
     }
 
-    public void setClientSocket(ClientSocket clientSocket) {
+    public final void setClientSocket(ClientSocket clientSocket) {
         this.clientSocket = clientSocket;
+    }
+
+
+    public final void callAppropriateMethod(String methodToCall){
+        for (Method method : methods.getClass().getMethods()){
+            String nameOfMethod = method.getName();
+            if (nameOfMethod.equals(methodToCall)){
+                try {
+                    method.invoke(methods,methodToCall);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
