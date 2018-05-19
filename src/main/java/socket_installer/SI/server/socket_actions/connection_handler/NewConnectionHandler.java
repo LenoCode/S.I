@@ -7,7 +7,6 @@ import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.serve
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.user_implementation.notificationer.Notificationer;
-import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.NotificationerModel;
 import socket_installer.SI_context.internal_context.InternalContext;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 

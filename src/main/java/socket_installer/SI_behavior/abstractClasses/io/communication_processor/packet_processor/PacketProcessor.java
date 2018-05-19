@@ -5,9 +5,9 @@ import socket_installer.SI.client.socket.Client;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.abstractClasses.user_implementation.notificationer.Notificationer;
 import socket_installer.SI_behavior.interfaces.communication_processor.PacketProcessorModel;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.OutputStreamWrapperModel;
-import socket_installer.SI_behavior.interfaces.user_implementation.io_notification.NotificationerModel;
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.ClientPacketProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.ConnectedClientProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor.PacketStatusProcessor;
@@ -42,14 +42,14 @@ public abstract class PacketProcessor implements PacketProcessorModel {
     public void notify(ClientSocket clientSocket) throws IOException, SocketExceptions {
         StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();
         NotificationParser notificationParser = clientSocket.getActions().getNotificationParser();
-        NotificationerModel notificationer = clientSocket.getNotificationer();
+        Notificationer notificationer = clientSocket.getNotificationer();
 
         Iterator<String> iterator = notificationParser.getUnparsedIteratorNotification(stringBuffer.getString());
         stringBuffer.emptyBuffer();
 
         while(iterator.hasNext()) {
             String next = iterator.next();
-            notificationer.notificationRecv(notificationParser.extractNotification(next));
+            notificationer.callAppropriateMethod(notificationParser.extractNotification(next));
         }
     }
 
