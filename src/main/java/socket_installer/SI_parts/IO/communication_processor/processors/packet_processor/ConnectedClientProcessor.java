@@ -5,7 +5,6 @@ import socket_installer.SI_behavior.abstractClasses.io.communication_processor.p
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
-import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientClosedException;
@@ -19,15 +18,13 @@ public class ConnectedClientProcessor extends PacketProcessor {
 
     @Override
     public boolean sendPacket(PacketHolder packetRequest) throws IOException, SocketExceptions {
-        ClientSocket clientSocket = packetRequest.getClientSocket();
-        IOHolder ioHolder = clientSocket.getIOHolder();
         String message = ((PacketRequest)packetRequest).getRequest();
 
         while(isPacketSending(packetRequest)){
             if (packetRequest.getPacketStatus() == ProcessorsEnums.INITILIAZED){
-                sendData(message, ioHolder.getOutputStream());
+                packetStatusProcessor.checkSendPacketStatus(packetRequest, message);
             }
-            packetStatusProcessor.checkPacketStatus(packetRequest);
+            packetStatusProcessor.checkReadPacketStatus(packetRequest);
         }
         return true;
     }
@@ -36,7 +33,7 @@ public class ConnectedClientProcessor extends PacketProcessor {
     public boolean checkInputStreamData(PacketHolder packetResponse) throws IOException, SocketExceptions {
         ClientSocket clientSocket = packetResponse.getClientSocket();
         while(isDataUncomplete(packetResponse)){
-            packetStatusProcessor.checkPacketStatus(packetResponse);
+            packetStatusProcessor.checkReadPacketStatus(packetResponse);
         }
         DefinedAutomatedResponder.getDefinedAutomatedResponder().sendBytesSuccessProtocol(clientSocket.getIOHolder());
         return true;

@@ -9,7 +9,6 @@ import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
-import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
 import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder.DefinedAutomatedResponder;
 
 
@@ -24,15 +23,13 @@ public class ClientPacketProcessor extends PacketProcessor {
 
     @Override
     public boolean sendPacket(PacketHolder packetHolder) throws IOException, SocketExceptions {
-        ClientSocket clientSocket = packetHolder.getClientSocket();
-        IOHolder ioHolder = clientSocket.getIOHolder();
         String message = ((PacketRequest)packetHolder).getRequest();
 
         while(isPacketSending(packetHolder)){
             if (packetHolder.getPacketStatus() == INITILIAZED){
-                sendData(message, ioHolder.getOutputStream());
+                packetStatusProcessor.checkSendPacketStatus(packetHolder,message);
             }
-            packetStatusProcessor.checkPacketStatus(packetHolder);
+            packetStatusProcessor.checkReadPacketStatus(packetHolder);
         }
         return true;
     }
@@ -42,7 +39,7 @@ public class ClientPacketProcessor extends PacketProcessor {
         ClientSocket clientSocket = packetHolder.getClientSocket();
 
         while(isDataUncomplete(packetHolder)){
-            packetStatusProcessor.checkPacketStatus(packetHolder);
+            packetStatusProcessor.checkReadPacketStatus(packetHolder);
         }
         DefinedAutomatedResponder.getDefinedAutomatedResponder().sendBytesSuccessProtocol(clientSocket.getIOHolder());
         return true;

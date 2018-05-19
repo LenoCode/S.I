@@ -31,8 +31,10 @@ public abstract class BasicSocket<A extends Closeable> implements SocketModel{
 
     @Override
     public void deactivateSocket() throws IOException, SocketExceptions {
-        socket.close();
-        socket = null;
+        if (socket != null){
+            socket.close();
+            socket = null;
+        }
     }
 
 

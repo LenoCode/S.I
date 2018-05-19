@@ -49,12 +49,9 @@ public abstract class PacketProcessor implements PacketProcessorModel {
 
         while(iterator.hasNext()) {
             String next = iterator.next();
+            System.out.println(next);
             notificationer.callAppropriateMethod(notificationParser.extractNotification(next));
         }
-    }
-
-    protected void sendData(String message, OutputStreamWrapperModel outputStreamWrapper) throws IOException,SocketExceptions {
-        outputStreamWrapper.send(message.getBytes());
     }
 
 }

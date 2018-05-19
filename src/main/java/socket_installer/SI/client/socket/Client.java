@@ -49,9 +49,6 @@ public class Client extends ClientSocket {
     public void reconnectSocket() throws IOException, SocketExceptions{
         deactivateSocket();
         Socket socket = new Socket(socketConfiguration.getIpAddress(),socketConfiguration.getPort());
-        System.out.println("SIMULIRAM CRASH MREZE -");
-        System.out.println("SIMULIRAM CRACH MREZE -----");
-        System.out.println("KONEKCIJA PONOVO USPOSTAVLJENA, SUSTAV OZIVLJEN........");
         replaceSocket(socket);
     }
 
@@ -62,6 +59,7 @@ public class Client extends ClientSocket {
         setupStream(socket);
         ((ClientConfiguration)socketConfiguration).setStreamPaused(false);
         socketConfiguration.setSocketOnlineStatus(true);
+        System.out.println("Reconnected");
     }
     private void setupStream(Socket socket) throws IOException, SocketExceptions{
         ioHolder.setInputStream(new ClientInputStreamWrapper( new BufferedInputStream(socket.getInputStream()) ));

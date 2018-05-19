@@ -1,7 +1,7 @@
 package test_server;
 
 public class Methods {
-    public void sendMessage(String notification) {
+    public void buttonClicked(String notification) {
         System.out.println("ADADSADSADSADA     "+notification);
     }
     public void test(String notification){

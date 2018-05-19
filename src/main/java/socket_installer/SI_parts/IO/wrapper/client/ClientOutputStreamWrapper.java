@@ -20,6 +20,7 @@ public class ClientOutputStreamWrapper implements OutputStreamWrapperModel {
             bufferedOutputStream.write(bytes);
             bufferedOutputStream.flush();
         }catch (IOException ioException){
+            System.out.println("Bacam error");
             throw new ClientConnectionAbortException();
         }
     }
