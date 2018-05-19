@@ -23,7 +23,6 @@ public class ConnectedClientTimeoutException extends SocketExceptions {
     }
 
 
-
     private void closeSocket (SocketModel socketModel){
         try {
             System.out.println("DEACTIVED");

@@ -2,6 +2,7 @@ package socket_installer.SI_behavior.abstractClasses.io.communication_processor.
 
 
 import socket_installer.SI.client.socket.Client;
+
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.communication_processor.PacketProcessorModel;

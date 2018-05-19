@@ -10,6 +10,7 @@ import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
+import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder.DefinedAutomatedResponder;
 
 
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class ClientPacketProcessor extends PacketProcessor {
         while(isDataUncomplete(packetHolder)){
             packetStatusProcessor.checkPacketStatus(packetHolder);
         }
-        packetHolder.getClientSocket().getActions().getBytesResponder().sendBytesRecv(clientSocket.getIOHolder());
+        DefinedAutomatedResponder.getDefinedAutomatedResponder().sendBytesSuccessProtocol(clientSocket.getIOHolder());
         return true;
     }
 
@@ -105,9 +106,9 @@ public class ClientPacketProcessor extends PacketProcessor {
             case DATA_COMPLETE:
                 return isDataIncompleteComplete();
             case DATA_RECV_FAILED:
-                throw new ConnectedClientTimeoutException();
+                throw new ClientClosedException();
             default:
-                throw new ConnectedClientTimeoutException();
+                throw new ClientClosedException();
         }
     }
 

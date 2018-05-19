@@ -7,26 +7,19 @@ import socket_installer.SI_parts.actionHolder.actions.buffer_checker.BufferCheck
 import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 public class Main {
 
 
     public static void main(String[] args){
-        StringBuffer stringBuffer = new StringBuffer();
-        BufferChecker bufferChecker = new BufferChecker();
-        String k = BytesStatusProtocol.BYTES_SEND_SUCCESS.completeProtocol()+"123456789";
 
-        stringBuffer.insertToBuffer(k.length(),k.getBytes());
-        try {
-            System.out.println(bufferChecker.checkStringBuffer(stringBuffer));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SocketExceptions socketExceptions) {
-            socketExceptions.printStackTrace();
-        }
-        k = " novi string";
-        stringBuffer.insertToBuffer(k.length(), k.getBytes());
-        System.out.println(stringBuffer.getString());
+
+
+    }
+
+
+    public void kingkong(){
 
     }
 }

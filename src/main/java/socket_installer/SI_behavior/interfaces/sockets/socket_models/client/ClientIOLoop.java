@@ -5,7 +5,5 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.erro
 import java.io.IOException;
 
 public interface ClientIOLoop {
-
-
     void ioLoop() throws IOException,SocketExceptions;
 }

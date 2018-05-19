@@ -29,7 +29,7 @@ public class ImprovedTestClient {
 
         String line;
         while(!(line = scanner.nextLine()).equals("Exit")){
-            for (int i=0; i<9999999; ++i) {
+            for (int i=0; i<1; ++i) {
                 if (socket.sendMessageToServer(line+"- number of iteration  "+i)) {
                     socket.activateSocket();
                     try {
@@ -55,7 +55,7 @@ public class ImprovedTestClient {
 
 
     public static ClientCreatedSocket start()throws IOException {
-        Socket socket = new Socket("172.20.2.229",3000);
+        Socket socket = new Socket("192.168.5.13",3000);
         socket.setSoTimeout(10);
         ClientCreatedSocket createdSocket = ClientCreator.createClient(new Notificationer() {
             @Override

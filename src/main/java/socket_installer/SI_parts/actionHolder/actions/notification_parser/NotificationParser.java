@@ -2,7 +2,7 @@ package socket_installer.SI_parts.actionHolder.actions.notification_parser;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
-import socket_installer.SI_parts.actionHolder.actions.string_parser.enum_parser.RegexParser;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser.enum_parser.RegexParser;
 import socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols.EndUndefined;
 
 import java.io.IOException;

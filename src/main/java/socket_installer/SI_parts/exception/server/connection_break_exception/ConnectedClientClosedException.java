@@ -7,7 +7,7 @@ import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
 import java.io.IOException;
 
-public class ConnectedClientClosed extends SocketExceptions {
+public class ConnectedClientClosedException extends SocketExceptions {
 
     @Override
     public void handleException(SocketModel socketModel) {
@@ -16,7 +16,6 @@ public class ConnectedClientClosed extends SocketExceptions {
             socketModel.getSocketConfiguration().setSocketOnlineStatus(false);
             socketModel.deactivateSocket();
             sessionTracker.removeConnection(socketModel);
-            System.out.println("Connected Client closed");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SocketExceptions socketExceptions) {

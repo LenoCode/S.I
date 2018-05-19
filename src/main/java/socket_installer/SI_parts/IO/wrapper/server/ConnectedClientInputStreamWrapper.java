@@ -2,7 +2,7 @@ package socket_installer.SI_parts.IO.wrapper.server;
 
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
-import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientClosed;
+import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientClosedException;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.InputStreamWrapperModel;
 import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
@@ -33,7 +33,7 @@ public class ConnectedClientInputStreamWrapper implements InputStreamWrapperMode
         catch (SocketTimeoutException socketTimeoutException){
             throw new ConnectedClientTimeoutException();
         }catch (IOException ioException){
-            throw new ConnectedClientClosed();
+            throw new ConnectedClientClosedException();
         }
     }
 }

@@ -1,4 +1,4 @@
-package socket_installer.SI_parts.actionHolder.actions.string_parser.enum_parser;
+package socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser.enum_parser;
 
 public enum RegexParser {
 

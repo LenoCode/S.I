@@ -1,4 +1,4 @@
-package socket_installer.SI_parts.actionHolder.actions.string_parser;
+package socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser;
 
 
 import socket_installer.SI_parts.protocol.enum_protocol.GeneralProtocol;

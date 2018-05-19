@@ -18,7 +18,6 @@ public class PacketStatusProcessor {
 
 
     public void checkPacketStatus(PacketHolder packetHolder) throws IOException, SocketExceptions {
-        //OVA INICIJALIZACIJA SE CINI UZASNO NEPOTREBNA,TREBA NACI NEKI DRUGI NACIN
         ClientSocket clientSocket = packetHolder.getClientSocket();
         IOHolder ioHolder = clientSocket.getIOHolder();
         ActionHolder actionHolder = clientSocket.getActions();
@@ -34,6 +33,7 @@ public class PacketStatusProcessor {
         } catch (ConnectedClientTimeoutException socketTimeoutException){
             packetHolder.setPacketStatus(ProcessorsEnums.increaseProccesorCount(packetHolder.getPacketStatus()));
         } catch (ClientClosedException clientClosedException){
+            System.out.println("CLOSED CONNECTION");
             packetHolder.setPacketStatus(ProcessorsEnums.SOCKET_CLOSED);
         }catch(IOException ioException){
             throw ioException;

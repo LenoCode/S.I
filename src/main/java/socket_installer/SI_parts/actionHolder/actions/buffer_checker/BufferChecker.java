@@ -8,9 +8,9 @@ import socket_installer.SI_parts.IO.communication_processor.processors_enums.Pro
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
 import socket_installer.SI_parts.protocol.enum_protocol.GeneralProtocol;
 import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
-import socket_installer.SI_parts.actionHolder.actions.string_parser.StringParser;
-import socket_installer.SI_parts.protocol.protocol_object.DefinedProtocolActions;
-import socket_installer.SI_parts.protocol.protocol_object.UndefinedProtocolActions;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser.StringParser;
+import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.DefinedProtocolActions;
+import socket_installer.SI_parts.protocol.protocol_object.undefined_protocol.UndefinedProtocolActions;
 
 import java.io.IOException;
 

@@ -13,12 +13,14 @@ public class Test0 {
 
     public static void main(String[] args){
 
-        final ServerCreatedSocket server= ServerCreator.createServer("172.20.2.229", new Notificationer() {
+        final ServerCreatedSocket server= ServerCreator.createServer("192.168.5.13", new Notificationer() {
+
             @Override
             public void notificationRecv(String notification)throws SocketExceptions, IOException {
                 String response = "RESPONSE ON : "+notification;
                 System.out.println("NOTIFICATION:   "+notification);
                 sendMessage(response);
+
 
             }
         }, 3000, 2, 1);

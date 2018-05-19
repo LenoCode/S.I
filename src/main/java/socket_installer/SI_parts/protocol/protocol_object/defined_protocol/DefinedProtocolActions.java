@@ -1,4 +1,4 @@
-package socket_installer.SI_parts.protocol.protocol_object;
+package socket_installer.SI_parts.protocol.protocol_object.defined_protocol;
 
 import socket_installer.SI_behavior.interfaces.enums.IO_enums.protocol.ProtocolDefinedModel;
 import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;

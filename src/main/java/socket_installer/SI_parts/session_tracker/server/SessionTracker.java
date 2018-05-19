@@ -17,7 +17,7 @@ public class SessionTracker {
         connectedClientSet.add(socket);
     }
     public void removeConnection(SocketModel socket){
-        connectedClientSet.remove(socket);
+        connectedClientSet.removeConnection(socket);
     }
     public int getNumberOfActiveConnections(){
         return connectedClientSet.size();

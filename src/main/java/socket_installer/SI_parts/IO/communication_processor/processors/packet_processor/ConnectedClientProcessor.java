@@ -4,13 +4,13 @@ package socket_installer.SI_parts.IO.communication_processor.processors.packet_p
 import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-
 import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
-import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
+import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientClosedException;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
+import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder.DefinedAutomatedResponder;
 
 import java.io.IOException;
 
@@ -38,12 +38,10 @@ public class ConnectedClientProcessor extends PacketProcessor {
         while(isDataUncomplete(packetResponse)){
             packetStatusProcessor.checkPacketStatus(packetResponse);
         }
-        packetResponse.getClientSocket().getActions().getBytesResponder().sendBytesRecv(clientSocket.getIOHolder());
+        DefinedAutomatedResponder.getDefinedAutomatedResponder().sendBytesSuccessProtocol(clientSocket.getIOHolder());
         return true;
 
     }
-
-
 
 
     @Override
@@ -62,7 +60,7 @@ public class ConnectedClientProcessor extends PacketProcessor {
             case BYTES_SENT_SUCCESS:
                 return isPacketSendingDataBytesSuccess();
             default:
-                throw new ClientClosedException();
+                throw new ConnectedClientTimeoutException();
         }
     }
     private boolean isPacketSendingInitilazed(){
@@ -72,7 +70,7 @@ public class ConnectedClientProcessor extends PacketProcessor {
         return true;
     }
     private boolean isPacketSendingThirdTry() throws IOException, SocketExceptions{
-        throw new ClientClosedException();
+        throw new ConnectedClientClosedException();
     }
     private boolean isPacketSendingDataIncomplete(){
         return true;
@@ -97,9 +95,9 @@ public class ConnectedClientProcessor extends PacketProcessor {
             case DATA_COMPLETE:
                 return isDataIncompleteComplete();
             case DATA_RECV_FAILED:
-                throw new ConnectedClientTimeoutException();
+                throw new ConnectedClientClosedException();
             default:
-                throw new ConnectedClientTimeoutException();
+                throw new ConnectedClientClosedException();
         }
     }
 
