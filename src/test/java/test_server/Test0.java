@@ -14,7 +14,7 @@ import java.io.IOException;
 class Notification extends Notificationer{
 
 
-    protected Notification(Methods methods) {
+    protected Notification(Methods[] methods) {
         super(methods);
     }
 }
@@ -22,9 +22,9 @@ class Notification extends Notificationer{
 public class Test0 {
 
     public static void main(String[] args){
-        Methods m = new Methods();
+        Methods[] m = {new Methods()};
         Notification s = new Notification(m);
-        final ServerCreatedSocket server= ServerCreator.createServer("192.168.5.13",s, 3000, 2, 1);
+        final ServerCreatedSocket server= ServerCreator.createServer("172.20.2.229",s, 3000, 2, 1);
 
         new Thread(new Runnable() {
             @Override

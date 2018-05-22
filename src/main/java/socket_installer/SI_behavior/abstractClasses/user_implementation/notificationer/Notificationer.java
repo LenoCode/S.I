@@ -14,10 +14,10 @@ import java.lang.reflect.Method;
 public abstract class Notificationer<A>{
 
     private ClientSocket clientSocket;
-    private final A methods;
+    private final A[] objects;
 
-    protected Notificationer(A methods) {
-        this.methods = methods;
+    protected Notificationer(A[] methods) {
+        this.objects = methods;
     }
 
     public final void sendMessageNotificationerDefault(String message) throws IOException,SocketExceptions {
@@ -32,11 +32,17 @@ public abstract class Notificationer<A>{
 
 
     public final void callAppropriateMethod(String methodToCall){
-        for (Method method : methods.getClass().getMethods()){
+        for (A object : objects){
+            callMethod(object,methodToCall);
+        }
+    }
+
+    private final void callMethod(A object,String methodToCall){
+        for (Method method : object.getClass().getMethods()){
             String nameOfMethod = method.getName();
             if (nameOfMethod.equals(methodToCall)){
                 try {
-                    method.invoke(methods,methodToCall);
+                    method.invoke(object,methodToCall);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 } catch (InvocationTargetException e) {

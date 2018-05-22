@@ -7,7 +7,6 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.Client
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.user_implementation.notificationer.Notificationer;
 import socket_installer.SI_behavior.interfaces.communication_processor.PacketProcessorModel;
-import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.OutputStreamWrapperModel;
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.ClientPacketProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.ConnectedClientProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor.PacketStatusProcessor;
@@ -49,7 +48,6 @@ public abstract class PacketProcessor implements PacketProcessorModel {
 
         while(iterator.hasNext()) {
             String next = iterator.next();
-            System.out.println(next);
             notificationer.callAppropriateMethod(notificationParser.extractNotification(next));
         }
     }

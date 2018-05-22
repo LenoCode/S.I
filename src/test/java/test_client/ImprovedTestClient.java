@@ -53,10 +53,10 @@ public class ImprovedTestClient {
 
 
     public static ClientCreatedSocket start()throws IOException {
-        Socket socket = new Socket("192.168.5.13",3000);
+        Socket socket = new Socket("172.20.2.229",3000);
         socket.setSoTimeout(10);
 
-        ClientCreatedSocket createdSocket = ClientCreator.createClient(new Notificationer(new Object()) {
+        ClientCreatedSocket createdSocket = ClientCreator.createClient(new Notificationer(new Object[10]) {
         }, socket);
 
         return createdSocket;
