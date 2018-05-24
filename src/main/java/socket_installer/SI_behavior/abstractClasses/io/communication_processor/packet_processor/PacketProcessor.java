@@ -5,13 +5,13 @@ import socket_installer.SI.client.socket.Client;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.abstractClasses.user_implementation.notificationer.Notificationer;
 import socket_installer.SI_behavior.interfaces.communication_processor.PacketProcessorModel;
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.ClientPacketProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.ConnectedClientProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor.PacketStatusProcessor;
 import socket_installer.SI_parts.actionHolder.actions.notification_parser.NotificationParser;
 import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+import socket_installer.SI_parts.notification.Notificationer;
 
 
 import java.io.IOException;
@@ -48,7 +48,7 @@ public abstract class PacketProcessor implements PacketProcessorModel {
 
         while(iterator.hasNext()) {
             String next = iterator.next();
-            notificationer.callAppropriateMethod(notificationParser.extractNotification(next));
+           // notificationer.callAppropriateMethod(notificationParser.extractNotification(next));
         }
     }
 

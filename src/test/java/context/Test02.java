@@ -1,6 +1,6 @@
 package context;
 
-import socket_installer.SI_parts.context.ContextObject;
+import socket_installer.SI_context.context_object.ContextObject;
 import socket_installer.SI_context.internal_context.InternalContext;
 
 public class Test02 {

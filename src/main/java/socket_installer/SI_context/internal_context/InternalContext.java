@@ -1,6 +1,6 @@
 package socket_installer.SI_context.internal_context;
 
-import socket_installer.SI_parts.context.ContextObject;
+import socket_installer.SI_context.context_object.ContextObject;
 
 public class InternalContext {
     private static InternalContext internalContext;

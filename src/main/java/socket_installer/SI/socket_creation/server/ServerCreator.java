@@ -7,9 +7,9 @@ import socket_installer.SI.server.socket_actions.socket_loop.ServerWrappedLoop;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
-import socket_installer.SI_behavior.abstractClasses.user_implementation.notificationer.Notificationer;
 
-import socket_installer.SI_parts.context.ContextObject;
+import socket_installer.SI_context.context_object.ContextObject;
+import socket_installer.SI_parts.notification.Notificationer;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 import socket_installer.SI_context.internal_context.InternalContext;
 

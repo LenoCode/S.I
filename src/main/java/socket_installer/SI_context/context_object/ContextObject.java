@@ -1,4 +1,4 @@
-package socket_installer.SI_parts.context;
+package socket_installer.SI_context.context_object;
 
 import socket_installer.SI_behavior.interfaces.context.ContextObjectsModel;
 

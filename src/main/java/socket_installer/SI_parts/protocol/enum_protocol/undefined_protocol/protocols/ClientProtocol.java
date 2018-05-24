@@ -6,7 +6,7 @@ import socket_installer.SI_parts.IO.communication_processor.processors_enums.Pro
 
 public enum  ClientProtocol implements ProtocolUndefinedModel {
 
-    SEND_MESSAGE("<SEND_MESSAGE>%s",ProcessorsEnums.DATA_COMPLETE),
+    SEND_MESSAGE("<SEND_MESSAGE>classIdent:%s|methodIdent:%s|message:%s ",ProcessorsEnums.DATA_COMPLETE),
     ;
 
     private String protocol;

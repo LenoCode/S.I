@@ -6,7 +6,6 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.Client
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientClosedException;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
 import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder.DefinedAutomatedResponder;
@@ -16,9 +15,11 @@ import java.io.IOException;
 
 public class ConnectedClientProcessor extends PacketProcessor {
 
+
+    //ovo mozda treba biti jedna metoda ClientPacket isto ima ovako
     @Override
     public boolean sendPacket(PacketHolder packetRequest) throws IOException, SocketExceptions {
-        String message = ((PacketRequest)packetRequest).getRequest();
+        String message = packetRequest.getData();
 
         while(isPacketSending(packetRequest)){
             if (packetRequest.getPacketStatus() == ProcessorsEnums.INITILIAZED){

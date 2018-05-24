@@ -5,8 +5,8 @@ import socket_installer.SI_behavior.interfaces.enums.IO_enums.protocol.ProtocolD
 import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
 
 public enum BytesStatusProtocol implements ProtocolDefinedModel {
-    BYTES_SEND_SUCCESS("<BYTES_STATUS>Bytes send success",ProcessorsEnums.BYTES_SENT_SUCCESS),
-    BYTES_SEND_FAILED("<BYTES_STATUS>Bytes send failed",ProcessorsEnums.BYTES_SENT_FALIED),
+    BYTES_SEND_SUCCESS("<BYTES_STATUS>Bytes request_annotation success",ProcessorsEnums.BYTES_SENT_SUCCESS),
+    BYTES_SEND_FAILED("<BYTES_STATUS>Bytes request_annotation failed",ProcessorsEnums.BYTES_SENT_FALIED),
     ;
 
     private String protocol;

@@ -5,9 +5,7 @@ import socket_installer.SI.client.socket.Client;
 import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
 import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder.DefinedAutomatedResponder;
 
@@ -23,7 +21,7 @@ public class ClientPacketProcessor extends PacketProcessor {
 
     @Override
     public boolean sendPacket(PacketHolder packetHolder) throws IOException, SocketExceptions {
-        String message = ((PacketRequest)packetHolder).getRequest();
+        String message = packetHolder.getData();
 
         while(isPacketSending(packetHolder)){
             if (packetHolder.getPacketStatus() == INITILIAZED){

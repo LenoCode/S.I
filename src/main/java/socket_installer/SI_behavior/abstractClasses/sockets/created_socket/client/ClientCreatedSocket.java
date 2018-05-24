@@ -1,7 +1,7 @@
 package socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client;
 
 import socket_installer.SI.client.socket.Client;
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
+import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientConnectionAbortException;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.BasicSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
@@ -22,7 +22,8 @@ public abstract class ClientCreatedSocket implements CreatedSocketModel {
         try{
             message = String.format(ClientProtocol.SEND_MESSAGE.completeProtocol(),message);
             Client client = (Client) basicSocket;
-            PacketRequest packetRequest = new PacketRequest(client,message);
+            PacketHolder packetRequest = new PacketHolder(client);
+            packetRequest.setData(message);
             client.sendMessage(packetRequest);
             return true;
         }catch (ClientConnectionAbortException clientAbortException){

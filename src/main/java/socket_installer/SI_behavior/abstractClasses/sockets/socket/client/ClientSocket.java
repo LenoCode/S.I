@@ -28,6 +28,10 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
         clientConfiguration.setSocketOnlineStatus(true);
     }
 
+ /*   public void informServerToCloseSocket(){
+        PacketSend packetRequest = new PacketSend(this,)
+        PacketProcessor.getPacketProcessor(this).sendPacket()
+    }*/
 
     public IOHolder getIOHolder() {
         return ioHolder;
@@ -36,5 +40,7 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
     public ActionHolder getActions(){
         return actions;
     }
+
+
 
 }
