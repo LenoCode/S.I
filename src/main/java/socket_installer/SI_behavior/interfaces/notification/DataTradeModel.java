@@ -8,4 +8,5 @@ import java.io.IOException;
 public interface DataTradeModel {
      void setClientSocket(ClientSocket clientSocket);
      void send(String classIdent,String methodIdent,String data) throws IOException, SocketExceptions;
+     void receive() throws IOException, SocketExceptions;
 }

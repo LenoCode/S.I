@@ -24,10 +24,6 @@ public class Client extends ClientSocket {
         super(clientSocket);
     }
 
-    public boolean sendMessage(PacketHolder packetHolder)throws  IOException, SocketExceptions{
-        return PacketProcessor.getPacketProcessor(this).sendPacket(packetHolder);
-    }
-
     @Override
     public void activateSocket() throws IOException, SocketExceptions {
         PacketHolder packetHolder = new PacketHolder(this);

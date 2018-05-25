@@ -12,6 +12,7 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socke
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 
 
+import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_context.internal_context.InternalContext;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
@@ -29,8 +30,11 @@ public class ClientCreator {
                 basicSocket.setSocketConfiguration(clientConfiguration);
                 basicSocket.setNotificationer(notificationer);
                 basicSocket.setupSocket();
-            }
 
+                for (DataTradeModel dataTradeModel : notificationer.getObjects()){
+                    dataTradeModel.setClientSocket((ClientSocket) basicSocket);
+                }
+            }
             @Override
             public void closeProgram() {
                 ProgramLoopWrapper.setProgrammRunning(false);
@@ -56,6 +60,10 @@ public class ClientCreator {
                 basicSocket.setNotificationer(notificationer);
 
                 connectedClient.setupSocket();
+
+                for (DataTradeModel dataTradeModel : notificationer.getObjects()){
+                    dataTradeModel.setClientSocket(connectedClient);
+                }
 
                 new Thread(new Runnable() {
                     @Override

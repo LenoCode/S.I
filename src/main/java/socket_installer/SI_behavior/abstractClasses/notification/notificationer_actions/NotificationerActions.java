@@ -1,15 +1,17 @@
 package socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions;
 
 import socket_installer.SI_behavior.abstractClasses.notification.notification_object_holder.NotificationerObjects;
+import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public abstract class NotificationerActions <A> extends NotificationerObjects {
+public abstract class NotificationerActions <A extends DataTradeModel> extends NotificationerObjects {
 
     protected NotificationerActions(A[] objects) {
         super(objects);
+
     }
 
     public void notificationProcess(String notificication) throws IOException {

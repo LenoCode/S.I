@@ -18,34 +18,4 @@ public abstract class ClientCreatedSocket implements CreatedSocketModel {
     }
 
 
-    public boolean sendMessageToServer(String message){
-        try{
-            message = ClientProtocol.sendMessageFormat("Methods","testing","PORUKA OD CLIENTA");
-            Client client = (Client) basicSocket;
-            PacketHolder packetRequest = new PacketHolder(client);
-            packetRequest.setData(message);
-            client.sendMessage(packetRequest);
-            return true;
-        }catch (ClientConnectionAbortException clientAbortException){
-            clientAbortException.handleException(this.basicSocket);
-            return false;
-        } catch (SocketExceptions socketExceptions){
-            socketExceptions.handleException(basicSocket);
-            return false;
-        }catch (IOException ioException){
-           ioException.printStackTrace();
-           return false;
-        }
-    }
-    public void activateSocket(){
-        try{
-            Client client = (Client) basicSocket;
-            client.activateSocket();
-        }catch (SocketExceptions socketExceptions) {
-            socketExceptions.handleException(this.basicSocket);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 }

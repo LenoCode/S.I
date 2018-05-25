@@ -1,4 +1,4 @@
-package socket_installer.SI_behavior.abstractClasses.notification.user_implementation;
+package socket_installer.SI_behavior.abstractClasses.notification.data_trade;
 
 import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
@@ -21,5 +21,15 @@ public abstract class DataTrade implements DataTradeModel {
         PacketHolder packetHolder = new PacketHolder(clientSocket);
         packetHolder.setData(completeString);
         PacketProcessor.getPacketProcessor(clientSocket).sendPacket(packetHolder);
+    }
+    @Override
+    public void receive() {
+        try{
+            clientSocket.activateSocket();
+        }catch (SocketExceptions socketExceptions) {
+            socketExceptions.handleException(clientSocket);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

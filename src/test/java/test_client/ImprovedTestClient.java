@@ -1,8 +1,10 @@
 package test_client;
 
+import annotations.Notificationer;
 import socket_installer.SI.socket_creation.client.ClientCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 
 
 import java.io.IOException;
@@ -11,13 +13,13 @@ import java.util.Scanner;
 
 public class ImprovedTestClient {
 
-
     public static void main(String[] args){
 
         Scanner scanner = new Scanner(System.in);
         ClientCreatedSocket socket = null;
+        Methods m = new Methods();
         try {
-            socket = start();
+            socket = start(m);
             socket.runSocket();
         } catch (IOException e) {
             e.printStackTrace();
@@ -28,16 +30,8 @@ public class ImprovedTestClient {
         String line;
         while(!(line = scanner.nextLine()).equals("Exit")){
             for (int i=0; i<1; ++i) {
-                if (socket.sendMessageToServer(line)) {
-                    socket.activateSocket();
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    System.out.println("Poruka nije poslana");
-                }
+                m.sendMessage(line);
+                m.receive();
             }
         }
         try {
@@ -52,11 +46,11 @@ public class ImprovedTestClient {
 
 
 
-    public static ClientCreatedSocket start()throws IOException {
+    public static ClientCreatedSocket start(Methods m)throws IOException {
         Socket socket = new Socket("192.168.5.17",3000);
         socket.setSoTimeout(10);
-
-        ClientCreatedSocket createdSocket = ClientCreator.createClient(null , socket);
+        test_client.Notificationer a = new test_client.Notificationer(new DataTradeModel[]{m});
+        ClientCreatedSocket createdSocket = ClientCreator.createClient(a, socket);
 
         return createdSocket;
     }
