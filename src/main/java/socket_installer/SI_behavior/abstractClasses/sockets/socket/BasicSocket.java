@@ -1,9 +1,9 @@
 package socket_installer.SI_behavior.abstractClasses.sockets.socket;
 
+import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.configuration_models.SocketConfiguration;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
-import socket_installer.SI_parts.notification.Notificationer;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.io.IOException;
 public abstract class BasicSocket<A extends Closeable> implements SocketModel{
     protected A socket;
     protected SocketConfiguration socketConfiguration;
-    private Notificationer notificationer;
+    private NotificationerActions notificationer;
 
     @Override
     public void setSocketConfiguration(SocketConfiguration socketConfiguration) {
@@ -42,11 +42,11 @@ public abstract class BasicSocket<A extends Closeable> implements SocketModel{
         return ipAddress.equals(this.getSocketConfiguration().getIpAddress());
     }
 
-    public Notificationer getNotificationer() {
+    public NotificationerActions getNotificationer() {
         return notificationer;
     }
 
-    public void setNotificationer(Notificationer notificationer) {
+    public void setNotificationer(NotificationerActions notificationer) {
         this.notificationer = notificationer;
     }
 }

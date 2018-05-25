@@ -29,4 +29,12 @@ public enum  ClientProtocol implements ProtocolUndefinedModel {
     public String getProtocol(){
         return protocol;
     }
+
+
+    //STATIC METHODS
+
+    public static String sendMessageFormat(String classIdent,String methodIdent,String message){
+        String completeProtocol = SEND_MESSAGE.completeProtocol();
+        return String.format(completeProtocol,classIdent,methodIdent,message);
+    }
 }

@@ -3,7 +3,6 @@ package test_client;
 import socket_installer.SI.socket_creation.client.ClientCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_parts.notification.Notificationer;
 
 
 import java.io.IOException;
@@ -54,11 +53,10 @@ public class ImprovedTestClient {
 
 
     public static ClientCreatedSocket start()throws IOException {
-        Socket socket = new Socket("192.168.43.226",3000);
+        Socket socket = new Socket("192.168.5.17",3000);
         socket.setSoTimeout(10);
 
-        ClientCreatedSocket createdSocket = ClientCreator.createClient(new Notificationer(new Object[10]) {
-        }, socket);
+        ClientCreatedSocket createdSocket = ClientCreator.createClient(null , socket);
 
         return createdSocket;
     }

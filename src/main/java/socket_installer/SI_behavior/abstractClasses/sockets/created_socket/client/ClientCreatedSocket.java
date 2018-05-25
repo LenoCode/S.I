@@ -20,7 +20,7 @@ public abstract class ClientCreatedSocket implements CreatedSocketModel {
 
     public boolean sendMessageToServer(String message){
         try{
-            message = String.format(ClientProtocol.SEND_MESSAGE.completeProtocol(),message);
+            message = ClientProtocol.sendMessageFormat("Methods","testing","PORUKA OD CLIENTA");
             Client client = (Client) basicSocket;
             PacketHolder packetRequest = new PacketHolder(client);
             packetRequest.setData(message);

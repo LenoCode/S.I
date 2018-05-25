@@ -1,10 +1,16 @@
 package test_server;
 
-public class Methods {
-    public void buttonClicked(String notification) {
-        System.out.println("ADADSADSADSADA     "+notification);
-    }
-    public void test(String notification){
-        System.out.println(notification);
+
+import socket_installer.SI_behavior.abstractClasses.notification.user_implementation.DataTrade;
+import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.class_annotation.class_identifier.ClassIdentifier;
+import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.methods_annotation.method_identifier.MethodIdentifier;
+
+@ClassIdentifier(identification = "Methods")
+public class Methods extends DataTrade {
+
+
+    @MethodIdentifier(identification = "testing")
+    public void testing(String n){
+        System.out.println(n);
     }
 }

@@ -1,24 +1,26 @@
 package socket_installer.SI_parts.notification.notification_processor.annotation_parser;
 
 import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.class_annotation.class_identifier.ClassIdentifier;
-import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.class_annotation.request_annotation.RequestsMethod;
-import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.class_annotation.response_annotation.ResponsesMethod;
 import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.methods_annotation.method_identifier.MethodIdentifier;
-import socket_installer.SI_behavior.interfaces.notification.annotation_parser.method_annotater.method_steps.MethodSteps;
-import socket_installer.SI_parts.notification.notification_processor.annotation_parser.method_annotater.MethodAnnotater;
-import socket_installer.SI_parts.notification.notification_processor.annotation_parser.method_annotater.request_method_steps.RequestMethodSteps;
-import socket_installer.SI_parts.notification.notification_processor.annotation_parser.method_annotater.response_method_steps.ResponseMethodSteps;
-
 import java.io.IOException;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 public class AnnotationParser {
+    private final String CLASS_IDENT = "classIdent:";
+    private final int CLASS_IDENT_LENGTH = CLASS_IDENT.length();
+    private final String METHOD_IDENT = "methodIdent:";
+    private final int METHOD_IDENT_LENGTH = METHOD_IDENT.length();
+    private final String MESSAGE_IDENT = "message:";
+    private final int MESSAGE_IDENT_LENGTH = MESSAGE_IDENT.length();
+    private final String EXCLUDED_METHODS = "(wait|equals|toString|hashCode|getClass|notify|notifyAll)";
 
-    public <A> A identifyClass(A[] objects, String classIdent) throws NullPointerException{
+
+    public <A> A identifyClass(A[] objects, String notification) throws NullPointerException{
+        final String classIdent = getClassIdent(notification);
+
         for (A object : objects){
             ClassIdentifier classIdentifier = object.getClass().getAnnotation(ClassIdentifier.class);
-
+            System.out.println(classIdent);
             if (classIdentifier.identification().equals(classIdent)){
                 return object;
             }
@@ -26,48 +28,42 @@ public class AnnotationParser {
         throw new NullPointerException("No class method found");
     }
 
-    public<A> MethodAnnotater identifyMethod(A object,Method[] methods, String methodIdent) throws IOException {
-        final String regexExcluedMethods = "(wait|equals|toString|hashCode|getClass|notify|notifyAll)";
+    public<A> Method identifyMethod(Method[] methods, String notification) throws IOException {
+        final String methodIdent = getMethodIdent(notification);
 
         for (Method method: methods){
-            if (!checkIfMethodShouldBeExcluded(regexExcluedMethods,method.getName())) {
+            if (!checkIfMethodShouldBeExcluded(method.getName())) {
                 String ident = method.getAnnotation(MethodIdentifier.class).identification();
 
                 if (ident == null) {
                     throw new IOException("Method is missing identifier annotation");
                 } else {
                     if (ident.equals(methodIdent)) {
-                        return createMethodAnnotater(object, method);
+                        return method;
                     }
                 }
             }
         }
         throw new IOException("No method was found");
     }
-    private boolean checkIfMethodShouldBeExcluded(String regex,String methodName){
-        return methodName.matches(regex);
-    }
+    private boolean checkIfMethodShouldBeExcluded(String methodName){
+        return methodName.matches(EXCLUDED_METHODS);
 
-    private <A> MethodAnnotater createMethodAnnotater(A object, Method method){
-        try{
-            MethodSteps methodSteps = identifyMethodSteps(object,method.getAnnotations());
-            return new MethodAnnotater(object,method,methodSteps);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
-    //I OVO MOZDA UOPCE NE TREBAM, NISTA OD OVIH IDENTIFIKACIJA NECU TREBATI MOZDA
-    private<A> MethodSteps identifyMethodSteps(A object,Annotation[] annotations) throws Exception{
-        ResponsesMethod responseMethod = object.getClass().getAnnotation(ResponsesMethod.class);
-        RequestsMethod requestMethod = object.getClass().getAnnotation(RequestsMethod.class);
-
-        if (requestMethod == null && responseMethod != null){
-            return new ResponseMethodSteps(annotations);
-        }
-        else if (requestMethod != null && responseMethod == null){
-            return new RequestMethodSteps();
-        }
-        throw new Exception("Class is not defined appropriately");
+    private String getClassIdent(String notification){
+        int startIndex = notification.indexOf(CLASS_IDENT) + CLASS_IDENT_LENGTH;
+        int endIndex = notification.indexOf(METHOD_IDENT)-1;
+        return notification.substring(startIndex,endIndex);
+    }
+    private String getMethodIdent(String notification){
+        int startIndex = notification.indexOf(METHOD_IDENT)+METHOD_IDENT_LENGTH;
+        int endIndex = notification.indexOf(MESSAGE_IDENT)-1;
+        return notification.substring(startIndex,endIndex);
+    }
+    public String removeIdents(String notification){
+        int indexOfClassIdent = notification.indexOf(CLASS_IDENT);
+        int indexOfMessage = notification.indexOf(MESSAGE_IDENT)+MESSAGE_IDENT_LENGTH;
+        String partToRemove = notification.substring(indexOfClassIdent,indexOfMessage);
+        return notification.replace(partToRemove,"");
     }
 }
