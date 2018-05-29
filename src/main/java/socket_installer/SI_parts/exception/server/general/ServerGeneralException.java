@@ -26,6 +26,6 @@ public class ServerGeneralException {
         return true;
     }
     private void setServerToOffline(Server server){
-        ((ServerConfiguration)server.getSocketConfiguration()).setSocketOnlineStatus(false);
+        server.getSocketConfiguration().setSocketOnlineStatus(false);
     }
 }

@@ -10,12 +10,18 @@ import socket_installer.SI_behavior.interfaces.communication_processor.PacketPro
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.ClientPacketProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.ConnectedClientProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor.PacketStatusProcessor;
+import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
+import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.actionHolder.actions.notification_parser.NotificationParser;
 import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder.DefinedAutomatedResponder;
 
 
 import java.io.IOException;
 import java.util.Iterator;
+
+import static socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums.INITILIAZED;
+import static socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums.REINITILIAZED;
 
 
 public abstract class PacketProcessor implements PacketProcessorModel {
@@ -37,13 +43,37 @@ public abstract class PacketProcessor implements PacketProcessorModel {
         return (clientSocket instanceof Client) ? clientPacketProcessor : connectedClientProcessor;
     }
 
+
+    @Override
+    public boolean sendPacket(PacketHolder packetHolder) throws IOException, SocketExceptions {
+        String message = packetHolder.getData();
+
+        while (isPacketSending(packetHolder)) {
+            ProcessorsEnums status = packetHolder.getPacketStatus();
+            if (status == INITILIAZED || status == REINITILIAZED) {
+                packetStatusProcessor.checkSendPacketStatus(packetHolder, message);
+            }
+            packetStatusProcessor.checkReadPacketStatus(packetHolder);
+        }
+        return true;
+    }
+    @Override
+    public boolean checkInputStreamData(PacketHolder packetHolder) throws IOException, SocketExceptions {
+        ClientSocket clientSocket = packetHolder.getClientSocket();
+
+        while(isDataUncomplete(packetHolder)){
+            packetStatusProcessor.checkReadPacketStatus(packetHolder);
+        }
+        DefinedAutomatedResponder.getDefinedAutomatedResponder().sendBytesSuccessProtocol(clientSocket.getIOHolder());
+        return true;
+    }
+
     @Override
     public void notify(ClientSocket clientSocket) throws IOException, SocketExceptions {
         StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();
-        NotificationParser notificationParser = clientSocket.getActions().getNotificationParser();
         NotificationerActions notificationer = clientSocket.getNotificationer();
+        Iterator<String> iterator = notificationer.getUnparsedIteratorNotification(stringBuffer.getString());
 
-        Iterator<String> iterator = notificationParser.getUnparsedIteratorNotification(stringBuffer.getString());
         stringBuffer.emptyBuffer();
 
         while(iterator.hasNext()) {

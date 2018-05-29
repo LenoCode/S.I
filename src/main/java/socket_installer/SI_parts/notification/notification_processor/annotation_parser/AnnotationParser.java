@@ -20,7 +20,7 @@ public class AnnotationParser {
 
         for (A object : objects){
             ClassIdentifier classIdentifier = object.getClass().getAnnotation(ClassIdentifier.class);
-            System.out.println(classIdent);
+
             if (classIdentifier.identification().equals(classIdent)){
                 return object;
             }

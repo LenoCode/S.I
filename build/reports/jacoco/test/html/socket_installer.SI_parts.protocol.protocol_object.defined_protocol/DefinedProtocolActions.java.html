@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DefinedProtocolActions.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">S.I</a> &gt; <a href="index.source.html" class="el_package">socket_installer.SI_parts.protocol.protocol_object.defined_protocol</a> &gt; <span class="el_source">DefinedProtocolActions.java</span></div><h1>DefinedProtocolActions.java</h1><pre class="source lang-java linenums">package socket_installer.SI_parts.protocol.protocol_object.defined_protocol;
+
+import socket_installer.SI_behavior.interfaces.enums.IO_enums.protocol.ProtocolDefinedModel;
+import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
+import socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.DefinedProtocol;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+
+import java.util.Iterator;
+
+<span class="nc" id="L10">public class DefinedProtocolActions {</span>
+
+    public ProcessorsEnums protocolDefined(StringBuffer stringBuffer){
+<span class="nc" id="L13">        String string = stringBuffer.getString();</span>
+<span class="nc" id="L14">        Iterator&lt;ProtocolDefinedModel&gt; protocolDefinedModelIterator = DefinedProtocol.getDefinedProtocol().getDefinedProtocolIterator();</span>
+
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        while(protocolDefinedModelIterator.hasNext()){</span>
+<span class="nc" id="L17">            ProtocolDefinedModel protocolDefinedModel =protocolDefinedModelIterator.next();</span>
+            ProcessorsEnums processorsEnum;
+
+<span class="nc bnc" id="L20" title="All 2 branches missed.">            if ((processorsEnum=checkProtocolModel(string,protocolDefinedModel,stringBuffer)) != null){</span>
+<span class="nc" id="L21">                return processorsEnum;</span>
+            }
+<span class="nc" id="L23">        }</span>
+<span class="nc" id="L24">        return null;</span>
+    }
+    private ProcessorsEnums checkProtocolModel(String string,ProtocolDefinedModel protocolDefinedModel,StringBuffer stringBuffer){
+<span class="nc" id="L27">        String protocolDefinedModelString = protocolDefinedModel.completeProtocol();</span>
+
+<span class="nc bnc" id="L29" title="All 4 branches missed.">        if (string.length() == protocolDefinedModelString.length() &amp;&amp; string.equals(protocolDefinedModelString)){</span>
+            //TREBA TESTIRATI DA VIDIMO DA LI JE NABOLJE OVDJE POCISTITI STRING BUFFER
+<span class="nc" id="L31">            stringBuffer.emptyBuffer();</span>
+<span class="nc" id="L32">            return protocolDefinedModel.getProccessorEnum();</span>
+        }
+<span class="nc bnc" id="L34" title="All 4 branches missed.">        else if (string.contains(protocolDefinedModelString) &amp;&amp; string.length() &gt; protocolDefinedModelString.length()){</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">            if (stripStringForStatus(string,protocolDefinedModelString,stringBuffer)){</span>
+<span class="nc" id="L36">                return protocolDefinedModel.getProccessorEnum();</span>
+            }
+        }
+<span class="nc" id="L39">        return null;</span>
+    }
+
+    private boolean stripStringForStatus(String string,String protocolDefinedModelString,StringBuffer stringBuffer){
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        if (string.contains(protocolDefinedModelString)){</span>
+<span class="nc" id="L44">            String rest = string.substring(protocolDefinedModelString.length());</span>
+<span class="nc" id="L45">            stringBuffer.emptyBuffer();</span>
+<span class="nc" id="L46">            stringBuffer.insertToBuffer(rest.length(),rest.getBytes());</span>
+<span class="nc" id="L47">            return true;</span>
+        }
+<span class="nc" id="L49">        return false;</span>
+    }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

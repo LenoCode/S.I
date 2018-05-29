@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConnectedClient.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">S.I</a> &gt; <a href="index.source.html" class="el_package">socket_installer.SI.client.socket</a> &gt; <span class="el_source">ConnectedClient.java</span></div><h1>ConnectedClient.java</h1><pre class="source lang-java linenums">package socket_installer.SI.client.socket;
+
+
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
+import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
+import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
+import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientInputStreamWrapper;
+import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientOutputStreamWrapper;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
+
+public class ConnectedClient extends ClientSocket {
+
+
+    public ConnectedClient(Socket clientSocket) {
+<span class="nc" id="L23">        super(clientSocket);</span>
+<span class="nc" id="L24">    }</span>
+
+    @Override
+    public void activateSocket() throws IOException, SocketExceptions {
+<span class="nc" id="L28">        ClientConfiguration clientConfiguration = (ClientConfiguration) getSocketConfiguration();</span>
+
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        while(clientConfiguration.isSocketOnline()){</span>
+<span class="nc" id="L31">            PacketHolder packetHolder = new PacketHolder(this);</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            if (PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder)){</span>
+<span class="nc" id="L33">                PacketProcessor.getPacketProcessor(this).notify(this);</span>
+            }
+<span class="nc" id="L35">        }</span>
+<span class="nc" id="L36">    }</span>
+
+    @Override
+    public void setupIOHolder() throws IOException, SocketExceptions {
+<span class="nc" id="L40">        Socket clientSocket = (Socket) socket;</span>
+<span class="nc" id="L41">        ioHolder = new IOHolder();</span>
+<span class="nc" id="L42">        setupStream(clientSocket);</span>
+<span class="nc" id="L43">        ioHolder.setStringBuffer(new StringBuffer());</span>
+<span class="nc" id="L44">    }</span>
+
+    @Override
+    public void replaceSocket(Socket socket) throws IOException, SocketExceptions {
+<span class="nc" id="L48">        this.socket = socket;</span>
+<span class="nc" id="L49">        ioHolder.getStringBuffer().emptyBuffer();</span>
+<span class="nc" id="L50">        setupStream(socket);</span>
+<span class="nc" id="L51">        ((ClientConfiguration)socketConfiguration).setStreamPaused(false);</span>
+<span class="nc" id="L52">        socketConfiguration.setSocketOnlineStatus(true);</span>
+<span class="nc" id="L53">    }</span>
+
+    private void setupStream(Socket socket) throws IOException, SocketExceptions{
+<span class="nc" id="L56">        ioHolder.setInputStream(new ConnectedClientInputStreamWrapper( new BufferedInputStream(socket.getInputStream()) ));</span>
+<span class="nc" id="L57">        ioHolder.setOutputStream(new ConnectedClientOutputStreamWrapper( new BufferedOutputStream(socket.getOutputStream()) ));</span>
+<span class="nc" id="L58">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

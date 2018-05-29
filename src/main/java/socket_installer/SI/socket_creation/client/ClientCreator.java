@@ -4,6 +4,7 @@ import socket_installer.SI.client.socket.Client;
 import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI.client.socket.ConnectedClient;
 import socket_installer.SI.client.socket_actions.socket_loop.ClientWrappedLoop;
+import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
 import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.connected_client.ConnectedClientCreatedSocket;
@@ -14,6 +15,9 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.erro
 
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_context.internal_context.InternalContext;
+import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
+import socket_installer.SI_parts.exception.default_exception.NoSolutionForException;
+import socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols.TehnicalProtocol;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
 import java.io.IOException;
@@ -37,7 +41,17 @@ public class ClientCreator {
             }
             @Override
             public void closeProgram() {
-                ProgramLoopWrapper.setProgrammRunning(false);
+                try {
+                    PacketHolder packetHolder = new PacketHolder((Client) basicSocket);
+                    packetHolder.setData(TehnicalProtocol.SOCKET_CLOSED.completeProtocol());
+                    PacketProcessor.getPacketProcessor((ClientSocket) basicSocket).sendPacket(packetHolder);
+                    basicSocket.getSocketConfiguration().setSocketOnlineStatus(false);
+                    ProgramLoopWrapper.setProgrammRunning(false);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (SocketExceptions socketExceptions) {
+                    socketExceptions.printStackTrace();
+                }
             }
 
         };
@@ -68,7 +82,11 @@ public class ClientCreator {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        connectedClientWrappedLoop.activateWrappedLoop(connectedClient);
+                        try {
+                            connectedClientWrappedLoop.activateWrappedLoop(connectedClient);
+                        } catch (NoSolutionForException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }).start();
             }
@@ -92,7 +110,11 @@ public class ClientCreator {
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                connectedClientWrappedLoop.activateWrappedLoop(clientSocket);
+                                try {
+                                    connectedClientWrappedLoop.activateWrappedLoop(clientSocket);
+                                } catch (NoSolutionForException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         }).start();
 
@@ -102,7 +124,14 @@ public class ClientCreator {
 
             @Override
             public void closeProgram() {
-                ProgramLoopWrapper.setProgrammRunning(false);
+                try {
+                    ProgramLoopWrapper.setProgrammRunning(false);
+                    basicSocket.deactivateSocket();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (SocketExceptions socketExceptions) {
+                    socketExceptions.printStackTrace();
+                }
             }
         };
     }

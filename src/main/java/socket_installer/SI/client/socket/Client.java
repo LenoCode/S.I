@@ -53,7 +53,6 @@ public class Client extends ClientSocket {
         setupStream(socket);
         ((ClientConfiguration)socketConfiguration).setStreamPaused(false);
         socketConfiguration.setSocketOnlineStatus(true);
-        System.out.println("Reconnected");
     }
     private void setupStream(Socket socket) throws IOException, SocketExceptions{
         ioHolder.setInputStream(new ClientInputStreamWrapper( new BufferedInputStream(socket.getInputStream()) ));

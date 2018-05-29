@@ -49,7 +49,14 @@ public class ServerCreator {
             }
             @Override
             public void closeProgram() {
-                ProgramLoopWrapper.setProgrammRunning(false);
+                try {
+                    ProgramLoopWrapper.setProgrammRunning(false);
+                    basicSocket.deactivateSocket();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (SocketExceptions socketExceptions) {
+                    socketExceptions.printStackTrace();
+                }
             }
         };
     }

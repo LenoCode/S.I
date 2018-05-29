@@ -13,14 +13,14 @@ public class ServerWrappedLoop extends ProgramLoopWrapper {
 
 
     @Override
-    public void activateWrappedLoop(SocketModel socketModel) {
+    public void activateWrappedLoop(SocketModel socketModel) throws NoSolutionForException {
         ServerGeneralException serverGeneralException = new ServerGeneralException();
 
         while( isProgramRunning()){
             try{
                 socketModel.activateSocket();
             }catch (NoSolutionForException noSolutionException){
-              noSolutionException.handleException(socketModel);
+              throw noSolutionException;
             } catch (SocketExceptions socketExceptions) {
                 socketExceptions.handleException(socketModel);
             }catch (IOException ioException){

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClientCreator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">S.I</a> &gt; <a href="index.source.html" class="el_package">socket_installer.SI.socket_creation.client</a> &gt; <span class="el_source">ClientCreator.java</span></div><h1>ClientCreator.java</h1><pre class="source lang-java linenums">package socket_installer.SI.socket_creation.client;
+
+import socket_installer.SI.client.socket.Client;
+import socket_installer.SI.client.socket.ClientConfiguration;
+import socket_installer.SI.client.socket.ConnectedClient;
+import socket_installer.SI.client.socket_actions.socket_loop.ClientWrappedLoop;
+import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
+import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.connected_client.ConnectedClientCreatedSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+
+
+import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
+import socket_installer.SI_context.internal_context.InternalContext;
+import socket_installer.SI_parts.session_tracker.server.SessionTracker;
+
+import java.io.IOException;
+import java.net.Socket;
+
+<span class="nc" id="L22">public class ClientCreator {</span>
+
+    public static ClientCreatedSocket createClient(NotificationerActions notificationer, Socket socket){
+<span class="nc" id="L25">        return new ClientCreatedSocket() {</span>
+            @Override
+            public void runSocket() throws IOException,SocketExceptions {
+<span class="nc" id="L28">                ClientConfiguration clientConfiguration = new ClientConfiguration(socket);</span>
+<span class="nc" id="L29">                basicSocket = new Client(socket);</span>
+<span class="nc" id="L30">                basicSocket.setSocketConfiguration(clientConfiguration);</span>
+<span class="nc" id="L31">                basicSocket.setNotificationer(notificationer);</span>
+<span class="nc" id="L32">                basicSocket.setupSocket();</span>
+
+<span class="nc bnc" id="L34" title="All 2 branches missed.">                for (DataTradeModel dataTradeModel : notificationer.getObjects()){</span>
+<span class="nc" id="L35">                    dataTradeModel.setClientSocket((ClientSocket) basicSocket);</span>
+                }
+<span class="nc" id="L37">            }</span>
+            @Override
+            public void closeProgram() {
+<span class="nc" id="L40">                ProgramLoopWrapper.setProgrammRunning(false);</span>
+<span class="nc" id="L41">            }</span>
+
+        };
+    }
+
+    public static ConnectedClientCreatedSocket createConnectedClient(NotificationerActions notificationer, Socket socketConnected){
+<span class="nc" id="L47">        return new ConnectedClientCreatedSocket() {</span>
+            @Override
+            public void runSocket() throws IOException, SocketExceptions {
+<span class="nc" id="L50">                ClientConfiguration connectedClientConfiguration = new ClientConfiguration(socketConnected);</span>
+<span class="nc" id="L51">                ConnectedClient connectedClient = new ConnectedClient(socketConnected);</span>
+<span class="nc" id="L52">                connectedClient.setSocketConfiguration(connectedClientConfiguration);</span>
+
+<span class="nc" id="L54">                SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject(&quot;SessionTracker&quot;).getObject();</span>
+<span class="nc" id="L55">                sessionTracker.addNewConnection(connectedClient);</span>
+
+<span class="nc" id="L57">                ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();</span>
+
+<span class="nc" id="L59">                basicSocket = connectedClient;</span>
+<span class="nc" id="L60">                basicSocket.setNotificationer(notificationer);</span>
+
+<span class="nc" id="L62">                connectedClient.setupSocket();</span>
+
+<span class="nc bnc" id="L64" title="All 2 branches missed.">                for (DataTradeModel dataTradeModel : notificationer.getObjects()){</span>
+<span class="nc" id="L65">                    dataTradeModel.setClientSocket(connectedClient);</span>
+                }
+
+<span class="nc" id="L68">                new Thread(new Runnable() {</span>
+                    @Override
+                    public void run() {
+<span class="nc" id="L71">                        connectedClientWrappedLoop.activateWrappedLoop(connectedClient);</span>
+<span class="nc" id="L72">                    }</span>
+<span class="nc" id="L73">                }).start();</span>
+<span class="nc" id="L74">            }</span>
+            @Override
+            public void closeProgram() {
+<span class="nc" id="L77">                ProgramLoopWrapper.setProgrammRunning(false);</span>
+<span class="nc" id="L78">            }</span>
+
+        };
+    }
+    public static ConnectedClientCreatedSocket createConnectedClient(ClientSocket clientSocket){
+<span class="nc" id="L83">        return new ConnectedClientCreatedSocket() {</span>
+            @Override
+            public void runSocket() throws IOException, SocketExceptions {
+
+<span class="nc" id="L87">                new Thread(new Runnable() {</span>
+                    @Override
+                    public void run() {
+<span class="nc" id="L90">                        ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();</span>
+
+<span class="nc" id="L92">                        new Thread(new Runnable() {</span>
+                            @Override
+                            public void run() {
+<span class="nc" id="L95">                                connectedClientWrappedLoop.activateWrappedLoop(clientSocket);</span>
+<span class="nc" id="L96">                            }</span>
+<span class="nc" id="L97">                        }).start();</span>
+
+<span class="nc" id="L99">                    }</span>
+<span class="nc" id="L100">                }).start();</span>
+<span class="nc" id="L101">            }</span>
+
+            @Override
+            public void closeProgram() {
+<span class="nc" id="L105">                ProgramLoopWrapper.setProgrammRunning(false);</span>
+<span class="nc" id="L106">            }</span>
+        };
+    }
+}
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

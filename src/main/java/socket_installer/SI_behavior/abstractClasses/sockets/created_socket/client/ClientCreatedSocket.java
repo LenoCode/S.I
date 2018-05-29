@@ -17,5 +17,8 @@ public abstract class ClientCreatedSocket implements CreatedSocketModel {
         return (Client) basicSocket;
     }
 
+    public boolean isConnectedToServer(){
+        return basicSocket.getSocketConfiguration().isSocketOnline();
+    }
 
 }

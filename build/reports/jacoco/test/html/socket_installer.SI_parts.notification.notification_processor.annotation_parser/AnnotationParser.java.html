@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AnnotationParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">S.I</a> &gt; <a href="index.source.html" class="el_package">socket_installer.SI_parts.notification.notification_processor.annotation_parser</a> &gt; <span class="el_source">AnnotationParser.java</span></div><h1>AnnotationParser.java</h1><pre class="source lang-java linenums">package socket_installer.SI_parts.notification.notification_processor.annotation_parser;
+
+import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.class_annotation.class_identifier.ClassIdentifier;
+import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.methods_annotation.method_identifier.MethodIdentifier;
+import java.io.IOException;
+import java.lang.reflect.Method;
+
+<span class="nc" id="L8">public class AnnotationParser {</span>
+<span class="nc" id="L9">    private final String CLASS_IDENT = &quot;classIdent:&quot;;</span>
+<span class="nc" id="L10">    private final int CLASS_IDENT_LENGTH = CLASS_IDENT.length();</span>
+<span class="nc" id="L11">    private final String METHOD_IDENT = &quot;methodIdent:&quot;;</span>
+<span class="nc" id="L12">    private final int METHOD_IDENT_LENGTH = METHOD_IDENT.length();</span>
+<span class="nc" id="L13">    private final String MESSAGE_IDENT = &quot;message:&quot;;</span>
+<span class="nc" id="L14">    private final int MESSAGE_IDENT_LENGTH = MESSAGE_IDENT.length();</span>
+<span class="nc" id="L15">    private final String EXCLUDED_METHODS = &quot;(wait|equals|toString|hashCode|getClass|notify|notifyAll)&quot;;</span>
+
+
+    public &lt;A&gt; A identifyClass(A[] objects, String notification) throws NullPointerException{
+<span class="nc" id="L19">        final String classIdent = getClassIdent(notification);</span>
+
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        for (A object : objects){</span>
+<span class="nc" id="L22">            ClassIdentifier classIdentifier = object.getClass().getAnnotation(ClassIdentifier.class);</span>
+<span class="nc" id="L23">            System.out.println(classIdent);</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">            if (classIdentifier.identification().equals(classIdent)){</span>
+<span class="nc" id="L25">                return object;</span>
+            }
+        }
+<span class="nc" id="L28">        throw new NullPointerException(&quot;No class method found&quot;);</span>
+    }
+
+    public&lt;A&gt; Method identifyMethod(Method[] methods, String notification) throws IOException {
+<span class="nc" id="L32">        final String methodIdent = getMethodIdent(notification);</span>
+
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        for (Method method: methods){</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">            if (!checkIfMethodShouldBeExcluded(method.getName())) {</span>
+<span class="nc" id="L36">                String ident = method.getAnnotation(MethodIdentifier.class).identification();</span>
+
+<span class="nc bnc" id="L38" title="All 2 branches missed.">                if (ident == null) {</span>
+<span class="nc" id="L39">                    throw new IOException(&quot;Method is missing identifier annotation&quot;);</span>
+                } else {
+<span class="nc bnc" id="L41" title="All 2 branches missed.">                    if (ident.equals(methodIdent)) {</span>
+<span class="nc" id="L42">                        return method;</span>
+                    }
+                }
+            }
+        }
+<span class="nc" id="L47">        throw new IOException(&quot;No method was found&quot;);</span>
+    }
+    private boolean checkIfMethodShouldBeExcluded(String methodName){
+<span class="nc" id="L50">        return methodName.matches(EXCLUDED_METHODS);</span>
+
+    }
+    private String getClassIdent(String notification){
+<span class="nc" id="L54">        int startIndex = notification.indexOf(CLASS_IDENT) + CLASS_IDENT_LENGTH;</span>
+<span class="nc" id="L55">        int endIndex = notification.indexOf(METHOD_IDENT)-1;</span>
+<span class="nc" id="L56">        return notification.substring(startIndex,endIndex);</span>
+    }
+    private String getMethodIdent(String notification){
+<span class="nc" id="L59">        int startIndex = notification.indexOf(METHOD_IDENT)+METHOD_IDENT_LENGTH;</span>
+<span class="nc" id="L60">        int endIndex = notification.indexOf(MESSAGE_IDENT)-1;</span>
+<span class="nc" id="L61">        return notification.substring(startIndex,endIndex);</span>
+    }
+    public String removeIdents(String notification){
+<span class="nc" id="L64">        int indexOfClassIdent = notification.indexOf(CLASS_IDENT);</span>
+<span class="nc" id="L65">        int indexOfMessage = notification.indexOf(MESSAGE_IDENT)+MESSAGE_IDENT_LENGTH;</span>
+<span class="nc" id="L66">        String partToRemove = notification.substring(indexOfClassIdent,indexOfMessage);</span>
+<span class="nc" id="L67">        return notification.replace(partToRemove,&quot;&quot;);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

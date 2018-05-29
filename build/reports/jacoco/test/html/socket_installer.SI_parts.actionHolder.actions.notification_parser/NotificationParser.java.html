@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NotificationParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">S.I</a> &gt; <a href="index.source.html" class="el_package">socket_installer.SI_parts.actionHolder.actions.notification_parser</a> &gt; <span class="el_source">NotificationParser.java</span></div><h1>NotificationParser.java</h1><pre class="source lang-java linenums">package socket_installer.SI_parts.actionHolder.actions.notification_parser;
+
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser.enum_parser.RegexParser;
+import socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols.EndUndefined;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Iterator;
+
+<span class="nc" id="L12">public class NotificationParser {</span>
+
+    public Iterator&lt;String&gt; getUnparsedIteratorNotification(String string)throws IOException,SocketExceptions {
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        if (string.endsWith(EndUndefined.END_UNDEFINED_BYTES.getProtocol())) {</span>
+<span class="nc" id="L16">            return Arrays.asList(string.split(RegexParser.END_PROTOCOL.getRegex())).iterator();</span>
+        }
+<span class="nc" id="L18">        throw new SocketExceptions() {</span>
+            @Override
+            public void handleException(SocketModel socketModel) {
+                //OVDJE CE TREBATI NAPRAVITI NEKI EXCEPTION ZA HANDLANJE, IAKO NE BI TREBALO DOCI DO TOGA NO ZA SVAKI SLUCAJ
+<span class="nc" id="L22">            }</span>
+        };
+    }
+
+    public String extractNotification(String string){
+<span class="nc" id="L27">        int leftSideIndex = string.indexOf('&gt;')+1;</span>
+<span class="nc" id="L28">        return string.substring(leftSideIndex);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

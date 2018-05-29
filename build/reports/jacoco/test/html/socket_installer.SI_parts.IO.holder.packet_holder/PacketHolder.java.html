@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PacketHolder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">S.I</a> &gt; <a href="index.source.html" class="el_package">socket_installer.SI_parts.IO.holder.packet_holder</a> &gt; <span class="el_source">PacketHolder.java</span></div><h1>PacketHolder.java</h1><pre class="source lang-java linenums">package socket_installer.SI_parts.IO.holder.packet_holder;
+
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
+import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
+
+public class PacketHolder {
+
+    private final ClientSocket clientSocket;
+    private ProcessorsEnums packetStatus;
+    private String data;
+
+<span class="nc" id="L12">    public PacketHolder(ClientSocket clientSocket) {</span>
+<span class="nc" id="L13">        this.clientSocket = clientSocket;</span>
+<span class="nc" id="L14">        packetStatus = ProcessorsEnums.INITILIAZED;</span>
+<span class="nc" id="L15">    }</span>
+
+
+    public ClientSocket getClientSocket() {
+<span class="nc" id="L19">        return clientSocket;</span>
+    }
+
+    public ProcessorsEnums getPacketStatus() {
+<span class="nc" id="L23">        return packetStatus;</span>
+    }
+
+    public void setPacketStatus(ProcessorsEnums packetStatus) {
+<span class="nc" id="L27">        this.packetStatus = packetStatus;</span>
+<span class="nc" id="L28">    }</span>
+
+    public String getData() {
+<span class="nc" id="L31">        return data;</span>
+    }
+
+    public void setData(String data) {
+<span class="nc" id="L35">        this.data = data;</span>
+<span class="nc" id="L36">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

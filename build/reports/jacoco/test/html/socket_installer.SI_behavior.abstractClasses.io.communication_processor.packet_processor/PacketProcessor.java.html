@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PacketProcessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">S.I</a> &gt; <a href="index.source.html" class="el_package">socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor</a> &gt; <span class="el_source">PacketProcessor.java</span></div><h1>PacketProcessor.java</h1><pre class="source lang-java linenums">package socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor;
+
+
+import socket_installer.SI.client.socket.Client;
+
+import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.interfaces.communication_processor.PacketProcessorModel;
+import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.ClientPacketProcessor;
+import socket_installer.SI_parts.IO.communication_processor.processors.packet_processor.ConnectedClientProcessor;
+import socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor.PacketStatusProcessor;
+import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
+import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
+import socket_installer.SI_parts.actionHolder.actions.notification_parser.NotificationParser;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder.DefinedAutomatedResponder;
+
+
+import java.io.IOException;
+import java.util.Iterator;
+
+import static socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums.INITILIAZED;
+import static socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums.REINITILIAZED;
+
+
+public abstract class PacketProcessor implements PacketProcessorModel {
+    private static ClientPacketProcessor clientPacketProcessor;
+    private static ConnectedClientProcessor connectedClientProcessor;
+
+    protected final PacketStatusProcessor packetStatusProcessor;
+
+<span class="nc" id="L33">    protected PacketProcessor(){</span>
+<span class="nc" id="L34">        packetStatusProcessor = new PacketStatusProcessor();</span>
+<span class="nc" id="L35">    }</span>
+    public static PacketProcessor getPacketProcessor(ClientSocket clientSocket){
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (clientPacketProcessor == null){</span>
+<span class="nc" id="L38">            clientPacketProcessor = new ClientPacketProcessor();</span>
+        }
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (connectedClientProcessor == null){</span>
+<span class="nc" id="L41">            connectedClientProcessor = new ConnectedClientProcessor();</span>
+        }
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        return (clientSocket instanceof Client) ? clientPacketProcessor : connectedClientProcessor;</span>
+    }
+
+
+    @Override
+    public boolean sendPacket(PacketHolder packetHolder) throws IOException, SocketExceptions {
+<span class="nc" id="L49">        String message = packetHolder.getData();</span>
+
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        while (isPacketSending(packetHolder)) {</span>
+<span class="nc" id="L52">            ProcessorsEnums status = packetHolder.getPacketStatus();</span>
+<span class="nc bnc" id="L53" title="All 4 branches missed.">            if (status == INITILIAZED || status == REINITILIAZED) {</span>
+<span class="nc" id="L54">                packetStatusProcessor.checkSendPacketStatus(packetHolder, message);</span>
+            }
+<span class="nc" id="L56">            packetStatusProcessor.checkReadPacketStatus(packetHolder);</span>
+<span class="nc" id="L57">        }</span>
+<span class="nc" id="L58">        return true;</span>
+    }
+    @Override
+    public boolean checkInputStreamData(PacketHolder packetHolder) throws IOException, SocketExceptions {
+<span class="nc" id="L62">        ClientSocket clientSocket = packetHolder.getClientSocket();</span>
+
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        while(isDataUncomplete(packetHolder)){</span>
+<span class="nc" id="L65">            packetStatusProcessor.checkReadPacketStatus(packetHolder);</span>
+        }
+<span class="nc" id="L67">        DefinedAutomatedResponder.getDefinedAutomatedResponder().sendBytesSuccessProtocol(clientSocket.getIOHolder());</span>
+<span class="nc" id="L68">        return true;</span>
+    }
+
+    @Override
+    public void notify(ClientSocket clientSocket) throws IOException, SocketExceptions {
+<span class="nc" id="L73">        StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();</span>
+<span class="nc" id="L74">        NotificationParser notificationParser = clientSocket.getActions().getNotificationParser();</span>
+<span class="nc" id="L75">        NotificationerActions notificationer = clientSocket.getNotificationer();</span>
+
+<span class="nc" id="L77">        Iterator&lt;String&gt; iterator = notificationParser.getUnparsedIteratorNotification(stringBuffer.getString());</span>
+<span class="nc" id="L78">        stringBuffer.emptyBuffer();</span>
+
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        while(iterator.hasNext()) {</span>
+<span class="nc" id="L81">            String next = iterator.next();</span>
+<span class="nc" id="L82">            notificationer.notificationProcess(next);</span>
+<span class="nc" id="L83">        }</span>
+<span class="nc" id="L84">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
