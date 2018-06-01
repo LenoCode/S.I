@@ -7,4 +7,7 @@ import socket_installer.SI_behavior.interfaces.sockets.socket_models.CreatedSock
 public abstract class ServerCreatedSocket implements CreatedSocketModel {
     protected BasicSocket basicSocket;
 
+    public boolean isServerRunning(){
+        return basicSocket.getSocketConfiguration().isSocketOnline();
+    }
 }

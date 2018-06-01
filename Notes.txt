@@ -1,0 +1,6 @@
+27.06.2018
+    Vidjeti da li da ostavim session tracker.Ovako se cini da mi nece trebati,odnosno da bi si to user trebao sam napraviti. Znaci ovaj socket installer bi onda trebao
+    biti samo za slat i poslat podatke
+
+    Status - progress
+            - vjerojatno ce mi trebati, jer ipak gasim i palim sockete, iako trenutno nema neke velike potrebe, jer trenutno samo pratim osnovne informacije

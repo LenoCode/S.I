@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="junit_tests.connection_test.ConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-05-28T13:16:02" hostname="hr01pw-nb085" time="0.015">
+  <properties/>
+  <testcase name="testOnline" classname="junit_tests.connection_test.ConnectionTest" time="0.015"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -5,6 +5,9 @@ import socket_installer.SI_behavior.interfaces.sockets.socket_models.SocketModel
 
 public class NoSolutionForException extends SocketExceptions {
     //Exception kad nemamo rješenje za dani problem
+    public NoSolutionForException(String string){
+        super(string);
+    }
     @Override
     public void handleException(SocketModel socketModel) {
         System.exit(0);

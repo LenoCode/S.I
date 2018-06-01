@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClientConfiguration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">S.I</a> &gt; <a href="index.source.html" class="el_package">socket_installer.SI.client.socket</a> &gt; <span class="el_source">ClientConfiguration.java</span></div><h1>ClientConfiguration.java</h1><pre class="source lang-java linenums">package socket_installer.SI.client.socket;
+
+import socket_installer.SI_behavior.interfaces.sockets.configuration_models.SocketConfiguration;
+
+import java.net.Socket;
+
+public class ClientConfiguration implements SocketConfiguration {
+    private String ipAddress;
+    private int port;
+    private boolean connectedClientStatus;
+    private boolean streamPaused;
+
+<span class="nc" id="L13">    public ClientConfiguration(Socket socket){</span>
+<span class="nc" id="L14">        ipAddress = socket.getInetAddress().getHostAddress();</span>
+<span class="nc" id="L15">        port = socket.getPort();</span>
+<span class="nc" id="L16">        connectedClientStatus = true;</span>
+<span class="nc" id="L17">    }</span>
+
+    @Override
+    public void setIpAddress(String ipAddress) {
+<span class="nc" id="L21">        this.ipAddress = ipAddress;</span>
+<span class="nc" id="L22">    }</span>
+
+    @Override
+    public void setPort(int port) {
+<span class="nc" id="L26">        this.port = port;</span>
+<span class="nc" id="L27">    }</span>
+
+    @Override
+    public String getIpAddress() {
+<span class="nc" id="L31">        return ipAddress;</span>
+    }
+
+    @Override
+    public int getPort() {
+<span class="nc" id="L36">        return port;</span>
+    }
+
+    @Override
+    public boolean isSocketOnline() {
+<span class="nc bnc" id="L41" title="All 4 branches missed.">        if (streamPaused &amp;&amp; connectedClientStatus){</span>
+<span class="nc" id="L42">            return false;</span>
+        }else{
+<span class="nc" id="L44">            return connectedClientStatus;</span>
+        }
+    }
+    @Override
+    public void setSocketOnlineStatus(boolean status) {
+<span class="nc" id="L49">        this.connectedClientStatus = status;</span>
+<span class="nc" id="L50">    }</span>
+
+
+    public void setStreamPaused(boolean streamPaused) {
+<span class="nc" id="L54">        this.streamPaused = streamPaused;</span>
+<span class="nc" id="L55">    }</span>
+
+    public boolean isStreamPaused(){
+<span class="nc" id="L58">        return this.streamPaused;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

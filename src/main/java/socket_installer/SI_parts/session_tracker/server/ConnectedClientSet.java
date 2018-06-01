@@ -17,7 +17,6 @@ class ConnectedClientSet extends ArrayList<ConnectedClient> {
         return null;
     }
     public boolean removeConnection(SocketModel socketModel) {
-        System.out.println("PRIJE "+this);
         ConnectedClient connectedClient = (ConnectedClient) socketModel;
         String ipAddress = connectedClient.getSocketConfiguration().getIpAddress();
         for (ConnectedClient socket : this){

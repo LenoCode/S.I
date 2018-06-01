@@ -6,7 +6,6 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.erro
 import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketResponse;
 import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientInputStreamWrapper;
 import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientOutputStreamWrapper;
 import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
@@ -29,7 +28,7 @@ public class ConnectedClient extends ClientSocket {
         ClientConfiguration clientConfiguration = (ClientConfiguration) getSocketConfiguration();
 
         while(clientConfiguration.isSocketOnline()){
-            PacketHolder packetHolder = new PacketResponse(this);
+            PacketHolder packetHolder = new PacketHolder(this);
             if (PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder)){
                 PacketProcessor.getPacketProcessor(this).notify(this);
             }

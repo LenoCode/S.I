@@ -5,9 +5,7 @@ import socket_installer.SI.client.socket.Client;
 import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
 import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder.DefinedAutomatedResponder;
 
@@ -22,42 +20,19 @@ public class ClientPacketProcessor extends PacketProcessor {
 
 
     @Override
-    public boolean sendPacket(PacketHolder packetHolder) throws IOException, SocketExceptions {
-        String message = ((PacketRequest)packetHolder).getRequest();
-
-        while(isPacketSending(packetHolder)){
-            if (packetHolder.getPacketStatus() == INITILIAZED){
-                packetStatusProcessor.checkSendPacketStatus(packetHolder,message);
-            }
-            packetStatusProcessor.checkReadPacketStatus(packetHolder);
-        }
-        return true;
-    }
-
-    @Override
-    public boolean checkInputStreamData(PacketHolder packetHolder) throws IOException, SocketExceptions {
-        ClientSocket clientSocket = packetHolder.getClientSocket();
-
-        while(isDataUncomplete(packetHolder)){
-            packetStatusProcessor.checkReadPacketStatus(packetHolder);
-        }
-        DefinedAutomatedResponder.getDefinedAutomatedResponder().sendBytesSuccessProtocol(clientSocket.getIOHolder());
-        return true;
-    }
-
-
-    @Override
     public boolean isPacketSending(PacketHolder packetHolder) throws IOException, SocketExceptions {
         Client client = (Client) packetHolder.getClientSocket();
         switch (packetHolder.getPacketStatus()){
             case INITILIAZED:
                 return isPacketSendingInitilazed();
+            case REINITILIAZED:
+                isPacketSendingReinitialized();
             case FIRST_TRY:
                 return isPacketSendingFirstTrySecondTry();
             case SECOND_TRY:
                 return isPacketSendingFirstTrySecondTry();
             case THIRD_TRY:
-                throw new ClientClosedException();
+                isPacketSendingThirdTry();
             case DATA_INCOMPLETE:
                 return isPacketSendingDataIncomplete();
             case SOCKET_CLOSED:
@@ -71,15 +46,21 @@ public class ClientPacketProcessor extends PacketProcessor {
     private boolean isPacketSendingInitilazed(){
         return true;
     }
+    private boolean isPacketSendingReinitialized() throws IOException, SocketExceptions{
+        throw new ClientClosedException();
+    }
     private boolean isPacketSendingFirstTrySecondTry()throws IOException,SocketExceptions{
         return true;
+    }
+    private boolean isPacketSendingThirdTry() throws IOException,SocketExceptions{
+        throw new ClientClosedException();
     }
     private boolean isPacketSendingDataIncomplete(){
         return true;
     }
     private boolean isPacketSendingDataSocketClosed(PacketHolder packetHolder,Client client)throws IOException, SocketExceptions{
         client.reconnectSocket();
-        packetHolder.setPacketStatus(INITILIAZED);
+        packetHolder.setPacketStatus(REINITILIAZED);
         return true;
     }
     private boolean isPacketSendingDataBytesSuccess(){

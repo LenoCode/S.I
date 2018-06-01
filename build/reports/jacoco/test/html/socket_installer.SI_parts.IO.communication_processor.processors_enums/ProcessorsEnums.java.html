@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProcessorsEnums.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">S.I</a> &gt; <a href="index.source.html" class="el_package">socket_installer.SI_parts.IO.communication_processor.processors_enums</a> &gt; <span class="el_source">ProcessorsEnums.java</span></div><h1>ProcessorsEnums.java</h1><pre class="source lang-java linenums">package socket_installer.SI_parts.IO.communication_processor.processors_enums;
+
+<span class="nc" id="L3">public enum  ProcessorsEnums {</span>
+
+<span class="nc" id="L5">    INITILIAZED,</span>
+<span class="nc" id="L6">    REINITILIAZED,</span>
+<span class="nc" id="L7">    FIRST_TRY,</span>
+<span class="nc" id="L8">    SECOND_TRY,</span>
+<span class="nc" id="L9">    THIRD_TRY,</span>
+
+<span class="nc" id="L11">    BYTES_SENT_SUCCESS,</span>
+<span class="nc" id="L12">    BYTES_SENT_FALIED,</span>
+
+
+<span class="nc" id="L15">    DATA_RECV_FAILED,</span>
+<span class="nc" id="L16">    DATA_INCOMPLETE,</span>
+<span class="nc" id="L17">    DATA_COMPLETE,</span>
+
+<span class="nc" id="L19">    SOCKET_CLOSED,</span>
+    ;
+
+    public static ProcessorsEnums increaseProccesorCount(ProcessorsEnums processorsEnums){
+<span class="nc bnc" id="L23" title="All 4 branches missed.">        switch (processorsEnums){</span>
+            case INITILIAZED:
+<span class="nc" id="L25">                return FIRST_TRY;</span>
+            case FIRST_TRY:
+<span class="nc" id="L27">                return SECOND_TRY;</span>
+            case SECOND_TRY:
+<span class="nc" id="L29">                return THIRD_TRY;</span>
+            default:
+<span class="nc" id="L31">                return SOCKET_CLOSED;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

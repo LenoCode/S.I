@@ -3,6 +3,7 @@ package socket_installer.SI_parts.IO.communication_processor.processors_enums;
 public enum  ProcessorsEnums {
 
     INITILIAZED,
+    REINITILIAZED,
     FIRST_TRY,
     SECOND_TRY,
     THIRD_TRY,

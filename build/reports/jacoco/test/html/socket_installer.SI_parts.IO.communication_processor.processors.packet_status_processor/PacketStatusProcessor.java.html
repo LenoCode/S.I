@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PacketStatusProcessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">S.I</a> &gt; <a href="index.source.html" class="el_package">socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor</a> &gt; <span class="el_source">PacketStatusProcessor.java</span></div><h1>PacketStatusProcessor.java</h1><pre class="source lang-java linenums">package socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor;
+
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.InputStreamWrapperModel;
+import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.OutputStreamWrapperModel;
+import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
+import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
+import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
+import socket_installer.SI_parts.IO.wrapper.client.ClientOutputStreamWrapper;
+import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
+import socket_installer.SI_parts.exception.client.connection_break_exception.ClientConnectionAbortException;
+import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
+import socket_installer.SI_parts.actionHolder.ActionHolder;
+import socket_installer.SI_parts.actionHolder.actions.buffer_checker.BufferChecker;
+import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+
+import java.io.IOException;
+
+<span class="nc" id="L20">public class PacketStatusProcessor {</span>
+
+
+    public void checkReadPacketStatus(PacketHolder packetHolder) throws IOException, SocketExceptions {
+<span class="nc" id="L24">        ClientSocket clientSocket = packetHolder.getClientSocket();</span>
+<span class="nc" id="L25">        IOHolder ioHolder = clientSocket.getIOHolder();</span>
+<span class="nc" id="L26">        ActionHolder actionHolder = clientSocket.getActions();</span>
+<span class="nc" id="L27">        InputStreamWrapperModel inputStreamWrapperModel = ioHolder.getInputStream();</span>
+<span class="nc" id="L28">        byte[] bytes = ioHolder.getBytes();</span>
+<span class="nc" id="L29">        StringBuffer stringBuffer = ioHolder.getStringBuffer();</span>
+<span class="nc" id="L30">        BufferChecker bufferChecker = actionHolder.getBufferChecker();</span>
+
+        try{
+<span class="nc" id="L33">            inputStreamWrapperModel.read(bytes,stringBuffer);</span>
+<span class="nc" id="L34">            ProcessorsEnums status = bufferChecker.checkStringBuffer(stringBuffer);</span>
+<span class="nc" id="L35">            packetHolder.setPacketStatus(status);</span>
+<span class="nc" id="L36">        } catch (ConnectedClientTimeoutException socketTimeoutException){</span>
+<span class="nc" id="L37">            packetHolder.setPacketStatus(ProcessorsEnums.increaseProccesorCount(packetHolder.getPacketStatus()));</span>
+<span class="nc" id="L38">        } catch (ClientClosedException clientClosedException){</span>
+<span class="nc" id="L39">            packetHolder.setPacketStatus(ProcessorsEnums.SOCKET_CLOSED);</span>
+<span class="nc" id="L40">        }catch(IOException ioException){</span>
+<span class="nc" id="L41">            throw ioException;</span>
+<span class="nc" id="L42">        }</span>
+<span class="nc" id="L43">    }</span>
+
+    public void checkSendPacketStatus(PacketHolder packetHolder,String message) throws IOException,SocketExceptions{
+        try{
+<span class="nc" id="L47">            OutputStreamWrapperModel outputStreamWrapperModel = packetHolder.getClientSocket().getIOHolder().getOutputStream();</span>
+<span class="nc" id="L48">            outputStreamWrapperModel.send(message.getBytes());</span>
+<span class="nc" id="L49">        }catch (ClientConnectionAbortException clientAbortException){</span>
+<span class="nc" id="L50">            packetHolder.setPacketStatus(ProcessorsEnums.increaseProccesorCount(packetHolder.getPacketStatus()));</span>
+<span class="nc" id="L51">        }</span>
+<span class="nc" id="L52">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

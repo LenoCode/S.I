@@ -7,8 +7,6 @@ import socket_installer.SI_behavior.abstractClasses.io.communication_processor.p
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketRequest;
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketResponse;
 import socket_installer.SI_parts.IO.wrapper.client.ClientInputStreamWrapper;
 import socket_installer.SI_parts.IO.wrapper.client.ClientOutputStreamWrapper;
 import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
@@ -26,13 +24,9 @@ public class Client extends ClientSocket {
         super(clientSocket);
     }
 
-    public boolean sendMessage(PacketRequest packetHolder)throws  IOException, SocketExceptions{
-        return PacketProcessor.getPacketProcessor(this).sendPacket(packetHolder);
-    }
-
     @Override
     public void activateSocket() throws IOException, SocketExceptions {
-        PacketHolder packetHolder = new PacketResponse(this);
+        PacketHolder packetHolder = new PacketHolder(this);
         if (PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder)){
             PacketProcessor.getPacketProcessor(this).notify(this);
         }
@@ -59,7 +53,6 @@ public class Client extends ClientSocket {
         setupStream(socket);
         ((ClientConfiguration)socketConfiguration).setStreamPaused(false);
         socketConfiguration.setSocketOnlineStatus(true);
-        System.out.println("Reconnected");
     }
     private void setupStream(Socket socket) throws IOException, SocketExceptions{
         ioHolder.setInputStream(new ClientInputStreamWrapper( new BufferedInputStream(socket.getInputStream()) ));

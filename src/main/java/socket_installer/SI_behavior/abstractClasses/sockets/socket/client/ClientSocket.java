@@ -28,7 +28,6 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
         clientConfiguration.setSocketOnlineStatus(true);
     }
 
-
     public IOHolder getIOHolder() {
         return ioHolder;
     }
@@ -36,5 +35,7 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
     public ActionHolder getActions(){
         return actions;
     }
+
+
 
 }

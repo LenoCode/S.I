@@ -5,5 +5,10 @@ import socket_installer.SI_behavior.interfaces.exceptions.ExceptionModel;
 public abstract class SocketExceptions extends Exception implements ExceptionModel {
 
 
-
+    public SocketExceptions(String string) {
+        super(string);
+    }
+    public SocketExceptions(){
+        super();
+    }
 }

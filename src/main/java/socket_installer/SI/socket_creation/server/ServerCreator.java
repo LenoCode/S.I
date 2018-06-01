@@ -4,12 +4,12 @@ import socket_installer.SI.server.socket.Server;
 import socket_installer.SI.server.socket.ServerConfiguration;
 import socket_installer.SI.server.socket_actions.connection_handler.NewConnectionHandler;
 import socket_installer.SI.server.socket_actions.socket_loop.ServerWrappedLoop;
+import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
-import socket_installer.SI_behavior.abstractClasses.user_implementation.notificationer.Notificationer;
 
-import socket_installer.SI_parts.context.ContextObject;
+import socket_installer.SI_context.context_object.ContextObject;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 import socket_installer.SI_context.internal_context.InternalContext;
 
@@ -22,7 +22,7 @@ public class ServerCreator {
     }
     public static ServerCreatedSocket createServer(
             String hostAddress,
-            Notificationer notificationer,
+            NotificationerActions notificationer,
             int port,
             int backlog,
             int timeout
@@ -49,7 +49,14 @@ public class ServerCreator {
             }
             @Override
             public void closeProgram() {
-                ProgramLoopWrapper.setProgrammRunning(false);
+                try {
+                    ProgramLoopWrapper.setProgrammRunning(false);
+                    basicSocket.deactivateSocket();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (SocketExceptions socketExceptions) {
+                    socketExceptions.printStackTrace();
+                }
             }
         };
     }
