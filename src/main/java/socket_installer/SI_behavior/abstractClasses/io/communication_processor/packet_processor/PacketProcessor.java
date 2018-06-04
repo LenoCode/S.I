@@ -75,7 +75,7 @@ public abstract class PacketProcessor implements PacketProcessorModel {
         Iterator<String> iterator = notificationer.getUnparsedIteratorNotification(stringBuffer.getString());
 
         stringBuffer.emptyBuffer();
-
+        System.out.println("reading notifiying");
         while(iterator.hasNext()) {
             String next = iterator.next();
             notificationer.notificationProcess(next);

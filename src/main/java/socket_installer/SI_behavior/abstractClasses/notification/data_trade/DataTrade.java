@@ -16,20 +16,15 @@ public abstract class DataTrade implements DataTradeModel {
         this.clientSocket = clientSocket;
     }
     @Override
+    public ClientSocket getClientSocket() {
+        return clientSocket;
+    }
+
+    @Override
     public void send(String classIdent,String methodIdent,String data) throws IOException, SocketExceptions {
         String completeString = ClientProtocol.sendMessageFormat(classIdent,methodIdent,data);
         PacketHolder packetHolder = new PacketHolder(clientSocket);
         packetHolder.setData(completeString);
         PacketProcessor.getPacketProcessor(clientSocket).sendPacket(packetHolder);
-    }
-    @Override
-    public void receive() {
-        try{
-            clientSocket.activateSocket();
-        }catch (SocketExceptions socketExceptions) {
-            socketExceptions.handleException(clientSocket);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

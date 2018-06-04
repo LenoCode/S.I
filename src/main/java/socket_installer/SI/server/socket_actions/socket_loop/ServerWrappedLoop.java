@@ -20,11 +20,13 @@ public class ServerWrappedLoop extends ProgramLoopWrapper {
             try{
                 socketModel.activateSocket();
             }catch (NoSolutionForException noSolutionException){
-              throw noSolutionException;
+                throw noSolutionException;
             } catch (SocketExceptions socketExceptions) {
                 socketExceptions.handleException(socketModel);
             }catch (IOException ioException){
                 serverGeneralException.handleGeneralException(ioException,socketModel);
+            }catch (Exception exception){
+                exception.printStackTrace();
             }
         }
     }
