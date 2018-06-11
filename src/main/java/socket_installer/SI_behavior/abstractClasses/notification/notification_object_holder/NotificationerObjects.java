@@ -3,12 +3,14 @@ package socket_installer.SI_behavior.abstractClasses.notification.notification_o
 
 
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
+import socket_installer.SI_context.external_context.ExternalContext;
 import socket_installer.SI_parts.actionHolder.actions.notification_parser.NotificationParser;
 import socket_installer.SI_parts.notification.notification_processor.annotation_parser.AnnotationParser;
 
 public abstract class NotificationerObjects <A extends DataTradeModel> {
     protected final AnnotationParser annotationParser;
     protected final NotificationParser notificationParser;
+    protected ExternalContext externalContext;
     protected final A[] objects;
 
     protected NotificationerObjects(A[] objects){

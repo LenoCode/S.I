@@ -12,7 +12,7 @@ public class AnnotationParser {
     private final int METHOD_IDENT_LENGTH = METHOD_IDENT.length();
     private final String MESSAGE_IDENT = "message:";
     private final int MESSAGE_IDENT_LENGTH = MESSAGE_IDENT.length();
-    private final String EXCLUDED_METHODS = "(wait|equals|toString|hashCode|getClass|notify|notifyAll|send|setClientSocket)";
+    private final String EXCLUDED_METHODS = "(wait|equals|toString|hashCode|getClass|notify|notifyAll|send|setClientSocket|getClientSocket)";
 
 
     public <A> A identifyClass(A[] objects, String notification) throws NullPointerException{
@@ -33,12 +33,10 @@ public class AnnotationParser {
 
         for (Method method: methods){
             if (!checkIfMethodShouldBeExcluded(method.getName())) {
-                String ident = method.getAnnotation(MethodIdentifier.class).identification();
+                MethodIdentifier ident = method.getAnnotation(MethodIdentifier.class);
 
-                if (ident == null) {
-                    throw new IOException("Method is missing identifier annotation");
-                } else {
-                    if (ident.equals(methodIdent)) {
+                if (ident != null) {
+                    if (ident.identification().equals(methodIdent)) {
                         return method;
                     }
                 }

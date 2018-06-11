@@ -37,6 +37,7 @@ public class ClientCreator {
 
                 for (DataTradeModel dataTradeModel : notificationer.getObjects()){
                     dataTradeModel.setClientSocket((ClientSocket) basicSocket);
+                    dataTradeModel.injectExternalContext(notificationer.getExternalContext());
                 }
             }
             @Override
@@ -77,6 +78,7 @@ public class ClientCreator {
 
                 for (DataTradeModel dataTradeModel : notificationer.getObjects()){
                     dataTradeModel.setClientSocket(connectedClient);
+                    dataTradeModel.injectExternalContext(notificationer.getExternalContext());
                 }
 
                 new Thread(new Runnable() {

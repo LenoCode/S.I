@@ -2,7 +2,9 @@ package socket_installer.SI_behavior.abstractClasses.notification.notificationer
 
 import socket_installer.SI_behavior.abstractClasses.notification.notification_object_holder.NotificationerObjects;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.interfaces.context.ExternalContextInitializator;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
+import socket_installer.SI_context.external_context.ExternalContext;
 import socket_installer.SI_parts.actionHolder.actions.notification_parser.NotificationParser;
 import socket_installer.SI_parts.exception.default_exception.NoSolutionForException;
 
@@ -15,7 +17,14 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
 
     protected NotificationerActions(A[] objects) {
         super(objects);
+    }
 
+    public void createExternalContext(ExternalContextInitializator externalContextInitializator){
+        externalContext = new ExternalContext();
+        externalContextInitializator.initializeExternalContext(externalContext);
+    }
+    public ExternalContext getExternalContext(){
+        return externalContext;
     }
 
     public Iterator<String> getUnparsedIteratorNotification(String string) throws IOException, SocketExceptions {
