@@ -29,13 +29,19 @@ public class Server extends BasicSocket {
             newConnectionHandler.handleConnection(getNotificationer(),socketConnectedToServer,serverConfiguration.getTimeout());
         }
     }
-
     @Override
     public void setupSocket() throws IOException, SocketExceptions{
         if (socket == null) {
             ServerConfiguration serverConfiguration = (ServerConfiguration) getSocketConfiguration();
             socket = new ServerSocket(serverConfiguration.getPort(), serverConfiguration.getBacklog());
             serverConfiguration.setSocketOnlineStatus(true);
+        }
+    }
+    @Override
+    public void deactivateSocket() throws IOException, SocketExceptions {
+        if (socket != null){
+            socket.close();
+            socket = null;
         }
     }
 

@@ -4,7 +4,7 @@ import socket_installer.SI_parts.exception.client.connection_break_exception.Cli
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.InputStreamWrapperModel;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
-import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -22,7 +22,9 @@ public class ClientInputStreamWrapper implements InputStreamWrapperModel {
     public void read(byte[] bytes, StringBuffer buffer) throws IOException,SocketExceptions {
         int bytesRead = 0;
         try{
+            System.out.println("Reading files");
             bytesRead = bufferedInputStream.read(bytes);
+            System.out.println("read files");
 
             if (bytesRead == -1){
                 throw new ClientClosedException();
@@ -35,4 +37,5 @@ public class ClientInputStreamWrapper implements InputStreamWrapperModel {
             throw new ClientClosedException();
         }
     }
+
 }

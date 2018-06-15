@@ -2,12 +2,11 @@ package junit.tests.internal_tests.data_transfer.notification_test_methods;
 
 
 import junit.tests.statics.static_objects.thread_communicators.ThreadCounterCommunicator;
-import org.assertj.core.api.Condition;
-import org.junit.Test;
 import socket_installer.SI_behavior.abstractClasses.notification.data_trade.DataTrade;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.class_annotation.class_identifier.ClassIdentifier;
 import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.methods_annotation.method_identifier.MethodIdentifier;
+import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder.DefinedAutomatedResponder;
 
 import java.io.IOException;
 
@@ -23,7 +22,8 @@ public class NotificationTestMethods extends DataTrade {
 
     @MethodIdentifier(identification = "test01")
     public void checkIfMessageRecvIsEqual(String notification){
-        assertThat(notification).isEqualTo("testingMessage");
+        System.out.println("NOTIFICATOIN : "+notification);
+        //assertThat(notification).isEqualTo("testingMessage");
     }
 
 
@@ -74,6 +74,21 @@ public class NotificationTestMethods extends DataTrade {
         threadCounterCommunicator.increase();
         sleep(50);
         send(CLASS_IDENT,"test04_server","message count:"+threadCounterCommunicator.getCounter());
+    }
+
+    @MethodIdentifier(identification = "test05_server")
+    public void checkIfServerCanSendMultipleResponse_server(String notification) throws IOException, SocketExceptions {
+        assertThat(notification).matches("send multiple response");
+
+        for (int i = 0; i < 10 ; i++){
+            send(CLASS_IDENT,"test05_client","message count:"+i);
+        }
+        DefinedAutomatedResponder.getDefinedAutomatedResponder().sendStreamClosed(getClientSocket().getIOHolder());
+    }
+    @MethodIdentifier(identification = "test05_client")
+    public void checkIfServerCanSendMultipleResponse_client(String notification) throws IOException, SocketExceptions {
+        assertThat(notification).matches("(message count:)\\d*");
+        System.out.println(notification);
     }
 
 }

@@ -2,7 +2,7 @@ package socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protoc
 
 public enum EndDefined {
 
-    END_DEFINED_BYTES("</END DEFINED(PROTOCOL_VERSION_'1')"),
+    END_DEFINED_BYTES("</END DEFINED(PROTOCOL_VERSION_'1')>"),
     ;
 
     private String protocol;

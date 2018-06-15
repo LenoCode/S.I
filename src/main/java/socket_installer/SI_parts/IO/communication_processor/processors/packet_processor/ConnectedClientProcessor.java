@@ -3,14 +3,11 @@ package socket_installer.SI_parts.IO.communication_processor.processors.packet_p
 
 import socket_installer.SI.client.socket.ConnectedClient;
 import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
-import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_context.internal_context.InternalContext;
-import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientClosedException;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
-import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder.DefinedAutomatedResponder;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
 import java.io.IOException;
@@ -71,8 +68,6 @@ public class ConnectedClientProcessor extends PacketProcessor {
                 return isDataIncompleteComplete();
             case SOCKET_CLOSED:
                 return isDataIncompleteSocketClosed(packetHolder);
-            case DATA_RECV_FAILED:
-                throw new ConnectedClientClosedException();
             default:
                 throw new ConnectedClientClosedException();
         }

@@ -3,6 +3,7 @@ package socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defi
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols.BytesStatusProtocol;
+import socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols.TehnicalProtocol;
 
 import java.io.IOException;
 
@@ -20,6 +21,13 @@ public class DefinedAutomatedResponder {
     }
 
     public void sendBytesSuccessProtocol(IOHolder ioHolder) throws IOException,SocketExceptions {
-        ioHolder.getOutputStream().send((BytesStatusProtocol.BYTES_SEND_SUCCESS.completeProtocol()).getBytes());
+        sendDefinedResponse(ioHolder,BytesStatusProtocol.BYTES_SEND_SUCCESS.completeProtocol().getBytes());
+    }
+    public void sendStreamClosed(IOHolder ioHolder) throws IOException, SocketExceptions{
+        sendDefinedResponse(ioHolder,TehnicalProtocol.DATA_TRANSFER_FINISHED.completeProtocol().getBytes());
+    }
+
+    private void sendDefinedResponse(IOHolder ioHolder,byte[] bytes) throws IOException, SocketExceptions {
+        ioHolder.getOutputStream().send(bytes);
     }
 }

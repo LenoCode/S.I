@@ -1,12 +1,11 @@
 package socket_installer.SI_behavior.abstractClasses.notification.data_trade;
 
-import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
+
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_context.external_context.ExternalContext;
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
-import socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols.ClientProtocol;
+import socket_installer.SI_parts.protocol.enum_protocols.data_protocol.DataProtocol;
 
 import java.io.IOException;
 
@@ -33,9 +32,7 @@ public abstract class DataTrade implements DataTradeModel {
 
     @Override
     public void send(String classIdent,String methodIdent,String data) throws IOException, SocketExceptions {
-        String completeString = ClientProtocol.sendMessageFormat(classIdent,methodIdent,data);
-        PacketHolder packetHolder = new PacketHolder(clientSocket);
-        packetHolder.setData(completeString);
-        PacketProcessor.getPacketProcessor(clientSocket).sendPacket(packetHolder);
+        String completeString = DataProtocol.sendMessageFormat(classIdent,methodIdent,data);
+        //CommunicationProcessor.getCommunicationProcessor().activateSendProcess(clientSocket,completeString);
     }
 }
