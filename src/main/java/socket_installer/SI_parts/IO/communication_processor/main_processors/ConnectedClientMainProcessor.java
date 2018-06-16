@@ -1,4 +1,4 @@
-package socket_installer.SI_parts.IO.communication_processor_test_2.main_processors;
+package socket_installer.SI_parts.IO.communication_processor.main_processors;
 
 import socket_installer.SI_behavior.abstractClasses.io.communication_processor.main_processor.MainProcessor;
 import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
@@ -11,8 +11,6 @@ import socket_installer.SI_parts.exception.client.connection_break_exception.Cli
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 
 import java.io.IOException;
-import java.net.Socket;
-import java.net.SocketException;
 
 public class ConnectedClientMainProcessor extends MainProcessor {
 

@@ -10,7 +10,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import static org.assertj.core.api.Assertions.*;
 
 
-
 @RunWith(MockitoJUnitRunner.class)
 public class ClientCommunication {
 

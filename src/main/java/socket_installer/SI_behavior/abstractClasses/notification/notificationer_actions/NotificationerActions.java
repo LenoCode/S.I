@@ -1,25 +1,20 @@
 package socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions;
 
 import socket_installer.SI_behavior.abstractClasses.notification.notification_object_holder.NotificationerObjects;
-import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.interfaces.communication_processor.read_processor.ReadStatusProcessorModel;
 import socket_installer.SI_behavior.interfaces.context.ExternalContextInitializator;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_behavior.interfaces.notification.NotificationerActionsModel;
 import socket_installer.SI_context.external_context.ExternalContext;
 import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
-import socket_installer.SI_parts.IO.communication_processor_test_2.CommunicationProcessor;
-import socket_installer.SI_parts.IO.communication_processor_test_2.main_processors.ClientMainProcessor;
+import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
+import socket_installer.SI_parts.IO.communication_processor.main_processors.ClientMainProcessor;
 import socket_installer.SI_parts.exception.default_exception.NoSolutionForException;
-import socket_installer.SI_parts.protocol.enum_protocols.data_protocol.DataProtocol;
-import socket_installer.SI_parts.protocol.enum_protocols.general_protocols.EndMarkerProtocol;
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Scanner;
 
 public abstract class NotificationerActions <A extends DataTradeModel> extends NotificationerObjects implements NotificationerActionsModel {
 

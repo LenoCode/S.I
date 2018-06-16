@@ -1,4 +1,4 @@
-package socket_installer.SI_parts.IO.communication_processor_test_2.read_processor;
+package socket_installer.SI_parts.IO.communication_processor.read_processor;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;

@@ -3,9 +3,9 @@ package socket_installer.SI_behavior.abstractClasses.io.communication_processor.
 import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_parts.IO.communication_processor_test_2.buffer_processor.BufferProcessor;
-import socket_installer.SI_parts.IO.communication_processor_test_2.read_processor.ReadProcessor;
-import socket_installer.SI_parts.IO.communication_processor_test_2.send_processor.SendProcessor;
+import socket_installer.SI_parts.IO.communication_processor.buffer_processor.BufferProcessor;
+import socket_installer.SI_parts.IO.communication_processor.read_processor.ReadProcessor;
+import socket_installer.SI_parts.IO.communication_processor.send_processor.SendProcessor;
 import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 import socket_installer.SI_parts.protocol.enum_protocols.data_protocol.DataProtocol;
 

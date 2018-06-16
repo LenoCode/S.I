@@ -7,13 +7,10 @@ import socket_installer.SI.socket_creation.client.ClientCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
-import socket_installer.SI_parts.IO.communication_processor_test_2.CommunicationProcessor;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
-import socket_installer.SI_parts.protocol.enum_protocols.data_protocol.DataProtocol;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Scanner;
 
 import static junit.tests.internal_tests.data_transfer.notification_test_methods.NotificationTestMethods.CLASS_IDENT;
 import static junit.tests.statics.static_fields.StaticFields.HOST;

@@ -1,4 +1,4 @@
-package socket_installer.SI_parts.IO.communication_processor_test_2.buffer_processor;
+package socket_installer.SI_parts.IO.communication_processor.buffer_processor;
 
 import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 import socket_installer.SI_parts.protocol.enum_protocols.general_protocols.EndMarkerProtocol;

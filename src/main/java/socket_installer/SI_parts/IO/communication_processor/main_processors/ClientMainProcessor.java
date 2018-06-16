@@ -1,4 +1,4 @@
-package socket_installer.SI_parts.IO.communication_processor_test_2.main_processors;
+package socket_installer.SI_parts.IO.communication_processor.main_processors;
 
 import socket_installer.SI_behavior.abstractClasses.io.communication_processor.main_processor.MainProcessor;
 import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
