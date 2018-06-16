@@ -7,6 +7,7 @@ import java.net.Socket;
 public class ClientConfiguration implements SocketConfiguration {
     private String ipAddress;
     private int port;
+    private int timeout;
     private boolean connectedClientStatus;
     private boolean streamPaused;
 
@@ -24,6 +25,16 @@ public class ClientConfiguration implements SocketConfiguration {
     @Override
     public void setPort(int port) {
         this.port = port;
+    }
+
+    @Override
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
+
+    @Override
+    public int getTimeout() {
+        return timeout;
     }
 
     @Override

@@ -3,7 +3,7 @@ package socket_installer.SI_parts.protocol.protocol_object.undefined_protocol;
 import socket_installer.SI_behavior.interfaces.enums.IO_enums.protocol.ProtocolUndefinedModel;
 import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
 import socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.UndefinedProtocol;
-import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 
 import java.util.Iterator;
 
@@ -31,6 +31,7 @@ public class UndefinedProtocolActions {
         //OVAJ DIIO TREBA ZAVRSITI, NAPRAVITI KAKO CE SE REAGIRATI KAD U JEDNOM STRINGU IMAMO VISE REQUESTA, I DALI DA TU RADIMO NOTIFICATIONR NOTIFY
 
         if (string.substring(0,firstPartOfProtocolIndex).equals(protocolDefinedModelString.substring(0,firstPartOfProtocolIndex))){
+            System.out.println(string);
             return protocolUndefinedModel.getProccessorEnum();
         }
         else if (string.length() > protocolDefinedModelString.length()){

@@ -1,6 +1,6 @@
 package socket_installer.SI_behavior.interfaces.sockets.io_models;
 
-import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

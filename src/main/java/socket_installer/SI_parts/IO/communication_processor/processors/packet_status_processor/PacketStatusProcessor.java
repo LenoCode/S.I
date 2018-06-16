@@ -7,13 +7,11 @@ import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_
 import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
-import socket_installer.SI_parts.IO.wrapper.client.ClientOutputStreamWrapper;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientConnectionAbortException;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
 import socket_installer.SI_parts.actionHolder.ActionHolder;
-import socket_installer.SI_parts.actionHolder.actions.buffer_checker.BufferChecker;
-import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 
 import java.io.IOException;
 
@@ -27,12 +25,10 @@ public class PacketStatusProcessor {
         InputStreamWrapperModel inputStreamWrapperModel = ioHolder.getInputStream();
         byte[] bytes = ioHolder.getBytes();
         StringBuffer stringBuffer = ioHolder.getStringBuffer();
-        BufferChecker bufferChecker = actionHolder.getBufferChecker();
+
 
         try{
             inputStreamWrapperModel.read(bytes,stringBuffer);
-            ProcessorsEnums status = bufferChecker.checkStringBuffer(stringBuffer);
-            packetHolder.setPacketStatus(status);
         } catch (ConnectedClientTimeoutException socketTimeoutException){
             packetHolder.setPacketStatus(ProcessorsEnums.increaseProccesorCount(packetHolder.getPacketStatus()));
         } catch (ClientClosedException clientClosedException){

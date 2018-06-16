@@ -14,6 +14,7 @@ import socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.proto
 import static org.assertj.core.api.Assertions.*;
 
 
+
 import java.io.IOException;
 
 import static junit.tests.internal_tests.data_transfer.notification_test_methods.NotificationTestMethods.CLASS_IDENT;
@@ -69,6 +70,14 @@ public class DataTransferTests {
         assertThat(threadCounterCommunicator.getCounter()).isEqualTo(10000);
         threadCounterCommunicator.finish();
         System.out.println("Server and client exchanged 100000 messages with closing connection");
+    }
+
+    @Test
+    public void checkIfServerCanSendMultipleResponse()throws IOException,SocketExceptions{
+        PacketHolder packetHolder = createPacketHolderClient();
+        packetHolder.setData(ClientProtocol.sendMessageFormat(CLASS_IDENT,"test05_server","send multiple response"));
+        PacketProcessor.getPacketProcessor(clientResource.getClientCreatedSocket().getClient()).sendPacket(packetHolder);
+        clientReadResponse();
     }
 
 

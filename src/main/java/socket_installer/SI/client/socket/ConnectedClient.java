@@ -3,12 +3,15 @@ package socket_installer.SI.client.socket;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
+
+import socket_installer.SI_parts.IO.communication_processor_test_2.CommunicationProcessor;
+import socket_installer.SI_parts.IO.communication_processor_test_2.main_processors.ConnectedClientMainProcessor;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientInputStreamWrapper;
 import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientOutputStreamWrapper;
-import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
+import socket_installer.SI_parts.actionHolder.ActionHolder;
+import socket_installer.SI_parts.actionHolder.actions.communication_processor_actions.read_processor_actions.connected_client_impl.ConnectedClientReadStatusProcessor;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -21,16 +24,19 @@ public class ConnectedClient extends ClientSocket {
 
     public ConnectedClient(Socket clientSocket) {
         super(clientSocket);
+        actions = new ActionHolder(new ConnectedClientReadStatusProcessor());
     }
 
     @Override
     public void activateSocket() throws IOException, SocketExceptions {
         ClientConfiguration clientConfiguration = (ClientConfiguration) getSocketConfiguration();
+        ConnectedClientMainProcessor connectedClientMainProcessor = CommunicationProcessor.getConnectedClientCommunicationProcessor();
 
         while(clientConfiguration.isSocketOnline()){
-            PacketHolder packetHolder = new PacketHolder(this);
-            if (PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder)){
-                PacketProcessor.getPacketProcessor(this).notify(this);
+            if (!actions.getReadStatusProcessorModel().checkIfStreamOpen()){
+                connectedClientMainProcessor.checkIfStreamReadyToOpen(this);
+            }else{
+                connectedClientMainProcessor.readingDataFromStream(this);
             }
         }
     }

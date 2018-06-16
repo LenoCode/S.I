@@ -3,7 +3,7 @@ package socket_installer.SI_parts.protocol.protocol_object.defined_protocol;
 import socket_installer.SI_behavior.interfaces.enums.IO_enums.protocol.ProtocolDefinedModel;
 import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
 import socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.DefinedProtocol;
-import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 
 import java.util.Iterator;
 
@@ -32,21 +32,20 @@ public class DefinedProtocolActions {
             return protocolDefinedModel.getProccessorEnum();
         }
         else if (string.contains(protocolDefinedModelString) && string.length() > protocolDefinedModelString.length()){
-            if (stripStringForStatus(string,protocolDefinedModelString,stringBuffer)){
-                return protocolDefinedModel.getProccessorEnum();
-            }
+            stripStringForStatus(string,protocolDefinedModelString,stringBuffer);
+            return protocolDefinedModel.getProccessorEnum();
+
         }
         return null;
     }
 
     private boolean stripStringForStatus(String string,String protocolDefinedModelString,StringBuffer stringBuffer){
-        if (string.contains(protocolDefinedModelString)){
-            String rest = string.substring(protocolDefinedModelString.length());
-            stringBuffer.emptyBuffer();
-            stringBuffer.insertToBuffer(rest.length(),rest.getBytes());
-            return true;
-        }
-        return false;
+        System.out.println("TU SAM DA UZMEM DIO STRINGA");
+        String rest = string.substring(protocolDefinedModelString.length());
+        stringBuffer.emptyBuffer();
+        stringBuffer.insertToBuffer(rest.length(),rest.getBytes());
+        return true;
+
     }
 
 

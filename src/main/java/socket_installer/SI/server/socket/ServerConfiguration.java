@@ -26,6 +26,15 @@ public class ServerConfiguration implements SocketConfiguration {
     }
 
     @Override
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
+    @Override
+    public int getTimeout() {
+        return timeout;
+    }
+
+    @Override
     public String getIpAddress() {
         return ipAddress;
     }
@@ -51,11 +60,4 @@ public class ServerConfiguration implements SocketConfiguration {
         this.backlog = backlog;
     }
 
-    public int getTimeout() {
-        return timeout;
-    }
-
-    public void setTimeout(int timeout) {
-        this.timeout = timeout;
-    }
 }

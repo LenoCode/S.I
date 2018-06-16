@@ -14,7 +14,7 @@ import java.net.Socket;
 public abstract class ClientSocket extends BasicSocket implements IOHolderSetupMethodModel {
 
     protected IOHolder ioHolder;
-    protected static ActionHolder actions = new ActionHolder();
+    protected ActionHolder actions;
 
     public ClientSocket(Socket clientSocket){
         this.socket = clientSocket;
@@ -26,6 +26,14 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
         setupIOHolder();
         clientConfiguration.setStreamPaused(false);
         clientConfiguration.setSocketOnlineStatus(true);
+    }
+    @Override
+    public void deactivateSocket() throws IOException, SocketExceptions {
+        if (socket != null){
+            socket.close();
+            socket = null;
+            //ioHolder.getStringBuffer().emptyBuffer();
+        }
     }
 
     public IOHolder getIOHolder() {

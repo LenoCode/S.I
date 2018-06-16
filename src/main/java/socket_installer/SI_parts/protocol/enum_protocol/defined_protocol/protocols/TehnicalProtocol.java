@@ -6,6 +6,7 @@ import socket_installer.SI_parts.IO.communication_processor.processors_enums.Pro
 
 public enum TehnicalProtocol implements ProtocolDefinedModel {
     SOCKET_CLOSED("</SOCKET_CLOSED>Socket closed>",ProcessorsEnums.SOCKET_CLOSED),
+    DATA_TRANSFER_FINISHED("</DATA TRANSFER>Finished>",ProcessorsEnums.STREAM_CLOSED);
     ;
 
     private String protocol;
@@ -26,7 +27,7 @@ public enum TehnicalProtocol implements ProtocolDefinedModel {
         return processorsEnums;
     }
 
-    public String IdentProtocol(){
+    public String identProtocol(){
         return protocol;
     }
 

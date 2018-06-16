@@ -25,6 +25,8 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
                 socketExceptions.handleException(socketModel);
             } catch (IOException ioException){
                 clientGeneralException.handleGeneralException(ioException,socketModel);
+            }catch (Exception exception){
+                exception.printStackTrace();
             }
         }
         System.out.println("Ovaj thread zavrsava" + this);

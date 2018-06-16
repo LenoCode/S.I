@@ -32,9 +32,8 @@ public class ClientResource extends ExternalResource {
     @Override
     protected void before() throws Throwable {
         Socket socket = new Socket(HOST,PORT);
-        socket.setSoTimeout(TIMEOUT);
         notificationerMock = new NotificationerMock(dataTradeModels);
-        clientCreatedSocket = ClientCreator.createClient(notificationerMock,socket);
+        clientCreatedSocket = ClientCreator.createClient(notificationerMock,socket,TIMEOUT);
         threadRun(new Runnable() {
             @Override
             public void run() {

@@ -25,18 +25,22 @@ import java.net.Socket;
 
 public class ClientCreator {
 
-    public static ClientCreatedSocket createClient(NotificationerActions notificationer, Socket socket){
+    public static ClientCreatedSocket createClient(NotificationerActions notificationer, Socket socket,int timeout){
         return new ClientCreatedSocket() {
             @Override
             public void runSocket() throws IOException,SocketExceptions {
                 ClientConfiguration clientConfiguration = new ClientConfiguration(socket);
+                clientConfiguration.setTimeout(timeout);
                 basicSocket = new Client(socket);
                 basicSocket.setSocketConfiguration(clientConfiguration);
                 basicSocket.setNotificationer(notificationer);
                 basicSocket.setupSocket();
+                socket.setSoTimeout(timeout);
 
+                notificationer.setClientSocket((ClientSocket) basicSocket);
                 for (DataTradeModel dataTradeModel : notificationer.getObjects()){
                     dataTradeModel.setClientSocket((ClientSocket) basicSocket);
+                    dataTradeModel.injectExternalContext(notificationer.getExternalContext());
                 }
             }
             @Override
@@ -62,28 +66,27 @@ public class ClientCreator {
             @Override
             public void runSocket() throws IOException, SocketExceptions {
                 ClientConfiguration connectedClientConfiguration = new ClientConfiguration(socketConnected);
-                ConnectedClient connectedClient = new ConnectedClient(socketConnected);
-                connectedClient.setSocketConfiguration(connectedClientConfiguration);
+                basicSocket= new ConnectedClient(socketConnected);
+                basicSocket.setSocketConfiguration(connectedClientConfiguration);
+                basicSocket.setNotificationer(notificationer);
+                basicSocket.setupSocket();
 
                 SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
-                sessionTracker.addNewConnection(connectedClient);
+                sessionTracker.addNewConnection((ConnectedClient) basicSocket);
 
                 ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();
 
-                basicSocket = connectedClient;
-                basicSocket.setNotificationer(notificationer);
-
-                connectedClient.setupSocket();
-
+                notificationer.setClientSocket((ClientSocket) basicSocket);
                 for (DataTradeModel dataTradeModel : notificationer.getObjects()){
-                    dataTradeModel.setClientSocket(connectedClient);
+                    dataTradeModel.setClientSocket((ClientSocket) basicSocket);
+                    dataTradeModel.injectExternalContext(notificationer.getExternalContext());
                 }
 
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try {
-                            connectedClientWrappedLoop.activateWrappedLoop(connectedClient);
+                            connectedClientWrappedLoop.activateWrappedLoop(basicSocket);
                         } catch (NoSolutionForException e) {
                             e.printStackTrace();
                         }

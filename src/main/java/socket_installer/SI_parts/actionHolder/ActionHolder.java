@@ -1,18 +1,19 @@
 package socket_installer.SI_parts.actionHolder;
 
-import socket_installer.SI_parts.actionHolder.actions.buffer_checker.BufferChecker;
+import socket_installer.SI_behavior.interfaces.communication_processor.read_processor.ReadStatusProcessorModel;
+
 
 public class ActionHolder {
 
-    private final BufferChecker bufferChecker;
+    private final ReadStatusProcessorModel readStatusProcessorModel;
 
-    public ActionHolder (){
-        bufferChecker = new BufferChecker();
+
+    public ActionHolder(ReadStatusProcessorModel readStatusProcessorModel){
+        this.readStatusProcessorModel = readStatusProcessorModel;
 
     }
 
-    public BufferChecker getBufferChecker() {
-        return bufferChecker;
+    public ReadStatusProcessorModel getReadStatusProcessorModel() {
+        return readStatusProcessorModel;
     }
-
 }

@@ -29,13 +29,6 @@ public abstract class BasicSocket<A extends Closeable> implements SocketModel{
         return socketConfiguration;
     }
 
-    @Override
-    public void deactivateSocket() throws IOException, SocketExceptions {
-        if (socket != null){
-            socket.close();
-            socket = null;
-        }
-    }
 
 
     public boolean equals(String ipAddress) {
@@ -44,6 +37,10 @@ public abstract class BasicSocket<A extends Closeable> implements SocketModel{
 
     public NotificationerActions getNotificationer() {
         return notificationer;
+    }
+
+    public A getSocket() {
+        return socket;
     }
 
     public void setNotificationer(NotificationerActions notificationer) {

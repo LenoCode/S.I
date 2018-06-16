@@ -3,13 +3,13 @@ package socket_installer.SI.client.socket;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 
 import socket_installer.SI_parts.IO.wrapper.client.ClientInputStreamWrapper;
 import socket_installer.SI_parts.IO.wrapper.client.ClientOutputStreamWrapper;
-import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
+import socket_installer.SI_parts.actionHolder.ActionHolder;
+import socket_installer.SI_parts.actionHolder.actions.communication_processor_actions.read_processor_actions.client_impl.ClientReadStatusProcessor;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -19,17 +19,14 @@ import java.net.Socket;
 
 public class Client extends ClientSocket {
 
-
     public Client(Socket clientSocket) {
         super(clientSocket);
+        actions = new ActionHolder(new ClientReadStatusProcessor());
     }
 
     @Override
     public void activateSocket() throws IOException, SocketExceptions {
-        PacketHolder packetHolder = new PacketHolder(this);
-        if (PacketProcessor.getPacketProcessor(this).checkInputStreamData(packetHolder)){
-            PacketProcessor.getPacketProcessor(this).notify(this);
-        }
+        //CommunicationProcessor.getCommunicationProcessor().activateReadProcess(this);
     }
 
     @Override
@@ -49,6 +46,7 @@ public class Client extends ClientSocket {
     @Override
     public void replaceSocket(Socket socket) throws IOException, SocketExceptions {
         this.socket = socket;
+        ((Socket) this.socket).setSoTimeout(socketConfiguration.getTimeout());
         ioHolder.getStringBuffer().emptyBuffer();
         setupStream(socket);
         ((ClientConfiguration)socketConfiguration).setStreamPaused(false);

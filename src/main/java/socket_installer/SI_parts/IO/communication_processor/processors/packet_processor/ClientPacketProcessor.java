@@ -83,8 +83,6 @@ public class ClientPacketProcessor extends PacketProcessor {
                 return isDataIncomplete();
             case DATA_COMPLETE:
                 return isDataIncompleteComplete();
-            case DATA_RECV_FAILED:
-                throw new ClientClosedException();
             default:
                 throw new ClientClosedException();
         }

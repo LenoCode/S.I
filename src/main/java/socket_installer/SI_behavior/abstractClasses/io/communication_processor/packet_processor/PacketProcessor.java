@@ -12,8 +12,7 @@ import socket_installer.SI_parts.IO.communication_processor.processors.packet_pr
 import socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor.PacketStatusProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
 import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
-import socket_installer.SI_parts.actionHolder.actions.notification_parser.NotificationParser;
-import socket_installer.SI_parts.actionHolder.actions.string_buffer.StringBuffer;
+import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 import socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder.DefinedAutomatedResponder;
 
 
@@ -72,13 +71,12 @@ public abstract class PacketProcessor implements PacketProcessorModel {
     public void notify(ClientSocket clientSocket) throws IOException, SocketExceptions {
         StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();
         NotificationerActions notificationer = clientSocket.getNotificationer();
-        Iterator<String> iterator = notificationer.getUnparsedIteratorNotification(stringBuffer.getString());
+        Iterator<String> iterator = null;
 
         stringBuffer.emptyBuffer();
-
         while(iterator.hasNext()) {
             String next = iterator.next();
-            notificationer.notificationProcess(next);
+            notificationer.notifyClass(next);
         }
     }
 
