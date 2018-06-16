@@ -11,6 +11,8 @@ import socket_installer.SI_parts.exception.client.connection_break_exception.Cli
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 
 import java.io.IOException;
+import java.net.Socket;
+import java.net.SocketException;
 
 public class ConnectedClientMainProcessor extends MainProcessor {
 
@@ -34,16 +36,14 @@ public class ConnectedClientMainProcessor extends MainProcessor {
         NotificationerActions notificationerActions = clientSocket.getNotificationer();
         StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();
 
+        setInputStreamToBlock(clientSocket);
+
         do{
             readProcessor.readDataFromOpenStream(clientSocket,readStatusProcessorModel);
-
-            if (readStatusProcessorModel.checkReadStatus() == ProcessorsEnums.DATA_LINE_COMPLETE){
-                System.out.println("DATA LINE COMPLETE");
-                notifyClass(notificationerActions,stringBuffer);
-            }else if (readStatusProcessorModel.checkReadStatus() == ProcessorsEnums.DATA_COMPLETE){
-                System.out.println("Data complete");
-            }
+            checkStatusFromReadStatusProcessor(readStatusProcessorModel,notificationerActions,stringBuffer);
         }while(readStatusProcessorModel.checkIfStreamOpen());
+
+        setInputStreamToUnblock(clientSocket);
         System.out.println("STREAM CLOSED");
     }
 
@@ -53,4 +53,17 @@ public class ConnectedClientMainProcessor extends MainProcessor {
             readProcessor.readStreamStatus(clientSocket,readStatusProcessorModel);
         }while(readStatusProcessorModel.checkStreamStatus(clientSocket));
     }
+
+    private void checkStatusFromReadStatusProcessor(ReadStatusProcessorModel readStatusProcessorModel,NotificationerActions notificationerActions,StringBuffer stringBuffer) throws IOException, SocketExceptions {
+
+        if (readStatusProcessorModel.checkReadStatus() == ProcessorsEnums.DATA_LINE_COMPLETE){
+            notifyClass(notificationerActions,stringBuffer);
+        }else if (readStatusProcessorModel.checkReadStatus() == ProcessorsEnums.DATA_COMPLETE){
+            readStatusProcessorModel.setStreamOpenStatus(ProcessorsEnums.STREAM_CLOSED);
+        }else if (readStatusProcessorModel.checkReadStatus() == ProcessorsEnums.STREAM_CONNECTION_LOST){
+            notificationerActions.exceptionHandler(readStatusProcessorModel);
+        }
+    }
+
+
 }

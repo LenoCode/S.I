@@ -44,6 +44,9 @@ public class AnnotationParser {
         }
         throw new IOException("No method was found");
     }
+
+
+
     private boolean checkIfMethodShouldBeExcluded(String methodName){
         return methodName.matches(EXCLUDED_METHODS);
 

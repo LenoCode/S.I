@@ -29,7 +29,7 @@ public class ReadProcessor {
     public void readDataFromOpenStream(ClientSocket clientSocket,ReadStatusProcessorModel readStatusProcessorModel) throws IOException, SocketExceptions {
         try{
             read(clientSocket,readStatusProcessorModel);
-        }catch (ConnectedClientClosedException|ClientClosedException closedException){
+        }catch (ConnectedClientClosedException|ClientClosedException|ConnectedClientTimeoutException closedException){
             readStatusProcessorModel.setCheckReadStatus(ProcessorsEnums.STREAM_CONNECTION_LOST);
         }catch (IOException ioException){
             throw ioException;
@@ -55,7 +55,6 @@ public class ReadProcessor {
             return ProcessorsEnums.DATA_COMPLETE;
 
         }else if (stringInBuffer.endsWith(EndMarkerProtocol.END_LINE.getProtocol())){
-            System.out.println("ENDS WITH THAT");
             return ProcessorsEnums.DATA_LINE_COMPLETE;
         }
         else if (stringInBuffer.length() > 0){

@@ -36,20 +36,6 @@ public class ClientReadStatusProcessor implements ReadStatusProcessorModel {
     }
 
     @Override
-    public boolean checkDataReadStatus(ClientSocket clientSocket) throws SocketExceptions, IOException {
-        switch (readStatus){
-            case DATA_INCOMPLETE:
-                return true;
-            case DATA_LINE_COMPLETE:
-                return true;
-            case STREAM_CONNECTION_LOST:
-                return reconnectSocket((Client) clientSocket);
-            default:
-                throw new ClientClosedException();
-        }
-    }
-
-    @Override
     public boolean checkIfStreamOpen() {
         return streamOpenStatus == ProcessorsEnums.STREAM_OPEN;
     }
@@ -70,6 +56,7 @@ public class ClientReadStatusProcessor implements ReadStatusProcessorModel {
     }
 
     private boolean reconnectSocket(Client client) throws IOException, SocketExceptions {
+        System.out.println("Reconnect socket");
         client.reconnectSocket();
         return true;
     }

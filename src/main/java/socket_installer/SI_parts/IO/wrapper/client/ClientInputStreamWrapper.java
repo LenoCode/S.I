@@ -22,9 +22,8 @@ public class ClientInputStreamWrapper implements InputStreamWrapperModel {
     public void read(byte[] bytes, StringBuffer buffer) throws IOException,SocketExceptions {
         int bytesRead = 0;
         try{
-            System.out.println("Reading files");
             bytesRead = bufferedInputStream.read(bytes);
-            System.out.println("read files");
+            System.out.println("READ BYTES "+bytesRead);
 
             if (bytesRead == -1){
                 throw new ClientClosedException();

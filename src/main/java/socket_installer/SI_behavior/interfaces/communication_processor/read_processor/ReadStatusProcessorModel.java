@@ -8,7 +8,6 @@ import java.io.IOException;
 
 public interface ReadStatusProcessorModel {
     boolean checkStreamStatus(ClientSocket clientSocket)throws SocketExceptions, IOException;
-    boolean checkDataReadStatus(ClientSocket clientSocket) throws SocketExceptions, IOException;
     boolean checkIfStreamOpen();
     ProcessorsEnums checkReadStatus();
     void setCheckReadStatus(ProcessorsEnums processorsEnums);

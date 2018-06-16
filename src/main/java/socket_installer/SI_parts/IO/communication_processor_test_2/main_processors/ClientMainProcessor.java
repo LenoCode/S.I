@@ -1,6 +1,7 @@
 package socket_installer.SI_parts.IO.communication_processor_test_2.main_processors;
 
 import socket_installer.SI_behavior.abstractClasses.io.communication_processor.main_processor.MainProcessor;
+import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.communication_processor.read_processor.ReadStatusProcessorModel;
@@ -8,10 +9,7 @@ import socket_installer.SI_parts.IO.communication_processor.processors_enums.Pro
 import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
-
 import java.io.IOException;
-import java.net.Socket;
-import java.net.SocketException;
 
 public class ClientMainProcessor extends MainProcessor {
 
@@ -31,18 +29,33 @@ public class ClientMainProcessor extends MainProcessor {
     }
     public void readingDataFromStream(ClientSocket clientSocket) throws IOException, SocketExceptions{
         ReadStatusProcessorModel readStatusProcessorModel = clientSocket.getActions().getReadStatusProcessorModel();
-        setInputStreamToBlock(clientSocket);
+        NotificationerActions notificationerActions = clientSocket.getNotificationer();
+        StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();
 
+        setInputStreamToBlock(clientSocket);
         do{
             readProcessor.readDataFromOpenStream(clientSocket,readStatusProcessorModel);
-
+            checkStatusFromReadStatusProcessor(readStatusProcessorModel,notificationerActions,stringBuffer);
         }while(readStatusProcessorModel.checkIfStreamOpen());
 
+        checkForDataBeforeClosing(notificationerActions,stringBuffer);
         setInputStreamToUnblock(clientSocket);
+
+        while(true){
+
+        }
     }
 
-    public void sendNotification(ClientSocket clientSocket,String notification) throws IOException, SocketExceptions{
-        sendProcessor.send(clientSocket.getIOHolder().getOutputStream(),notification.getBytes());
+
+    private void checkStatusFromReadStatusProcessor(ReadStatusProcessorModel readStatusProcessorModel, NotificationerActions notificationerActions, StringBuffer stringBuffer) throws IOException, SocketExceptions {
+
+        if (readStatusProcessorModel.checkReadStatus() == ProcessorsEnums.DATA_LINE_COMPLETE){
+            notifyClass(notificationerActions,stringBuffer);
+        }else if (readStatusProcessorModel.checkReadStatus() == ProcessorsEnums.DATA_COMPLETE){
+            readStatusProcessorModel.setStreamOpenStatus(ProcessorsEnums.STREAM_CLOSED);
+        }else if (readStatusProcessorModel.checkReadStatus() == ProcessorsEnums.STREAM_CONNECTION_LOST){
+            notificationerActions.exceptionHandler(readStatusProcessorModel);
+        }
     }
 
 
@@ -52,18 +65,12 @@ public class ClientMainProcessor extends MainProcessor {
             ProcessorsEnums readStatus = readStatusProcessorModel.checkReadStatus();
 
             if (readStatus == ProcessorsEnums.INITILIAZED || readStatus == ProcessorsEnums.FIRST_TRY){
-                sendProcessor.send(clientSocket.getIOHolder().getOutputStream(),dataToSend.getBytes());
+                sendData(clientSocket,dataToSend.getBytes());
             }
             readProcessor.readStreamStatus(clientSocket,readStatusProcessorModel);
         }while(readStatusProcessorModel.checkStreamStatus(clientSocket));
-    }
 
 
-    private void setInputStreamToBlock(ClientSocket clientSocket) throws SocketException {
-        ((Socket)clientSocket.getSocket()).setSoTimeout(0);
-    }
-    private void setInputStreamToUnblock(ClientSocket clientSocket) throws SocketException {
-        ((Socket)clientSocket.getSocket()).setSoTimeout(clientSocket.getSocketConfiguration().getTimeout());
     }
 
 }

@@ -36,19 +36,6 @@ public class ConnectedClientReadStatusProcessor implements ReadStatusProcessorMo
         }
     }
 
-    @Override
-    public boolean checkDataReadStatus(ClientSocket clientSocket) throws SocketExceptions, IOException {
-        switch (readStatus){
-            case DATA_INCOMPLETE:
-                return true;
-            case DATA_LINE_COMPLETE:
-                return true;
-            case STREAM_CONNECTION_LOST:
-                return false;
-            default:
-                throw new ClientClosedException();
-        }
-    }
 
     @Override
     public boolean checkIfStreamOpen() {

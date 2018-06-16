@@ -12,6 +12,9 @@ public class StringBuffer {
     public void insertToBuffer(int bytesRead,byte[] bytes){
         stringBuffer.append(new String(bytes,0,bytesRead));
     }
+    public void insertToBuffer(String string){
+        stringBuffer.append(string);
+    }
 
     public String getString(){
         return stringBuffer.toString();
