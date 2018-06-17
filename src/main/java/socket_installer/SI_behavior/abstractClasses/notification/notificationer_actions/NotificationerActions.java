@@ -6,7 +6,6 @@ import socket_installer.SI_behavior.interfaces.context.ExternalContextInitializa
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_behavior.interfaces.notification.NotificationerActionsModel;
 import socket_installer.SI_context.external_context.ExternalContext;
-import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
 import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
 import socket_installer.SI_parts.IO.communication_processor.main_processors.ClientMainProcessor;
 import socket_installer.SI_parts.exception.default_exception.NoSolutionForException;
@@ -30,6 +29,9 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
         return externalContext;
     }
 
+    public void resetNotificationer(){
+        notificationerStatesBundle.closeStream();
+    }
 
     public void notifyClass(String notification) throws IOException, SocketExceptions {
         saveLastMethodForExceptionHandle(notification);
@@ -41,6 +43,7 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
     }
     public void sendNotification(String classIdent,String methodIdent,String notification) {
         try {
+            System.out.println("SALJEM NOTIFIAITON "+notification);
             ClientMainProcessor communicationProcessor = CommunicationProcessor.getClientCommunicationProcessor();
             communicationProcessor.openStreamSocket(clientSocket);
             communicationProcessor.sendNotification(clientSocket,classIdent,methodIdent,notification);
@@ -51,8 +54,6 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
             socketExceptions.printStackTrace();
         }
     }
-
-
 
     private void invokeMethod(A object,Method method, Object ... args) throws SocketExceptions, IOException {
         try {
@@ -72,8 +73,8 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
         this.lastMethodCalled = lastMethod;
     }
 
-    private void closeStream() throws IOException, SocketExceptions {
-        System.out.println("ja saljem tebi ti meni");
-        CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSED.completeProtocol().getBytes());
+    public void closeStream() throws IOException, SocketExceptions {
+        CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSING.completeProtocol().getBytes());
     }
+
 }

@@ -14,7 +14,6 @@ public class SessionTracker {
     }
 
     public void addNewConnection (ConnectedClient socket){
-        System.out.println(socket.getSocketConfiguration().getIpAddress());
         connectedClientSet.add(socket);
     }
     public void removeConnection(SocketModel socket){

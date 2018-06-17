@@ -3,15 +3,27 @@ package socket_installer.SI_behavior.abstractClasses.notification.notification_s
 import java.util.HashMap;
 
 public class NotificationerStatesBundle {
-    private final HashMap<String,Object> hashMap;
+    private final HashMap<String,Object> userObjects;
+    private boolean sendCloseStream;
 
     public NotificationerStatesBundle(){
-        hashMap = new HashMap<>();
+        userObjects = new HashMap<>();
+        sendCloseStream = true;
     }
     public Object getObject(String key){
-        return hashMap.get(key);
+        return userObjects.get(key);
     }
-    public void setNewObject(String key,Object object){
-        hashMap.put(key,object);
+    public void saveObject(String key, Object object){
+        userObjects.put(key,object);
+    }
+
+    public boolean isSendCloseStream() {
+        return sendCloseStream;
+    }
+    public void keepStreamAlive(){
+        sendCloseStream = false;
+    }
+    public void closeStream(){
+        sendCloseStream = true;
     }
 }

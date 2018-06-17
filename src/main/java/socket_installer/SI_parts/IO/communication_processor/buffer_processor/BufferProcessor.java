@@ -24,11 +24,14 @@ public class BufferProcessor {
         return Arrays.asList(stringBuffer.getString().split(EndMarkerProtocol.END_LINE.getProtocol())).iterator();
     }
     public void removeSocketStreamClosedLine(StringBuffer stringBuffer){
-        String replacedData =stringBuffer.getString().replace(TechnicalProtocol.SOCKET_STREAM_CLOSED.completeProtocol(),"");
+        System.out.println(stringBuffer.getString());
+        String replacedData =stringBuffer.getString().replaceAll(TechnicalProtocol.getSocketCloseRegex(),"");
+        System.out.println(replacedData+ "replaced data");
         stringBuffer.emptyBuffer();
         stringBuffer.insertToBuffer(replacedData);
 
     }
+
     public String extractNotification(String string){
         int leftSideIndex = string.indexOf('>')+1;
         return string.substring(leftSideIndex);

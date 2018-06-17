@@ -1,7 +1,7 @@
 package socket_installer.SI_parts.IO.wrapper.server;
 
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
-import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientTimeoutException;
+import socket_installer.SI_parts.exception.client.general.ClientTimeoutException;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientClosedException;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.InputStreamWrapperModel;
@@ -32,7 +32,7 @@ public class ConnectedClientInputStreamWrapper implements InputStreamWrapperMode
             buffer.insertToBuffer(bytesRead,bytes);
         }
         catch (SocketTimeoutException socketTimeoutException){
-            throw new ConnectedClientTimeoutException();
+            throw new ClientTimeoutException();
         }catch (IOException ioException){
             throw new ConnectedClientClosedException();
         }

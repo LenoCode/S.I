@@ -4,15 +4,14 @@ package socket_installer.SI_parts.actionHolder.actions.communication_processor_a
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.communication_processor.read_processor.ReadStatusProcessorModel;
-import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
-import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
+import socket_installer.SI_parts.IO.communication_processor.processor_enums.ProcessorEnums;
 import socket_installer.SI_parts.exception.server.connection_break_exception.ConnectedClientClosedException;
 
 import java.io.IOException;
 
 public class ConnectedClientReadStatusProcessor implements ReadStatusProcessorModel {
-    private ProcessorsEnums streamOpenStatus = ProcessorsEnums.STREAM_CLOSED;
-    private ProcessorsEnums readStatus;
+    private ProcessorEnums streamOpenStatus = ProcessorEnums.STREAM_CLOSED;
+    private ProcessorEnums readStatus;
 
     @Override
     public boolean checkStreamStatus(ClientSocket clientSocket) throws SocketExceptions,IOException {
@@ -39,21 +38,26 @@ public class ConnectedClientReadStatusProcessor implements ReadStatusProcessorMo
 
     @Override
     public boolean checkIfStreamOpen() {
-        return streamOpenStatus == ProcessorsEnums.STREAM_OPEN;
+        return streamOpenStatus == ProcessorEnums.STREAM_OPEN;
     }
 
     @Override
-    public ProcessorsEnums checkReadStatus() {
+    public ProcessorEnums getStreamClosingStatus() {
+        return streamOpenStatus;
+    }
+
+    @Override
+    public ProcessorEnums checkReadStatus() {
         return readStatus;
     }
 
     @Override
-    public void setCheckReadStatus(ProcessorsEnums readStatus) {
+    public void setCheckReadStatus(ProcessorEnums readStatus) {
         this.readStatus = readStatus;
     }
 
     @Override
-    public void setStreamOpenStatus(ProcessorsEnums processorsEnums) {
+    public void setStreamOpenStatus(ProcessorEnums processorsEnums) {
         streamOpenStatus = processorsEnums;
     }
 

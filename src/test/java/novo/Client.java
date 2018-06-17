@@ -1,18 +1,18 @@
 package novo;
 
 import junit.tests.client.client_communication.mock_objects.NotificationerMock;
-import junit.tests.internal_tests.data_transfer.notification_test_methods.NotificationTestMethods;
+import junit.tests.internal_tests.data_transfer.notification_test_methods.NotificationTestMethodsClient;
+import junit.tests.internal_tests.data_transfer.notification_test_methods.NotificationTestMethodsServer;
 import org.mockito.Mock;
 import socket_installer.SI.socket_creation.client.ClientCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
 
 import java.io.IOException;
 import java.net.Socket;
 
-import static junit.tests.internal_tests.data_transfer.notification_test_methods.NotificationTestMethods.CLASS_IDENT;
+import static junit.tests.internal_tests.data_transfer.notification_test_methods.NotificationTestMethodsServer.CLASS_IDENT;
 import static junit.tests.statics.static_fields.StaticFields.HOST;
 import static junit.tests.statics.static_fields.StaticFields.PORT;
 import static junit.tests.statics.static_fields.StaticFields.TIMEOUT;
@@ -80,22 +80,21 @@ public class Client {
         notificationerMock.sendNotification(CLASS_IDENT,"test01",data);
 
     }
-    private PacketHolder createPacketHolderClient(){
-        return new PacketHolder(clientCreatedSocket.getClient());
-    }
-    private PacketHolder createPacketHolderServer(){
-        return new PacketHolder(clientCreatedSocket.getClient());
-    }
+
     private void clientReadResponse() throws IOException, SocketExceptions {
        clientCreatedSocket.getClient().activateSocket();
     }
 
 
     public static void main(String[] args){
-        Client client = new Client(new DataTradeModel[]{new NotificationTestMethods()});
+        Client client = new Client(new DataTradeModel[]{new NotificationTestMethodsClient()});
         try {
             client.before();
             client.send("adad");
+            client.send("novo");
+            while(true){
+
+            }
 
         } catch (Throwable throwable) {
             throwable.printStackTrace();
