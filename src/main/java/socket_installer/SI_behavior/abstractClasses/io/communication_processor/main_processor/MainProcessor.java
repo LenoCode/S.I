@@ -59,7 +59,7 @@ public abstract class MainProcessor {
 
         setInputStreamToUnblock(clientSocket);
         checkStreamClosingStatus(clientSocket,readStatusProcessorModel);
-        resetStream(notificationerActions,stringBuffer);
+        stringBuffer.emptyBuffer();
     }
 
     protected void checkStatusFromReadStatusProcessor(ReadStatusProcessorModel readStatusProcessorModel, NotificationerActions notificationerActions, StringBuffer stringBuffer) throws IOException, SocketExceptions {
@@ -105,15 +105,7 @@ public abstract class MainProcessor {
             System.out.println("saljem closed");
             sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSED.completeProtocol().getBytes());
             readStatusProcessorModel.setStreamOpenStatus(ProcessorEnums.STREAM_CLOSED);
-        }else{
-            System.out.println("ja nista, dobio sam closed");
         }
     }
-
-    private void resetStream(NotificationerActions notificationerActions,StringBuffer stringBuffer){
-        notificationerActions.resetNotificationer();
-        stringBuffer.emptyBuffer();
-    }
-
 
 }

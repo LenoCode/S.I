@@ -34,6 +34,11 @@ public class NotificationTestMethodsClient extends DataTrade {
         assertThat(notification).matches("(message count:)\\d*");
         assertThat(threadCounterCommunicator.getCounter() % 2).isEqualTo(1);
         threadCounterCommunicator.increase();
+        if (threadCounterCommunicator.getCounter() < 1000){
+            send(CLASS_IDENT,"test03_server","message count:"+threadCounterCommunicator.getCounter());
+        }else{
+            closeStream();
+        }
 
 
     }

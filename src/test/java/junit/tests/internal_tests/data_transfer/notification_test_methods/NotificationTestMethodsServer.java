@@ -8,6 +8,7 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.Client
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.class_annotation.class_identifier.ClassIdentifier;
 import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.methods_annotation.method_identifier.MethodIdentifier;
+import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.methods_annotation.method_identifier.StreamOpen;
 
 import java.io.IOException;
 
@@ -40,13 +41,17 @@ public class NotificationTestMethodsServer extends DataTrade {
 
 
     @MethodIdentifier(identification = "test03_server")
+    @StreamOpen
     public void checkIfServerCanCommunicateSomePeriodOfTime(String notification,NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions {
         System.out.println("server "+notification);
         assertThat(notification).matches("(message count:)\\d*");
         assertThat(threadCounterCommunicator.getCounter() % 2).isEqualTo(0);
         threadCounterCommunicator.increase();
-
-        send(CLASS_IDENT,"test03_client","message count:"+threadCounterCommunicator.getCounter());
+        if (threadCounterCommunicator.getCounter() < 1000){
+            send(CLASS_IDENT,"test03_client","message count:"+threadCounterCommunicator.getCounter());
+        }else{
+            closeStream();
+        }
     }
 
 

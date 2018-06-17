@@ -24,9 +24,7 @@ public class BufferProcessor {
         return Arrays.asList(stringBuffer.getString().split(EndMarkerProtocol.END_LINE.getProtocol())).iterator();
     }
     public void removeSocketStreamClosedLine(StringBuffer stringBuffer){
-        System.out.println(stringBuffer.getString());
         String replacedData =stringBuffer.getString().replaceAll(TechnicalProtocol.getSocketCloseRegex(),"");
-        System.out.println(replacedData+ "replaced data");
         stringBuffer.emptyBuffer();
         stringBuffer.insertToBuffer(replacedData);
 

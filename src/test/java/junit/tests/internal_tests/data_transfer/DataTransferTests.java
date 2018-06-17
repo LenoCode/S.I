@@ -9,7 +9,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
-import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
 import static org.assertj.core.api.Assertions.*;
 
 
@@ -30,16 +29,7 @@ public class DataTransferTests {
     private final ThreadCounterCommunicator threadCounterCommunicator = ThreadCounterCommunicator.getThreadCounterCommunicator();
 
 
-    @Test
-    public void testIfDataIsSendToServer() throws IOException, SocketExceptions {
-        CommunicationProcessor.getClientCommunicationProcessor().sendNotification(clientResource.getClientCreatedSocket().getClient(),CLASS_IDENT,"test01","testingMessage");
-    }
 
-    @Test
-    public void checkIfClientGetResponseFromServerInRangeOf5sec() throws IOException, SocketExceptions {
-        CommunicationProcessor.getClientCommunicationProcessor().sendNotification(clientResource.getClientCreatedSocket().getClient(),CLASS_IDENT,"test02_server","waitingResponse");
-
-    }
 
     @Test()
     public void checkIfClientAndServerCanCommunicateSomePeriodOfTime() throws IOException, SocketExceptions {

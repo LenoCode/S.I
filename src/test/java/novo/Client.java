@@ -1,8 +1,7 @@
 package novo;
 
-import junit.tests.client.client_communication.mock_objects.NotificationerMock;
 import junit.tests.internal_tests.data_transfer.notification_test_methods.NotificationTestMethodsClient;
-import junit.tests.internal_tests.data_transfer.notification_test_methods.NotificationTestMethodsServer;
+import junit.tests.internal_tests.data_transfer.notificationer_mocks.ClientNotificationer;
 import org.mockito.Mock;
 import socket_installer.SI.socket_creation.client.ClientCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
@@ -24,7 +23,7 @@ public class Client {
 
     private ClientCreatedSocket clientCreatedSocket;
     @Mock
-    private NotificationerMock notificationerMock;
+    private ClientNotificationer notificationerMock;
 
     private DataTradeModel[] dataTradeModels;
 
@@ -37,7 +36,7 @@ public class Client {
         Socket socket = new Socket(HOST,PORT);
 
 
-        notificationerMock = new NotificationerMock(dataTradeModels);
+        notificationerMock = new ClientNotificationer(dataTradeModels);
         clientCreatedSocket = ClientCreator.createClient(notificationerMock,socket,TIMEOUT);
         threadRun(new Runnable() {
             @Override
@@ -68,7 +67,7 @@ public class Client {
         return clientCreatedSocket;
     }
 
-    public NotificationerMock getNotificationerMock() {
+    public ClientNotificationer getNotificationerMock() {
         return notificationerMock;
     }
 

@@ -19,7 +19,7 @@ public class ClientMainProcessor extends MainProcessor {
         ReadStatusProcessorModel readStatusProcessorModel = clientSocket.getActions().getReadStatusProcessorModel();
 
         notifyServerAboutOpendStream(clientSocket,readStatusProcessorModel,dataToSend);
-        System.out.println(stringBuffer.getString());
+
         if (bufferProcessor.checkProtocolInBuffer(stringBuffer,TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol())){
             clientSocket.getActions().getReadStatusProcessorModel().setStreamOpenStatus(ProcessorEnums.STREAM_OPEN);
         }else{
@@ -39,9 +39,6 @@ public class ClientMainProcessor extends MainProcessor {
             readProcessor.readStreamStatus(clientSocket,readStatusProcessorModel);
 
         }while(readStatusProcessorModel.checkStreamStatus(clientSocket));
-        System.out.println("POSLANO");
-
-
     }
 
 }

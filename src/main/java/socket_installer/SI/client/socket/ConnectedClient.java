@@ -31,18 +31,16 @@ public class ConnectedClient extends ClientSocket {
     public void activateSocket() throws IOException, SocketExceptions {
         ClientConfiguration clientConfiguration = (ClientConfiguration) getSocketConfiguration();
         ConnectedClientMainProcessor connectedClientMainProcessor = CommunicationProcessor.getConnectedClientCommunicationProcessor();
-        System.out.println("Loop start");
+
         MainLoop:
         while(clientConfiguration.isSocketOnline()){
             if (!actions.getReadStatusProcessorModel().checkIfStreamOpen()){
                 connectedClientMainProcessor.checkIfStreamReadyToOpen(this);
             }else{
                 connectedClientMainProcessor.readingDataFromStream(this);
-                deactivateSocket();
                 break MainLoop;
             }
         }
-        System.out.println("Looop gone");
     }
 
     @Override

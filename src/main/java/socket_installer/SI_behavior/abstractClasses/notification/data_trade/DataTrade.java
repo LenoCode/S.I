@@ -38,6 +38,6 @@ public abstract class DataTrade implements DataTradeModel {
     }
     @Override
     public void closeStream() throws IOException, SocketExceptions {
-        CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSED.completeProtocol().getBytes());
+        CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSING.completeProtocol().getBytes());
     }
 }
