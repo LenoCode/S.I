@@ -4,8 +4,8 @@ package socket_installer.SI.client.socket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 
-import socket_installer.SI_parts.IO.communication_processor_test_2.CommunicationProcessor;
-import socket_installer.SI_parts.IO.communication_processor_test_2.main_processors.ConnectedClientMainProcessor;
+import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
+import socket_installer.SI_parts.IO.communication_processor.main_processors.ConnectedClientMainProcessor;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientInputStreamWrapper;
 import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientOutputStreamWrapper;
@@ -32,11 +32,13 @@ public class ConnectedClient extends ClientSocket {
         ClientConfiguration clientConfiguration = (ClientConfiguration) getSocketConfiguration();
         ConnectedClientMainProcessor connectedClientMainProcessor = CommunicationProcessor.getConnectedClientCommunicationProcessor();
 
+        MainLoop:
         while(clientConfiguration.isSocketOnline()){
             if (!actions.getReadStatusProcessorModel().checkIfStreamOpen()){
                 connectedClientMainProcessor.checkIfStreamReadyToOpen(this);
             }else{
                 connectedClientMainProcessor.readingDataFromStream(this);
+                break MainLoop;
             }
         }
     }

@@ -3,15 +3,9 @@ package socket_installer.SI_behavior.abstractClasses.notification.notification_s
 import java.util.HashMap;
 
 public class NotificationerStatesBundle {
-    private final HashMap<String,Object> hashMap;
+    private final HashMap<String,Object> userObjects;
 
     public NotificationerStatesBundle(){
-        hashMap = new HashMap<>();
-    }
-    public Object getObject(String key){
-        return hashMap.get(key);
-    }
-    public void setNewObject(String key,Object object){
-        hashMap.put(key,object);
+        userObjects = new HashMap<>();
     }
 }

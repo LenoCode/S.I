@@ -1,25 +1,20 @@
 package socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions;
 
 import socket_installer.SI_behavior.abstractClasses.notification.notification_object_holder.NotificationerObjects;
-import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-import socket_installer.SI_behavior.interfaces.communication_processor.read_processor.ReadStatusProcessorModel;
+import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.methods_annotation.method_identifier.StreamOpen;
 import socket_installer.SI_behavior.interfaces.context.ExternalContextInitializator;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_behavior.interfaces.notification.NotificationerActionsModel;
 import socket_installer.SI_context.external_context.ExternalContext;
-import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
-import socket_installer.SI_parts.IO.communication_processor_test_2.CommunicationProcessor;
-import socket_installer.SI_parts.IO.communication_processor_test_2.main_processors.ClientMainProcessor;
+import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
+import socket_installer.SI_parts.IO.communication_processor.main_processors.ClientMainProcessor;
 import socket_installer.SI_parts.exception.default_exception.NoSolutionForException;
-import socket_installer.SI_parts.protocol.enum_protocols.data_protocol.DataProtocol;
-import socket_installer.SI_parts.protocol.enum_protocols.general_protocols.EndMarkerProtocol;
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Scanner;
 
 public abstract class NotificationerActions <A extends DataTradeModel> extends NotificationerObjects implements NotificationerActionsModel {
 
@@ -57,12 +52,10 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
         }
     }
 
-
-
     private void invokeMethod(A object,Method method, Object ... args) throws SocketExceptions, IOException {
         try {
             method.invoke(object,args);
-            closeStream();
+            closeStream(method);
         } catch (IllegalAccessException e) {
             lastMethodCalled = "No method called";
             e.printStackTrace();
@@ -77,8 +70,10 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
         this.lastMethodCalled = lastMethod;
     }
 
-    private void closeStream() throws IOException, SocketExceptions {
-        System.out.println("ja saljem tebi ti meni");
-        CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSED.completeProtocol().getBytes());
+    private void closeStream(Method method) throws IOException, SocketExceptions {
+        if (method.getAnnotation(StreamOpen.class) == null){
+            CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSING.completeProtocol().getBytes());
+        }
     }
+
 }

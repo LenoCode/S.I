@@ -32,7 +32,7 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
         if (socket != null){
             socket.close();
             socket = null;
-            //ioHolder.getStringBuffer().emptyBuffer();
+            ioHolder.getStringBuffer().emptyBuffer();
         }
     }
 

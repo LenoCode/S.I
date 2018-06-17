@@ -23,14 +23,14 @@ public class NewConnectionHandler {
         ConnectedClient clientSocket = sessionTracker.checkIfSocketExists(clientConnected.getInetAddress().getHostAddress());
 
         if (clientSocket == null){
-            setupNewConnection(notificationer,clientConnected);
+            setupNewConnection(notificationer,clientConnected,timeout);
         }else{
             setupOldConnection(clientConnected,clientSocket);
         }
     }
 
-    private void setupNewConnection(NotificationerActions notificationer, Socket clientConnected)throws IOException, SocketExceptions{
-        ConnectedClientCreatedSocket createdClientModel = ClientCreator.createConnectedClient(notificationer,clientConnected);
+    private void setupNewConnection(NotificationerActions notificationer, Socket clientConnected,int timeout)throws IOException, SocketExceptions{
+        ConnectedClientCreatedSocket createdClientModel = ClientCreator.createConnectedClient(notificationer,clientConnected,timeout);
         createdClientModel.runSocket();
     }
 

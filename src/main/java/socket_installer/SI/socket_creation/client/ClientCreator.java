@@ -4,20 +4,17 @@ import socket_installer.SI.client.socket.Client;
 import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI.client.socket.ConnectedClient;
 import socket_installer.SI.client.socket_actions.socket_loop.ClientWrappedLoop;
-import socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor.PacketProcessor;
 import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.connected_client.ConnectedClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop.ProgramLoopWrapper;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
-
-
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_context.internal_context.InternalContext;
-import socket_installer.SI_parts.IO.holder.packet_holder.PacketHolder;
+import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
 import socket_installer.SI_parts.exception.default_exception.NoSolutionForException;
-import socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols.TehnicalProtocol;
+import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
 import java.io.IOException;
@@ -46,9 +43,7 @@ public class ClientCreator {
             @Override
             public void closeProgram() {
                 try {
-                    PacketHolder packetHolder = new PacketHolder((Client) basicSocket);
-                    packetHolder.setData(TehnicalProtocol.SOCKET_CLOSED.completeProtocol());
-                    PacketProcessor.getPacketProcessor((ClientSocket) basicSocket).sendPacket(packetHolder);
+                    CommunicationProcessor.MainProcessor().sendData((ClientSocket)basicSocket,TechnicalProtocol.SOCKET_CLOSED.completeProtocol().getBytes());
                     basicSocket.getSocketConfiguration().setSocketOnlineStatus(false);
                     ProgramLoopWrapper.setProgrammRunning(false);
                 } catch (IOException e) {
@@ -61,11 +56,12 @@ public class ClientCreator {
         };
     }
 
-    public static ConnectedClientCreatedSocket createConnectedClient(NotificationerActions notificationer, Socket socketConnected){
+    public static ConnectedClientCreatedSocket createConnectedClient(NotificationerActions notificationer, Socket socketConnected,int timeout){
         return new ConnectedClientCreatedSocket() {
             @Override
             public void runSocket() throws IOException, SocketExceptions {
                 ClientConfiguration connectedClientConfiguration = new ClientConfiguration(socketConnected);
+                connectedClientConfiguration.setTimeout(timeout);
                 basicSocket= new ConnectedClient(socketConnected);
                 basicSocket.setSocketConfiguration(connectedClientConfiguration);
                 basicSocket.setNotificationer(notificationer);

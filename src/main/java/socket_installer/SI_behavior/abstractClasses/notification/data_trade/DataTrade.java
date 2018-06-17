@@ -5,8 +5,8 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.Client
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_context.external_context.ExternalContext;
-import socket_installer.SI_parts.IO.communication_processor_test_2.CommunicationProcessor;
-import socket_installer.SI_parts.protocol.enum_protocols.data_protocol.DataProtocol;
+import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
+import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 
 import java.io.IOException;
 
@@ -35,5 +35,9 @@ public abstract class DataTrade implements DataTradeModel {
     @Override
     public void send(String classIdent,String methodIdent,String data) throws IOException, SocketExceptions {
         CommunicationProcessor.MainProcessor().sendNotification(clientSocket,classIdent,methodIdent,data);
+    }
+    @Override
+    public void closeStream() throws IOException, SocketExceptions {
+        CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSING.completeProtocol().getBytes());
     }
 }

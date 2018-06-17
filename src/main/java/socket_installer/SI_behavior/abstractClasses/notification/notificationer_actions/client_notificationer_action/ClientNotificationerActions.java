@@ -4,7 +4,7 @@ import socket_installer.SI_behavior.abstractClasses.notification.notificationer_
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.communication_processor.read_processor.ReadStatusProcessorModel;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
-import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
+import socket_installer.SI_parts.IO.communication_processor.processor_enums.ProcessorEnums;
 
 import java.io.IOException;
 
@@ -20,7 +20,7 @@ public abstract class ClientNotificationerActions <A extends DataTradeModel> ext
         }else{
             A object = (A)annotationParser.identifyClass(objects,lastMethodCalled);
             if (!object.exceptionHandler(clientSocket,notificationerStatesBundle)){
-                readStatusProcessorModel.setStreamOpenStatus(ProcessorsEnums.STREAM_CLOSED);
+                readStatusProcessorModel.setStreamOpenStatus(ProcessorEnums.STREAM_CLOSED);
             }
         }
     }

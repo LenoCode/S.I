@@ -1,8 +1,7 @@
 package junit.tests.rules;
 
 
-import junit.tests.client.client_communication.mock_objects.NotificationerMethodsMock;
-import junit.tests.client.client_communication.mock_objects.NotificationerMock;
+import junit.tests.internal_tests.data_transfer.notificationer_mocks.ClientNotificationer;
 import org.junit.rules.ExternalResource;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -21,7 +20,7 @@ public class ClientResource extends ExternalResource {
 
     private ClientCreatedSocket clientCreatedSocket;
     @Mock
-    private NotificationerMock notificationerMock;
+    private ClientNotificationer notificationerMock;
 
     private DataTradeModel[] dataTradeModels;
 
@@ -32,7 +31,7 @@ public class ClientResource extends ExternalResource {
     @Override
     protected void before() throws Throwable {
         Socket socket = new Socket(HOST,PORT);
-        notificationerMock = new NotificationerMock(dataTradeModels);
+        notificationerMock = new ClientNotificationer(dataTradeModels);
         clientCreatedSocket = ClientCreator.createClient(notificationerMock,socket,TIMEOUT);
         threadRun(new Runnable() {
             @Override
@@ -64,7 +63,7 @@ public class ClientResource extends ExternalResource {
         return clientCreatedSocket;
     }
 
-    public NotificationerMock getNotificationerMock() {
+    public ClientNotificationer getNotificationerMock() {
         return notificationerMock;
     }
 

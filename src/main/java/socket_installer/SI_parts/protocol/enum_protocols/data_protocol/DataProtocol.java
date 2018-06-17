@@ -1,16 +1,16 @@
 package socket_installer.SI_parts.protocol.enum_protocols.data_protocol;
 
-import socket_installer.SI_parts.IO.communication_processor.processors_enums.ProcessorsEnums;
+import socket_installer.SI_parts.IO.communication_processor.processor_enums.ProcessorEnums;
 import socket_installer.SI_parts.protocol.enum_protocols.general_protocols.EndMarkerProtocol;
 
 public enum DataProtocol {
-    DATA_STRING("<DATA_STRING>classIdent:%s|methodIdent:%s|message:%s",ProcessorsEnums.DATA_COMPLETE),
+    DATA_STRING("<DATA_STRING>classIdent:%s|methodIdent:%s|message:%s",ProcessorEnums.DATA_COMPLETE),
     ;
 
     private String protocol;
-    private ProcessorsEnums processorsEnums;
+    private ProcessorEnums processorsEnums;
 
-    DataProtocol(String protocol,ProcessorsEnums processorsEnums){
+    DataProtocol(String protocol,ProcessorEnums processorsEnums){
         this.protocol = protocol;
         this.processorsEnums = processorsEnums;
     }
@@ -19,7 +19,7 @@ public enum DataProtocol {
         return protocol+ EndMarkerProtocol.END_LINE.getProtocol();
     }
 
-    public ProcessorsEnums getProccessorEnum() {
+    public ProcessorEnums getProccessorEnum() {
         return processorsEnums;
     }
 
