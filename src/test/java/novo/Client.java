@@ -89,6 +89,7 @@ public class Client {
         Client client = new Client(new DataTradeModel[]{new NotificationTestMethodsClient()});
         try {
             client.before();
+            System.out.println(client.clientCreatedSocket.getClient());
             client.send("adad");
             client.send("novo");
             while(true){

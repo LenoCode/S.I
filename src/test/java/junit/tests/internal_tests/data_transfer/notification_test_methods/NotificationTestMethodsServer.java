@@ -22,25 +22,9 @@ public class NotificationTestMethodsServer extends DataTrade {
 
     private final ThreadCounterCommunicator threadCounterCommunicator = ThreadCounterCommunicator.getThreadCounterCommunicator();
 
-    @MethodIdentifier(identification = "test01")
-    public void checkIfMessageRecvIsEqual(String notification,NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions {
-        //assertThat(notification).isEqualTo("testingMessage");
-        System.out.println(notification);
-    }
 
 
-    @MethodIdentifier(identification = "test02_server")
-    public void checkIfClientGetResponse_serverSend(String notification) throws IOException, SocketExceptions {
-        notification = "Response : "+notification;
-        send(CLASS_IDENT,"test02_client",notification);
-    }
-    @MethodIdentifier(identification = "test02_client")
-    public void checkIfClientGetResponse_clientRecieve(String notification){
-        assertThat(notification).isEqualTo("Response : waiting response");
-    }
-
-
-    @MethodIdentifier(identification = "test03_server")
+    @MethodIdentifier(identification = "test01_server")
     @StreamOpen
     public void checkIfServerCanCommunicateSomePeriodOfTime(String notification,NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions {
         System.out.println("server "+notification);
@@ -48,46 +32,25 @@ public class NotificationTestMethodsServer extends DataTrade {
         assertThat(threadCounterCommunicator.getCounter() % 2).isEqualTo(0);
         threadCounterCommunicator.increase();
         if (threadCounterCommunicator.getCounter() < 1000){
-            send(CLASS_IDENT,"test03_client","message count:"+threadCounterCommunicator.getCounter());
+            send(CLASS_IDENT,"test01_client","message count:"+threadCounterCommunicator.getCounter());
         }else{
             closeStream();
         }
     }
-
-
-    @MethodIdentifier(identification = "test04_server")
-    public void checkIfServerCanCommunicateSomePeriodOfTimeWithClosingConnection(String notification, NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions {
-        assertThat(notification).matches("(message count:)\\d*");
-        assertThat(threadCounterCommunicator.getCounter() % 2).isEqualTo(0);
-
-        if (threadCounterCommunicator.getCounter() < 10000){
-            threadCounterCommunicator.increase();
-            send(CLASS_IDENT,"test04_client","message count:"+threadCounterCommunicator.getCounter());
+    @MethodIdentifier(identification = "test02_server")
+    @StreamOpen
+    public void checkIfUploadIsWorkingProperly(String notification, NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions{
+        if (notification.equals("send me file")){
+            send("notificationtestmethod","test02_client","I will send you file of 30 bytes");
+        }else if (notification.equals("ready")){
+            byte[] bytes = new byte[30];
+            upload(bytes);
+            System.out.println("posalo 30 bytova");
+        }else if (notification.equals("finished")){
+            closeStream();
         }
     }
-    @MethodIdentifier(identification = "test04_client")
-    public void checkIfClientCanCommunicateSomePeriodOfTimeWithClosingConnection(String notification) throws IOException, SocketExceptions {
-        assertThat(notification).matches("(message count:)\\d*");
-        assertThat(threadCounterCommunicator.getCounter() % 2).isEqualTo(1);
-        threadCounterCommunicator.increase();
-        sleep(50);
-        send(CLASS_IDENT,"test04_server","message count:"+threadCounterCommunicator.getCounter());
-    }
 
-    @MethodIdentifier(identification = "test05_server")
-    public void checkIfServerCanSendMultipleResponse_server(String notification) throws IOException, SocketExceptions {
-        assertThat(notification).matches("send multiple response");
-
-        for (int i = 0; i < 10 ; i++){
-            send(CLASS_IDENT,"test05_client","message count:"+i);
-        }
-        //DefinedAutomatedResponder.getDefinedAutomatedResponder().sendStreamClosed(getClientSocket().getIOHolder());
-    }
-    @MethodIdentifier(identification = "test05_client")
-    public void checkIfServerCanSendMultipleResponse_client(String notification) throws IOException, SocketExceptions {
-        assertThat(notification).matches("(message count:)\\d*");
-        System.out.println(notification);
-    }
 
     @Override
     public boolean exceptionHandler(ClientSocket clientSocket, NotificationerStatesBundle notificationerStatesBundle) {

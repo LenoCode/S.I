@@ -1,6 +1,6 @@
 package socket_installer.SI_behavior.abstractClasses.io.communication_processor.main_processor;
 
-import socket_installer.SI.client.socket.Client;
+
 import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
@@ -46,6 +46,7 @@ public abstract class MainProcessor {
     public void sendData(ClientSocket clientSocket,byte[] bytes) throws IOException,SocketExceptions{
         sendProcessor.send(clientSocket.getIOHolder().getOutputStream(),bytes);
     }
+
     public void readingDataFromStream(ClientSocket clientSocket) throws IOException, SocketExceptions{
         ReadStatusProcessorModel readStatusProcessorModel = clientSocket.getActions().getReadStatusProcessorModel();
         NotificationerActions notificationerActions = clientSocket.getNotificationer();
@@ -60,6 +61,10 @@ public abstract class MainProcessor {
         setInputStreamToUnblock(clientSocket);
         checkStreamClosingStatus(clientSocket,readStatusProcessorModel);
         stringBuffer.emptyBuffer();
+    }
+
+    public int readingBytesFromStream(ClientSocket clientSocket,byte[] bytes) throws IOException, SocketExceptions{
+        return readProcessor.readBytesFromStream(clientSocket, bytes);
     }
 
     protected void checkStatusFromReadStatusProcessor(ReadStatusProcessorModel readStatusProcessorModel, NotificationerActions notificationerActions, StringBuffer stringBuffer) throws IOException, SocketExceptions {

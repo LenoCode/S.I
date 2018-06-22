@@ -40,4 +40,14 @@ public abstract class DataTrade implements DataTradeModel {
     public void closeStream() throws IOException, SocketExceptions {
         CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSING.completeProtocol().getBytes());
     }
+
+    @Override
+    public int download(byte[] bytes) throws IOException, SocketExceptions {
+       return CommunicationProcessor.MainProcessor().readingBytesFromStream(clientSocket,bytes);
+    }
+
+    @Override
+    public void upload(byte[] bytes) throws IOException, SocketExceptions {
+        CommunicationProcessor.MainProcessor().sendData(clientSocket,bytes);
+    }
 }
