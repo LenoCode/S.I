@@ -22,12 +22,8 @@ public class NotificationTestMethodsClient extends DataTrade {
 
     private final ThreadCounterCommunicator threadCounterCommunicator = ThreadCounterCommunicator.getThreadCounterCommunicator();
 
-    @MethodIdentifier(identification = "test01")
-    public void checkIfMessageRecvIsEqual(String notification,NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions {
-        assertThat(notification).isEqualTo("testingMessage");
-    }
 
-    @MethodIdentifier(identification = "test03_client")
+    @MethodIdentifier(identification = "test01_client")
     @StreamOpen
     public void checkIfClientCanCommunicateSomePeriodOfTime(String notification,NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions {
         System.out.println("client "+notification+"   "+threadCounterCommunicator.getCounter());
@@ -35,12 +31,25 @@ public class NotificationTestMethodsClient extends DataTrade {
         assertThat(threadCounterCommunicator.getCounter() % 2).isEqualTo(1);
         threadCounterCommunicator.increase();
         if (threadCounterCommunicator.getCounter() < 1000){
-            send(CLASS_IDENT,"test03_server","message count:"+threadCounterCommunicator.getCounter());
+            send(CLASS_IDENT,"test01_server","message count:"+threadCounterCommunicator.getCounter());
         }else{
             closeStream();
         }
+    }
 
-
+    @MethodIdentifier(identification = "test02_client")
+    @StreamOpen
+    public void checkIfDownloadIsWorkingFine(String notifcation,NotificationerStatesBundle notificationerStatesBundle)throws IOException,SocketExceptions{
+        if (notifcation.equals("I will send you file of 30 bytes")){
+            send("notificationtestmethod","test02_server","ready");
+            int bytesRead = 0;
+            byte[] bytes = new byte[10];
+            while( bytesRead != 30){
+                bytesRead += download(bytes);
+                System.out.println("reading");
+            }
+            send("notificationtestmethod","test02_server","finished");
+        }
     }
 
     @Override

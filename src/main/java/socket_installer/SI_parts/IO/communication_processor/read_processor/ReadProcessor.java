@@ -35,6 +35,10 @@ public class ReadProcessor {
             throw ioException;
         }
     }
+    public int readBytesFromStream(ClientSocket clientSocket,byte[] bytes) throws IOException, SocketExceptions{
+        InputStreamWrapperModel inputStreamWrapperModel = clientSocket.getIOHolder().getInputStream();
+        return inputStreamWrapperModel.read(bytes);
+    }
 
 
     private void read(ClientSocket clientSocket, ReadStatusProcessorModel readStatusProcessorModel)throws IOException, SocketExceptions{

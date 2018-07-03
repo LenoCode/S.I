@@ -36,4 +36,22 @@ public class ClientInputStreamWrapper implements InputStreamWrapperModel {
         }
     }
 
+    @Override
+    public int read(byte[] bytes) throws IOException, SocketExceptions {
+        int bytesRead = 0;
+        try{
+            bytesRead = bufferedInputStream.read(bytes);
+
+            if (bytesRead == -1){
+                throw new ClientClosedException();
+            }
+            return bytesRead;
+        }
+        catch (SocketTimeoutException socketTimeoutException){
+            throw new ClientTimeoutException();
+        }catch (IOException ioException){
+            throw new ClientClosedException();
+        }
+    }
+
 }

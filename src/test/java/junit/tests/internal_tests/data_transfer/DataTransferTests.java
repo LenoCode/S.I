@@ -33,11 +33,19 @@ public class DataTransferTests {
 
     @Test()
     public void checkIfClientAndServerCanCommunicateSomePeriodOfTime() throws IOException, SocketExceptions {
-        clientResource.getNotificationerMock().sendNotification(CLASS_IDENT,"test03_server","message count:0");
+        clientResource.getNotificationerMock().sendNotification(CLASS_IDENT,"test01_server","message count:0");
 
         assertThat(threadCounterCommunicator.getCounter()).isEqualTo(1000);
         threadCounterCommunicator.finish();
         System.out.println("Server and client exchanged 100000 messages");
+    }
+
+
+    @Test()
+    public void checkIfDownloadUploadWorks() throws IOException, SocketExceptions {
+        clientResource.getNotificationerMock().sendNotification(CLASS_IDENT,"test02_server","send me file");
+
+        threadCounterCommunicator.finish();
     }
 
 
