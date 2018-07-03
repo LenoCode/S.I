@@ -1,46 +1,377 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="socket_installer" />
-    </artifacts-to-build>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="977e12f6-6b91-49fd-9e95-2942608ac45f" name="Default" comment="">
+    <list default="true" id="dee01dd4-b028-4b02-b3ea-34b57017949d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SocketInstaller.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/socket_installer.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/cacicf.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/io/communication_processor/main_processor/MainProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/io/communication_processor/main_processor/MainProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/notification/data_trade/DataTrade.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/notification/data_trade/DataTrade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/notification/notification_state_exceptions/NotificationerStatesBundle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/notification/notification_state_exceptions/NotificationerStatesBundle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/sockets/created_socket/client/ClientCreatedSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/abstractClasses/sockets/created_socket/client/ClientCreatedSocket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/interfaces/notification/DataTradeModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/interfaces/notification/DataTradeModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/interfaces/sockets/io_models/stream_wrapper_models/InputStreamWrapperModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_behavior/interfaces/sockets/io_models/stream_wrapper_models/InputStreamWrapperModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_parts/IO/communication_processor/read_processor/ReadProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_parts/IO/communication_processor/read_processor/ReadProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_parts/IO/wrapper/client/ClientInputStreamWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_parts/IO/wrapper/client/ClientInputStreamWrapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_parts/IO/wrapper/server/ConnectedClientInputStreamWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_parts/IO/wrapper/server/ConnectedClientInputStreamWrapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/socket_installer/SI_parts/exception/default_exception/NoResponseRequestException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/junit/tests/internal_tests/data_transfer/DataTransferTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/junit/tests/internal_tests/data_transfer/DataTransferTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/junit/tests/rules/ClientResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/junit/tests/rules/ClientResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/client/socket/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/client/socket/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/client/socket/ClientConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/client/socket/ClientConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/client/socket/ConnectedClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/client/socket/ConnectedClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/server/socket/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/server/socket/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/server/socket/ServerConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/server/socket/ServerConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/server/socket_actions/connection_handler/NewConnectionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/server/socket_actions/connection_handler/NewConnectionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$3$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$3$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI/socket_creation/client/ClientCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/io/communication_processor/packet_processor/PacketProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/notification/data_trade/DataTrade.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/notification/data_trade/DataTrade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/notification/notification_object_holder/NotificationerObjects.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/notification/notification_object_holder/NotificationerObjects.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/notification/notificationer_actions/NotificationerActions.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/notification/notificationer_actions/NotificationerActions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/sockets/created_socket/client/ClientCreatedSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/sockets/created_socket/client/ClientCreatedSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/sockets/socket/BasicSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/sockets/socket/BasicSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/ClientSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/ClientSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/interfaces/communication_processor/PacketProcessorModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/interfaces/enums/IO_enums/protocol/ProtocolDefinedModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/interfaces/enums/IO_enums/protocol/ProtocolUndefinedModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/interfaces/notification/DataTradeModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/interfaces/notification/DataTradeModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/interfaces/sockets/configuration_models/SocketConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/interfaces/sockets/configuration_models/SocketConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/interfaces/sockets/io_models/IOHolderModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/interfaces/sockets/io_models/IOHolderModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/interfaces/sockets/io_models/stream_wrapper_models/InputStreamWrapperModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_behavior/interfaces/sockets/io_models/stream_wrapper_models/InputStreamWrapperModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/communication_processor/processors/packet_processor/ClientPacketProcessor$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/communication_processor/processors/packet_processor/ClientPacketProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/communication_processor/processors/packet_processor/ConnectedClientProcessor$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/communication_processor/processors/packet_processor/ConnectedClientProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/communication_processor/processors/packet_status_processor/PacketStatusProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/communication_processor/processors_enums/ProcessorsEnums$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/communication_processor/processors_enums/ProcessorsEnums.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/holder/io_holder/IOHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/holder/io_holder/IOHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/holder/packet_holder/PacketHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/wrapper/client/ClientInputStreamWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/wrapper/client/ClientInputStreamWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/wrapper/client/ClientOutputStreamWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/wrapper/client/ClientOutputStreamWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/wrapper/server/ConnectedClientInputStreamWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/IO/wrapper/server/ConnectedClientInputStreamWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/actionHolder/ActionHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/actionHolder/ActionHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/actionHolder/actions/buffer_checker/BufferChecker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/actionHolder/actions/notification_parser/NotificationParser$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/actionHolder/actions/notification_parser/NotificationParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/actionHolder/actions/string_buffer/StringBuffer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/actionHolder/actions/string_buffer/string_parser/StringParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/actionHolder/actions/string_buffer/string_parser/enum_parser/RegexParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/exception/default_exception/NoResponseRequestException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/exception/server/connection_break_exception/ConnectedClientTimeoutException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/notification/notification_processor/annotation_parser/AnnotationParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/notification/notification_processor/annotation_parser/AnnotationParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/protocol/enum_protocol/GeneralProtocol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/protocol/enum_protocol/defined_protocol/DefinedProtocol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/protocol/enum_protocol/defined_protocol/protocols/BytesStatusProtocol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/protocol/enum_protocol/defined_protocol/protocols/EndDefined.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/protocol/enum_protocol/defined_protocol/protocols/TehnicalProtocol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/protocol/enum_protocol/undefined_protocol/UndefinedProtocol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/protocol/enum_protocol/undefined_protocol/protocols/ClientProtocol.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/protocol/enum_protocol/undefined_protocol/protocols/EndUndefined.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/protocol/protocol_object/defined_protocol/DefinedProtocolActions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/protocol/protocol_object/defined_protocol/defined_automated_responder/DefinedAutomatedResponder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/protocol/protocol_object/undefined_protocol/UndefinedProtocolActions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/session_tracker/server/SessionTracker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/socket_installer/SI_parts/session_tracker/server/SessionTracker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/jacoco/test.exec" beforeDir="false" afterPath="$PROJECT_DIR$/build/jacoco/test.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/S.I-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/S.I-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/branchfc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/branchnc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/branchpc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/bundle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/class.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/down.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/greenbar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/group.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/method.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/package.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/prettify.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/prettify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/redbar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/report.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/report.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/session.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/sort.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/sort.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/source.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-resources/up.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/jacoco-sessions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket/Client.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket/Client.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket/ClientConfiguration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket/ClientConfiguration.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket/ConnectedClient.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket/ConnectedClient.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket_actions.socket_loop/ClientWrappedLoop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket_actions.socket_loop/ClientWrappedLoop.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket_actions.socket_loop/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.client.socket_actions.socket_loop/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket/Server.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket/Server.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket/ServerConfiguration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket/ServerConfiguration.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket_actions.connection_handler/NewConnectionHandler.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket_actions.connection_handler/NewConnectionHandler.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket_actions.connection_handler/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket_actions.connection_handler/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket_actions.socket_loop/ServerWrappedLoop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket_actions.socket_loop/ServerWrappedLoop.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket_actions.socket_loop/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.server.socket_actions.socket_loop/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.client/ClientCreator$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.client/ClientCreator$2$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.client/ClientCreator$2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.client/ClientCreator$3$1$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.client/ClientCreator$3$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.client/ClientCreator$3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.client/ClientCreator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.client/ClientCreator.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.client/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.client/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.server/ServerCreator$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.server/ServerCreator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.server/ServerCreator.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.server/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI.socket_creation.server/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor/PacketProcessor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor/PacketProcessor.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.io.communication_processor.packet_processor/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.data_trade/DataTrade.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.data_trade/DataTrade.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.data_trade/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.data_trade/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.notification_object_holder/NotificationerObjects.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.notification_object_holder/NotificationerObjects.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.notification_object_holder/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.notification_object_holder/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions/NotificationerActions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions/NotificationerActions.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client/ClientCreatedSocket.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client/ClientCreatedSocket.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.connected_client/ConnectedClientCreatedSocket.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.connected_client/ConnectedClientCreatedSocket.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.connected_client/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.connected_client/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server/ServerCreatedSocket.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server/ServerCreatedSocket.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket.client/ClientSocket.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket.client/ClientSocket.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket.client/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket.client/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket/BasicSocket.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket/BasicSocket.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop/ProgramLoopWrapper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop/ProgramLoopWrapper.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socket_loop/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions/SocketExceptions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions/SocketExceptions.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_context.context_object/ContextObject.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_context.context_object/ContextObject.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_context.context_object/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_context.context_object/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_context.internal_context/InternalContext.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_context.internal_context/InternalContext.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_context.internal_context/InternalContextObjects.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_context.internal_context/InternalContextObjects.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_context.internal_context/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_context.internal_context/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_processor/ClientPacketProcessor$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_processor/ClientPacketProcessor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_processor/ClientPacketProcessor.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_processor/ConnectedClientProcessor$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_processor/ConnectedClientProcessor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_processor/ConnectedClientProcessor.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_processor/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_processor/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor/PacketStatusProcessor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor/PacketStatusProcessor.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors_enums/ProcessorsEnums$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors_enums/ProcessorsEnums.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors_enums/ProcessorsEnums.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors_enums/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.communication_processor.processors_enums/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.holder.io_holder/IOHolder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.holder.io_holder/IOHolder.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.holder.io_holder/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.holder.io_holder/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.holder.packet_holder/PacketHolder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.holder.packet_holder/PacketHolder.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.holder.packet_holder/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.holder.packet_holder/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.client/ClientInputStreamWrapper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.client/ClientInputStreamWrapper.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.client/ClientOutputStreamWrapper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.client/ClientOutputStreamWrapper.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.client/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.client/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.server/ConnectedClientInputStreamWrapper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.server/ConnectedClientInputStreamWrapper.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.server/ConnectedClientOutputStreamWrapper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.server/ConnectedClientOutputStreamWrapper.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.server/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper.server/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper/OutputStreamWrapper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper/OutputStreamWrapper.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.IO.wrapper/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.buffer_checker/BufferChecker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.buffer_checker/BufferChecker.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.buffer_checker/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.buffer_checker/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.notification_parser/NotificationParser$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.notification_parser/NotificationParser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.notification_parser/NotificationParser.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.notification_parser/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.notification_parser/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser.enum_parser/RegexParser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser.enum_parser/RegexParser.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser.enum_parser/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser.enum_parser/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser/StringParser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser/StringParser.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer.string_parser/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer/StringBuffer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer/StringBuffer.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder.actions.string_buffer/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder/ActionHolder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder/ActionHolder.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.actionHolder/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.client.connection_break_exception/ClientClosedException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.client.connection_break_exception/ClientClosedException.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.client.connection_break_exception/ClientConnectionAbortException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.client.connection_break_exception/ClientConnectionAbortException.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.client.connection_break_exception/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.client.connection_break_exception/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.client.general/ClientGeneralException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.client.general/ClientGeneralException.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.client.general/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.client.general/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.default_exception/NoResponseRequestException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.default_exception/NoResponseRequestException.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.default_exception/NoSolutionForException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.default_exception/NoSolutionForException.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.default_exception/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.default_exception/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.server.connection_break_exception/ConnectedClientClosedException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.server.connection_break_exception/ConnectedClientClosedException.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.server.connection_break_exception/ConnectedClientTimeoutException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.server.connection_break_exception/ConnectedClientTimeoutException.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.server.connection_break_exception/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.server.connection_break_exception/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.server.general/ServerGeneralException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.server.general/ServerGeneralException.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.server.general/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.exception.server.general/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.notification.notification_processor.annotation_parser/AnnotationParser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.notification.notification_processor.annotation_parser/AnnotationParser.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.notification.notification_processor.annotation_parser/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.notification.notification_processor.annotation_parser/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols/BytesStatusProtocol.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols/BytesStatusProtocol.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols/EndDefined.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols/EndDefined.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols/TehnicalProtocol.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols/TehnicalProtocol.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol.protocols/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol/DefinedProtocol.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol/DefinedProtocol.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.defined_protocol/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols/ClientProtocol.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols/ClientProtocol.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols/EndUndefined.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols/EndUndefined.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol.protocols/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol/UndefinedProtocol.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol/UndefinedProtocol.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol.undefined_protocol/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol/GeneralProtocol.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol/GeneralProtocol.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.enum_protocol/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder/DefinedAutomatedResponder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder/DefinedAutomatedResponder.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.defined_protocol.defined_automated_responder/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.defined_protocol/DefinedProtocolActions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.defined_protocol/DefinedProtocolActions.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.defined_protocol/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.defined_protocol/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.undefined_protocol/UndefinedProtocolActions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.undefined_protocol/UndefinedProtocolActions.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.undefined_protocol/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.protocol.protocol_object.undefined_protocol/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.session_tracker.server/ConnectedClientSet.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.session_tracker.server/ConnectedClientSet.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.session_tracker.server/SessionTracker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.session_tracker.server/SessionTracker.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.session_tracker.server/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/socket_installer.SI_parts.session_tracker.server/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/junit_tests.connection_test.ConnectionTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/junit_tests.connection_test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-junit_tests.connection_test.ConnectionTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.8.1.jar_8059ed6e1ab8b88aac5d9097fad847bb/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.8.1.jar_8059ed6e1ab8b88aac5d9097fad847bb/META-INF/maven/org.jacoco/org.jacoco.agent/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.8.1.jar_8059ed6e1ab8b88aac5d9097fad847bb/META-INF/maven/org.jacoco/org.jacoco.agent/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.8.1.jar_8059ed6e1ab8b88aac5d9097fad847bb/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.8.1.jar_8059ed6e1ab8b88aac5d9097fad847bb/jacocoagent.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.8.1.jar_8059ed6e1ab8b88aac5d9097fad847bb/org/jacoco/agent/AgentJar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/junit/tests/rules/ServerResource$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/junit/tests/rules/ServerResource$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/classes/junit/tests/rules/ServerResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/junit/tests/rules/ServerResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/junit/tests/statics/static_fields/StaticFields.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/junit/tests/statics/static_fields/StaticFields.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/novo/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/novo/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/novo/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/novo/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/novo/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/novo/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/io/communication_processor/main_processor/MainProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/io/communication_processor/main_processor/MainProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/data_trade/DataTrade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/data_trade/DataTrade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/created_socket/client/ClientCreatedSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/created_socket/client/ClientCreatedSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/notification/DataTradeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/notification/DataTradeModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/io_models/stream_wrapper_models/InputStreamWrapperModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/io_models/stream_wrapper_models/InputStreamWrapperModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/read_processor/ReadProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/read_processor/ReadProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/wrapper/client/ClientInputStreamWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/wrapper/client/ClientInputStreamWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/wrapper/server/ConnectedClientInputStreamWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/wrapper/server/ConnectedClientInputStreamWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/DataTransferTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/DataTransferTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/statics/static_fields/StaticFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/junit/tests/statics/static_fields/StaticFields.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/novo/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/novo/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/novo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/novo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/DataTransferTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notificationer_mocks/ClientNotificationer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notificationer_mocks/ServerNotificationer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/rules/ClientResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/rules/ServerResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/statics/static_fields/StaticFields.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/statics/static_methods/StaticMethods.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/junit/tests/statics/static_objects/thread_communicators/ThreadCounterCommunicator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/novo/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/novo/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/novo/Server.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -53,11 +384,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/S_I$Client.ic" NAME="Client Coverage Results" MODIFIED="1525103813765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>test_client.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/S_I$ImprovedTestClient.ic" NAME="ImprovedTestClient Coverage Results" MODIFIED="1525444512869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>test_client.*</FILTER>
+    <SUITE FILE_PATH="coverage/socket_installer$DataTransferTests_checkIfClientAndServerCanCommunicateSomePeriodOfTime.ic" NAME="DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime Coverage Results" MODIFIED="1530629141833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>junit.tests.internal_tests.data_transfer.*</FILTER>
     </SUITE>
   </component>
   <component name="ExternalProjectsData">
@@ -68,31 +396,12 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="S.I" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="S.I" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="S.I" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="S.I" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -101,146 +410,30 @@
       </state>
     </system>
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="S.I" />
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file leaf-file-name="DataTransferTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/DataTransferTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StaticFields.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/statics/static_fields/StaticFields.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReadProcessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/read_processor/ReadProcessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NotificationTestMethodsClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="50" column="70" selection-start-line="50" selection-start-column="70" selection-end-line="50" selection-end-column="70" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NotificationTestMethodsServer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="92" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataTrade.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/data_trade/DataTrade.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="50" column="74" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NotificationerActions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/notificationer_actions/NotificationerActions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExternalContext.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_context/external_context/ExternalContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainProcessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/io/communication_processor/main_processor/MainProcessor.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
-              <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommunicationProcessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/CommunicationProcessor.java">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+            <state relative-caret-position="57">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="FxmlFile" />
-        <option value="Enum" />
-        <option value="Interface" />
-        <option value="AnnotationType" />
-        <option value="Kotlin File" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>protocolCheck</find>
-      <find>external</find>
-    </findStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/src/main/java/S.I/server/socket_actions</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="Development" />
-      </map>
-    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
@@ -430,9 +623,8 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6111909147476" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="3886006946" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="4005185255" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="1741342742" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="3423255338" />
       </map>
@@ -539,77 +731,13 @@
         </entry>
       </map>
     </option>
-    <option name="projectSyncType">
-      <map>
-        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
-      </map>
-    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor_test_2/read_processor/ReadProcessor.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/client/client_communication/ClientCommunication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/protocol/enum_protocols/communication_protocol/CommunicationProtocol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/protocol/enum_protocols/data_protocol/DataProtocol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/notificationer_actions/client_notificationer_action/ClientNotificationerActions.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethods.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/server/server_communication/mock_objects/NotificationerMock.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/processor_enums/ProcessorEnums.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/annotations/user_implementation/methods_implementation/methods_annotation/method_identifier/StreamOpen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/ClientSocket.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/notificationer_actions/connected_client_notificationer_actions/ConnectedClientNotificationerActions.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/session_tracker/server/SessionTracker.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/main_processors/ConnectedClientMainProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket_actions/socket_loop/ClientWrappedLoop.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/exception/client/general/ClientTimeoutException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/server/socket_actions/connection_handler/NewConnectionHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/protocol/enum_protocols/technical_protocol/regex/TechnicalRegex.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/protocol/enum_protocols/technical_protocol/TechnicalProtocol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/communication_processor/read_processor/ReadStatusProcessorModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/actionHolder/actions/communication_processor_actions/read_processor_actions/client_impl/ClientReadStatusProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/actionHolder/actions/communication_processor_actions/read_processor_actions/connected_client_impl/ConnectedClientReadStatusProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/buffer_processor/BufferProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/main_processors/ClientMainProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/wrapper/client/ClientOutputStreamWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ConnectedClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/notification/notification_processor/annotation_parser/AnnotationParser.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notificationer_mocks/ClientNotificationer.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notificationer_mocks/ServerNotificationer.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/rules/ServerResource.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/rules/ClientResource.java" />
-        <option value="$PROJECT_DIR$/src/test/java/novo/Server.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/notification_state_exceptions/NotificationerStatesBundle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/exception/default_exception/NoResponseRequestException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/actionHolder/ActionHolder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/created_socket/client/ClientCreatedSocket.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/client/ClientCreator.java" />
-        <option value="$PROJECT_DIR$/src/test/java/novo/Client.java" />
-        <option value="$PROJECT_DIR$/src/test/java/novo/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/notificationer_actions/NotificationerActions.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/notification/DataTradeModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/io_models/stream_wrapper_models/InputStreamWrapperModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/wrapper/client/ClientInputStreamWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/wrapper/server/ConnectedClientInputStreamWrapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/read_processor/ReadProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/io/communication_processor/main_processor/MainProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/data_trade/DataTrade.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsServer.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsClient.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/statics/static_fields/StaticFields.java" />
-        <option value="$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/DataTransferTests.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
@@ -617,149 +745,29 @@
     <option name="width" value="1936" />
     <option name="height" value="1096" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="SI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
-              <item name="abstractClasses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
-              <item name="abstractClasses" type="462c0819:PsiDirectoryNode" />
-              <item name="main_processor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
-              <item name="abstractClasses" type="462c0819:PsiDirectoryNode" />
-              <item name="notification" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
-              <item name="abstractClasses" type="462c0819:PsiDirectoryNode" />
-              <item name="notification" type="462c0819:PsiDirectoryNode" />
-              <item name="data_trade" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="S.I" type="b2602c69:ProjectViewProjectNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="socket_installer" type="462c0819:PsiDirectoryNode" />
-              <item name="SI_behavior" type="462c0819:PsiDirectoryNode" />
-              <item name="abstractClasses" type="462c0819:PsiDirectoryNode" />
-              <item name="notification" type="462c0819:PsiDirectoryNode" />
-              <item name="notificationer_actions" type="462c0819:PsiDirectoryNode" />
+              <item name="socket_installer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="socket_installer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
-    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
-    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
-    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="s.i" />
-    <property name="SearchEverywhereHistoryKey" value="System.out&#9;null&#9;null&#10;increase&#9;PSI&#9;JAVA://socket_installer.SI_parts.IO.communication_processor.processors.packet_status_processor.PacketStatusProcessor#increaseNumberOfTries&#10;DefinedR&#9;PSI&#9;JAVA://socket_installer.SI_parts.data_carriers.carrier_enums.ResponseCarrierEnum#DEFINED_RESPONSE&#10;AddNew&#9;PSI&#9;JAVA://socket_installer.SI_parts.session_tracker.server.SessionTracker#addNewConnection" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../gym/java/spock_geb_test" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="S.I_behavior.non_abstract_classes.bytes_reader" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -773,88 +781,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.DataTransferTests.checkIfDownloadUploadWorks">
-    <configuration name="Client (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="novo.Client" />
-      <module name="S.I_test" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="novo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="Client" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test_client.Client" />
-      <module name="S.I_test" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test_server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="Field" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="general.Field" />
-      <module name="S.I_test" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="general.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="ImprovedTestClient" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test_client.ImprovedTestClient" />
-      <module name="S.I_test" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test_server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="novo.Main" />
-      <module name="S.I_test" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="novo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="novo.Server" />
-      <module name="S.I_test" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="novo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="Test0" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test_server.Test0" />
-      <module name="S.I_test" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test_server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime [*]" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true" repeat_mode="Until Failure">
+    <configuration name="DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="S.I_test" />
       <extension name="coverage">
         <pattern>
@@ -867,29 +798,6 @@
       <option name="PACKAGE_NAME" value="junit.tests.internal_tests.data_transfer" />
       <option name="MAIN_CLASS_NAME" value="junit.tests.internal_tests.data_transfer.DataTransferTests" />
       <option name="METHOD_NAME" value="checkIfClientAndServerCanCommunicateSomePeriodOfTime" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="DataTransferTests.checkIfDownloadUploadWorks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="S.I_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="junit.tests.internal_tests.data_transfer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="junit.tests.internal_tests.data_transfer" />
-      <option name="MAIN_CLASS_NAME" value="junit.tests.internal_tests.data_transfer.DataTransferTests" />
-      <option name="METHOD_NAME" value="checkIfDownloadUploadWorks" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -938,24 +846,9 @@
       <properties />
       <listeners />
     </configuration>
-    <list>
-      <item itemvalue="Application.Test0" />
-      <item itemvalue="Application.Client" />
-      <item itemvalue="Application.ImprovedTestClient" />
-      <item itemvalue="Application.Field" />
-      <item itemvalue="Application.Server" />
-      <item itemvalue="Application.Client (1)" />
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime [*]" />
-      <item itemvalue="JUnit.DataTransferTests.checkIfDownloadUploadWorks" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DataTransferTests.checkIfDownloadUploadWorks" />
-        <item itemvalue="Application.Client (1)" />
-        <item itemvalue="JUnit.DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime [*]" />
-        <item itemvalue="Application.Server" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime" />
       </list>
     </recent_temporary>
   </component>
@@ -964,628 +857,81 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="977e12f6-6b91-49fd-9e95-2942608ac45f" name="Default" comment="" />
-      <created>1523614035763</created>
+      <changelist id="dee01dd4-b028-4b02-b3ea-34b57017949d" name="Default" comment="" />
+      <created>1530629092537</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1523614035763</updated>
-      <workItem from="1523614038906" duration="10258000" />
-      <workItem from="1523651009892" duration="1055000" />
-      <workItem from="1523654399718" duration="4314000" />
-      <workItem from="1523712435882" duration="8313000" />
-      <workItem from="1523872540790" duration="17114000" />
-      <workItem from="1524050632043" duration="13458000" />
-      <workItem from="1524141580066" duration="6281000" />
-      <workItem from="1524210377375" duration="234000" />
-      <workItem from="1524229273769" duration="7102000" />
-      <workItem from="1524485246207" duration="11321000" />
-      <workItem from="1524586289816" duration="5852000" />
-      <workItem from="1524660044344" duration="1993000" />
-      <workItem from="1524749246765" duration="14201000" />
-      <workItem from="1524814622989" duration="5332000" />
-      <workItem from="1524821560443" duration="9153000" />
-      <workItem from="1525087100667" duration="7137000" />
+      <updated>1530629092537</updated>
     </task>
-    <task id="LOCAL-00001" summary="Need to create a wrapper around outStream,sending and recv.Implement a standard that after every message send he needs to wait for confirmation that message was recv">
-      <created>1525279591647</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1525279591648</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Fixed bug, problem was in ClientCloseException, i need to throw ClientClosedException">
-      <created>1526746406896</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1526746406896</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Remove couple of things in annotation parser">
-      <created>1527183700886</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1527183700886</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Notification system built">
-      <created>1527275464560</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1527275464560</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Tweaks">
-      <created>1528110272244</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1528110272245</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Tweaks">
-      <created>1528711104532</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1528711104533</updated>
-    </task>
-    <task id="LOCAL-00007" summary="NotificationerActions tweaked, new methods added. General improvments in way to handle to communication">
-      <created>1529161565394</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1529161565395</updated>
-    </task>
-    <task id="LOCAL-00008" summary="deleted files from 'old communication system'">
-      <created>1529161839165</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1529161839165</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Polishing,removed some files and reorganized some methods">
-      <created>1529233861343</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1529233861343</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DataTransferTests_checkIfClientAndServerCanCommunicateSomePeriodOfTime - 2018.06.17 at 12h 59m 34s.xml">
+    <history-entry file="DataTransferTests_checkIfClientAndServerCanCommunicateSomePeriodOfTime - 2018.07.03 at 16h 45m 47s.xml">
       <configuration name="DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataTransferTests_checkIfClientAndServerCanCommunicateSomePeriodOfTime - 2018.06.17 at 13h 00m 09s.xml">
+    <history-entry file="DataTransferTests_checkIfClientAndServerCanCommunicateSomePeriodOfTime - 2018.07.03 at 16h 45m 57s.xml">
       <configuration name="DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataTransferTests_checkIfClientAndServerCanCommunicateSomePeriodOfTime_[_] - 2018.06.17 at 13h 03m 59s.xml">
-      <configuration name="DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime [*]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataTransferTests_checkIfClientAndServerCanCommunicateSomePeriodOfTime_[_] - 2018.06.17 at 13h 04m 30s.xml">
-      <configuration name="DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime [*]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataTransferTests_checkIfClientAndServerCanCommunicateSomePeriodOfTime_[_] - 2018.06.17 at 13h 10m 13s.xml">
-      <configuration name="DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime [*]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataTransferTests_checkIfClientAndServerCanCommunicateSomePeriodOfTime_[_] - 2018.06.17 at 13h 13m 48s.xml">
-      <configuration name="DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime [*]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataTransferTests_checkIfClientAndServerCanCommunicateSomePeriodOfTime_[_] - 2018.06.17 at 13h 15m 10s.xml">
-      <configuration name="DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime [*]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataTransferTests_checkIfClientAndServerCanCommunicateSomePeriodOfTime_[_] - 2018.06.18 at 16h 04m 41s.xml">
-      <configuration name="DataTransferTests.checkIfClientAndServerCanCommunicateSomePeriodOfTime [*]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataTransferTests_checkIfDownloadUploadWorks - 2018.06.21 at 16h 11m 31s.xml">
-      <configuration name="DataTransferTests.checkIfDownloadUploadWorks" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DataTransferTests_checkIfDownloadUploadWorks - 2018.06.21 at 16h 12m 08s.xml">
-      <configuration name="DataTransferTests.checkIfDownloadUploadWorks" configurationId="JUnit" />
-    </history-entry>
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123246000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info id="Image Layers" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.32776618" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37265137" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49946696" weight="0.32776618" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49949032" visible="true" weight="0.23081024" />
-      <window_info anchor="right" id="Gradle" order="6" weight="0.32995737" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32985386" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="right" id="Coverage" sideWeight="0.50155765" side_tool="true" weight="0.32995737" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32985386" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Build" weight="0.32985386" />
+      <window_info anchor="right" id="Gradle" sideWeight="0.49844238" weight="0.32995737" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4217119" />
-      <window_info id="Favorites" order="5" sideWeight="0.5005097" side_tool="true" weight="0.17135416" />
-      <window_info anchor="bottom" id="Thumbnails" order="12" weight="0.32970452" />
+      <window_info id="UI Designer" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="bottom" id="Build" order="10" weight="0.32881" />
-      <window_info id="Learn" order="6" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32672232" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32776618" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.3296875" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="bottom" id="Thumbnails" order="12" weight="0.32970452" />
-      <window_info anchor="bottom" id="Build" order="10" weight="0.32881" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3716075" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="5" sideWeight="0.5005097" side_tool="true" weight="0.17135416" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49946696" weight="0.32776618" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.32776618" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32672232" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49949032" visible="true" weight="0.19829424" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="right" id="Gradle" order="6" weight="0.32995737" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info id="Learn" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.3296875" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32776618" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39874738" />
-    </layout-to-restore>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Need to create a wrapper around outStream,sending and recv.Implement a standard that after every message send he needs to wait for confirmation that message was recv" />
-    <MESSAGE value="Fixed bug, problem was in ClientCloseException, i need to throw ClientClosedException" />
-    <MESSAGE value="Remove couple of things in annotation parser" />
-    <MESSAGE value="Notification system built" />
-    <MESSAGE value="Tweaks" />
-    <MESSAGE value="NotificationerActions tweaked, new methods added. General improvments in way to handle to communication" />
-    <MESSAGE value="deleted files from 'old communication system'" />
-    <MESSAGE value="Polishing,removed some files and reorganized some methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Polishing,removed some files and reorganized some methods" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="45" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/client/ClientSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/holder/io_holder/IOHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/send_processor/SendProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/processor_enums/ProcessorEnums.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/protocol/enum_protocols/technical_protocol/regex/TechnicalRegex.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/protocol/enum_protocols/technical_protocol/TechnicalProtocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/communication_processor/read_processor/ReadStatusProcessorModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/actionHolder/actions/communication_processor_actions/read_processor_actions/client_impl/ClientReadStatusProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/actionHolder/actions/communication_processor_actions/read_processor_actions/connected_client_impl/ConnectedClientReadStatusProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/buffer_processor/BufferProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/wrapper/client/ClientOutputStreamWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/main_processors/ClientMainProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="40" column="73" selection-start-line="40" selection-start-column="73" selection-end-line="40" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/client/socket/ConnectedClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="39" column="73" selection-start-line="39" selection-start-column="73" selection-end-line="39" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/notification/notification_processor/annotation_parser/AnnotationParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="55" column="60" selection-start-line="55" selection-start-column="60" selection-end-line="55" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/client/client_communication/mock_objects/NotificationerMock.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/client/client_communication/mock_objects/NotificationerMethodsMock.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/client/client_communication/ClientCommunication.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationerMock.kt" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationerMock.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/notificationer_actions/connected_client_notificationer_actions/ConnectedClientNotificationerActions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="58" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notificationer_mocks/ServerNotificationer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/novo/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="90" selection-start-line="3" selection-start-column="90" selection-end-line="3" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/protocol/enum_protocols/communication_protocol/CommunicationProtocol.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/annotations/user_implementation/methods_implementation/methods_annotation/method_identifier/StreamOpen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/exception/default_exception/NoSolutionForException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/exception/default_exception/NoResponseRequestException.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/rules/ServerResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/notification_state_exceptions/NotificationerStatesBundle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="72" selection-start-column="72" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notificationer_mocks/ClientNotificationer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/actionHolder/ActionHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/notificationer_actions/client_notificationer_action/ClientNotificationerActions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/socket/BasicSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/sockets/created_socket/client/ClientCreatedSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI/socket_creation/client/ClientCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/novo/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/rules/ClientResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/novo/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/notification/DataTradeModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/wrapper/client/ClientInputStreamWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/wrapper/server/ConnectedClientInputStreamWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/interfaces/sockets/io_models/stream_wrapper_models/InputStreamWrapperModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/read_processor/ReadProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/io/communication_processor/main_processor/MainProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_parts/IO/communication_processor/CommunicationProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="50" column="70" selection-start-line="50" selection-start-column="70" selection-end-line="50" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/notification_test_methods/NotificationTestMethodsServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="92" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/statics/static_fields/StaticFields.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/junit/tests/internal_tests/data_transfer/DataTransferTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="95">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/data_trade/DataTrade.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="50" column="74" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_behavior/abstractClasses/notification/notificationer_actions/NotificationerActions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/socket_installer/SI_context/external_context/ExternalContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="57">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>socket_installer</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>S.I</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Gradle: junit:junit:4.12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

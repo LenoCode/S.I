@@ -2,6 +2,7 @@ package junit.tests.rules;
 
 import junit.tests.internal_tests.data_transfer.notificationer_mocks.ServerNotificationer;
 import org.junit.rules.ExternalResource;
+
 import org.mockito.Mock;
 import socket_installer.SI.socket_creation.server.ServerCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
@@ -13,8 +14,8 @@ import java.io.IOException;
 import static junit.tests.statics.static_fields.StaticFields.HOST;
 import static junit.tests.statics.static_fields.StaticFields.PORT;
 import static junit.tests.statics.static_fields.StaticFields.TIMEOUT;
-import static org.assertj.core.api.Assertions.*;
 import static junit.tests.statics.static_methods.StaticMethods.*;
+import static org.assertj.core.api.Assertions.*;
 
 public class ServerResource extends ExternalResource {
 
