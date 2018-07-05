@@ -30,15 +30,6 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
         return externalContext;
     }
 
-
-    public void notifyClass(String notification) throws IOException, SocketExceptions {
-        saveLastMethodForExceptionHandle(notification);
-
-        A object = (A)annotationParser.identifyClass(objects,notification);
-        Method method = annotationParser.identifyMethod(object.getClass().getMethods(),notification);
-        notification = annotationParser.removeIdents(notification);
-        invokeMethod(object,method,notification,notificationerStatesBundle);
-    }
     public void sendNotification(String classIdent,String methodIdent,String notification) {
         try {
             ClientMainProcessor communicationProcessor = CommunicationProcessor.getClientCommunicationProcessor();
@@ -50,6 +41,15 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
         } catch (SocketExceptions socketExceptions) {
             socketExceptions.printStackTrace();
         }
+    }
+
+    public void notifyClass(String notification) throws IOException, SocketExceptions {
+        saveLastMethodForExceptionHandle(notification);
+
+        A object = (A)annotationParser.identifyClass(objects,notification);
+        Method method = annotationParser.identifyMethod(object.getClass().getMethods(),notification);
+        notification = annotationParser.removeIdents(notification);
+        invokeMethod(object,method,notification,notificationerStatesBundle);
     }
 
     private void invokeMethod(A object,Method method, Object ... args) throws SocketExceptions, IOException {
@@ -66,12 +66,14 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
             throw new NoSolutionForException("Internal error : method invoke invocationTargetException");
         }
     }
+
     private void saveLastMethodForExceptionHandle(String lastMethod){
         this.lastMethodCalled = lastMethod;
     }
 
     private void closeStream(Method method) throws IOException, SocketExceptions {
         if (method.getAnnotation(StreamOpen.class) == null){
+            System.out.println("SALJEM CLOSING DVA PUTA");
             CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSING.completeProtocol().getBytes());
         }
     }

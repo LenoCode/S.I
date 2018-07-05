@@ -10,5 +10,4 @@ public interface SocketConfiguration {
     String getIpAddress();
     int getPort();
     boolean isSocketOnline();
-
 }

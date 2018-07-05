@@ -1,24 +1,25 @@
 package socket_installer.SI.server.socket_actions.connection_handler;
 
 
+import async_communicator.AsyncCommunicator;
+import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI.client.socket.ConnectedClient;
-import socket_installer.SI.socket_creation.client.ClientCreator;
+import socket_installer.SI.socket_creation.client.ClientSocketCreator;
+import socket_installer.SI.socket_creation.thread_creator.thread_processor_enums.ThreadProcessorEnum;
 import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
-import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.connected_client.ConnectedClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_context.internal_context.InternalContext;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
-
 import java.io.IOException;
 import java.net.Socket;
 
 public class NewConnectionHandler {
-
+    private final AsyncCommunicator asyncCommunicator = AsyncCommunicator.getAsyncCommunicator();
 
     public void handleConnection(NotificationerActions notificationer, Socket clientConnected, int timeout) throws IOException, SocketExceptions{
         SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
-
+        System.out.println("Handling connection ----->");
         clientConnected.setSoTimeout(timeout);
         ConnectedClient clientSocket = sessionTracker.checkIfSocketExists(clientConnected.getInetAddress().getHostAddress());
 
@@ -30,14 +31,76 @@ public class NewConnectionHandler {
     }
 
     private void setupNewConnection(NotificationerActions notificationer, Socket clientConnected,int timeout)throws IOException, SocketExceptions{
-        ConnectedClientCreatedSocket createdClientModel = ClientCreator.createConnectedClient(notificationer,clientConnected,timeout);
-        createdClientModel.runSocket();
+        System.out.println("setup new connection");
+        Thread threadOfConnectedClient = ClientSocketCreator.createConnectedClientCreatedSocket(notificationer,clientConnected,timeout);
+        threadOfConnectedClient.start();
+    }
+
+    private void setupOldConnectionThread(Socket clientConnected, ClientSocket clientSocket){
+         new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    setupOldConnection(clientConnected,clientSocket);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (SocketExceptions socketExceptions) {
+                    socketExceptions.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     private void setupOldConnection(Socket clientConnected,ClientSocket clientSocket)throws  IOException,SocketExceptions{
+        System.out.println("setup old connection,  repacing socket");
         clientSocket.replaceSocket(clientConnected);
-        ConnectedClientCreatedSocket createdClientModel = ClientCreator.createConnectedClient(clientSocket);
-        createdClientModel.runSocket();
+        ClientConfiguration clientConfiguration = (ClientConfiguration) clientSocket.getSocketConfiguration();
+        Long threadId = clientConfiguration.getThreadId();
+
+        if (threadId != null){
+            checkCurrentThreadStatus(clientSocket);
+        }else{
+            continueWithNewThread(clientSocket);
+        }
+    }
+    private void checkCurrentThreadStatus(ClientSocket clientSocket){
+        ClientConfiguration clientConfiguration = (ClientConfiguration) clientSocket.getSocketConfiguration();
+        Long threadId;
+        int i = 0;
+        while((threadId = clientConfiguration.getThreadId()) != null){
+            if (i % 10 == 0){
+                System.out.println("still waiting for thread " +threadId +"       and i am currently on thread    ->"+Thread.currentThread().getId());
+            }
+            if (checkIfThreadInProcess(threadId)){
+               if (checkIfThreadWaitsForReconnect(threadId)){
+                   continueWithCurrentThread(threadId);
+                   return;
+               }
+            }
+        }
+        continueWithNewThread(clientSocket);
+    }
+    private boolean checkIfThreadInProcess(Long threadId){
+        try{
+            System.out.println("process on thread  "+Thread.currentThread().getId() +"     "+asyncCommunicator.getFlag(threadId,ThreadProcessorEnum.CLIENT_THREAD_IN_PROCESS.getId()));
+            return asyncCommunicator.getFlag(threadId,ThreadProcessorEnum.CLIENT_THREAD_IN_PROCESS.getId());
+        }catch (NullPointerException e){
+            return false;
+        }
+    }
+    private boolean checkIfThreadWaitsForReconnect(Long threadId){
+        System.out.println("check if threads waits for reconnect   ->  "+threadId);
+       return asyncCommunicator.getFlag(threadId,ThreadProcessorEnum.WAITING_CLIENT_RECONNECT.getId());
+    }
+
+    private void continueWithCurrentThread(Long threadId){
+        System.out.println("continue with old thread, because thread exists    ->   "+threadId);
+        asyncCommunicator.addFlag(threadId,ThreadProcessorEnum.CLIENT_RECONNECT.getId(),true);
+    }
+    private void continueWithNewThread(ClientSocket clientSocket){
+        System.out.println("create new thread   ");
+        Thread threadOfConnectedClient = ClientSocketCreator.injectToExistingConnectedClient(clientSocket);
+        threadOfConnectedClient.start();
     }
 
 }

@@ -2,7 +2,7 @@ package novo;
 
 import junit.tests.internal_tests.data_transfer.notification_test_methods.NotificationTestMethodsServer;
 import junit.tests.internal_tests.data_transfer.notificationer_mocks.ServerNotificationer;
-import socket_installer.SI.socket_creation.server.ServerCreator;
+import socket_installer.SI.socket_creation.server.ServerSocketCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
@@ -11,7 +11,6 @@ import java.io.IOException;
 
 import static junit.tests.statics.static_fields.StaticFields.HOST;
 import static junit.tests.statics.static_fields.StaticFields.PORT;
-import static junit.tests.statics.static_fields.StaticFields.TIMEOUT;
 import static junit.tests.statics.static_methods.StaticMethods.sleep;
 import static junit.tests.statics.static_methods.StaticMethods.threadRun;
 
@@ -30,7 +29,7 @@ public class Server {
 
     protected void start() throws Throwable {
         notificationerMock = new ServerNotificationer(dataTradeModels);
-        serverCreatedSocket = ServerCreator.createServer(HOST,notificationerMock,PORT,1,500000);
+        serverCreatedSocket = ServerSocketCreator.createServer(HOST,notificationerMock,PORT,1,10);
         threadRun(new Runnable() {
             @Override
             public void run() {

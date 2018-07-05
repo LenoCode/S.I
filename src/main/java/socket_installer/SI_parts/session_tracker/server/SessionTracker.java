@@ -23,6 +23,7 @@ public class SessionTracker {
         return connectedClientSet.size();
     }
     public ConnectedClient checkIfSocketExists(String ipAddress){
+        System.out.println(connectedClientSet.size() + " connected clienz size    ");
         return connectedClientSet.contains(ipAddress);
     }
     @Override

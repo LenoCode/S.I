@@ -10,7 +10,7 @@ import java.io.IOException;
 
 
 public class ClientTimeoutException extends SocketExceptions {
-
+    //OVO NE TREBA UOPCE, JEDINO MOZDA PRONACI NESTO STO BI SE TU MOGLO PROVJERAVATI
     @Override
     public void handleException(SocketModel socketModel) {
         ClientSocket clientSocket = (ClientSocket) socketModel;

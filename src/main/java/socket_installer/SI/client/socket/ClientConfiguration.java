@@ -10,6 +10,7 @@ public class ClientConfiguration implements SocketConfiguration {
     private int timeout;
     private boolean connectedClientStatus;
     private boolean streamPaused;
+    private Long threadId;
 
     public ClientConfiguration(Socket socket){
         ipAddress = socket.getInetAddress().getHostAddress();
@@ -55,6 +56,15 @@ public class ClientConfiguration implements SocketConfiguration {
             return connectedClientStatus;
         }
     }
+
+    public Long getThreadId() {
+        return threadId;
+    }
+
+    public void setThreadId(Long threadId) {
+        this.threadId = threadId;
+    }
+
     @Override
     public void setSocketOnlineStatus(boolean status) {
         this.connectedClientStatus = status;

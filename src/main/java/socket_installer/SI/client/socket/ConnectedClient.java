@@ -34,10 +34,14 @@ public class ConnectedClient extends ClientSocket {
 
         MainLoop:
         while(clientConfiguration.isSocketOnline()){
+            System.out.println("Check if stream is open "+Thread.currentThread().getId());
             if (!actions.getReadStatusProcessorModel().checkIfStreamOpen()){
+                System.out.println("Stream is not opened"+Thread.currentThread().getId());
                 connectedClientMainProcessor.checkIfStreamReadyToOpen(this);
             }else{
+                System.out.println("stream is opened, reading client messages ------------>");
                 connectedClientMainProcessor.readingDataFromStream(this);
+                System.out.println("------> reading done, no error thrown    stringBuffer : "+getIOHolder().getStringBuffer().getString());
                 break MainLoop;
             }
         }
@@ -54,7 +58,7 @@ public class ConnectedClient extends ClientSocket {
     @Override
     public void replaceSocket(Socket socket) throws IOException, SocketExceptions {
         this.socket = socket;
-        ioHolder.getStringBuffer().emptyBuffer();
+        System.out.println("replacing socket ...... this is what have left in buffer"+ioHolder.getStringBuffer().getString());
         setupStream(socket);
         ((ClientConfiguration)socketConfiguration).setStreamPaused(false);
         socketConfiguration.setSocketOnlineStatus(true);

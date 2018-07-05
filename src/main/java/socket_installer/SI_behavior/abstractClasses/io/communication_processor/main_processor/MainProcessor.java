@@ -32,7 +32,7 @@ public abstract class MainProcessor {
 
     public void notifyClass(NotificationerActions notificationerActions, StringBuffer stringBuffer) throws IOException, SocketExceptions {
         Iterator<String> iterator = bufferProcessor.parseDataRecieved(stringBuffer);
-
+        System.out.println("Notify class      ,buffer looks like this ->  "+stringBuffer.getString());
         stringBuffer.emptyBuffer();
         while(iterator.hasNext()) {
             String next = iterator.next();
@@ -40,6 +40,7 @@ public abstract class MainProcessor {
         }
     }
     public void sendNotification(ClientSocket clientSocket,String classIdent,String methodIdent,String notification) throws IOException, SocketExceptions{
+        System.out.println("sending notification");
         notification = DataProtocol.sendMessageFormat(classIdent,methodIdent,notification);
         sendProcessor.send(clientSocket.getIOHolder().getOutputStream(),notification.getBytes());
     }
@@ -52,6 +53,7 @@ public abstract class MainProcessor {
         NotificationerActions notificationerActions = clientSocket.getNotificationer();
         StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();
 
+        System.out.println("reading client messages from stream ----------->");
         setInputStreamToBlock(clientSocket);
         do{
             readProcessor.readDataFromOpenStream(clientSocket,readStatusProcessorModel);
@@ -60,6 +62,7 @@ public abstract class MainProcessor {
 
         setInputStreamToUnblock(clientSocket);
         checkStreamClosingStatus(clientSocket,readStatusProcessorModel);
+        System.out.println("reading client message is done , cleaning stringBuffer  "+stringBuffer.getString());
         stringBuffer.emptyBuffer();
     }
 
@@ -68,11 +71,13 @@ public abstract class MainProcessor {
     }
 
     protected void checkStatusFromReadStatusProcessor(ReadStatusProcessorModel readStatusProcessorModel, NotificationerActions notificationerActions, StringBuffer stringBuffer) throws IOException, SocketExceptions {
-
+        System.out.println("checking status from reading client messages ----->");
         if (readStatusProcessorModel.checkReadStatus() == ProcessorEnums.DATA_LINE_COMPLETE){
+            System.out.println("data line complete  "+stringBuffer.getString());
             notifyClass(notificationerActions,stringBuffer);
 
         }else if (readStatusProcessorModel.checkReadStatus() == ProcessorEnums.DATA_COMPLETE){
+            System.out.println("data complete  "+stringBuffer.getString());
             String savedString = stringBuffer.getString();
 
             if (!areThereDataStillInBuffer(notificationerActions,stringBuffer)){
@@ -84,16 +89,20 @@ public abstract class MainProcessor {
             }
 
         } else if (readStatusProcessorModel.checkReadStatus() == ProcessorEnums.STREAM_CONNECTION_LOST){
+            System.out.println("stream connnection lost");
             notificationerActions.exceptionHandler(readStatusProcessorModel);
         }
     }
 
     protected boolean areThereDataStillInBuffer(NotificationerActions notificationerActions, StringBuffer stringBuffer) throws IOException, SocketExceptions {
+        System.out.println("are there still data in buffer --------");
         bufferProcessor.removeSocketStreamClosedLine(stringBuffer);
         if (stringBuffer.getString().length() > 0){
+            System.out.println("yes there is still data in buffer    "+stringBuffer.getString());
             notifyClass(notificationerActions,stringBuffer);
             return true;
         }else{
+            System.out.println("no data in buffer");
             return false;
         }
     }

@@ -37,7 +37,7 @@ public class DataTransferTests {
 
         assertThat(threadCounterCommunicator.getCounter()).isEqualTo(1000);
         threadCounterCommunicator.finish();
-        System.out.println("Server and client exchanged 100000 messages");
+        System.out.println("Server and client_creator exchanged 100000 messages");
     }
 
 

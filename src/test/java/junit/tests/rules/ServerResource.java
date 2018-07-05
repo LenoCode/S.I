@@ -4,7 +4,7 @@ import junit.tests.internal_tests.data_transfer.notificationer_mocks.ServerNotif
 import org.junit.rules.ExternalResource;
 
 import org.mockito.Mock;
-import socket_installer.SI.socket_creation.server.ServerCreator;
+import socket_installer.SI.socket_creation.server.ServerSocketCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
@@ -32,7 +32,7 @@ public class ServerResource extends ExternalResource {
     @Override
     protected void before() throws Throwable {
         notificationerMock = new ServerNotificationer(dataTradeModels);
-        serverCreatedSocket = ServerCreator.createServer(HOST,notificationerMock,PORT,1,TIMEOUT);
+        serverCreatedSocket = ServerSocketCreator.createServer(HOST,notificationerMock,PORT,1,TIMEOUT);
         threadRun(new Runnable() {
             @Override
             public void run() {
