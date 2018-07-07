@@ -38,6 +38,7 @@ public class ServerResource extends ExternalResource {
             public void run() {
                 try {
                     System.out.println("Server starting");
+                    serverCreatedSocket.initSocket();
                     serverCreatedSocket.runSocket();
                 } catch (IOException e) {
                     e.printStackTrace();

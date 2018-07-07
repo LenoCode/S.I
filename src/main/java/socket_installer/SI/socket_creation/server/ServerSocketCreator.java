@@ -29,7 +29,7 @@ public class ServerSocketCreator {
     ){
         return new ServerCreatedSocket() {
             @Override
-            public void runSocket() throws IOException, SocketExceptions {
+            public void initSocket() throws IOException, SocketExceptions {
                 InternalContext.createContext();
                 ProgramLoopWrapper.setProgrammRunning(true);
 
@@ -43,8 +43,12 @@ public class ServerSocketCreator {
                 basicSocket.setSocketConfiguration(serverConfiguration);
                 basicSocket.setNotificationer(notificationer);
 
-                ServerWrappedLoop serverWrappedLoop = new ServerWrappedLoop();
                 basicSocket.setupSocket();
+            }
+
+            @Override
+            public void runSocket() throws IOException, SocketExceptions {
+                ServerWrappedLoop serverWrappedLoop = new ServerWrappedLoop();
                 serverWrappedLoop.activateWrappedLoop(basicSocket);
             }
             @Override

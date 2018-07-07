@@ -36,7 +36,7 @@ public class ClientResource extends ExternalResource {
             @Override
             public void run() {
                 try {
-                    clientCreatedSocket.runSocket();
+                    clientCreatedSocket.initSocket();
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (SocketExceptions socketExceptions) {

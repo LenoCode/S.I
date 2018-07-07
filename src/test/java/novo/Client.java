@@ -42,7 +42,7 @@ public class Client {
             @Override
             public void run() {
                 try {
-                    clientCreatedSocket.runSocket();
+                    clientCreatedSocket.initSocket();
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (SocketExceptions socketExceptions) {
@@ -76,8 +76,7 @@ public class Client {
     }
 
     public void send(String data) throws IOException, SocketExceptions {
-        notificationerMock.sendNotification(CLASS_IDENT,"test01",data);
-
+        clientCreatedSocket.getClient().activateSocket(CLASS_IDENT,"test01",data);
     }
 
     private void clientReadResponse() throws IOException, SocketExceptions {

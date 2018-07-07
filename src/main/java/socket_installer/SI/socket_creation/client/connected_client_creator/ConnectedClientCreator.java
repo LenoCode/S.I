@@ -20,7 +20,7 @@ public class ConnectedClientCreator {
     public ConnectedClientCreatedSocket createConnectedClientCreatedSocket(NotificationerActions notificationerActions,Socket socket,int timeout){
         return new ConnectedClientCreatedSocket() {
             @Override
-            public void runSocket() throws IOException, SocketExceptions {
+            public void initSocket() throws IOException, SocketExceptions {
                 ClientConfiguration connectedClientConfiguration = new ClientConfiguration(socket);
                 connectedClientConfiguration.setThreadId(Thread.currentThread().getId());
                 connectedClientConfiguration.setTimeout(timeout);
@@ -33,14 +33,16 @@ public class ConnectedClientCreator {
                 SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
                 sessionTracker.addNewConnection((ConnectedClient) basicSocket);
 
-                ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();
-
                 notificationerActions.setClientSocket((ClientSocket) basicSocket);
                 for (DataTradeModel dataTradeModel : notificationerActions.getObjects()){
                     dataTradeModel.setClientSocket((ClientSocket) basicSocket);
                     dataTradeModel.injectExternalContext(notificationerActions.getExternalContext());
                 }
+            }
 
+            @Override
+            public void runSocket() throws IOException, SocketExceptions {
+                ClientWrappedLoop connectedClientWrappedLoop = new ClientWrappedLoop();
                 connectedClientWrappedLoop.activateWrappedLoop(basicSocket);
             }
             @Override
@@ -53,6 +55,11 @@ public class ConnectedClientCreator {
 
     public ConnectedClientCreatedSocket injectSocketToConnectedClient(ClientSocket socket){
         return new ConnectedClientCreatedSocket() {
+            @Override
+            public void initSocket() throws IOException, SocketExceptions {
+
+            }
+
             @Override
             public void runSocket() throws IOException, SocketExceptions {
                 ClientConfiguration clientConfiguration = (ClientConfiguration) socket.getSocketConfiguration();

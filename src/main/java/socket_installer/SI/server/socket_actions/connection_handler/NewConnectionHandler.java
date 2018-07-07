@@ -17,21 +17,21 @@ import java.net.Socket;
 public class NewConnectionHandler {
     private final AsyncCommunicator asyncCommunicator = AsyncCommunicator.getAsyncCommunicator();
 
-    public void handleConnection(NotificationerActions notificationer, Socket clientConnected, int timeout) throws IOException, SocketExceptions{
+    public synchronized void handleConnection(NotificationerActions notificationer, Socket clientConnected, int timeout) throws IOException, SocketExceptions{
         SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
         System.out.println("Handling connection ----->");
-        clientConnected.setSoTimeout(timeout);
         ConnectedClient clientSocket = sessionTracker.checkIfSocketExists(clientConnected.getInetAddress().getHostAddress());
 
         if (clientSocket == null){
             setupNewConnection(notificationer,clientConnected,timeout);
         }else{
-            setupOldConnection(clientConnected,clientSocket);
+            setupOldConnectionThread(clientConnected,clientSocket);
         }
     }
 
     private void setupNewConnection(NotificationerActions notificationer, Socket clientConnected,int timeout)throws IOException, SocketExceptions{
         System.out.println("setup new connection");
+        clientConnected.setSoTimeout(timeout);
         Thread threadOfConnectedClient = ClientSocketCreator.createConnectedClientCreatedSocket(notificationer,clientConnected,timeout);
         threadOfConnectedClient.start();
     }
@@ -58,6 +58,7 @@ public class NewConnectionHandler {
         Long threadId = clientConfiguration.getThreadId();
 
         if (threadId != null){
+            clientConnected.setSoTimeout(clientConfiguration.getTimeoutIncrease());
             checkCurrentThreadStatus(clientSocket);
         }else{
             continueWithNewThread(clientSocket);

@@ -26,7 +26,7 @@ public class ClientSocketCreator {
     }
     public static Thread injectToExistingConnectedClient(ClientSocket clientSocket){
         ConnectedClientCreatedSocket connectedClientCreatedSocket = connectedClientCreator.injectSocketToConnectedClient(clientSocket);
-        return threadCreator.createActivationThread(connectedClientCreatedSocket);
+        return threadCreator.createActiviationThreadWithoutInit(connectedClientCreatedSocket);
     }
 }
 

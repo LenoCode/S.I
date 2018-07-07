@@ -2,6 +2,7 @@ package socket_installer.SI.socket_creation.client.client_creator;
 
 import socket_installer.SI.client.socket.Client;
 import socket_installer.SI.client.socket.ClientConfiguration;
+import socket_installer.SI.client.socket_actions.socket_loop.ClientWrappedLoop;
 import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
@@ -19,8 +20,10 @@ public class ClientCreator {
 
     public ClientCreatedSocket createClientCreatedSocket(NotificationerActions notificationerActions, Socket socket,int timeout){
         return new ClientCreatedSocket() {
+
             @Override
-            public void runSocket() throws IOException, SocketExceptions {
+            public void initSocket() throws IOException, SocketExceptions {
+                System.out.println("INICIJALIZACIJAAAAAAAA");
                 ClientConfiguration clientConfiguration = new ClientConfiguration(socket);
                 clientConfiguration.setTimeout(timeout);
                 basicSocket = new Client(socket);
@@ -34,6 +37,13 @@ public class ClientCreator {
                     dataTradeModel.setClientSocket((ClientSocket) basicSocket);
                     dataTradeModel.injectExternalContext(notificationerActions.getExternalContext());
                 }
+            }
+
+            @Override
+            public void runSocket(String classIdent,String methodIdent,String notification) throws IOException, SocketExceptions {
+                System.out.println("ŠALJEM MESSAGE");
+                ClientWrappedLoop clientWrappedLoop = new ClientWrappedLoop();
+                clientWrappedLoop.activateWrappedLoop(basicSocket,classIdent,methodIdent,notification);
             }
 
             @Override

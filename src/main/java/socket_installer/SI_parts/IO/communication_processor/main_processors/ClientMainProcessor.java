@@ -18,7 +18,7 @@ public class ClientMainProcessor extends MainProcessor {
         String dataToSend = TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol();
         StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();
         ReadStatusProcessorModel readStatusProcessorModel = clientSocket.getActions().getReadStatusProcessorModel();
-
+        System.out.println("Opening stream socket");
         notifyServerAboutOpendStream(clientSocket,readStatusProcessorModel,dataToSend);
 
         if (bufferProcessor.checkProtocolInBuffer(stringBuffer,TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol())){

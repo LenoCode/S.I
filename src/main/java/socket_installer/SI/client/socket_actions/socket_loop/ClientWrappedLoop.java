@@ -41,13 +41,36 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
         threadClosingSetup((ClientSocket) socketModel);
     }
 
-    private void threadClosingSetup(ClientSocket clientSocket){
-        AsyncCommunicator asyncCommunicator = AsyncCommunicator.getAsyncCommunicator();
+    @Override
+    public void activateWrappedLoop(SocketModel socketModel,String classIdent,String methodIdent,String notification) throws NoSolutionForException {
+        ClientGeneralException clientGeneralException = new ClientGeneralException();
 
-        asyncCommunicator.removeIdThread(Thread.currentThread().getId());
+
+        if(socketModel.getSocketConfiguration().isSocketOnline()){
+            try{
+                System.out.println("ActivateWrappedLoop  "+Thread.currentThread().getId());
+                socketModel.activateSocket(classIdent,methodIdent,notification);
+            }catch (NoSolutionForException noSolutionException){
+                System.out.println("no solution exception client wrapped loop");
+                throw noSolutionException;
+            } catch (SocketExceptions socketExceptions){
+                System.out.println("socket exception client wrapped loop");
+                socketExceptions.handleException(socketModel);
+            } catch (IOException ioException){
+                System.out.println("handle general excpetion client wrapped loop");
+                clientGeneralException.handleGeneralException(ioException,socketModel);
+            }catch (Exception exception){
+                exception.printStackTrace();
+            }
+        }
+        threadClosingSetup((ClientSocket) socketModel);
+    }
+
+    private void threadClosingSetup(ClientSocket clientSocket){
         ((ClientConfiguration)clientSocket.getSocketConfiguration()).setThreadId(null);
+        ((ClientConfiguration)clientSocket.getSocketConfiguration()).resetTimeoutIncrease();
         clientSocket.getActions().getReadStatusProcessorModel().setStreamOpenStatus(ProcessorEnums.STREAM_CLOSED);
-        System.out.println("Ovaj thread zavrsava" + Thread.currentThread().getId());
+        System.out.println("Ovaj thread zavrsava" + Thread.currentThread().getId() + "--------------------------------------------------------------------------------------->\n\n\n");
     }
 
 }

@@ -12,7 +12,8 @@ import java.io.IOException;
  */
 
 public interface SocketModel{
-    void activateSocket() throws IOException,SocketExceptions;
+    default void activateSocket() throws IOException,SocketExceptions{}
+    default void activateSocket(String classIdent,String methodIdent,String notification) throws IOException, SocketExceptions{}
     void deactivateSocket() throws IOException,SocketExceptions;
     void setupSocket() throws IOException, SocketExceptions;
     void setSocketConfiguration(SocketConfiguration socketConfiguration);

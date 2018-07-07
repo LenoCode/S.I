@@ -8,7 +8,6 @@ import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_behavior.interfaces.notification.NotificationerActionsModel;
 import socket_installer.SI_context.external_context.ExternalContext;
 import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
-import socket_installer.SI_parts.IO.communication_processor.main_processors.ClientMainProcessor;
 import socket_installer.SI_parts.exception.default_exception.NoSolutionForException;
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 
@@ -28,19 +27,6 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
     }
     public ExternalContext getExternalContext(){
         return externalContext;
-    }
-
-    public void sendNotification(String classIdent,String methodIdent,String notification) {
-        try {
-            ClientMainProcessor communicationProcessor = CommunicationProcessor.getClientCommunicationProcessor();
-            communicationProcessor.openStreamSocket(clientSocket);
-            communicationProcessor.sendNotification(clientSocket,classIdent,methodIdent,notification);
-            communicationProcessor.readingDataFromStream(clientSocket);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SocketExceptions socketExceptions) {
-            socketExceptions.printStackTrace();
-        }
     }
 
     public void notifyClass(String notification) throws IOException, SocketExceptions {
