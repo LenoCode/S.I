@@ -4,6 +4,7 @@ import socket_installer.SI_behavior.abstractClasses.io.communication_processor.m
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.communication_processor.read_processor.ReadStatusProcessorModel;
+import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processor_enums.ProcessorEnums;
 import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
@@ -17,13 +18,13 @@ public class ClientMainProcessor extends MainProcessor {
         String dataToSend = TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol();
         StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();
         ReadStatusProcessorModel readStatusProcessorModel = clientSocket.getActions().getReadStatusProcessorModel();
-
+        System.out.println("Opening stream socket");
         notifyServerAboutOpendStream(clientSocket,readStatusProcessorModel,dataToSend);
 
         if (bufferProcessor.checkProtocolInBuffer(stringBuffer,TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol())){
             clientSocket.getActions().getReadStatusProcessorModel().setStreamOpenStatus(ProcessorEnums.STREAM_OPEN);
         }else{
-            throw  new ClientClosedException();
+            throw new ClientClosedException();
         }
     }
 
@@ -33,7 +34,7 @@ public class ClientMainProcessor extends MainProcessor {
         do {
             ProcessorEnums readStatus = readStatusProcessorModel.checkReadStatus();
 
-            if (readStatus == ProcessorEnums.INITILIAZED || readStatus == ProcessorEnums.FIRST_TRY){
+            if (readStatus != ProcessorEnums.DATA_COMPLETE && readStatus != ProcessorEnums.DATA_INCOMPLETE && readStatus != ProcessorEnums.FIFTH_TRY){
                 sendData(clientSocket,dataToSend.getBytes());
             }
             readProcessor.readStreamStatus(clientSocket,readStatusProcessorModel);

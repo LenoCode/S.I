@@ -8,13 +8,16 @@ public class ClientConfiguration implements SocketConfiguration {
     private String ipAddress;
     private int port;
     private int timeout;
+    private int timeoutIncrease;
     private boolean connectedClientStatus;
     private boolean streamPaused;
+    private Long threadId;
 
     public ClientConfiguration(Socket socket){
         ipAddress = socket.getInetAddress().getHostAddress();
         port = socket.getPort();
         connectedClientStatus = true;
+        timeoutIncrease = 2;
     }
 
     @Override
@@ -36,6 +39,20 @@ public class ClientConfiguration implements SocketConfiguration {
     public int getTimeout() {
         return timeout;
     }
+    public int getTimeoutIncrease(){
+        System.out.println("increasing timeout");
+        if (timeoutIncrease == 5){
+            timeoutIncrease = 2;
+        }
+        int additionalApproxProccesingTime = 500;
+        int newTimeout = (timeout * timeoutIncrease) + (additionalApproxProccesingTime*timeoutIncrease);
+        ++timeoutIncrease;
+        return newTimeout;
+    }
+    public void resetTimeoutIncrease(){
+        System.out.println("timeout reset");
+        timeoutIncrease = 2;
+    }
 
     @Override
     public String getIpAddress() {
@@ -55,6 +72,15 @@ public class ClientConfiguration implements SocketConfiguration {
             return connectedClientStatus;
         }
     }
+
+    public Long getThreadId() {
+        return threadId;
+    }
+
+    public void setThreadId(Long threadId) {
+        this.threadId = threadId;
+    }
+
     @Override
     public void setSocketOnlineStatus(boolean status) {
         this.connectedClientStatus = status;

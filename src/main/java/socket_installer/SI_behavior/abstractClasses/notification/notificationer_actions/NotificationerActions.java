@@ -8,7 +8,6 @@ import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_behavior.interfaces.notification.NotificationerActionsModel;
 import socket_installer.SI_context.external_context.ExternalContext;
 import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
-import socket_installer.SI_parts.IO.communication_processor.main_processors.ClientMainProcessor;
 import socket_installer.SI_parts.exception.default_exception.NoSolutionForException;
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 
@@ -30,7 +29,6 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
         return externalContext;
     }
 
-
     public void notifyClass(String notification) throws IOException, SocketExceptions {
         saveLastMethodForExceptionHandle(notification);
 
@@ -38,18 +36,6 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
         Method method = annotationParser.identifyMethod(object.getClass().getMethods(),notification);
         notification = annotationParser.removeIdents(notification);
         invokeMethod(object,method,notification,notificationerStatesBundle);
-    }
-    public void sendNotification(String classIdent,String methodIdent,String notification) {
-        try {
-            ClientMainProcessor communicationProcessor = CommunicationProcessor.getClientCommunicationProcessor();
-            communicationProcessor.openStreamSocket(clientSocket);
-            communicationProcessor.sendNotification(clientSocket,classIdent,methodIdent,notification);
-            communicationProcessor.readingDataFromStream(clientSocket);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SocketExceptions socketExceptions) {
-            socketExceptions.printStackTrace();
-        }
     }
 
     private void invokeMethod(A object,Method method, Object ... args) throws SocketExceptions, IOException {
@@ -66,6 +52,7 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
             throw new NoSolutionForException("Internal error : method invoke invocationTargetException");
         }
     }
+
     private void saveLastMethodForExceptionHandle(String lastMethod){
         this.lastMethodCalled = lastMethod;
     }

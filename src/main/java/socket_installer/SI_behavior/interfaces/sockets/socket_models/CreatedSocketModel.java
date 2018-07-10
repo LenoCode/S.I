@@ -5,6 +5,8 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.erro
 import java.io.IOException;
 
 public interface CreatedSocketModel {
-    void runSocket() throws IOException, SocketExceptions;
+    void initSocket() throws IOException, SocketExceptions;
+    default void runSocket(String classIdent,String methodIdent,String data) throws IOException, SocketExceptions{}
+    default void runSocket() throws IOException, SocketExceptions{};
     void closeProgram();
 }

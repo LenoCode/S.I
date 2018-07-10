@@ -50,6 +50,11 @@ public class NotificationTestMethodsServer extends DataTrade {
             closeStream();
         }
     }
+    @MethodIdentifier(identification = "test01")
+    public void ss(String notification, NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions{
+        System.out.println(notification);
+    }
+
 
 
     @Override

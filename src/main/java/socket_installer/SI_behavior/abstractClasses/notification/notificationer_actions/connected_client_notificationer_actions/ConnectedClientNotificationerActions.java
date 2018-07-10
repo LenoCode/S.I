@@ -15,9 +15,6 @@ public abstract class ConnectedClientNotificationerActions <A extends DataTradeM
 
     @Override
     public void exceptionHandler(ReadStatusProcessorModel readStatusProcessorModel) throws IOException, SocketExceptions {
-        A object = (A)annotationParser.identifyClass(objects,lastMethodCalled);
-        if (!object.exceptionHandler(clientSocket,notificationerStatesBundle)){
-            readStatusProcessorModel.setStreamOpenStatus(ProcessorEnums.STREAM_CLOSED);
-        }
+        readStatusProcessorModel.setStreamOpenStatus(ProcessorEnums.STREAM_CLOSED);
     }
 }

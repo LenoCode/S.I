@@ -47,6 +47,8 @@ public class ServerConfiguration implements SocketConfiguration {
     public boolean isSocketOnline() {
         return serverStatus;
     }
+
+
     @Override
     public void setSocketOnlineStatus(boolean status) {
         this.serverStatus = status;

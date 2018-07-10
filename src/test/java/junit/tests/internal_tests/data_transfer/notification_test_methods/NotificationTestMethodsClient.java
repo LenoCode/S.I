@@ -26,7 +26,7 @@ public class NotificationTestMethodsClient extends DataTrade {
     @MethodIdentifier(identification = "test01_client")
     @StreamOpen
     public void checkIfClientCanCommunicateSomePeriodOfTime(String notification,NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions {
-        System.out.println("client "+notification+"   "+threadCounterCommunicator.getCounter());
+        System.out.println("client_creator "+notification+"   "+threadCounterCommunicator.getCounter());
         assertThat(notification).matches("(message count:)\\d*");
         assertThat(threadCounterCommunicator.getCounter() % 2).isEqualTo(1);
         threadCounterCommunicator.increase();

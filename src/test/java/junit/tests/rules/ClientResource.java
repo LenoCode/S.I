@@ -4,8 +4,7 @@ package junit.tests.rules;
 import junit.tests.internal_tests.data_transfer.notificationer_mocks.ClientNotificationer;
 import org.junit.rules.ExternalResource;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
-import socket_installer.SI.socket_creation.client.ClientCreator;
+import socket_installer.SI.socket_creation.client.ClientSocketCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
@@ -32,12 +31,12 @@ public class ClientResource extends ExternalResource {
     protected void before() throws Throwable {
         Socket socket = new Socket(HOST,PORT);
         notificationerMock = new ClientNotificationer(dataTradeModels);
-        clientCreatedSocket = ClientCreator.createClient(notificationerMock,socket,TIMEOUT);
+        clientCreatedSocket = ClientSocketCreator.createClientCreatedSocket(notificationerMock,socket,TIMEOUT);
         threadRun(new Runnable() {
             @Override
             public void run() {
                 try {
-                    clientCreatedSocket.runSocket();
+                    clientCreatedSocket.initSocket();
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (SocketExceptions socketExceptions) {

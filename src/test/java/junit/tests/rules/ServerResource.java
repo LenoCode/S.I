@@ -2,8 +2,9 @@ package junit.tests.rules;
 
 import junit.tests.internal_tests.data_transfer.notificationer_mocks.ServerNotificationer;
 import org.junit.rules.ExternalResource;
+
 import org.mockito.Mock;
-import socket_installer.SI.socket_creation.server.ServerCreator;
+import socket_installer.SI.socket_creation.server.ServerSocketCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
@@ -13,8 +14,8 @@ import java.io.IOException;
 import static junit.tests.statics.static_fields.StaticFields.HOST;
 import static junit.tests.statics.static_fields.StaticFields.PORT;
 import static junit.tests.statics.static_fields.StaticFields.TIMEOUT;
-import static org.assertj.core.api.Assertions.*;
 import static junit.tests.statics.static_methods.StaticMethods.*;
+import static org.assertj.core.api.Assertions.*;
 
 public class ServerResource extends ExternalResource {
 
@@ -31,12 +32,13 @@ public class ServerResource extends ExternalResource {
     @Override
     protected void before() throws Throwable {
         notificationerMock = new ServerNotificationer(dataTradeModels);
-        serverCreatedSocket = ServerCreator.createServer(HOST,notificationerMock,PORT,1,TIMEOUT);
+        serverCreatedSocket = ServerSocketCreator.createServer(HOST,notificationerMock,PORT,1,TIMEOUT);
         threadRun(new Runnable() {
             @Override
             public void run() {
                 try {
                     System.out.println("Server starting");
+                    serverCreatedSocket.initSocket();
                     serverCreatedSocket.runSocket();
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -12,10 +12,8 @@ public class ConnectedClientClosedException extends SocketExceptions {
     @Override
     public void handleException(SocketModel socketModel) {
         try {
-            SessionTracker sessionTracker = (SessionTracker)InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
             socketModel.getSocketConfiguration().setSocketOnlineStatus(false);
             socketModel.deactivateSocket();
-            sessionTracker.removeConnection(socketModel);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SocketExceptions socketExceptions) {

@@ -24,7 +24,4 @@ public class ClientOutputStreamWrapper implements OutputStreamWrapperModel {
         }
     }
 
-    private void waitForByteToBeSend(ClientInputStreamWrapper clientInputStreamWrapper){
-
-    }
 }

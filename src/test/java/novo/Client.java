@@ -3,7 +3,7 @@ package novo;
 import junit.tests.internal_tests.data_transfer.notification_test_methods.NotificationTestMethodsClient;
 import junit.tests.internal_tests.data_transfer.notificationer_mocks.ClientNotificationer;
 import org.mockito.Mock;
-import socket_installer.SI.socket_creation.client.ClientCreator;
+import socket_installer.SI.socket_creation.client.ClientSocketCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.client.ClientCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
@@ -37,12 +37,12 @@ public class Client {
 
 
         notificationerMock = new ClientNotificationer(dataTradeModels);
-        clientCreatedSocket = ClientCreator.createClient(notificationerMock,socket,TIMEOUT);
+        clientCreatedSocket = ClientSocketCreator.createClientCreatedSocket(notificationerMock,socket,TIMEOUT);
         threadRun(new Runnable() {
             @Override
             public void run() {
                 try {
-                    clientCreatedSocket.runSocket();
+                    clientCreatedSocket.initSocket();
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (SocketExceptions socketExceptions) {
@@ -76,8 +76,7 @@ public class Client {
     }
 
     public void send(String data) throws IOException, SocketExceptions {
-        notificationerMock.sendNotification(CLASS_IDENT,"test01",data);
-
+        clientCreatedSocket.getClient().activateSocket(CLASS_IDENT,"test01",data);
     }
 
     private void clientReadResponse() throws IOException, SocketExceptions {
@@ -91,10 +90,7 @@ public class Client {
             client.before();
             System.out.println(client.clientCreatedSocket.getClient());
             client.send("adad");
-            client.send("novo");
-            while(true){
-
-            }
+            client.send("sadkjsaldkalkdačlk");
 
         } catch (Throwable throwable) {
             throwable.printStackTrace();
