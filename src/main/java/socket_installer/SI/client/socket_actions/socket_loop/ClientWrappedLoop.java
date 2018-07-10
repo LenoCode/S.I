@@ -42,7 +42,7 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
     }
 
     @Override
-    public void activateWrappedLoop(SocketModel socketModel,String classIdent,String methodIdent,String notification) throws NoSolutionForException {
+    public void activateWrappedLoop(SocketModel socketModel,String classIdent,String methodIdent,String notification)throws IOException,SocketExceptions {
         ClientGeneralException clientGeneralException = new ClientGeneralException();
 
 
@@ -51,16 +51,18 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
                 System.out.println("ActivateWrappedLoop  "+Thread.currentThread().getId());
                 socketModel.activateSocket(classIdent,methodIdent,notification);
             }catch (NoSolutionForException noSolutionException){
-                System.out.println("no solution exception client wrapped loop");
                 throw noSolutionException;
             } catch (SocketExceptions socketExceptions){
                 System.out.println("socket exception client wrapped loop");
                 socketExceptions.handleException(socketModel);
+                throw socketExceptions;
             } catch (IOException ioException){
                 System.out.println("handle general excpetion client wrapped loop");
                 clientGeneralException.handleGeneralException(ioException,socketModel);
+                throw ioException;
             }catch (Exception exception){
                 exception.printStackTrace();
+                throw exception;
             }
         }
         threadClosingSetup((ClientSocket) socketModel);

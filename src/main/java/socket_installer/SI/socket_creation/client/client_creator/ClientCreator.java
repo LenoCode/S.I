@@ -23,7 +23,6 @@ public class ClientCreator {
 
             @Override
             public void initSocket() throws IOException, SocketExceptions {
-                System.out.println("INICIJALIZACIJAAAAAAAA");
                 ClientConfiguration clientConfiguration = new ClientConfiguration(socket);
                 clientConfiguration.setTimeout(timeout);
                 basicSocket = new Client(socket);

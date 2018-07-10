@@ -59,7 +59,6 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
 
     private void closeStream(Method method) throws IOException, SocketExceptions {
         if (method.getAnnotation(StreamOpen.class) == null){
-            System.out.println("SALJEM CLOSING DVA PUTA");
             CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSING.completeProtocol().getBytes());
         }
     }

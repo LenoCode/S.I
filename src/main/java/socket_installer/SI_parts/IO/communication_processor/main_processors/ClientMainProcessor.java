@@ -24,7 +24,7 @@ public class ClientMainProcessor extends MainProcessor {
         if (bufferProcessor.checkProtocolInBuffer(stringBuffer,TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol())){
             clientSocket.getActions().getReadStatusProcessorModel().setStreamOpenStatus(ProcessorEnums.STREAM_OPEN);
         }else{
-            System.out.println("šaljem closing iz druge pozicije");
+            throw new ClientClosedException();
         }
     }
 
