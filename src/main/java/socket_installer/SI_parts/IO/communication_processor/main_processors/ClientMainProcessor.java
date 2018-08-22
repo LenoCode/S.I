@@ -20,7 +20,7 @@ public class ClientMainProcessor extends MainProcessor {
         ReadStatusProcessorModel readStatusProcessorModel = clientSocket.getActions().getReadStatusProcessorModel();
         System.out.println("Opening stream socket");
         notifyServerAboutOpendStream(clientSocket,readStatusProcessorModel,dataToSend);
-
+        System.out.println("BUFFER JE "+stringBuffer.getString());
         if (bufferProcessor.checkProtocolInBuffer(stringBuffer,TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol())){
             clientSocket.getActions().getReadStatusProcessorModel().setStreamOpenStatus(ProcessorEnums.STREAM_OPEN);
         }else{

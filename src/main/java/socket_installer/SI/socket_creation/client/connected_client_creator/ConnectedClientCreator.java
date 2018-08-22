@@ -33,9 +33,9 @@ public class ConnectedClientCreator {
                 SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
                 sessionTracker.addNewConnection((ConnectedClient) basicSocket);
 
-                notificationerActions.setClientSocket((ClientSocket) basicSocket);
+                notificationerActions.setClientSocket( basicSocket);
                 for (DataTradeModel dataTradeModel : notificationerActions.getObjects()){
-                    dataTradeModel.setClientSocket((ClientSocket) basicSocket);
+                    dataTradeModel.setClientSocket( basicSocket);
                     dataTradeModel.injectExternalContext(notificationerActions.getExternalContext());
                 }
             }

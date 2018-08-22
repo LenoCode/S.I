@@ -9,6 +9,7 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket_actions.socke
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
 
+import socket_installer.SI_behavior.interfaces.notification.ServerNotificationerImplModel;
 import socket_installer.SI_context.context_object.ContextObject;
 import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 import socket_installer.SI_context.internal_context.InternalContext;
@@ -22,7 +23,7 @@ public class ServerSocketCreator {
     }
     public static ServerCreatedSocket createServer(
             String hostAddress,
-            NotificationerActions notificationer,
+            ServerNotificationerImplModel serverNotificationerImplModel,
             int port,
             int backlog,
             int timeout
@@ -41,7 +42,7 @@ public class ServerSocketCreator {
 
                 basicSocket = new Server(new NewConnectionHandler());
                 basicSocket.setSocketConfiguration(serverConfiguration);
-                basicSocket.setNotificationer(notificationer);
+                basicSocket.setNotificationerImplModel(serverNotificationerImplModel);
 
                 basicSocket.setupSocket();
             }
