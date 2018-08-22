@@ -2,11 +2,12 @@ package socket_installer.SI_behavior.abstractClasses.sockets.created_socket.clie
 
 import socket_installer.SI.client.socket.Client;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.BasicSocket;
+import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.interfaces.sockets.socket_models.CreatedSocketModel;
 import java.io.IOException;
 
 public abstract class ClientCreatedSocket implements CreatedSocketModel {
-    protected BasicSocket basicSocket;
+    protected ClientSocket basicSocket;
 
     public Client getClient(){
         return (Client) basicSocket;

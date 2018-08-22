@@ -1,6 +1,7 @@
 package socket_installer.SI_behavior.abstractClasses.sockets.socket.client;
 
 import socket_installer.SI.client.socket.ClientConfiguration;
+import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.BasicSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.sockets.io_models.IOHolderSetupMethodModel;
@@ -15,6 +16,7 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
 
     protected IOHolder ioHolder;
     protected ActionHolder actions;
+    private NotificationerActions notificationer;
 
     public ClientSocket(Socket clientSocket){
         this.socket = clientSocket;
@@ -46,4 +48,12 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
 
 
 
+    public NotificationerActions getNotificationer() {
+        return notificationer;
+    }
+
+
+    public void setNotificationer(NotificationerActions notificationer) {
+        this.notificationer = notificationer;
+    }
 }
