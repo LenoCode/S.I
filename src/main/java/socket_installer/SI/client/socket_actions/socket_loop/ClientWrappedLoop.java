@@ -1,7 +1,7 @@
 package socket_installer.SI.client.socket_actions.socket_loop;
 
 
-import async_communicator.AsyncCommunicator;
+
 import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_parts.IO.communication_processor.processor_enums.ProcessorEnums;

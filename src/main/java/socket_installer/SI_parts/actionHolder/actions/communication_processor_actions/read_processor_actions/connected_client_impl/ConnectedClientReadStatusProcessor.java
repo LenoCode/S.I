@@ -1,6 +1,5 @@
 package socket_installer.SI_parts.actionHolder.actions.communication_processor_actions.read_processor_actions.connected_client_impl;
 
-
 import async_communicator.AsyncCommunicator;
 import socket_installer.SI.socket_creation.thread_creator.thread_processor_enums.ThreadProcessorEnum;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;

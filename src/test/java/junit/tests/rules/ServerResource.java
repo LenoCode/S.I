@@ -8,6 +8,7 @@ import socket_installer.SI.socket_creation.server.ServerSocketCreator;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
+import socket_installer.SI_behavior.interfaces.notification.ServerNotificationerImplModel;
 
 import java.io.IOException;
 
@@ -32,7 +33,7 @@ public class ServerResource extends ExternalResource {
     @Override
     protected void before() throws Throwable {
         notificationerMock = new ServerNotificationer(dataTradeModels);
-        serverCreatedSocket = ServerSocketCreator.createServer(HOST,notificationerMock,PORT,1,TIMEOUT);
+        serverCreatedSocket = ServerSocketCreator.createServer(HOST, (ServerNotificationerImplModel) notificationerMock,PORT,1,TIMEOUT);
         threadRun(new Runnable() {
             @Override
             public void run() {

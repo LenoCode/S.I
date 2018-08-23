@@ -2,6 +2,7 @@ package socket_installer.SI_behavior.abstractClasses.notification.notificationer
 
 import socket_installer.SI_behavior.abstractClasses.notification.notification_object_holder.NotificationerObjects;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.methods_annotation.method_identifier.MethodIdentifier;
 import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.methods_annotation.method_identifier.StreamOpen;
 import socket_installer.SI_behavior.interfaces.context.ExternalContextInitializator;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
@@ -58,8 +59,11 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
     }
 
     private void closeStream(Method method) throws IOException, SocketExceptions {
-        if (method.getAnnotation(StreamOpen.class) == null){
+        MethodIdentifier methodIdentifier = method.getAnnotation(MethodIdentifier.class);
+        StreamOpen streamOpen = method.getAnnotation(StreamOpen.class);
+        if (methodIdentifier.closeStream() && streamOpen == null){
             CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSING.completeProtocol().getBytes());
+
         }
     }
 
