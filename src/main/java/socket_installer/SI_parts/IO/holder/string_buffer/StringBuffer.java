@@ -1,6 +1,8 @@
 package socket_installer.SI_parts.IO.holder.string_buffer;
 
 
+import socket_installer.SI_parts.protocol.enum_protocols.general_protocols.EndMarkerProtocol;
+
 public class StringBuffer {
 
     private final StringBuilder stringBuffer;
@@ -22,5 +24,13 @@ public class StringBuffer {
 
     public void emptyBuffer(){
         stringBuffer.setLength(0);
+    }
+
+    public void removeFirstNotification(String notification){
+        notification = notification.concat(EndMarkerProtocol.END_LINE.getProtocol());
+        String newData = stringBuffer.toString();
+        newData = newData.replace(notification,"");
+        stringBuffer.setLength(0);
+        stringBuffer.append(newData);
     }
 }

@@ -20,14 +20,11 @@ public class BufferProcessor {
             return false;
         }
     }
-    public Iterator<String> parseDataRecieved(StringBuffer stringBuffer){
-        return Arrays.asList(stringBuffer.getString().split(EndMarkerProtocol.END_LINE.getProtocol())).iterator();
+    public Iterator<String> parseNotifications(StringBuffer stringBuffer){
+        return Arrays.asList(stringBuffer.getString().split(EndMarkerProtocol.getEndRegex())).iterator();
     }
-    public void removeSocketStreamClosedLine(StringBuffer stringBuffer){
-        String replacedData =stringBuffer.getString().replaceAll(TechnicalProtocol.getSocketCloseRegex(),"");
-        stringBuffer.emptyBuffer();
-        stringBuffer.insertToBuffer(replacedData);
-
+    public String removeSocketStreamClosedLine(StringBuffer stringBuffer){
+        return stringBuffer.getString().replaceAll(TechnicalProtocol.getSocketCloseRegex(),"");
     }
 
     public String extractNotification(String string){

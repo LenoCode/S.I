@@ -18,16 +18,22 @@ public class ClientMainProcessor extends MainProcessor {
         String dataToSend = TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol();
         StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();
         ReadStatusProcessorModel readStatusProcessorModel = clientSocket.getActions().getReadStatusProcessorModel();
-        System.out.println("Opening stream socket");
-        notifyServerAboutOpendStream(clientSocket,readStatusProcessorModel,dataToSend);
-        System.out.println("BUFFER JE "+stringBuffer.getString());
-        if (bufferProcessor.checkProtocolInBuffer(stringBuffer,TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol())){
-            clientSocket.getActions().getReadStatusProcessorModel().setStreamOpenStatus(ProcessorEnums.STREAM_OPEN);
-        }else{
-            throw new ClientClosedException();
+        System.out.println("OPENING STREAM ----------");
+
+        if (checkIfStreamNeedsToOpen(clientSocket,readStatusProcessorModel)){
+            notifyServerAboutOpendStream(clientSocket,readStatusProcessorModel,dataToSend);
+
+            if (bufferProcessor.checkProtocolInBuffer(stringBuffer,TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol())){
+                clientSocket.getActions().getReadStatusProcessorModel().setStreamOpenStatus(ProcessorEnums.STREAM_OPEN);
+            }else{
+                throw new ClientClosedException();
+            }
         }
     }
 
+    private boolean checkIfStreamNeedsToOpen(ClientSocket clientSocket,ReadStatusProcessorModel readStatusProcessorModel) throws IOException, SocketExceptions {
+        return !clientSocket.getIOHolder().getInputStream().dataAvailable() || !readStatusProcessorModel.checkIfStreamOpen();
+    }
 
     private void notifyServerAboutOpendStream(ClientSocket clientSocket, ReadStatusProcessorModel readStatusProcessorModel, String dataToSend) throws IOException, SocketExceptions {
         readStatusProcessorModel.setCheckReadStatus(ProcessorEnums.INITILIAZED);
@@ -41,5 +47,8 @@ public class ClientMainProcessor extends MainProcessor {
 
         }while(readStatusProcessorModel.checkStreamStatus(clientSocket));
     }
+
+
+
 
 }

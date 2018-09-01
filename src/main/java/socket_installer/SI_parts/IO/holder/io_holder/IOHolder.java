@@ -1,17 +1,17 @@
 package socket_installer.SI_parts.IO.holder.io_holder;
 
-import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.InputStreamWrapperModel;
-import socket_installer.SI_behavior.interfaces.sockets.io_models.stream_wrapper_models.OutputStreamWrapperModel;
+import socket_installer.SI_behavior.abstractClasses.sockets.io.streams.InputStreamWrapper;
+import socket_installer.SI_behavior.abstractClasses.sockets.io.streams.OutputStreamWrapper;
+import socket_installer.SI_behavior.abstractClasses.sockets.io.streams.StreamWrapper;
 
 import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
-
 
 
 public class IOHolder {
 
 
-    private InputStreamWrapperModel inputStream;
-    private OutputStreamWrapperModel outputStream;
+    private InputStreamWrapper inputStream;
+    private OutputStreamWrapper outputStream;
     private StringBuffer stringBuffer;
     private byte[] bytes;
 
@@ -33,19 +33,19 @@ public class IOHolder {
         return bytes;
     }
 
-    public InputStreamWrapperModel getInputStream() {
+    public InputStreamWrapper getInputStream() {
         return inputStream;
     }
 
-    public void setInputStream(InputStreamWrapperModel inputStreamWrapperModel) {
+    public void setInputStream(InputStreamWrapper inputStreamWrapperModel) {
         this.inputStream = inputStreamWrapperModel;
     }
 
-    public OutputStreamWrapperModel getOutputStream() {
+    public OutputStreamWrapper getOutputStream() {
         return outputStream;
     }
 
-    public void setOutputStream(OutputStreamWrapperModel outputStreamWrapperModel) {
+    public void setOutputStream(OutputStreamWrapper outputStreamWrapperModel) {
         this.outputStream = outputStreamWrapperModel;
     }
 

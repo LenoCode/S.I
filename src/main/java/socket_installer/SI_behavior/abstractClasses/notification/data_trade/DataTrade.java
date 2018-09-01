@@ -1,14 +1,18 @@
 package socket_installer.SI_behavior.abstractClasses.notification.data_trade;
 
 
+import socket_installer.SI.client.socket.ConnectedClient;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_behavior.interfaces.communication_processor.read_processor.ReadStatusProcessorModel;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_context.external_context.ExternalContext;
 import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
+import socket_installer.SI_parts.IO.communication_processor.processor_enums.ProcessorEnums;
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 
 import java.io.IOException;
+import java.net.SocketException;
 
 public abstract class DataTrade implements DataTradeModel {
     private ClientSocket clientSocket;
@@ -34,7 +38,17 @@ public abstract class DataTrade implements DataTradeModel {
 
     @Override
     public void send(String classIdent,String methodIdent,String data) throws IOException, SocketExceptions {
-        CommunicationProcessor.MainProcessor().sendNotification(clientSocket,classIdent,methodIdent,data);
+        try{
+            CommunicationProcessor.MainProcessor().sendNotification(clientSocket,classIdent,methodIdent,data);
+        }catch (IOException|SocketExceptions exception){
+            if (clientSocket instanceof ConnectedClient){
+                System.out.println("Tu sam pao a ti disi ti pao!!!!!!!!!!!!!!!!!!");
+                ReadStatusProcessorModel readStatusProcessorModel = clientSocket.getActions().getReadStatusProcessorModel();
+                readStatusProcessorModel.setCheckReadStatus(ProcessorEnums.increaseProccesorCount(readStatusProcessorModel.checkReadStatus()));
+            }else{
+                System.out.println("Tu sam pao a ti disi ti pao!!!!!!!!!!!!!!!!!!");
+            }
+        }
     }
     @Override
     public void closeStream() throws IOException, SocketExceptions {

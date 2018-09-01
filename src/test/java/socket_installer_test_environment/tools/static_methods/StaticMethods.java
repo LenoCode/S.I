@@ -1,4 +1,4 @@
-package junit.tests.statics.static_methods;
+package socket_installer_test_environment.tools.static_methods;
 
 public class StaticMethods {
 

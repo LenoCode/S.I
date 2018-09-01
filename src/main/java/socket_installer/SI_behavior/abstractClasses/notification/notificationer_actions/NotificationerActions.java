@@ -43,14 +43,9 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
         try {
             method.invoke(object,args);
             closeStream(method);
-        } catch (IllegalAccessException e) {
-            lastMethodCalled = "No method called";
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
-            throw new NoSolutionForException("Internal error : method invoke illegalAccessException");
-        } catch (InvocationTargetException e) {
             lastMethodCalled = "No method called";
-            e.printStackTrace();
-            throw new NoSolutionForException("Internal error : method invoke invocationTargetException");
         }
     }
 
@@ -62,6 +57,7 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
         MethodIdentifier methodIdentifier = method.getAnnotation(MethodIdentifier.class);
         StreamOpen streamOpen = method.getAnnotation(StreamOpen.class);
         if (methodIdentifier.closeStream() && streamOpen == null){
+            System.out.println("CLOSING STREAM");
             CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSING.completeProtocol().getBytes());
 
         }

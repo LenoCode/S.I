@@ -54,12 +54,13 @@ public class Client extends ClientSocket {
         this.socket = socket;
         ((Socket) this.socket).setSoTimeout( ( (ClientConfiguration)getSocketConfiguration()).getTimeoutIncrease() );
         ioHolder.getStringBuffer().emptyBuffer();
-        setupStream(socket);
+        ioHolder.getInputStream().replaceInputStream(socket.getInputStream());
+        ioHolder.getOutputStream().replaceOutputStream(socket.getOutputStream());
         ((ClientConfiguration)socketConfiguration).setStreamPaused(false);
         socketConfiguration.setSocketOnlineStatus(true);
     }
     private void setupStream(Socket socket) throws IOException, SocketExceptions{
-        ioHolder.setInputStream(new ClientInputStreamWrapper( new BufferedInputStream(socket.getInputStream()) ));
-        ioHolder.setOutputStream(new ClientOutputStreamWrapper( new BufferedOutputStream(socket.getOutputStream()) ));
+        ioHolder.setInputStream(new ClientInputStreamWrapper( this,socket.getInputStream() ));
+        ioHolder.setOutputStream(new ClientOutputStreamWrapper( this,socket.getOutputStream() ));
     }
 }

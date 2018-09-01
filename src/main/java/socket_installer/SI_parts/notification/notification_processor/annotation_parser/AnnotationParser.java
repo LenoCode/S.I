@@ -20,7 +20,7 @@ public class AnnotationParser {
 
         for (A object : objects){
             ClassIdentifier classIdentifier = object.getClass().getAnnotation(ClassIdentifier.class);
-
+            System.out.println("Class identifier  "+classIdentifier.identification()+"        " + classIdent);
             if (classIdentifier.identification().equals(classIdent)){
                 return object;
             }
@@ -52,7 +52,7 @@ public class AnnotationParser {
 
     }
     private String getClassIdent(String notification){
-        System.out.println(notification +" notification           ");
+        System.out.println(notification +" notification --------------------------------    ");
         int startIndex = notification.indexOf(CLASS_IDENT) + CLASS_IDENT_LENGTH;
         int endIndex = notification.indexOf(METHOD_IDENT)-1;
         return notification.substring(startIndex,endIndex);

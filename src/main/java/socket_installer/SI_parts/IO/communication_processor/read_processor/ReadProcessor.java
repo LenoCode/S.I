@@ -41,6 +41,16 @@ public class ReadProcessor {
             throw ioException;
         }
     }
+    public boolean isThereDataInStream(ClientSocket clientSocket){
+        try {
+            return clientSocket.getIOHolder().getInputStream().dataAvailable();
+        } catch (IOException e) {
+            return false;
+        } catch (SocketExceptions socketExceptions) {
+            return false;
+        }
+    }
+
     public int readBytesFromStream(ClientSocket clientSocket,byte[] bytes) throws IOException, SocketExceptions{
         InputStreamWrapperModel inputStreamWrapperModel = clientSocket.getIOHolder().getInputStream();
         return inputStreamWrapperModel.read(bytes);

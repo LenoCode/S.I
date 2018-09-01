@@ -1,22 +1,27 @@
-package junit.tests.rules;
+package socket_installer_test_environment.rules.socket_rules;
 
-import junit.tests.internal_tests.data_transfer.notificationer_mocks.ServerNotificationer;
+
 import org.junit.rules.ExternalResource;
 
 import org.mockito.Mock;
 import socket_installer.SI.socket_creation.server.ServerSocketCreator;
+import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_behavior.interfaces.notification.ServerNotificationerImplModel;
+import socket_installer_test_environment.socket_parts.notificationers.ServerNotificationer;
+import static socket_installer_test_environment.tools.static_fields.StaticFields.HOST;
+import static socket_installer_test_environment.tools.static_fields.StaticFields.PORT;
+import static socket_installer_test_environment.tools.static_fields.StaticFields.TIMEOUT;
+import static socket_installer_test_environment.tools.static_methods.StaticMethods.sleep;
+import static socket_installer_test_environment.tools.static_methods.StaticMethods.threadRun;
 
 import java.io.IOException;
 
-import static junit.tests.statics.static_fields.StaticFields.HOST;
-import static junit.tests.statics.static_fields.StaticFields.PORT;
-import static junit.tests.statics.static_fields.StaticFields.TIMEOUT;
-import static junit.tests.statics.static_methods.StaticMethods.*;
+import static java.lang.Thread.sleep;
 import static org.assertj.core.api.Assertions.*;
+
 
 public class ServerResource extends ExternalResource {
 
@@ -33,7 +38,13 @@ public class ServerResource extends ExternalResource {
     @Override
     protected void before() throws Throwable {
         notificationerMock = new ServerNotificationer(dataTradeModels);
-        serverCreatedSocket = ServerSocketCreator.createServer(HOST, (ServerNotificationerImplModel) notificationerMock,PORT,1,TIMEOUT);
+        ServerNotificationerImplModel serverNotificationerImplModel = new ServerNotificationerImplModel() {
+            @Override
+            public NotificationerActions getNotificationerAction() {
+                return notificationerMock;
+            }
+        };
+        serverCreatedSocket = ServerSocketCreator.createServer(HOST,serverNotificationerImplModel,PORT,1,TIMEOUT);
         threadRun(new Runnable() {
             @Override
             public void run() {

@@ -16,4 +16,9 @@ public enum  EndMarkerProtocol {
     public String getProtocol(){
         return protocol;
     }
+
+    public static String getEndRegex(){
+        return "(</END TRANSFER>Finished>|</END LINE>)";
+    }
+
 }

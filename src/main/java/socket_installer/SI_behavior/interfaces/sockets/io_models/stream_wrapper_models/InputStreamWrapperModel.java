@@ -8,4 +8,5 @@ import java.io.IOException;
 public interface InputStreamWrapperModel {
     void read(byte[] bytes,StringBuffer buffer) throws IOException, SocketExceptions;
     int read(byte[] bytes) throws IOException, SocketExceptions;
+    boolean dataAvailable() throws IOException,SocketExceptions;
 }

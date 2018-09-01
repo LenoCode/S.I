@@ -59,14 +59,15 @@ public class ConnectedClient extends ClientSocket {
     public void replaceSocket(Socket socket) throws IOException, SocketExceptions {
         this.socket = socket;
         System.out.println("replacing socket ...... this is what have left in buffer"+ioHolder.getStringBuffer().getString());
-        setupStream(socket);
+        ioHolder.getInputStream().replaceInputStream(socket.getInputStream());
+        ioHolder.getOutputStream().replaceOutputStream(socket.getOutputStream());
         ((ClientConfiguration)socketConfiguration).setStreamPaused(false);
         socketConfiguration.setSocketOnlineStatus(true);
     }
 
     private void setupStream(Socket socket) throws IOException, SocketExceptions{
-        ioHolder.setInputStream(new ConnectedClientInputStreamWrapper( new BufferedInputStream(socket.getInputStream()) ));
-        ioHolder.setOutputStream(new ConnectedClientOutputStreamWrapper( new BufferedOutputStream(socket.getOutputStream()) ));
+        ioHolder.setInputStream(new ConnectedClientInputStreamWrapper( this,socket.getInputStream() ));
+        ioHolder.setOutputStream(new ConnectedClientOutputStreamWrapper( this,socket.getOutputStream() ));
     }
 }
 

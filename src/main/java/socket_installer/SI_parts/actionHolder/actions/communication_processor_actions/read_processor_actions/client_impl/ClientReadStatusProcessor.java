@@ -17,7 +17,7 @@ public class ClientReadStatusProcessor implements ReadStatusProcessorModel {
 
     @Override
     public boolean checkStreamStatus(ClientSocket clientSocket) throws SocketExceptions, IOException {
-        System.out.println(readStatus);
+        System.out.println("READ STATUS        "+readStatus);
         switch (readStatus){
             case FIRST_TRY:
                 return reconnectSocket((Client) clientSocket);
@@ -32,8 +32,11 @@ public class ClientReadStatusProcessor implements ReadStatusProcessorModel {
                 throw new ClientClosedException();
             case DATA_INCOMPLETE:
                 return true;
+            case DATA_LINE_COMPLETE:
+                return true;
             case DATA_COMPLETE:
                 return false;
+
             default:
                 throw new ClientClosedException();
         }
@@ -65,7 +68,9 @@ public class ClientReadStatusProcessor implements ReadStatusProcessorModel {
     }
 
     private boolean reconnectSocket(Client client) throws IOException, SocketExceptions {
+        System.out.println("----------------RECONNECTING TO SOCKET         "+readStatus);
         client.reconnectSocket();
         return true;
     }
+
 }
