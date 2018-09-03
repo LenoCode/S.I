@@ -90,8 +90,6 @@ public class ConnectedClientReadStatusProcessor implements ReadStatusProcessorMo
         asyncCommunicator.addFlag(Thread.currentThread().getId(),ThreadProcessorEnum.CLIENT_RECONNECT.getId(),false);
     }
 
-    private void connectToClient(ClientSocket clientSocket) throws IOException, SocketExceptions {
-        clientSocket.reconnectSocket();
-    }
+
 
 }
