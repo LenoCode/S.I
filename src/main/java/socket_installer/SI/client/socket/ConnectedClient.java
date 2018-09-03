@@ -55,15 +55,8 @@ public class ConnectedClient extends ClientSocket {
         ioHolder.setStringBuffer(new StringBuffer());
     }
 
-    @Override
-    public void replaceSocket(Socket socket) throws IOException, SocketExceptions {
-        this.socket = socket;
-        System.out.println("replacing socket ...... this is what have left in buffer"+ioHolder.getStringBuffer().getString());
-        ioHolder.getInputStream().replaceInputStream(socket.getInputStream());
-        ioHolder.getOutputStream().replaceOutputStream(socket.getOutputStream());
-        ((ClientConfiguration)socketConfiguration).setStreamPaused(false);
-        socketConfiguration.setSocketOnlineStatus(true);
-    }
+
+
 
     private void setupStream(Socket socket) throws IOException, SocketExceptions{
         ioHolder.setInputStream(new ConnectedClientInputStreamWrapper( this,socket.getInputStream() ));

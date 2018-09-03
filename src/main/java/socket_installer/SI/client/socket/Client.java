@@ -49,16 +49,6 @@ public class Client extends ClientSocket {
         replaceSocket(socket);
     }
 
-    @Override
-    public void replaceSocket(Socket socket) throws IOException, SocketExceptions {
-        this.socket = socket;
-        ((Socket) this.socket).setSoTimeout( ( (ClientConfiguration)getSocketConfiguration()).getTimeoutIncrease() );
-        ioHolder.getStringBuffer().emptyBuffer();
-        ioHolder.getInputStream().replaceInputStream(socket.getInputStream());
-        ioHolder.getOutputStream().replaceOutputStream(socket.getOutputStream());
-        ((ClientConfiguration)socketConfiguration).setStreamPaused(false);
-        socketConfiguration.setSocketOnlineStatus(true);
-    }
     private void setupStream(Socket socket) throws IOException, SocketExceptions{
         ioHolder.setInputStream(new ClientInputStreamWrapper( this,socket.getInputStream() ));
         ioHolder.setOutputStream(new ClientOutputStreamWrapper( this,socket.getOutputStream() ));

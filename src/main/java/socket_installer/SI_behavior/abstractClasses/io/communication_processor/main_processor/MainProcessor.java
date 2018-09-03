@@ -86,22 +86,27 @@ public abstract class MainProcessor {
         System.out.println("Notify class      ,buffer looks like this ->  "+stringBuffer.getString());
         stringBuffer.emptyBuffer();
         while(iterator.hasNext()) {
-            String next = iterator.next();
-            System.out.println("CHECKING NOTIFICATION ---------->  "+next);
-            if (isClosingNotification(next)){
+            String nextNotification = iterator.next();
+            System.out.println("CHECKING NOTIFICATION ---------->  "+nextNotification);
+            if (isClosingNotification(nextNotification)){
                 if (isItIsReadyToClose(clientSocket,iterator.hasNext())){
                     System.out.println("NOTIFICATION IS FOR CLOSING");
-                    checkWhoInitiateClosing(readStatusProcessorModel,next);
+                    checkWhoInitiateClosing(readStatusProcessorModel,nextNotification);
                 }
-            }else{
+            }
+            else if (!isOpenNotification(nextNotification)){
                 System.out.println("NOTIFICATION IS NOT FOR CLOSING");
-                notificationerActions.notifyClass( bufferProcessor.extractNotification(next) );
+                notificationerActions.notifyClass( bufferProcessor.extractNotification(nextNotification) );
             }
         }
     }
 
     private boolean isClosingNotification(String notification){
         return notification.equals(TechnicalProtocol.SOCKET_STREAM_CLOSING.identProtocol()) || notification.equals(TechnicalProtocol.SOCKET_STREAM_CLOSED.identProtocol());
+    }
+    private boolean isOpenNotification(String notification){
+        System.out.println("CHECKING IS OPEN NOTIFICATION    "+notification.equals(TechnicalProtocol.SOCKET_STREAM_OPEN.identProtocol()));
+        return notification.equals(TechnicalProtocol.SOCKET_STREAM_OPEN.identProtocol());
     }
     private boolean isItIsReadyToClose(ClientSocket clientSocket,boolean hasNext){
         if (hasNext){

@@ -27,10 +27,10 @@ public class ExtraDataInBufferTestClient {
     public void checkIfSocketsCorrectlyHandlesExtraData()  {
         try {
             clientResource.getClientCreatedSocket().runSocket(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER,"test");
-            clientResource.getClientCreatedSocket().runSocket(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER,"test");
-            clientResource.getClientCreatedSocket().runSocket(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER,"test");
-            clientResource.getClientCreatedSocket().runSocket(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER,"test");
-            clientResource.getClientCreatedSocket().runSocket(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER,"test");
+//            clientResource.getClientCreatedSocket().runSocket(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER,"test");
+//            clientResource.getClientCreatedSocket().runSocket(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER,"test");
+//            clientResource.getClientCreatedSocket().runSocket(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER,"test");
+//            clientResource.getClientCreatedSocket().runSocket(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER,"test");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SocketExceptions socketExceptions) {

@@ -1,5 +1,6 @@
 package socket_installer.SI_parts.IO.communication_processor.main_processors;
 
+import socket_installer.SI.client.socket.Client;
 import socket_installer.SI_behavior.abstractClasses.io.communication_processor.main_processor.MainProcessor;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
@@ -10,6 +11,7 @@ import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 import socket_installer.SI_parts.exception.client.connection_break_exception.ClientClosedException;
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 
 public class ClientMainProcessor extends MainProcessor {
 
@@ -24,15 +26,26 @@ public class ClientMainProcessor extends MainProcessor {
             notifyServerAboutOpendStream(clientSocket,readStatusProcessorModel,dataToSend);
 
             if (bufferProcessor.checkProtocolInBuffer(stringBuffer,TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol())){
-                clientSocket.getActions().getReadStatusProcessorModel().setStreamOpenStatus(ProcessorEnums.STREAM_OPEN);
+                openStream(clientSocket);
             }else{
                 throw new ClientClosedException();
             }
+        }else{
+            System.out.println("OPENING STREAM !!!!!!!!!!!!!!!!!!");
+            openStream(clientSocket);
         }
     }
 
     private boolean checkIfStreamNeedsToOpen(ClientSocket clientSocket,ReadStatusProcessorModel readStatusProcessorModel) throws IOException, SocketExceptions {
-        return !clientSocket.getIOHolder().getInputStream().dataAvailable() || !readStatusProcessorModel.checkIfStreamOpen();
+        try{
+            if (clientSocket.getIOHolder().getInputStream().dataAvailable() || readStatusProcessorModel.checkIfStreamOpen()){
+                System.out.println("VRACAM FALSE IMA DATA U STREAM CLIENT MAIN PROCESSOR");
+                return false;
+            }
+            return true;
+        }catch (SocketTimeoutException socketTimeoutException){
+            return true;
+        }
     }
 
     private void notifyServerAboutOpendStream(ClientSocket clientSocket, ReadStatusProcessorModel readStatusProcessorModel, String dataToSend) throws IOException, SocketExceptions {
@@ -48,7 +61,7 @@ public class ClientMainProcessor extends MainProcessor {
         }while(readStatusProcessorModel.checkStreamStatus(clientSocket));
     }
 
-
-
-
+    private void openStream(ClientSocket clientSocket){
+        clientSocket.getActions().getReadStatusProcessorModel().setStreamOpenStatus(ProcessorEnums.STREAM_OPEN);
+    }
 }

@@ -38,6 +38,17 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
         }
     }
 
+    @Override
+    public void replaceSocket(Socket socket) throws IOException, SocketExceptions {
+        this.socket = socket;
+        ((Socket) this.socket).setSoTimeout( ( (ClientConfiguration)getSocketConfiguration()).getTimeoutIncrease() );
+        ioHolder.getStringBuffer().emptyBuffer();
+        ioHolder.getInputStream().replaceInputStream(socket.getInputStream());
+        ioHolder.getOutputStream().replaceOutputStream(socket.getOutputStream());
+        ((ClientConfiguration)socketConfiguration).setStreamPaused(false);
+        socketConfiguration.setSocketOnlineStatus(true);
+    }
+
     public IOHolder getIOHolder() {
         return ioHolder;
     }
@@ -45,8 +56,6 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
     public ActionHolder getActions(){
         return actions;
     }
-
-
 
     public NotificationerActions getNotificationer() {
         return notificationer;
