@@ -31,6 +31,7 @@ public class ClientCreator {
                 basicSocket.setupSocket();
                 socket.setSoTimeout(timeout);
 
+                notificationerActions.callExternalInitializator();
                 notificationerActions.setClientSocket((ClientSocket) basicSocket);
                 for (DataTradeModel dataTradeModel : notificationerActions.getObjects()){
                     dataTradeModel.setClientSocket((ClientSocket) basicSocket);

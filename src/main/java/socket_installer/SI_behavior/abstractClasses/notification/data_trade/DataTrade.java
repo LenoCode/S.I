@@ -37,6 +37,12 @@ public abstract class DataTrade implements DataTradeModel {
     }
 
     @Override
+    public void resetExternalContext() {
+        externalContext.clearContextObjects();
+        externalContext = null;
+    }
+
+    @Override
     public void send(String classIdent,String methodIdent,String data) throws IOException, SocketExceptions {
         try{
             CommunicationProcessor.MainProcessor().sendNotification(clientSocket,classIdent,methodIdent,data);
@@ -63,5 +69,11 @@ public abstract class DataTrade implements DataTradeModel {
     @Override
     public void upload(byte[] bytes) throws IOException, SocketExceptions {
         CommunicationProcessor.MainProcessor().sendData(clientSocket,bytes);
+    }
+
+    public void disconnectFromServer(){
+        if (clientSocket instanceof ConnectedClient){
+            ((ConnectedClient)clientSocket).removeFromSessionTracker();
+        }
     }
 }

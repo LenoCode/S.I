@@ -16,4 +16,8 @@ public class ExternalContext {
     public ContextObject getContextObject(String key){
         return  externalContextObjects.get(key);
     }
+
+    public void clearContextObjects(){
+        externalContextObjects.clear();
+    }
 }

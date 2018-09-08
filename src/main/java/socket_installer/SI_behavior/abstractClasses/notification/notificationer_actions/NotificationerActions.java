@@ -17,15 +17,22 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public abstract class NotificationerActions <A extends DataTradeModel> extends NotificationerObjects implements NotificationerActionsModel {
+    private ExternalContextInitializator externalContextInitializator;
 
     protected NotificationerActions(A[] objects) {
         super(objects);
     }
 
-    public void createExternalContext(ExternalContextInitializator externalContextInitializator){
+    public void setupExternalContextInitializator(ExternalContextInitializator externalContextInitializator){
+        this.externalContextInitializator = externalContextInitializator;
+    }
+
+    @Override
+    public void callExternalInitializator() {
         externalContext = new ExternalContext();
         externalContextInitializator.initializeExternalContext(externalContext);
     }
+
     public ExternalContext getExternalContext(){
         return externalContext;
     }
@@ -38,6 +45,7 @@ public abstract class NotificationerActions <A extends DataTradeModel> extends N
         notification = annotationParser.removeIdents(notification);
         invokeMethod(object,method,notification,notificationerStatesBundle);
     }
+
 
     private void invokeMethod(A object,Method method, Object ... args) throws SocketExceptions, IOException {
         try {

@@ -37,7 +37,6 @@ public abstract class ClientSocket extends BasicSocket implements IOHolderSetupM
             ioHolder.getStringBuffer().emptyBuffer();
         }
     }
-
     @Override
     public void replaceSocket(Socket socket) throws IOException, SocketExceptions {
         this.socket = socket;

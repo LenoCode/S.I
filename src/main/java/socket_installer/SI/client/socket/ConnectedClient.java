@@ -4,6 +4,7 @@ package socket_installer.SI.client.socket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 
+import socket_installer.SI_context.internal_context.InternalContext;
 import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
 import socket_installer.SI_parts.IO.communication_processor.main_processors.ConnectedClientMainProcessor;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
@@ -12,6 +13,7 @@ import socket_installer.SI_parts.IO.wrapper.server.ConnectedClientOutputStreamWr
 import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 import socket_installer.SI_parts.actionHolder.ActionHolder;
 import socket_installer.SI_parts.actionHolder.actions.communication_processor_actions.read_processor_actions.connected_client_impl.ConnectedClientReadStatusProcessor;
+import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -56,7 +58,10 @@ public class ConnectedClient extends ClientSocket {
     }
 
 
-
+    public void removeFromSessionTracker(){
+        SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
+        sessionTracker.removeConnection(this);
+    }
 
     private void setupStream(Socket socket) throws IOException, SocketExceptions{
         ioHolder.setInputStream(new ConnectedClientInputStreamWrapper( this,socket.getInputStream() ));

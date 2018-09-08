@@ -7,4 +7,5 @@ import java.io.IOException;
 
 public interface NotificationerActionsModel {
     void exceptionHandler(ReadStatusProcessorModel readStatusProcessorModel) throws IOException, SocketExceptions;
+    void callExternalInitializator();
 }

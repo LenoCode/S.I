@@ -16,6 +16,7 @@ public interface DataTradeModel {
      void upload(byte[] bytes) throws IOException, SocketExceptions;
      void closeStream() throws IOException, SocketExceptions;
      void injectExternalContext(ExternalContext externalContext);
+     void resetExternalContext();
      ExternalContext getExternalContext();
 
 

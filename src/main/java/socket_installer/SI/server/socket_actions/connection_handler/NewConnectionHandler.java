@@ -32,6 +32,7 @@ public class NewConnectionHandler {
     private void setupNewConnection(NotificationerActions notificationer, Socket clientConnected,int timeout)throws IOException, SocketExceptions{
         System.out.println("setup new connection");
         clientConnected.setSoTimeout(timeout);
+        notificationer.callExternalInitializator();
         Thread threadOfConnectedClient = ClientSocketCreator.createConnectedClientCreatedSocket(notificationer,clientConnected,timeout);
         threadOfConnectedClient.start();
     }
