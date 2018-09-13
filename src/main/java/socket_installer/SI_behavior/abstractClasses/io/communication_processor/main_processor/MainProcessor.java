@@ -94,9 +94,12 @@ public abstract class MainProcessor {
                     checkWhoInitiateClosing(readStatusProcessorModel,nextNotification);
                 }
             }
-            else if (!isOpenNotification(nextNotification)){
+            else if (isOpenNotification(nextNotification)){
+                sendProcessor.send(clientSocket.getIOHolder().getOutputStream(),TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol().getBytes());
+            }else{
                 System.out.println("NOTIFICATION IS NOT FOR CLOSING");
                 notificationerActions.notifyClass( bufferProcessor.extractNotification(nextNotification) );
+
             }
         }
     }
