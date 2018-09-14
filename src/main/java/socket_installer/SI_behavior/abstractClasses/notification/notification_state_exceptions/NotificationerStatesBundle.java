@@ -11,14 +11,20 @@ public class NotificationerStatesBundle {
     }
 
     public <A> A getState(String classIdentification,String methodIdentification,String key){
-        return null;
+        String formatedKey = String.format(keyTemplate,classIdentification,methodIdentification,key);
+
+        if (stateObjects.containsKey(formatedKey)){
+            return (A) stateObjects.get(formatedKey);
+        }else{
+            return null;
+        }
     }
     public <A> void addState(String classIdentification,String methodIdentification,String key,A state){
         String formatedKey = String.format(keyTemplate,classIdentification,methodIdentification,key);
         stateObjects.put(formatedKey,state);
     }
     public void clearState(){
-
+        stateObjects.clear();
     }
 
 }

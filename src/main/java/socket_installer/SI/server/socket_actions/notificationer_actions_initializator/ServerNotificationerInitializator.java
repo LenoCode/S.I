@@ -19,7 +19,7 @@ public class ServerNotificationerInitializator<A extends NotificationerActions> 
 
     public A initializedNotificationerActions(){
         try {
-            Constructor<A> constructor = (Constructor<A>) classNotification.getConstructor(DataTradeModel[].class);
+            Constructor<A> constructor = classNotification.getConstructor(DataTradeModel[].class);
             return constructor.newInstance((Object)dataTrades);
         } catch (NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
             e.printStackTrace();
