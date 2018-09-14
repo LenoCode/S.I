@@ -24,6 +24,13 @@ public class BasicCommunicationServerNotification extends DataTrade {
         asyncCommunicator.addFlag(BASIC_THREAD,BASIC_STRING_ID,true);
     }
 
+    public final static String CHECK_IF_SERVER_CAN_SEND_BYTES = "ChckIfSrvRecvData";
+    @MethodIdentifier(identification = CHECK_IF_SERVER_CAN_SEND_BYTES,closeStream = true)
+    public void setCheckIfServerCanSendBytes(String notification,NotificationerStatesBundle notificationerStatesBundle){
+        byte[] bytes = new byte[1024];
+        download(bytes)
+    }
+
     @Override
     public boolean exceptionHandler(ClientSocket clientSocket, NotificationerStatesBundle notificationerStatesBundle) {
         return false;

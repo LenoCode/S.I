@@ -35,4 +35,9 @@ public class BasicCommunicationTest {
 
     }
 
+    @Test
+    public void checkIfDownloadUploadWorks(){
+        clientResource.getClientCreatedSocket().runSocket(BASIC_COMMUNICATION_CLASS_IDENT,BasicCommunicationServerNotification);
+    }
+
 }
