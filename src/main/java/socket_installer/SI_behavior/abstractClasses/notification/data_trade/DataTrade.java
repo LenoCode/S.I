@@ -9,6 +9,7 @@ import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_context.external_context.ExternalContext;
 import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processor_enums.ProcessorEnums;
+import socket_installer.SI_parts.protocol.enum_protocols.general_protocols.SignalProtocol;
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 
 import java.io.IOException;
@@ -60,6 +61,22 @@ public abstract class DataTrade implements DataTradeModel {
     public void closeStream() throws IOException, SocketExceptions {
         CommunicationProcessor.MainProcessor().sendData(clientSocket,TechnicalProtocol.SOCKET_STREAM_CLOSING.completeProtocol().getBytes());
     }
+
+    @Override
+    public void sendSignal(char signal) throws IOException, SocketExceptions {
+        byte[] bytes = new byte[1];
+        bytes[0] = (byte) signal;
+        CommunicationProcessor.MainProcessor().sendData(clientSocket,bytes);
+    }
+
+    @Override
+    public char waitForSignal() throws IOException, SocketExceptions {
+        byte[] signal = new byte[1];
+        CommunicationProcessor.MainProcessor().readingBytesFromStream(clientSocket,signal);
+        return (char)signal[0];
+    }
+
+
 
     @Override
     public int download(byte[] bytes) throws IOException, SocketExceptions {
