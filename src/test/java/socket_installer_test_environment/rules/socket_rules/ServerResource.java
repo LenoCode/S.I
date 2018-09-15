@@ -5,12 +5,15 @@ import org.junit.rules.ExternalResource;
 
 import org.mockito.Mock;
 import socket_installer.SI.socket_creation.server.ServerSocketCreator;
+import socket_installer.SI_behavior.abstractClasses.notification.data_trade.DataTrade;
 import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
 import socket_installer.SI_behavior.abstractClasses.sockets.created_socket.server.ServerCreatedSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
-import socket_installer.SI_behavior.interfaces.notification.ServerNotificationerImplModel;
 import socket_installer_test_environment.socket_parts.notificationers.ServerNotificationer;
+
+import javax.xml.crypto.Data;
+
 import static socket_installer_test_environment.tools.static_fields.StaticFields.HOST;
 import static socket_installer_test_environment.tools.static_fields.StaticFields.PORT;
 import static socket_installer_test_environment.tools.static_fields.StaticFields.TIMEOUT;
@@ -38,13 +41,7 @@ public class ServerResource extends ExternalResource {
     @Override
     protected void before() throws Throwable {
         notificationerMock = new ServerNotificationer(dataTradeModels);
-        ServerNotificationerImplModel serverNotificationerImplModel = new ServerNotificationerImplModel() {
-            @Override
-            public NotificationerActions getNotificationerAction() {
-                return notificationerMock;
-            }
-        };
-        serverCreatedSocket = ServerSocketCreator.createServer(HOST,serverNotificationerImplModel,PORT,1,TIMEOUT);
+        serverCreatedSocket = ServerSocketCreator.createServer(HOST,ServerNotificationer.class,dataTradeModels,PORT,1,TIMEOUT);
         threadRun(new Runnable() {
             @Override
             public void run() {
