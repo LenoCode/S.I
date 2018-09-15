@@ -4,6 +4,7 @@ import async_communicator.AsyncCommunicator;
 import org.assertj.core.api.Assertions;
 import org.junit.Rule;
 import org.junit.Test;
+import socket_installer.SI_behavior.abstractClasses.notification.data_trade.DataTrade;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer_test_environment.rules.socket_rules.ClientResource;
@@ -19,7 +20,7 @@ import static socket_installer_test_environment.tools.static_methods.StaticMetho
 public class ExtraDataInBufferTestServer {
 
     @Rule
-    public ServerResource serverResource = new ServerResource(new DataTradeModel[]{(DataTradeModel) new ExtraDataInBufferNotification()});
+    public ServerResource serverResource = new ServerResource(new DataTrade[]{ new ExtraDataInBufferNotification()});
 
 
     private final AsyncCommunicator asyncCommunicator = AsyncCommunicator.getAsyncCommunicator();

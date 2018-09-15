@@ -17,6 +17,8 @@ public interface DataTradeModel {
      void closeStream() throws IOException, SocketExceptions;
      void injectExternalContext(ExternalContext externalContext);
      void resetExternalContext();
+     void sendSignal(char signal) throws IOException, SocketExceptions;
+     char waitForSignal() throws IOException, SocketExceptions;
      ExternalContext getExternalContext();
 
 

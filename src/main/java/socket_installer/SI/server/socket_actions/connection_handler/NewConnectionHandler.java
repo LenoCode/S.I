@@ -4,6 +4,7 @@ package socket_installer.SI.server.socket_actions.connection_handler;
 import async_communicator.AsyncCommunicator;
 import socket_installer.SI.client.socket.ClientConfiguration;
 import socket_installer.SI.client.socket.ConnectedClient;
+import socket_installer.SI.server.socket_actions.notificationer_actions_initializator.ServerNotificationerInitializator;
 import socket_installer.SI.socket_creation.client.ClientSocketCreator;
 import socket_installer.SI.socket_creation.thread_creator.thread_processor_enums.ThreadProcessorEnum;
 import socket_installer.SI_behavior.abstractClasses.notification.notificationer_actions.NotificationerActions;
@@ -17,20 +18,21 @@ import java.net.Socket;
 public class NewConnectionHandler {
     private final AsyncCommunicator asyncCommunicator = AsyncCommunicator.getAsyncCommunicator();
 
-    public synchronized void handleConnection(NotificationerActions notificationer, Socket clientConnected, int timeout) throws IOException, SocketExceptions{
+    public synchronized void handleConnection(ServerNotificationerInitializator serverNotificationerInitializator, Socket clientConnected, int timeout) throws IOException, SocketExceptions{
         SessionTracker sessionTracker = (SessionTracker) InternalContext.getInternalContext().getContextObject("SessionTracker").getObject();
         System.out.println("Handling connection ----->");
         ConnectedClient clientSocket = sessionTracker.checkIfSocketExists(clientConnected.getInetAddress().getHostAddress());
 
         if (clientSocket == null){
-            setupNewConnection(notificationer,clientConnected,timeout);
+            setupNewConnection(serverNotificationerInitializator,clientConnected,timeout);
         }else{
             setupOldConnectionThread(clientConnected,clientSocket);
         }
     }
 
-    private void setupNewConnection(NotificationerActions notificationer, Socket clientConnected,int timeout)throws IOException, SocketExceptions{
+    private void setupNewConnection(ServerNotificationerInitializator serverNotificationerInitializator, Socket clientConnected, int timeout)throws IOException, SocketExceptions{
         System.out.println("setup new connection");
+        NotificationerActions notificationer = serverNotificationerInitializator.initializedNotificationerActions();
         clientConnected.setSoTimeout(timeout);
         notificationer.callExternalInitializator();
         Thread threadOfConnectedClient = ClientSocketCreator.createConnectedClientCreatedSocket(notificationer,clientConnected,timeout);
