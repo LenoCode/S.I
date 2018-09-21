@@ -19,7 +19,6 @@ public class ConnectedClientReadStatusProcessor implements ReadStatusProcessorMo
 
     @Override
     public boolean checkStreamStatus(ClientSocket clientSocket) throws SocketExceptions,IOException {
-        System.out.println("CHECK STREAM STATUS  -> "+readStatus);
         switch (readStatus){
             case FIRST_TRY:
                 return waitForSocketToReconnect();
@@ -71,7 +70,6 @@ public class ConnectedClientReadStatusProcessor implements ReadStatusProcessorMo
         activateReconnectProcess();
 
         while(asyncCommunicator.getFlag(Thread.currentThread().getId(),ThreadProcessorEnum.CLIENT_RECONNECT.getId()) == false && timeout != 0){
-            System.out.println("WAITING FOR RECONNECT   " + Thread.currentThread().getId() );
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {

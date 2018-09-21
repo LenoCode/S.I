@@ -12,10 +12,11 @@ public interface DataTradeModel {
      ClientSocket getClientSocket();
      boolean exceptionHandler(ClientSocket clientSocket,NotificationerStatesBundle notificationerStatesBundle);
      void send(String classIdent,String methodIdent,String data) throws IOException, SocketExceptions;
-     int download(byte[] bytes) throws IOException,SocketExceptions;
+     byte[] download() throws IOException,SocketExceptions;
      void upload(byte[] bytes) throws IOException, SocketExceptions;
      void closeStream() throws IOException, SocketExceptions;
      void injectExternalContext(ExternalContext externalContext);
+     void sendSizeOfDownload(int size) throws IOException,SocketExceptions;
      void resetExternalContext();
      void sendSignal(char signal) throws IOException, SocketExceptions;
      char waitForSignal() throws IOException, SocketExceptions;

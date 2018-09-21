@@ -39,10 +39,8 @@ public class ReadProcessor {
         try {
             return clientSocket.getIOHolder().getInputStream().dataAvailable();
         } catch (IOException e) {
-            e.printStackTrace();
             return false;
         } catch (SocketExceptions socketExceptions) {
-            socketExceptions.printStackTrace();
             return false;
         }
     }

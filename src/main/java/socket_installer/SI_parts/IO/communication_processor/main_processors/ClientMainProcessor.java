@@ -20,7 +20,7 @@ public class ClientMainProcessor extends MainProcessor {
         String dataToSend = TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol();
         StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();
         ReadStatusProcessorModel readStatusProcessorModel = clientSocket.getActions().getReadStatusProcessorModel();
-        System.out.println("OPENING STREAM ----------");
+
 
         if (checkIfStreamNeedsToOpen(clientSocket,readStatusProcessorModel)){
             notifyServerAboutOpendStream(clientSocket,readStatusProcessorModel,dataToSend);
@@ -31,7 +31,6 @@ public class ClientMainProcessor extends MainProcessor {
                 throw new ClientClosedException();
             }
         }else{
-            System.out.println("OPENING STREAM !!!!!!!!!!!!!!!!!!");
             openStream(clientSocket);
         }
     }
@@ -39,7 +38,6 @@ public class ClientMainProcessor extends MainProcessor {
     private boolean checkIfStreamNeedsToOpen(ClientSocket clientSocket,ReadStatusProcessorModel readStatusProcessorModel) throws IOException, SocketExceptions {
         try{
             if (clientSocket.getIOHolder().getInputStream().dataAvailable() || readStatusProcessorModel.checkIfStreamOpen()){
-                System.out.println("VRACAM FALSE IMA DATA U STREAM CLIENT MAIN PROCESSOR");
                 return false;
             }
             return true;

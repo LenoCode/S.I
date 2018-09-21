@@ -17,7 +17,6 @@ public class ClientReadStatusProcessor implements ReadStatusProcessorModel {
 
     @Override
     public boolean checkStreamStatus(ClientSocket clientSocket) throws SocketExceptions, IOException {
-        System.out.println("READ STATUS        "+readStatus);
         switch (readStatus){
             case FIRST_TRY:
                 return reconnectSocket((Client) clientSocket);
@@ -68,7 +67,6 @@ public class ClientReadStatusProcessor implements ReadStatusProcessorModel {
     }
 
     private boolean reconnectSocket(Client client) throws IOException, SocketExceptions {
-        System.out.println("----------------RECONNECTING TO SOCKET         "+readStatus);
         client.reconnectSocket();
         return true;
     }
