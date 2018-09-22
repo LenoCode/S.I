@@ -22,7 +22,7 @@ public abstract class DataTrade implements DataTradeModel {
     private ExternalContext externalContext;
     private final MainProcessor mainProcessor = CommunicationProcessor.MainProcessor();
     private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-    private final byte[] buffer = new byte[1024];
+    private final byte[] buffer = new byte[500];
 
     @Override
     public void setClientSocket(ClientSocket clientSocket) {
@@ -118,6 +118,7 @@ public abstract class DataTrade implements DataTradeModel {
         String size = new String(byteArrayOutputStream.toByteArray());
         int indexStart = size.indexOf(":");
         int indexEnd = size.indexOf('N');
+        resetByteArrayOutputStream();
         return Long.parseLong(size.substring(indexStart + 1,indexEnd));
     }
     private void downloadBytes(long size) throws IOException, SocketExceptions {
