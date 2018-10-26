@@ -22,7 +22,7 @@ public class ExtraDataInBufferNotification extends DataTrade {
     public static final String EXTRA_DATA_IN_BUFFER = "ExtraDataInBuffer";
     @MethodIdentifier(identification = EXTRA_DATA_IN_BUFFER,closeStream = true)
     public void extraDataInBuffer(String notification, NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions {
-        send(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER_CLIENT,"server");
+        sendNotification(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER_CLIENT,"server");
         Integer counter = asyncCommunicator.getParameterizedObject("Counter");
         asyncCommunicator.addParameterizedObject("Counter",++counter);
     }
@@ -30,7 +30,7 @@ public class ExtraDataInBufferNotification extends DataTrade {
     public static final String EXTRA_DATA_IN_BUFFER_CLIENT = "ExtraDataInBufferClient";
     @MethodIdentifier(identification = EXTRA_DATA_IN_BUFFER_CLIENT,closeStream = false)
     public void extraDataInBufferClient(String notification, NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions {
-        send(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER,"test");
+        sendNotification(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER,"test");
     }
 
 
@@ -47,7 +47,7 @@ public class ExtraDataInBufferNotification extends DataTrade {
             asyncCommunicator.addParameterizedObject("Counter",counter);
         }
         if (oddNumber % 2 != 0){
-            send(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER_01_CLIENT,Integer.toString(++oddNumber));
+            sendNotification(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER_01_CLIENT,Integer.toString(++oddNumber));
         }
         asyncCommunicator.addParameterizedObject("Counter",++counter);
 
@@ -68,7 +68,7 @@ public class ExtraDataInBufferNotification extends DataTrade {
         }
 
         if (oddNumber % 2 == 0){
-            send(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER_01_SERVER,Integer.toString(++oddNumber));
+            sendNotification(EXTRA_DATA_IN_BUFFER_CLASS_IDENT,EXTRA_DATA_IN_BUFFER_01_SERVER,Integer.toString(++oddNumber));
         }
 
         asyncCommunicator.addParameterizedObject("Counter",++counter);
