@@ -54,11 +54,8 @@ public abstract class DataTrade implements DataTradeModel {
             CommunicationProcessor.MainProcessor().sendNotification(clientSocket,classIdent,methodIdent,data);
         }catch (IOException|SocketExceptions exception){
             if (clientSocket instanceof ConnectedClient){
-                System.out.println("Tu sam pao a ti disi ti pao!!!!!!!!!!!!!!!!!!");
                 ReadStatusProcessorModel readStatusProcessorModel = clientSocket.getActions().getReadStatusProcessorModel();
                 readStatusProcessorModel.setCheckReadStatus(ProcessorEnums.increaseProccesorCount(readStatusProcessorModel.checkReadStatus()));
-            }else{
-                System.out.println("Tu sam pao a ti disi ti pao!!!!!!!!!!!!!!!!!!");
             }
         }
     }
@@ -75,10 +72,28 @@ public abstract class DataTrade implements DataTradeModel {
     }
 
     @Override
+    public void sendSignal(String signal) throws IOException, SocketExceptions {
+        CommunicationProcessor.MainProcessor().sendData(clientSocket,signal.getBytes());
+    }
+
+    @Override
     public char waitForSignal() throws IOException, SocketExceptions {
         byte[] signal = new byte[1];
         CommunicationProcessor.MainProcessor().readingBytesFromStream(clientSocket,signal);
         return (char)signal[0];
+    }
+
+    @Override
+    public String waitForLongSignal(int signalSize) throws IOException, SocketExceptions {
+        byte[] signal = new byte[signalSize];
+        int bytesRead = CommunicationProcessor.MainProcessor().readingBytesFromStream(clientSocket,signal);
+        return new String(signal,0,bytesRead);
+    }
+
+    @Override
+    public String waitForLongSignal(byte[] signalBuffer) throws IOException, SocketExceptions {
+        int bytesRead = CommunicationProcessor.MainProcessor().readingBytesFromStream(clientSocket,signalBuffer);
+        return new String(signalBuffer,0,bytesRead);
     }
 
     @Override

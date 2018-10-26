@@ -19,7 +19,10 @@ public interface DataTradeModel {
      void sendSizeOfDownload(int size) throws IOException,SocketExceptions;
      void resetExternalContext();
      void sendSignal(char signal) throws IOException, SocketExceptions;
+     void sendSignal(String signal) throws IOException, SocketExceptions;
      char waitForSignal() throws IOException, SocketExceptions;
+     String waitForLongSignal(int signalSize) throws IOException, SocketExceptions;
+     String waitForLongSignal(byte[] signalBuffer) throws IOException, SocketExceptions;
      ExternalContext getExternalContext();
 
 
