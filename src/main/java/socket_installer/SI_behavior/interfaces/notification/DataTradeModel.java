@@ -4,7 +4,6 @@ import socket_installer.SI_behavior.abstractClasses.notification.notification_st
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_context.external_context.ExternalContext;
-import socket_installer.SI_parts.notification.data_trade.data_observers.DataObservers;
 
 import java.io.IOException;
 
@@ -22,12 +21,13 @@ public interface DataTradeModel {
      void sendSizeOfDownload(int size) throws IOException,SocketExceptions;
      void resetExternalContext();
      void sendSignal(char signal) throws IOException, SocketExceptions;
-     void sendSignal(String signal) throws IOException, SocketExceptions;
+     void sendSignalWithSeperator(char signal) throws IOException, SocketExceptions;
+     void sendSignalWithSeperator(String signal) throws IOException, SocketExceptions;
      char waitForSignal() throws IOException, SocketExceptions;
      String waitForLongSignal(int signalSize) throws IOException, SocketExceptions;
      String waitForLongSignal(byte[] signalBuffer) throws IOException, SocketExceptions;
-     DataObservers initDataObservers(Long...ids);
-     void asyncDataListen(DataAsyncHandler dataAsyncHandler) throws IOException, SocketExceptions;
+     String waitForLongSignal() throws IOException,SocketExceptions;
+     String[] seperateSignal(String signal) throws IOException,SocketExceptions;
      ExternalContext getExternalContext();
 
 

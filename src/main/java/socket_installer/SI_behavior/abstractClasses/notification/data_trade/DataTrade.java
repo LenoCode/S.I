@@ -6,12 +6,10 @@ import socket_installer.SI_behavior.abstractClasses.io.communication_processor.m
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
 import socket_installer.SI_behavior.interfaces.communication_processor.read_processor.ReadStatusProcessorModel;
-import socket_installer.SI_behavior.interfaces.notification.DataAsyncHandler;
 import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_context.external_context.ExternalContext;
 import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processor_enums.ProcessorEnums;
-import socket_installer.SI_parts.notification.data_trade.data_observers.DataObservers;
 import socket_installer.SI_parts.protocol.enum_protocols.general_protocols.SignalProtocol;
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 
@@ -21,11 +19,11 @@ import java.io.IOException;
 public abstract class DataTrade implements DataTradeModel {
     private ClientSocket clientSocket;
     private ExternalContext externalContext;
-    private DataObservers dataObservers;
     private final MainProcessor mainProcessor = CommunicationProcessor.MainProcessor();
     private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
     private final byte[] buffer = new byte[500];
     private final String SIZE_OF_DOWNLOAD = "Size:%sN";
+    private final String SIGNAL_WITH_SEPERATOR = "%s"+SignalProtocol.SIGNAL_SEPERATOR.getProtocol();
 
     @Override
     public void setClientSocket(ClientSocket clientSocket) {
@@ -51,14 +49,6 @@ public abstract class DataTrade implements DataTradeModel {
         externalContext = null;
     }
 
-    @Override
-    public DataObservers initDataObservers(Long... ids) {
-        dataObservers = new DataObservers();
-        for (Long id : ids){
-            dataObservers.addObserver(id);
-        }
-        return dataObservers;
-    }
 
     @Override
     public void sendNotification(String classIdent, String methodIdent, String data) throws IOException, SocketExceptions {
@@ -85,8 +75,13 @@ public abstract class DataTrade implements DataTradeModel {
 
 
     @Override
-    public void sendSignal(String signal) throws IOException, SocketExceptions {
-        mainProcessor.sendData(clientSocket,signal.getBytes());
+    public void sendSignalWithSeperator(char signal) throws IOException, SocketExceptions {
+        mainProcessor.sendData(clientSocket,String.format(SIGNAL_WITH_SEPERATOR,String.valueOf(signal)).getBytes());
+    }
+
+    @Override
+    public void sendSignalWithSeperator(String signal) throws IOException, SocketExceptions {
+        mainProcessor.sendData(clientSocket,String.format(SIGNAL_WITH_SEPERATOR,signal).getBytes());
     }
 
     @Override
@@ -109,6 +104,11 @@ public abstract class DataTrade implements DataTradeModel {
         return new String(signalBuffer,0,bytesRead);
     }
 
+    @Override
+    public String waitForLongSignal() throws IOException, SocketExceptions {
+        int bytesRead = CommunicationProcessor.MainProcessor().readingBytesFromStream(clientSocket,buffer);
+        return new String(buffer,0,bytesRead);
+    }
 
     @Override
     public void sendSizeOfDownload(int size) throws IOException, SocketExceptions {
@@ -139,20 +139,9 @@ public abstract class DataTrade implements DataTradeModel {
     }
 
     @Override
-    public void asyncDataListen(DataAsyncHandler dataAsyncHandler) throws IOException, SocketExceptions {
-        int bytesRead;
-        while(clientSocket.getSocketConfiguration().isSocketOnline()){
-            bytesRead = mainProcessor.readingBytesFromStream(clientSocket,buffer);
-
-            if (checkIfBufferEndsWithSeperator(bytesRead)){
-                dataAsyncHandler.handleData(dataObservers,new String(buffer,0,bytesRead).split("|"));
-            }
-        }
+    public String[] seperateSignal(String signal) {
+        return signal.split(String.valueOf(SignalProtocol.SIGNAL_SEPERATOR.getProtocol()));
     }
-
-
-
-
 
     public void disconnectFromServer(){
         if (clientSocket instanceof ConnectedClient){
@@ -167,7 +156,7 @@ public abstract class DataTrade implements DataTradeModel {
             byteArrayOutputStream.write(buffer,0,bytesRead);
             end = (char) buffer[bytesRead - 1];
         }
-        sendSignal(SignalProtocol.SIGNAL_DOWNLOAD_SIZE_RECIEVED.getProtocol());
+        sendSignalWithSeperator(SignalProtocol.SIGNAL_DOWNLOAD_SIZE_RECIEVED.getProtocol());
         String size = new String(byteArrayOutputStream.toByteArray());
         int indexStart = size.indexOf(":");
         int indexEnd = size.indexOf('N');
@@ -180,12 +169,6 @@ public abstract class DataTrade implements DataTradeModel {
             byteArrayOutputStream.write(buffer,0,bytesRead);
             size -= bytesRead;
         }
-    }
-    private boolean checkIfBufferEndsWithSeperator(int bytesRead){
-        if (buffer[bytesRead-1] == '|'){
-            return true;
-        }
-        return false;
     }
 
     private void resetByteArrayOutputStream(){
