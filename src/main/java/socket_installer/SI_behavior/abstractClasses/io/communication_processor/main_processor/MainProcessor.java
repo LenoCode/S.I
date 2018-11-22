@@ -32,7 +32,7 @@ public abstract class MainProcessor {
     }
 
     public void sendNotification(ClientSocket clientSocket,String classIdent,String methodIdent,String notification) throws IOException, SocketExceptions{
-        System.out.println("sending notification");
+
         notification = DataProtocol.sendMessageFormat(classIdent,methodIdent,notification);
         sendProcessor.send(clientSocket.getIOHolder().getOutputStream(),notification.getBytes());
     }
@@ -45,7 +45,7 @@ public abstract class MainProcessor {
         NotificationerActions notificationerActions = clientSocket.getNotificationer();
         StringBuffer stringBuffer = clientSocket.getIOHolder().getStringBuffer();
 
-        System.out.println("reading client messages from stream ----------->");
+
         setInputStreamToBlock(clientSocket);
         do{
             readProcessor.readDataFromOpenStream(clientSocket,readStatusProcessorModel);
@@ -54,7 +54,6 @@ public abstract class MainProcessor {
 
         setInputStreamToUnblock(clientSocket);
         checkStreamClosingStatus(clientSocket,readStatusProcessorModel);
-        System.out.println("reading client message is done , cleaning stringBuffer  "+stringBuffer.getString());
         stringBuffer.emptyBuffer();
     }
 
@@ -69,7 +68,7 @@ public abstract class MainProcessor {
 
         ProcessorEnums status = readStatusProcessorModel.checkReadStatus();
         if (status == ProcessorEnums.DATA_LINE_COMPLETE || status == ProcessorEnums.DATA_COMPLETE){
-            System.out.println("DATA LINE COMPLETE");
+
             notifyClass(clientSocket,readStatusProcessorModel,notificationerActions,stringBuffer);
 
         } else if (readStatusProcessorModel.checkReadStatus() == ProcessorEnums.STREAM_CONNECTION_LOST){
@@ -83,21 +82,17 @@ public abstract class MainProcessor {
                              NotificationerActions notificationerActions,
                              StringBuffer stringBuffer) throws IOException, SocketExceptions {
         Iterator<String> iterator = bufferProcessor.parseNotifications(stringBuffer);
-        System.out.println("Notify class      ,buffer looks like this ->  "+stringBuffer.getString());
         stringBuffer.emptyBuffer();
         while(iterator.hasNext()) {
             String nextNotification = iterator.next();
-            System.out.println("CHECKING NOTIFICATION ---------->  "+nextNotification);
             if (isClosingNotification(nextNotification)){
                 if (isItIsReadyToClose(clientSocket,iterator.hasNext())){
-                    System.out.println("NOTIFICATION IS FOR CLOSING");
                     checkWhoInitiateClosing(readStatusProcessorModel,nextNotification);
                 }
             }
             else if (isOpenNotification(nextNotification)){
                 sendProcessor.send(clientSocket.getIOHolder().getOutputStream(),TechnicalProtocol.SOCKET_STREAM_OPEN.completeProtocol().getBytes());
             }else{
-                System.out.println("NOTIFICATION IS NOT FOR CLOSING");
                 notificationerActions.notifyClass( bufferProcessor.extractNotification(nextNotification) );
 
             }
@@ -108,18 +103,14 @@ public abstract class MainProcessor {
         return notification.equals(TechnicalProtocol.SOCKET_STREAM_CLOSING.identProtocol()) || notification.equals(TechnicalProtocol.SOCKET_STREAM_CLOSED.identProtocol());
     }
     private boolean isOpenNotification(String notification){
-        System.out.println("CHECKING IS OPEN NOTIFICATION    "+notification.equals(TechnicalProtocol.SOCKET_STREAM_OPEN.identProtocol()));
         return notification.equals(TechnicalProtocol.SOCKET_STREAM_OPEN.identProtocol());
     }
     private boolean isItIsReadyToClose(ClientSocket clientSocket,boolean hasNext){
         if (hasNext){
-            System.out.println("Has next");
             return false;
         }else if (readProcessor.isThereDataInStream(clientSocket)){
-            System.out.println("It got some data in stream");
             return false;
         }
-        System.out.println("It is ready for closing");
         return true;
     }
 

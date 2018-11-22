@@ -12,7 +12,7 @@ public class AnnotationParser {
     private final int METHOD_IDENT_LENGTH = METHOD_IDENT.length();
     private final String MESSAGE_IDENT = "message:";
     private final int MESSAGE_IDENT_LENGTH = MESSAGE_IDENT.length();
-    private final String EXCLUDED_METHODS = "(wait|equals|toString|hashCode|getClass|notify|notifyAll|send|setClientSocket|getClientSocket)";
+    private final String EXCLUDED_METHODS = "(wait|equals|toString|hashCode|getClass|notify|notifyAll|send|setClientSocket|getClientSocket|resetExternalContext|getExternalContext|upload|download|closeStream|injectExternalContext)";
 
 
     public <A> A identifyClass(A[] objects, String notification) throws NullPointerException{
@@ -20,7 +20,6 @@ public class AnnotationParser {
 
         for (A object : objects){
             ClassIdentifier classIdentifier = object.getClass().getAnnotation(ClassIdentifier.class);
-            System.out.println("Class identifier  "+classIdentifier.identification()+"        " + classIdent);
             if (classIdentifier.identification().equals(classIdent)){
                 return object;
             }
@@ -52,7 +51,6 @@ public class AnnotationParser {
 
     }
     private String getClassIdent(String notification){
-        System.out.println(notification +" notification --------------------------------    ");
         int startIndex = notification.indexOf(CLASS_IDENT) + CLASS_IDENT_LENGTH;
         int endIndex = notification.indexOf(METHOD_IDENT)-1;
         return notification.substring(startIndex,endIndex);

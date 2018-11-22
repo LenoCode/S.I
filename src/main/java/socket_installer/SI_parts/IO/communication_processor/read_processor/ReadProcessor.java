@@ -18,24 +18,18 @@ public class ReadProcessor {
 
     public void readStreamStatus(ClientSocket clientSocket, ReadStatusProcessorModel readStatusProcessorModel) throws IOException, SocketExceptions{
         try{
-            System.out.println("read stream status "+Thread.currentThread().getId());
             read(clientSocket,readStatusProcessorModel);
-            System.out.println("read stream status ok "+Thread.currentThread().getId());
         }catch (ClientTimeoutException socketTimeoutException){
-            System.out.println("read stream status client timeout exception [ "+readStatusProcessorModel.checkReadStatus() +" ]  "+Thread.currentThread().getId());
             readStatusProcessorModel.setCheckReadStatus(ProcessorEnums.increaseProccesorCount(readStatusProcessorModel.checkReadStatus()));
         }catch (ClientClosedException|ConnectedClientClosedException closedException){
-            System.out.println("read stream status client closed exception [ "+readStatusProcessorModel.checkReadStatus() +" ]  "+Thread.currentThread().getId());
             readStatusProcessorModel.setCheckReadStatus(ProcessorEnums.increaseProccesorCount(readStatusProcessorModel.checkReadStatus()));
         }
     }
 
     public void readDataFromOpenStream(ClientSocket clientSocket,ReadStatusProcessorModel readStatusProcessorModel) throws IOException, SocketExceptions {
         try{
-            System.out.println("reading client messages" + Thread.currentThread().getId());
             read(clientSocket,readStatusProcessorModel);
         }catch (ConnectedClientClosedException|ClientClosedException|ClientTimeoutException closedException){
-            System.out.println("setting stream status to stream connection lost");
             readStatusProcessorModel.setCheckReadStatus(ProcessorEnums.STREAM_CONNECTION_LOST);
         }catch (IOException ioException){
             throw ioException;
@@ -45,10 +39,8 @@ public class ReadProcessor {
         try {
             return clientSocket.getIOHolder().getInputStream().dataAvailable();
         } catch (IOException e) {
-            e.printStackTrace();
             return false;
         } catch (SocketExceptions socketExceptions) {
-            socketExceptions.printStackTrace();
             return false;
         }
     }
@@ -67,23 +59,18 @@ public class ReadProcessor {
 
         inputStreamWrapperModel.read(bytes,stringBuffer);
         readStatusProcessorModel.setCheckReadStatus(checkStringBuffer(stringBuffer));
-        System.out.println("------------> Checking string buffer end "+Thread.currentThread().getId());
-
     }
 
     private ProcessorEnums checkStringBuffer(StringBuffer stringBuffer)throws IOException, SocketExceptions{
         String stringInBuffer = stringBuffer.getString();
-        System.out.println("Checking string buffer client read message ...... >" + Thread.currentThread().getId());
+
         if (stringInBuffer.endsWith(EndMarkerProtocol.END_TRANSFER.getProtocol())){
-            System.out.println("data complete   "+stringInBuffer +  "     "  + Thread.currentThread().getId() );
             return ProcessorEnums.DATA_COMPLETE;
 
         }else if (stringInBuffer.endsWith(EndMarkerProtocol.END_LINE.getProtocol())){
-            System.out.println("data line complete  "+"   "+stringInBuffer+"  "+Thread.currentThread().getId());
             return ProcessorEnums.DATA_LINE_COMPLETE;
         }
         else if (stringInBuffer.length() > 0){
-            System.out.println("data incomplete    "+stringInBuffer);
             return ProcessorEnums.DATA_INCOMPLETE;
         }else{
             throw new ClientTimeoutException();

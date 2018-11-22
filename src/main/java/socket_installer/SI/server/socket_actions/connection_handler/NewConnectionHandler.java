@@ -70,11 +70,9 @@ public class NewConnectionHandler {
     private void checkCurrentThreadStatus(ClientSocket clientSocket){
         ClientConfiguration clientConfiguration = (ClientConfiguration) clientSocket.getSocketConfiguration();
         Long threadId;
-        int i = 0;
+
         while((threadId = clientConfiguration.getThreadId()) != null){
-            if (i % 10 == 0){
-                System.out.println("still waiting for thread " +threadId +"       and i am currently on thread    ->"+Thread.currentThread().getId());
-            }
+
             if (checkIfThreadInProcess(threadId)){
                if (checkIfThreadWaitsForReconnect(threadId)){
                    continueWithCurrentThread(threadId);
@@ -86,23 +84,19 @@ public class NewConnectionHandler {
     }
     private boolean checkIfThreadInProcess(Long threadId){
         try{
-            System.out.println("process on thread  "+Thread.currentThread().getId() +"     "+asyncCommunicator.getFlag(threadId,ThreadProcessorEnum.CLIENT_THREAD_IN_PROCESS.getId()));
             return asyncCommunicator.getFlag(threadId,ThreadProcessorEnum.CLIENT_THREAD_IN_PROCESS.getId());
         }catch (NullPointerException e){
             return false;
         }
     }
     private boolean checkIfThreadWaitsForReconnect(Long threadId){
-        System.out.println("check if threads waits for reconnect   ->  "+threadId);
        return asyncCommunicator.getFlag(threadId,ThreadProcessorEnum.WAITING_CLIENT_RECONNECT.getId());
     }
 
     private void continueWithCurrentThread(Long threadId){
-        System.out.println("continue with old thread, because thread exists    ->   "+threadId);
         asyncCommunicator.addFlag(threadId,ThreadProcessorEnum.CLIENT_RECONNECT.getId(),true);
     }
     private void continueWithNewThread(ClientSocket clientSocket){
-        System.out.println("create new thread   ");
         Thread threadOfConnectedClient = ClientSocketCreator.injectToExistingConnectedClient(clientSocket);
         threadOfConnectedClient.start();
     }

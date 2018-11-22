@@ -3,6 +3,9 @@ package socket_installer.SI_parts.protocol.enum_protocols.data_protocol;
 import socket_installer.SI_parts.IO.communication_processor.processor_enums.ProcessorEnums;
 import socket_installer.SI_parts.protocol.enum_protocols.general_protocols.EndMarkerProtocol;
 
+
+
+
 public enum DataProtocol {
     DATA_STRING("<DATA_STRING>classIdent:%s|methodIdent:%s|message:%s",ProcessorEnums.DATA_COMPLETE),
     ;

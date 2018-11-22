@@ -3,6 +3,7 @@ package socket_installer.SI.client.socket;
 
 import socket_installer.SI_behavior.abstractClasses.sockets.socket.client.ClientSocket;
 import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.error_manager.exceptions.SocketExceptions;
+import socket_installer.SI_context.internal_context.InternalContext;
 import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
 import socket_installer.SI_parts.IO.communication_processor.main_processors.ClientMainProcessor;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
@@ -12,6 +13,7 @@ import socket_installer.SI_parts.IO.wrapper.client.ClientOutputStreamWrapper;
 import socket_installer.SI_parts.IO.holder.string_buffer.StringBuffer;
 import socket_installer.SI_parts.actionHolder.ActionHolder;
 import socket_installer.SI_parts.actionHolder.actions.communication_processor_actions.read_processor_actions.client_impl.ClientReadStatusProcessor;
+import socket_installer.SI_parts.session_tracker.server.SessionTracker;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -48,6 +50,7 @@ public class Client extends ClientSocket {
         Socket socket = new Socket(socketConfiguration.getIpAddress(),socketConfiguration.getPort());
         replaceSocket(socket);
     }
+
 
     private void setupStream(Socket socket) throws IOException, SocketExceptions{
         ioHolder.setInputStream(new ClientInputStreamWrapper( this,socket.getInputStream() ));
