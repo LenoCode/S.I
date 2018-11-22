@@ -24,6 +24,7 @@ public interface DataTradeModel {
      void sendSignalWithSeperator(char signal) throws IOException, SocketExceptions;
      void sendSignalWithSeperator(String signal) throws IOException, SocketExceptions;
      char waitForSignal() throws IOException, SocketExceptions;
+     boolean checkIfDataAvailable()throws IOException,SocketExceptions;
      String waitForLongSignal(int signalSize) throws IOException, SocketExceptions;
      String waitForLongSignal(byte[] signalBuffer) throws IOException, SocketExceptions;
      String waitForLongSignal() throws IOException,SocketExceptions;

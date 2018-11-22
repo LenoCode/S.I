@@ -10,9 +10,11 @@ import socket_installer.SI_behavior.interfaces.notification.DataTradeModel;
 import socket_installer.SI_context.external_context.ExternalContext;
 import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
 import socket_installer.SI_parts.IO.communication_processor.processor_enums.ProcessorEnums;
+import socket_installer.SI_parts.protocol.enum_protocols.data_protocol.DataProtocol;
 import socket_installer.SI_parts.protocol.enum_protocols.general_protocols.SignalProtocol;
 import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.TechnicalProtocol;
 
+import javax.xml.crypto.Data;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -141,6 +143,11 @@ public abstract class DataTrade implements DataTradeModel {
     @Override
     public String[] seperateSignal(String signal) {
         return signal.split(String.valueOf(SignalProtocol.SIGNAL_SEPERATOR.getProtocol()));
+    }
+
+    @Override
+    public boolean checkIfDataAvailable() throws IOException, SocketExceptions {
+        return clientSocket.getIOHolder().getInputStream().dataAvailable();
     }
 
     public void disconnectFromServer(){
