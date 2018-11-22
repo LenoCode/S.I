@@ -34,7 +34,7 @@ public class BasicCommunicationServerNotification extends DataTrade {
     public void setCheckIfServerCanSendBytes(String notification,NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions {
         switch (notification){
             case "Start":
-                send(BASIC_COMMUNICATION_CLASS_IDENT,CHECK_IF_SERVER_CAN_SEND_BYTES,"Size:"+"KING".getBytes().length);
+                sendNotification(BASIC_COMMUNICATION_CLASS_IDENT,CHECK_IF_SERVER_CAN_SEND_BYTES,"Size:"+"KING".getBytes().length);
             case "Ready":
                 upload("KING".getBytes());
         }
