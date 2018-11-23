@@ -47,6 +47,12 @@ public class ClientCreator {
             }
 
             @Override
+            public void runSocketNoStreamOpen(String classIdent, String methodIdent, String data) throws IOException, SocketExceptions {
+                ClientWrappedLoop clientWrappedLoop = new ClientWrappedLoop();
+                clientWrappedLoop.activateWrappedLoopNoStreamOpen(basicSocket,classIdent,methodIdent,data);
+            }
+
+            @Override
             public void closeProgram() {
                 try {
                     CommunicationProcessor.MainProcessor().sendData((ClientSocket)basicSocket,TechnicalProtocol.SOCKET_CLOSED.completeProtocol().getBytes());

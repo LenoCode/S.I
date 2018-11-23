@@ -44,20 +44,18 @@ public class NotificationerStatesBundleTest {
     public static void  main(String[] args) throws IOException, SocketExceptions {
         System.out.println("</SOCKET_CLOSED>Socket closed>".length());
         Socket socket = new Socket();
-        socket.connect(new InetSocketAddress("192.168.4.1",3000));
+        socket.connect(new InetSocketAddress("192.168.43.197", 3000));
         Scanner in = new Scanner(System.in);
-        String message = DataProtocol.sendMessageFormat("KLASA","METHOD","FILIP CACIC");
-        String message1 = DataProtocol.sendMessageFormat("KLASA","METHOD","FILIP CACIC");
+        String message = DataProtocol.sendMessageFormat("K", "METHOD", "FILIP CACIC");
+        String message1 = DataProtocol.sendMessageFormat("K", "METHOD", "FILIP CACIC");
         message = message1 + message;
         OutputStream outputStream = socket.getOutputStream();
         System.out.println(message);
 
         String line;
-        while(!(line = in.nextLine()).equals("EXIT")){
+        while (!(line = in.nextLine()).equals("EXIT")) {
             outputStream.write(message.getBytes());
             outputStream.flush();
         }
-
-
     }
 }

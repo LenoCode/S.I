@@ -68,6 +68,31 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
         threadClosingSetup((ClientSocket) socketModel);
     }
 
+    @Override
+    public void activateWrappedLoopNoStreamOpen(SocketModel socketModel, String classIdent, String methodIdent, String notification) throws SocketExceptions, IOException {
+        ClientGeneralException clientGeneralException = new ClientGeneralException();
+
+        if(socketModel.getSocketConfiguration().isSocketOnline()){
+            try{
+                System.out.println("ActivateWrappedLoop  "+Thread.currentThread().getId());
+                socketModel.activateSocketNoStreamOpen(classIdent,methodIdent,notification);
+            }catch (NoSolutionForException noSolutionException){
+                noSolutionException.handleException(socketModel);
+            } catch (SocketExceptions socketExceptions){
+                System.out.println("socket exception client wrapped loop");
+                socketExceptions.handleException(socketModel);
+                throw socketExceptions;
+            } catch (IOException ioException){
+                System.out.println("handle general excpetion client wrapped loop");
+                clientGeneralException.handleGeneralException(ioException,socketModel);
+                throw ioException;
+            }catch (Exception exception){
+                exception.printStackTrace();
+                throw exception;
+            }
+        }
+    }
+
     private void threadClosingSetup(ClientSocket clientSocket){
         ((ClientConfiguration)clientSocket.getSocketConfiguration()).setThreadId(null);
         ((ClientConfiguration)clientSocket.getSocketConfiguration()).resetTimeoutIncrease();

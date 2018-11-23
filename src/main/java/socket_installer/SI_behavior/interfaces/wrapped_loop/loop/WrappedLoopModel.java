@@ -9,4 +9,5 @@ import java.io.IOException;
 public interface WrappedLoopModel {
     default void activateWrappedLoop(SocketModel socketModel)throws NoSolutionForException{}
     default void activateWrappedLoop(SocketModel socketModel,String classIdent,String methodIdent,String notification)throws IOException,SocketExceptions {}
+    default void activateWrappedLoopNoStreamOpen(SocketModel socketModel,String classIdent,String methodIdent,String notification)throws IOException,SocketExceptions {}
 }
