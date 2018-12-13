@@ -40,6 +40,7 @@ public class Client extends ClientSocket {
     public void activateSocketNoStreamOpen(String classIdent, String methodIdent, String notification) throws IOException, SocketExceptions {
         ClientMainProcessor communicationProcessor = CommunicationProcessor.getClientCommunicationProcessor();
         communicationProcessor.sendNotification(this,classIdent,methodIdent,notification);
+        communicationProcessor.readingDataFromStream(this);
     }
 
     @Override

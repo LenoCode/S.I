@@ -16,6 +16,7 @@ public class AnnotationParser {
 
 
     public <A> A identifyClass(A[] objects, String notification) throws NullPointerException{
+        System.out.println("FINDING METHOD   "+notification);
         final String classIdent = getClassIdent(notification);
 
         for (A object : objects){

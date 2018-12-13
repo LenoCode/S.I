@@ -23,17 +23,16 @@ public class BasicCommunicationTest {
 
     @Rule
     public ServerResource serverResource = new ServerResource(new DataTradeModel[]{new BasicCommunicationServerNotification()});
-    @Rule
-    public ClientResource clientResource = new ClientResource( new DataTradeModel[]{new BasicCommunicationClientNotification()});
+  //@Rule
+    //public ClientResource clientResource = new ClientResource( new DataTradeModel[]{new BasicCommunicationClientNotification()});
 
     private final AsyncCommunicator asyncCommunicator = AsyncCommunicator.getAsyncCommunicator();
 
     @Test
     public void checkIfConnectionsAreFineAndDataIsSendToServer() throws IOException, SocketExceptions {
-        clientResource.getClientCreatedSocket().runSocket(BASIC_COMMUNICATION_CLASS_IDENT,BasicCommunicationServerNotification.CHECK_IF_SERVER_RECV_DATA," ");
-        asyncCommunicator.waitForFlag(BASIC_THREAD,BASIC_STRING_ID);
-        Assertions.assertThat(asyncCommunicator.getFlag(BASIC_THREAD,BASIC_STRING_ID)).isEqualTo(true);
+       while(true){
 
+       }
     }
 
     @Test

@@ -11,6 +11,7 @@ import socket_installer_test_environment.socket_parts.notificationers.ClientNoti
 
 
 import static org.assertj.core.api.Assertions.*;
+import static socket_installer_test_environment.tools.static_fields.NotificationStaticFields.BASIC_COMMUNICATION_CLASS_IDENT;
 import static socket_installer_test_environment.tools.static_fields.StaticFields.HOST;
 import static socket_installer_test_environment.tools.static_fields.StaticFields.PORT;
 import static socket_installer_test_environment.tools.static_fields.StaticFields.TIMEOUT;
@@ -43,6 +44,7 @@ public class ClientResource extends ExternalResource {
             public void run() {
                 try {
                     clientCreatedSocket.initSocket();
+                    clientCreatedSocket.runSocket(BASIC_COMMUNICATION_CLASS_IDENT,"GENERAL_TEST","MESSAGE FROM CLIENT");
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (SocketExceptions socketExceptions) {

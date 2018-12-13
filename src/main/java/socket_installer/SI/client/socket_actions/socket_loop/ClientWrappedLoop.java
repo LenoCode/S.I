@@ -66,6 +66,7 @@ public class ClientWrappedLoop extends ProgramLoopWrapper {
             }
         }
         threadClosingSetup((ClientSocket) socketModel);
+
     }
 
     @Override

@@ -38,8 +38,13 @@ public class BasicCommunicationServerNotification extends DataTrade {
             case "Ready":
                 upload("KING".getBytes());
         }
+    }
 
-
+    public final static String GENERAL_TEST = "GENERAL_TEST";
+    @MethodIdentifier(identification = GENERAL_TEST ,closeStream = true)
+    public void setGeneralTest(String notification,NotificationerStatesBundle notificationerStatesBundle) throws IOException, SocketExceptions {
+        System.out.println("MESSAGE RECIEVED  "+notification);
+        sendNotification("RcCarIdent","RcCarStartEngine","ON");
     }
 
     @Override

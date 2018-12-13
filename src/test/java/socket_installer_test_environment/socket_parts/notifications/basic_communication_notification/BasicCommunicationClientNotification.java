@@ -9,6 +9,8 @@ import socket_installer.SI_behavior.annotations.user_implementation.methods_impl
 import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.methods_annotation.method_identifier.MethodIdentifier;
 import socket_installer.SI_behavior.annotations.user_implementation.methods_implementation.methods_annotation.method_identifier.StreamOpen;
 
+import java.sql.SQLOutput;
+
 import static socket_installer_test_environment.tools.static_fields.NotificationStaticFields.BASIC_COMMUNICATION_CLASS_IDENT;
 
 @ClassIdentifier(identification = BASIC_COMMUNICATION_CLASS_IDENT)
@@ -16,13 +18,9 @@ public class BasicCommunicationClientNotification extends DataTrade {
     private final AsyncCommunicator asyncCommunicator =AsyncCommunicator.getAsyncCommunicator();
 
     public final static String CHECK_IF_SERVER_CAN_SEND_BYTES = "ChckIfSrvRecvData";
-    @MethodIdentifier(identification = CHECK_IF_SERVER_CAN_SEND_BYTES,closeStream = true)
-    @StreamOpen
+    @MethodIdentifier(identification = CHECK_IF_SERVER_CAN_SEND_BYTES)
     public void setCheckIfServerCanSendBytes(String notification,NotificationerStatesBundle notificationerStatesBundle){
-        if (notification.contains("Size")){
-        }
-
-
+        System.out.println("CLIENT CLOSING    "+notification);
     }
 
     @Override
