@@ -6,6 +6,7 @@ import socket_installer.SI_behavior.abstractClasses.sockets.socket_managers.erro
 import socket_installer.SI_context.internal_context.InternalContext;
 import socket_installer.SI_parts.IO.communication_processor.CommunicationProcessor;
 import socket_installer.SI_parts.IO.communication_processor.main_processors.ClientMainProcessor;
+import socket_installer.SI_parts.IO.communication_processor.processor_enums.ProcessorEnums;
 import socket_installer.SI_parts.IO.holder.io_holder.IOHolder;
 
 import socket_installer.SI_parts.IO.wrapper.client.ClientInputStreamWrapper;
@@ -39,6 +40,7 @@ public class Client extends ClientSocket {
     @Override
     public void activateSocketNoStreamOpen(String classIdent, String methodIdent, String notification) throws IOException, SocketExceptions {
         ClientMainProcessor communicationProcessor = CommunicationProcessor.getClientCommunicationProcessor();
+        getActions().getReadStatusProcessorModel().setStreamOpenStatus(ProcessorEnums.STREAM_OPEN);
         communicationProcessor.sendNotification(this,classIdent,methodIdent,notification);
         communicationProcessor.readingDataFromStream(this);
     }

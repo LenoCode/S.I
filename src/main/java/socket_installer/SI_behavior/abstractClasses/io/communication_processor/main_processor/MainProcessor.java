@@ -17,6 +17,7 @@ import socket_installer.SI_parts.protocol.enum_protocols.technical_protocol.Tech
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketException;
+import java.sql.SQLOutput;
 import java.util.Iterator;
 
 public abstract class MainProcessor {
@@ -48,6 +49,7 @@ public abstract class MainProcessor {
 
         setInputStreamToBlock(clientSocket);
         do{
+            System.out.println("READING");
             readProcessor.readDataFromOpenStream(clientSocket,readStatusProcessorModel);
             checkStatusFromReadStatusProcessor(readStatusProcessorModel,notificationerActions,stringBuffer,clientSocket);
         }while(readStatusProcessorModel.checkIfStreamOpen());
@@ -85,7 +87,9 @@ public abstract class MainProcessor {
         stringBuffer.emptyBuffer();
         while(iterator.hasNext()) {
             String nextNotification = iterator.next();
+            System.out.println(nextNotification);
             if (isClosingNotification(nextNotification)){
+                System.out.println("CLOSING NOTIFICATION");
                 if (isItIsReadyToClose(clientSocket,iterator.hasNext())){
                     checkWhoInitiateClosing(readStatusProcessorModel,nextNotification);
                 }
